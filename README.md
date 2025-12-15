@@ -1,8 +1,9 @@
-# 🌾 AgriTech Platform Pro - Supreme Edition
+# 🌾 AgriTech Platform Pro by Lydian
 
 > **The World's Most Comprehensive Agricultural Intelligence Platform**
 >
 > Powered by real-time data from USDA, NASA, EPA, and global sources with AI-driven insights.
+> Developed by **Lydian** - Innovation in Agricultural Technology
 
 ![Platform Status](https://img.shields.io/badge/Status-Live-brightgreen)
 ![Version](https://img.shields.io/badge/Version-2.0-blue)
@@ -257,5 +258,6 @@ Navigate through all 9 premium tabs and experience global agricultural intellige
 
 ---
 
-**Made with 🌾 for the future of agriculture**
-**Version 2.0 Supreme Edition | December 2025**
+**Developed by Lydian 🌾**
+**AgriTech Platform Pro v2.0 | December 2025**
+**Innovation in Agricultural Technology**

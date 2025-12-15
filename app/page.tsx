@@ -85,8 +85,12 @@ export default function Home() {
                 <Sprout className="w-8 h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent">
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent flex items-center gap-2">
                   {t.headerTitle}
+                  <span className="text-lg font-normal text-gray-400">by</span>
+                  <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                    Lydian
+                  </span>
                 </h1>
                 <p className="text-sm text-gray-600">{t.headerSubtitle}</p>
               </div>
@@ -370,7 +374,16 @@ export default function Home() {
           </div>
 
           <div className="flex items-center justify-between pt-6 border-t border-gray-200 text-sm text-gray-600">
-            <p>© 2025 AgriTech Platform Pro - Powered by Global Agricultural Big Data</p>
+            <div className="flex items-center gap-2">
+              <p>© 2025 AgriTech Platform Pro</p>
+              <span className="text-gray-400">•</span>
+              <p className="flex items-center gap-1">
+                <span className="text-gray-600">Developed by</span>
+                <span className="font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  Lydian
+                </span>
+              </p>
+            </div>
             <div className="flex items-center gap-4">
               <span className="flex items-center gap-1">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
