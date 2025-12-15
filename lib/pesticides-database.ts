@@ -13,9 +13,7 @@ export interface Pesticide {
   targetCrops: string[];
   targetPests: string[];
   applicationRate: { min: number; max: number; unit: string };
-  preharvest
-
-Interval: number; // days
+  preharvestInterval: number; // days
   reentryInterval: number; // hours
   manufacturer: string;
   environmentalImpact: 'low' | 'moderate' | 'high' | 'severe';
