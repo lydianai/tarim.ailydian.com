@@ -22,6 +22,7 @@ export interface Translations {
   globalInsights: string;
   supplyChain: string;
   esgMetrics: string;
+  bigData: string;
   aboutProject: string;
 
   // Development Banner
@@ -85,6 +86,7 @@ export const translations: Record<Language, Translations> = {
     globalInsights: 'Küresel İçgörüler',
     supplyChain: 'Tedarik Zinciri',
     esgMetrics: 'ESG Metrikleri',
+    bigData: 'Big Data Altyapısı',
     aboutProject: 'Proje Hakkında',
 
     // Development Banner
@@ -147,6 +149,7 @@ export const translations: Record<Language, Translations> = {
     globalInsights: 'Global Insights',
     supplyChain: 'Supply Chain',
     esgMetrics: 'ESG Metrics',
+    bigData: 'Big Data Infrastructure',
     aboutProject: 'About Project',
 
     // Development Banner
