@@ -13,14 +13,16 @@ import LiveDataStream from '@/components/LiveDataStream';
 import PremiumInsights from '@/components/PremiumInsights';
 import AnalyticsDashboard from '@/components/AnalyticsDashboard';
 import AboutProject from '@/components/AboutProject';
-import { Sprout, MapPin, Globe, BarChart3, Leaf, Menu, X, Database, Shield, Sparkles, Activity, LineChart, Languages, BookOpen, AlertCircle } from 'lucide-react';
+import SupplyChainTracker from '@/components/SupplyChainTracker';
+import ESGDashboard from '@/components/ESGDashboard';
+import { Sprout, MapPin, Globe, BarChart3, Leaf, Menu, X, Database, Shield, Sparkles, Activity, LineChart, Languages, BookOpen, AlertCircle, Package, Award } from 'lucide-react';
 import { CROPS_DATABASE } from '@/lib/crops-database';
 import { PESTICIDES_DATABASE } from '@/lib/pesticides-database';
 import { DATA_SOURCES } from '@/lib/bigdata-collector';
 import { GLOBAL_AGRI_LEADERS } from '@/lib/global-agri-insights';
 import { Language, getTranslation, detectBrowserLanguage } from '@/lib/i18n';
 
-type TabType = 'overview' | 'soil' | 'pesticides' | 'crops' | 'global' | 'matcher' | 'insights' | 'live-data' | 'analytics' | 'about';
+type TabType = 'overview' | 'soil' | 'pesticides' | 'crops' | 'global' | 'matcher' | 'insights' | 'live-data' | 'analytics' | 'supply-chain' | 'esg' | 'about';
 
 export default function Home() {
   const [selectedLocation, setSelectedLocation] = useState({ lat: 41.8781, lon: -93.0977 });
@@ -51,6 +53,8 @@ export default function Home() {
     { key: 'matcher', label: t.pesticideMatcher, icon: Shield },
     { key: 'pesticides', label: t.pesticidesDB, icon: Database },
     { key: 'global', label: t.globalInsights, icon: Globe },
+    { key: 'supply-chain', label: t.supplyChain, icon: Package },
+    { key: 'esg', label: t.esgMetrics, icon: Award },
     { key: 'about', label: t.aboutProject, icon: BookOpen },
   ];
 
@@ -353,6 +357,18 @@ export default function Home() {
           {activeTab === 'analytics' && (
             <div>
               <AnalyticsDashboard />
+            </div>
+          )}
+
+          {activeTab === 'supply-chain' && (
+            <div>
+              <SupplyChainTracker />
+            </div>
+          )}
+
+          {activeTab === 'esg' && (
+            <div>
+              <ESGDashboard />
             </div>
           )}
 

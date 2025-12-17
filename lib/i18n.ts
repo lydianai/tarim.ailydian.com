@@ -20,6 +20,8 @@ export interface Translations {
   pesticideMatcher: string;
   pesticidesDB: string;
   globalInsights: string;
+  supplyChain: string;
+  esgMetrics: string;
   aboutProject: string;
 
   // Development Banner
@@ -81,6 +83,8 @@ export const translations: Record<Language, Translations> = {
     pesticideMatcher: 'İlaç Eşleştirici',
     pesticidesDB: 'İlaç Veritabanı',
     globalInsights: 'Küresel İçgörüler',
+    supplyChain: 'Tedarik Zinciri',
+    esgMetrics: 'ESG Metrikleri',
     aboutProject: 'Proje Hakkında',
 
     // Development Banner
@@ -141,6 +145,8 @@ export const translations: Record<Language, Translations> = {
     pesticideMatcher: 'Pesticide Matcher',
     pesticidesDB: 'Pesticides DB',
     globalInsights: 'Global Insights',
+    supplyChain: 'Supply Chain',
+    esgMetrics: 'ESG Metrics',
     aboutProject: 'About Project',
 
     // Development Banner
