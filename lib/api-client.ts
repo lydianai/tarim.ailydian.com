@@ -128,3 +128,33 @@ export async function fetchDroneTelemetry(droneId?: string) {
 export async function controlDrone(droneId: string, command: 'start' | 'pause' | 'return' | 'land', params?: any) {
   return apiClient.sendDroneCommand(droneId, command, params);
 }
+
+export async function fetchUSDANass(commodity?: string, state?: string, year?: string) {
+  const params = new URLSearchParams();
+  if (commodity) params.append('commodity', commodity);
+  if (state) params.append('state', state);
+  if (year) params.append('year', year);
+
+  try {
+    const response = await fetch(`/api/usda-nass?${params.toString()}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('USDA NASS API Error:', error);
+    return null;
+  }
+}
+
+export async function fetchEPAPesticides(search?: string) {
+  const params = new URLSearchParams();
+  if (search) params.append('search', search);
+
+  try {
+    const response = await fetch(`/api/epa-pesticides?${params.toString()}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('EPA Pesticides API Error:', error);
+    return null;
+  }
+}
