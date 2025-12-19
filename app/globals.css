@@ -1,8 +1,48 @@
-@import 'tailwindcss/theme.css';
-@import 'tailwindcss/preflight.css';
-@import 'tailwindcss/utilities.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import 'mapbox-gl/dist/mapbox-gl.css';
 
-body {
-  font-feature-settings: "rlig" 1, "calt" 1;
+@layer base {
+  * {
+    border-color: #977669; /* earth-700 */
+  }
+
+  body {
+    background-color: #1a1410; /* earth-950 */
+    color: #f2e8e5; /* earth-100 */
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #43302b; /* earth-900 */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #977669; /* earth-700 */
+    border-radius: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a18072; /* earth-600 */
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: #16a34a; /* agri-600 */
+    color: #ffffff;
+  }
+
+  /* Focus Styles */
+  :focus-visible {
+    outline: 2px solid #22c55e; /* agri-500 */
+    outline-offset: 2px;
+  }
 }
