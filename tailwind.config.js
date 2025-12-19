@@ -8,34 +8,48 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // AgriTech Brand Colors - Earthy & Professional
+        // American Flag Colors - Red, White, Blue
+        usa: {
+          // American Red
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#dc2626',  // Main American Red
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
+          950: '#450a0a',
+        },
         agri: {
-          // Primary Green (Fertile Fields)
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',  // Main brand green
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
-          950: '#052e16',
+          // Keeping for compatibility - mapped to blue
+          50: '#eff6ff',
+          100: '#dbeafe',
+          200: '#bfdbfe',
+          300: '#93c5fd',
+          400: '#60a5fa',
+          500: '#3b82f6',
+          600: '#2563eb',
+          700: '#1d4ed8',
+          800: '#1e40af',
+          900: '#1e3a8a',
+          950: '#172554',
         },
         earth: {
-          // Soil Brown (Rich Earth)
-          50: '#fdf8f6',
-          100: '#f2e8e5',
-          200: '#eaddd7',
-          300: '#e0cec7',
-          400: '#d2bab0',
-          500: '#bfa094',
-          600: '#a18072',
-          700: '#977669',
-          800: '#846358',
-          900: '#43302b',
-          950: '#1a1410',  // Footer primary color - Deep earth tone
+          // Now mapped to Navy Blue (American Flag Blue)
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#1e293b',
+          900: '#0f172a',  // Navy Blue
+          950: '#020617',  // Deep Navy - Primary background
         },
         harvest: {
           // Golden Yellow (Wheat & Harvest)
@@ -64,17 +78,17 @@ module.exports = {
           900: '#0c4a6e',
         },
         forest: {
-          // Deep Green (Forest & Nature)
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#34d399',
-          500: '#10b981',
-          600: '#059669',  // Main forest green
-          700: '#047857',
-          800: '#065f46',
-          900: '#064e3b',
+          // White/Light Gray tones
+          50: '#ffffff',
+          100: '#f9fafb',
+          200: '#f3f4f6',
+          300: '#e5e7eb',
+          400: '#d1d5db',
+          500: '#9ca3af',
+          600: '#6b7280',
+          700: '#4b5563',
+          800: '#374151',
+          900: '#1f2937',
         },
         neon: {
           // Gray Neon (Modern Tech Background)

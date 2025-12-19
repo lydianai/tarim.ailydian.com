@@ -6,43 +6,44 @@
 
 @layer base {
   * {
-    border-color: #977669; /* earth-700 */
+    border-color: #334155; /* Navy border */
   }
 
   body {
-    background-color: #1a1410; /* earth-950 */
-    color: #f2e8e5; /* earth-100 */
+    background-color: #020617; /* Deep Navy - earth-950 */
+    color: #f1f5f9; /* Light text - earth-100 */
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  /* Scrollbar Styling */
+  /* Scrollbar Styling - American Theme */
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
   }
 
   ::-webkit-scrollbar-track {
-    background-color: #43302b; /* earth-900 */
+    background-color: #0f172a; /* Navy - earth-900 */
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #977669; /* earth-700 */
+    background-color: #dc2626; /* American Red - usa-600 */
     border-radius: 0.5rem;
+    border: 2px solid #0f172a;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: #a18072; /* earth-600 */
+    background-color: #b91c1c; /* Darker red - usa-700 */
   }
 
-  /* Selection */
+  /* Selection - American Red */
   ::selection {
-    background-color: #16a34a; /* agri-600 */
+    background-color: #dc2626; /* usa-600 */
     color: #ffffff;
   }
 
-  /* Focus Styles */
+  /* Focus Styles - Blue */
   :focus-visible {
-    outline: 2px solid #22c55e; /* agri-500 */
+    outline: 2px solid #3b82f6; /* Blue - agri-500 */
     outline-offset: 2px;
   }
 }

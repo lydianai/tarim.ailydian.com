@@ -111,7 +111,7 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-earth-900 via-earth-800 to-earth-900">
       {/* Development Banner */}
       {showDevBanner && (
-        <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between gap-2">
+        <div className="bg-gradient-to-r from-usa-600 to-usa-700 text-white px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between gap-2">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
             <AlertCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
             <div className="min-w-0 flex-1">
@@ -131,7 +131,7 @@ export default function Home() {
       )}
 
       {/* Header */}
-      <header className="bg-earth-950 shadow-agri-lg border-b-4 border-agri-500 sticky top-0 z-50 backdrop-blur-sm bg-earth-950/95">
+      <header className="bg-earth-950 shadow-lg border-b-4 border-usa-600 sticky top-0 z-50 backdrop-blur-sm bg-earth-950/95">
         <div className="max-w-full px-3 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-3 flex-1 min-w-0">
@@ -178,7 +178,7 @@ export default function Home() {
               {/* Drone Icon with Animation */}
               <button
                 onClick={() => setActiveTab('drones')}
-                className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-agri-600 to-forest-600 text-white font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:from-agri-700 hover:to-forest-700 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden"
+                className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-usa-600 to-usa-700 text-white font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:from-usa-700 hover:to-usa-800 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden"
                 title={language === 'tr' ? 'Drone Yönetimi' : 'Drone Management'}
               >
                 <div className="relative">
@@ -192,20 +192,20 @@ export default function Home() {
               {/* Dashboard Link */}
               <a
                 href="/tarim-dashboard"
-                className="flex items-center gap-1 sm:gap-2 bg-neon-50 border-2 border-agri-600 text-agri-700 font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:bg-agri-50 transition-all shadow-md"
+                className="flex items-center gap-1 sm:gap-2 bg-white border-2 border-agri-600 text-agri-700 font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:bg-agri-50 transition-all shadow-md"
               >
                 <LayoutDashboard className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                 <span className="text-[10px] sm:text-xs hidden xs:inline">Dashboard</span>
               </a>
 
               {/* Language Switcher */}
-              <div className="flex items-center gap-0.5 sm:gap-1 bg-earth-50 rounded-lg p-0.5 sm:p-1 border border-earth-200">
+              <div className="flex items-center gap-0.5 sm:gap-1 bg-white rounded-lg p-0.5 sm:p-1 border border-earth-700">
                 <button
                   onClick={() => setLanguage('tr')}
                   className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-semibold transition-all ${
                     language === 'tr'
-                      ? 'bg-gradient-agri text-white shadow-agri'
-                      : 'text-earth-600 hover:bg-earth-100'
+                      ? 'bg-agri-600 text-white shadow-lg'
+                      : 'text-earth-900 hover:bg-earth-100'
                   }`}
                 >
                   🇹🇷
@@ -214,17 +214,17 @@ export default function Home() {
                   onClick={() => setLanguage('en')}
                   className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-semibold transition-all ${
                     language === 'en'
-                      ? 'bg-gradient-agri text-white shadow-agri'
-                      : 'text-earth-600 hover:bg-earth-100'
+                      ? 'bg-agri-600 text-white shadow-lg'
+                      : 'text-earth-900 hover:bg-earth-100'
                   }`}
                 >
                   🇬🇧
                 </button>
               </div>
 
-              <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-agri-50 to-forest-50 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-agri-200">
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-agri-500 rounded-full animate-pulse shadow-agri"></div>
-                <span className="text-xs font-bold text-agri-700 hidden md:inline">{t.liveStatus}</span>
+              <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 bg-white px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-usa-600">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-usa-600 rounded-full animate-pulse shadow-lg"></div>
+                <span className="text-xs font-bold text-usa-700 hidden md:inline">{t.liveStatus}</span>
               </div>
               <div className="hidden xl:flex items-center gap-2 bg-sky-50 px-3 py-2 rounded-lg border border-sky-200">
                 <Database className="w-3 h-3 text-sky-700" />
@@ -293,12 +293,12 @@ export default function Home() {
                     }}
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
-                        ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-lg shadow-agri-500/50'
-                        : 'bg-earth-900 text-earth-200 hover:bg-earth-800 hover:text-white'
+                        ? 'bg-gradient-to-r from-usa-600 to-usa-700 text-white shadow-lg'
+                        : 'bg-earth-900 text-earth-100 hover:bg-earth-800 hover:text-white'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-agri-400'}`} />
-                    <span className={`font-bold text-sm ${activeTab === key ? 'text-white' : 'text-earth-200'}`}>{label}</span>
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-agri-500'}`} />
+                    <span className={`font-bold text-sm ${activeTab === key ? 'text-white' : 'text-earth-100'}`}>{label}</span>
                   </button>
                 ))}
               </div>
@@ -319,12 +319,12 @@ export default function Home() {
                     }}
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
-                        ? 'bg-gradient-to-r from-forest-600 to-agri-600 text-white shadow-agri'
-                        : 'bg-earth-900 text-earth-200 hover:bg-earth-800 hover:text-white'
+                        ? 'bg-gradient-to-r from-agri-600 to-agri-700 text-white shadow-lg'
+                        : 'bg-earth-900 text-earth-100 hover:bg-earth-800 hover:text-white'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-forest-400'}`} />
-                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-200'}`}>{label}</span>
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-agri-500'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-100'}`}>{label}</span>
                   </button>
                 ))}
               </div>
@@ -535,40 +535,40 @@ export default function Home() {
             <div className="space-y-4 sm:space-y-6">
               {/* Stats Overview */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-agri-500">
+                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-usa-600">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs sm:text-sm text-earth-300 mb-1">Total Crops</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-agri-400">{CROPS_DATABASE.length}</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-white">{CROPS_DATABASE.length}</div>
                     </div>
-                    <Sprout className="w-10 h-10 sm:w-12 sm:h-12 text-agri-500 opacity-30" />
+                    <Sprout className="w-10 h-10 sm:w-12 sm:h-12 text-usa-500 opacity-40" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-forest-500">
+                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-agri-600">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs sm:text-sm text-earth-300 mb-1">Pesticides</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-forest-400">{PESTICIDES_DATABASE.length}</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-white">{PESTICIDES_DATABASE.length}</div>
                     </div>
-                    <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-forest-500 opacity-30" />
+                    <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-agri-500 opacity-40" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-sky-500">
+                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-usa-600">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs sm:text-sm text-earth-300 mb-1">Data Sources</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-sky-400">{DATA_SOURCES.length}</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-white">{DATA_SOURCES.length}</div>
                     </div>
-                    <Database className="w-10 h-10 sm:w-12 sm:h-12 text-sky-500 opacity-30" />
+                    <Database className="w-10 h-10 sm:w-12 sm:h-12 text-usa-500 opacity-40" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-harvest-500">
+                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-agri-600">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs sm:text-sm text-earth-300 mb-1">Countries</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-harvest-400">{GLOBAL_AGRI_LEADERS.length}</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-white">{GLOBAL_AGRI_LEADERS.length}</div>
                     </div>
-                    <Globe className="w-10 h-10 sm:w-12 sm:h-12 text-harvest-500 opacity-30" />
+                    <Globe className="w-10 h-10 sm:w-12 sm:h-12 text-agri-500 opacity-40" />
                   </div>
                 </div>
               </div>
