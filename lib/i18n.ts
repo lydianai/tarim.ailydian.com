@@ -94,8 +94,8 @@ export const translations: Record<Language, Translations> = {
     aboutProject: 'Proje Hakkında',
 
     // Development Banner
-    devBannerTitle: 'GELİŞTİRME AŞAMASINDA',
-    devBannerMessage: 'Bu platform aktif geliştirme aşamasındadır. Bazı özellikler henüz tamamlanmamış olabilir.',
+    devBannerTitle: 'PRO VERSİYON GELİŞTİRİLİYOR',
+    devBannerMessage: 'Platform sürekli güncelleniyor. Yeni özellikler ve iyileştirmeler her gün ekleniyor.',
 
     // KPI Cards
     totalRevenue: 'Toplam Gelir',
@@ -159,8 +159,8 @@ export const translations: Record<Language, Translations> = {
     aboutProject: 'About Project',
 
     // Development Banner
-    devBannerTitle: 'UNDER DEVELOPMENT',
-    devBannerMessage: 'This platform is actively under development. Some features may not be fully completed yet.',
+    devBannerTitle: 'PRO VERSION IN DEVELOPMENT',
+    devBannerMessage: 'Platform is continuously evolving. New features and improvements are added daily.',
 
     // KPI Cards
     totalRevenue: 'Total Revenue',

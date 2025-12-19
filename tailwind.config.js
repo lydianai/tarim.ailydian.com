@@ -35,7 +35,7 @@ module.exports = {
           700: '#977669',
           800: '#846358',
           900: '#43302b',
-          950: '#2a1d18',
+          950: '#1a1410',  // Footer primary color - Deep earth tone
         },
         harvest: {
           // Golden Yellow (Wheat & Harvest)
