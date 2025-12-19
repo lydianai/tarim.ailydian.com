@@ -42,7 +42,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
   const [sidebarOpen, setSidebarOpen] = useState(false); // Start closed on mobile
   const [language, setLanguage] = useState<Language>('tr');
-  const [showDevBanner, setShowDevBanner] = useState(true);
+  const [showDevBanner, setShowDevBanner] = useState(false);
 
   useEffect(() => {
     // Detect browser language on mount
