@@ -172,9 +172,9 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
   }, [searchTerm]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-agri-50 via-white to-forest-50">
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-white to-green-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-agri-600 to-forest-600 text-white py-8 px-6 shadow-lg relative overflow-hidden">
+      <div className="bg-gradient-to-r from-green-600 to-green-700 text-white py-8 px-6 shadow-lg relative overflow-hidden">
         {/* Animated Olive Grove Background Pattern */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
@@ -200,7 +200,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex items-center gap-4 mb-4">
-            <div className="bg-earth-900/20 p-3 rounded-lg backdrop-blur-sm animate-pulse">
+            <div className="bg-gray-800/20 p-3 rounded-lg backdrop-blur-sm animate-pulse">
               <Leaf className="w-10 h-10" />
             </div>
             <div>
@@ -215,28 +215,28 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
           {/* Quick Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-            <div className="bg-earth-900/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-gray-800/10 backdrop-blur-sm rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Sprout className="w-5 h-5 text-white" />
                 <span className="text-sm text-white/80 font-medium">{t('Toplam Ağaç', 'Total Trees')}</span>
               </div>
               <p className="text-2xl font-bold text-white">182M</p>
             </div>
-            <div className="bg-earth-900/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-gray-800/10 backdrop-blur-sm rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
                 <Package className="w-5 h-5 text-white" />
                 <span className="text-sm text-white/80 font-medium">{t('Yıllık Üretim', 'Annual Production')}</span>
               </div>
               <p className="text-2xl font-bold text-white">450K {t('ton', 'tons')}</p>
             </div>
-            <div className="bg-earth-900/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-gray-800/10 backdrop-blur-sm rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
                 <MapPin className="w-5 h-5 text-white" />
                 <span className="text-sm text-white/80 font-medium">{t('Ana Bölge', 'Main Region')}</span>
               </div>
               <p className="text-2xl font-bold text-white">{t('Ege', 'Aegean')}</p>
             </div>
-            <div className="bg-earth-900/10 backdrop-blur-sm rounded-lg p-4">
+            <div className="bg-gray-800/10 backdrop-blur-sm rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
                 <AlertTriangle className="w-5 h-5 text-yellow-300" />
                 <span className="text-sm text-white/80 font-medium">{t('Kayıp Oranı', 'Loss Rate')}</span>
@@ -248,7 +248,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
       </div>
 
       {/* Tabs */}
-      <div className="bg-gradient-to-br from-agri-50 to-forest-50 shadow-md border-b border-agri-200 sticky top-0 z-10">
+      <div className="bg-gradient-to-br from-green-50 to-green-50 shadow-md border-b border-green-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex overflow-x-auto gap-2 py-4">
             {tabs.map(tab => {
@@ -259,8 +259,8 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                   onClick={() => setActiveTab(tab.id as any)}
                   className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold whitespace-nowrap transition-all ${
                     activeTab === tab.id
-                      ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-lg'
-                      : 'bg-earth-900 text-earth-100 hover:bg-gray-200'
+                      ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-lg'
+                      : 'bg-gray-800 text-gray-200 hover:bg-gray-200'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -279,17 +279,17 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
           <div className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Climate-based Risk Assessment */}
-              <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+              <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                 <div className="flex items-center gap-3 mb-4">
-                  <Thermometer className="w-6 h-6 text-agri-600" />
-                  <h3 className="text-xl font-bold text-earth-200">
+                  <Thermometer className="w-6 h-6 text-green-600" />
+                  <h3 className="text-xl font-bold text-gray-100">
                     {t('İklim Bazlı Risk Değerlendirmesi', 'Climate-Based Risk Assessment')}
                   </h3>
                 </div>
 
                 <div className="space-y-4 mb-6">
                   <div>
-                    <label className="text-sm font-semibold text-earth-300 mb-2 block">
+                    <label className="text-sm font-semibold text-gray-300 mb-2 block">
                       {t('Sıcaklık (°C)', 'Temperature (°C)')}
                     </label>
                     <input
@@ -300,11 +300,11 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       onChange={(e) => setClimateData({ ...climateData, temp: Number(e.target.value) })}
                       className="w-full"
                     />
-                    <span className="text-sm text-earth-300">{climateData.temp}°C</span>
+                    <span className="text-sm text-gray-300">{climateData.temp}°C</span>
                   </div>
 
                   <div>
-                    <label className="text-sm font-semibold text-earth-300 mb-2 block">
+                    <label className="text-sm font-semibold text-gray-300 mb-2 block">
                       {t('Yağış (mm)', 'Rainfall (mm)')}
                     </label>
                     <input
@@ -315,11 +315,11 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       onChange={(e) => setClimateData({ ...climateData, rainfall: Number(e.target.value) })}
                       className="w-full"
                     />
-                    <span className="text-sm text-earth-300">{climateData.rainfall}mm</span>
+                    <span className="text-sm text-gray-300">{climateData.rainfall}mm</span>
                   </div>
 
                   <div>
-                    <label className="text-sm font-semibold text-earth-300 mb-2 block">
+                    <label className="text-sm font-semibold text-gray-300 mb-2 block">
                       {t('Nem (%)', 'Humidity (%)')}
                     </label>
                     <input
@@ -330,20 +330,20 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       onChange={(e) => setClimateData({ ...climateData, humidity: Number(e.target.value) })}
                       className="w-full"
                     />
-                    <span className="text-sm text-earth-300">{climateData.humidity}%</span>
+                    <span className="text-sm text-gray-300">{climateData.humidity}%</span>
                   </div>
                 </div>
 
                 {climateRecommendations.recommendedActions.length > 0 && (
-                  <div className="bg-harvest-50 border border-harvest-300 rounded-lg p-4 mb-4">
-                    <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
-                      <Info className="w-5 h-5 text-harvest-600" />
+                  <div className="bg-orange-50 border border-orange-300 rounded-lg p-4 mb-4">
+                    <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
+                      <Info className="w-5 h-5 text-orange-600" />
                       {t('Önerilen Aksiyonlar', 'Recommended Actions')}
                     </h4>
                     <ul className="space-y-1">
                       {climateRecommendations.recommendedActions.map((action, idx) => (
-                        <li key={idx} className="text-sm text-earth-300 flex items-start gap-2">
-                          <CheckCircle2 className="w-4 h-4 text-agri-600 mt-0.5 flex-shrink-0" />
+                        <li key={idx} className="text-sm text-gray-300 flex items-start gap-2">
+                          <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                           {action}
                         </li>
                       ))}
@@ -353,13 +353,13 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
                 {climateRecommendations.diseaseRisk.length > 0 && (
                   <div className="bg-red-50 border border-red-300 rounded-lg p-4 mb-4">
-                    <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
+                    <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
                       <AlertTriangle className="w-5 h-5 text-red-600" />
                       {t('Hastalık Riski', 'Disease Risk')}
                     </h4>
                     <ul className="space-y-1">
                       {climateRecommendations.diseaseRisk.map((risk, idx) => (
-                        <li key={idx} className="text-sm text-earth-300 flex items-start gap-2">
+                        <li key={idx} className="text-sm text-gray-300 flex items-start gap-2">
                           <XCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
                           {risk}
                         </li>
@@ -370,13 +370,13 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
                 {climateRecommendations.pestRisk.length > 0 && (
                   <div className="bg-orange-50 border border-orange-300 rounded-lg p-4">
-                    <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
+                    <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
                       <Bug className="w-5 h-5 text-orange-600" />
                       {t('Zararlı Riski', 'Pest Risk')}
                     </h4>
                     <ul className="space-y-1">
                       {climateRecommendations.pestRisk.map((risk, idx) => (
-                        <li key={idx} className="text-sm text-earth-300 flex items-start gap-2">
+                        <li key={idx} className="text-sm text-gray-300 flex items-start gap-2">
                           <XCircle className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
                           {risk}
                         </li>
@@ -387,10 +387,10 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
               </div>
 
               {/* Disease Prevalence Heat Map */}
-              <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+              <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                 <div className="flex items-center gap-3 mb-4">
-                  <Activity className="w-6 h-6 text-agri-600" />
-                  <h3 className="text-xl font-bold text-earth-200">
+                  <Activity className="w-6 h-6 text-green-600" />
+                  <h3 className="text-xl font-bold text-gray-100">
                     {t('Hastalık Yaygınlık Haritası', 'Disease Prevalence Heat Map')}
                   </h3>
                 </div>
@@ -398,7 +398,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                 <div className="space-y-3">
                   {diseaseHeatMap.map((disease, idx) => (
                     <div key={idx} className="space-y-1">
-                      <p className="text-sm font-semibold text-earth-300">{disease.name}</p>
+                      <p className="text-sm font-semibold text-gray-300">{disease.name}</p>
                       <div className="grid grid-cols-4 gap-2">
                         {(['spring', 'summer', 'fall', 'winter'] as const).map(season => {
                           const value = disease[season];
@@ -408,7 +408,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                               <div className={`${intensity} h-8 rounded flex items-center justify-center text-white text-xs font-bold`}>
                                 {value}%
                               </div>
-                              <p className="text-xs text-earth-300 mt-1 capitalize">{season}</p>
+                              <p className="text-xs text-gray-300 mt-1 capitalize">{season}</p>
                             </div>
                           );
                         })}
@@ -421,21 +421,21 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
             {/* Quick Insights */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gradient-to-br from-agri-500 to-forest-600 text-white rounded-xl shadow-lg p-6">
+              <div className="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl shadow-lg p-6">
                 <Award className="w-12 h-12 mb-3 opacity-80" />
                 <h4 className="text-lg font-bold mb-2">{t('En Yüksek Verim', 'Highest Yield')}</h4>
                 <p className="text-3xl font-bold">Memecik</p>
                 <p className="text-sm opacity-90">50 kg/{t('ağaç', 'tree')}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-harvest-500 to-sunset-600 text-white rounded-xl shadow-lg p-6">
+              <div className="bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-xl shadow-lg p-6">
                 <Target className="w-12 h-12 mb-3 opacity-80" />
                 <h4 className="text-lg font-bold mb-2">{t('En Yüksek Yağ İçeriği', 'Highest Oil Content')}</h4>
                 <p className="text-3xl font-bold">Gemlik</p>
                 <p className="text-sm opacity-90">28% {t('yağ', 'oil')}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-earth-500 to-earth-700 text-white rounded-xl shadow-lg p-6">
+              <div className="bg-gradient-to-br from-gray-500 to-gray-700 text-white rounded-xl shadow-lg p-6">
                 <Shield className="w-12 h-12 mb-3 opacity-80" />
                 <h4 className="text-lg font-bold mb-2">{t('En Dayanıklı', 'Most Resistant')}</h4>
                 <p className="text-3xl font-bold">Gemlik</p>
@@ -448,15 +448,15 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
         {/* VARIETIES TAB */}
         {activeTab === 'varieties' && (
           <div className="space-y-6">
-            <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+            <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <Sprout className="w-6 h-6 text-agri-600" />
-                  <h3 className="text-xl font-bold text-earth-200">
+                  <Sprout className="w-6 h-6 text-green-600" />
+                  <h3 className="text-xl font-bold text-gray-100">
                     {t('Türk Zeytin Çeşitleri', 'Turkish Olive Varieties')}
                   </h3>
                 </div>
-                <span className="text-sm text-earth-300">{TURKISH_OLIVE_VARIETIES.length} {t('çeşit', 'varieties')}</span>
+                <span className="text-sm text-gray-300">{TURKISH_OLIVE_VARIETIES.length} {t('çeşit', 'varieties')}</span>
               </div>
 
               {/* Search */}
@@ -467,14 +467,14 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                   placeholder={t('Çeşit veya bölge ara...', 'Search variety or region...')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-earth-700 rounded-lg focus:ring-2 focus:ring-agri-500 focus:border-transparent text-earth-300"
+                  className="w-full pl-10 pr-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-gray-300"
                 />
               </div>
 
               {/* Comparison Mode */}
-              <div className="mb-6 p-4 bg-agri-50 rounded-lg border border-agri-200">
-                <h4 className="font-bold text-earth-200 mb-3 flex items-center gap-2">
-                  <BarChart3 className="w-5 h-5 text-agri-600" />
+              <div className="mb-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                <h4 className="font-bold text-gray-100 mb-3 flex items-center gap-2">
+                  <BarChart3 className="w-5 h-5 text-green-600" />
                   {t('Çeşit Karşılaştırma', 'Variety Comparison')}
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -490,8 +490,8 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       }}
                       className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                         comparisonVarieties.includes(variety.id)
-                          ? 'bg-agri-600 text-white'
-                          : 'bg-earth-900 text-earth-300 border border-earth-700 hover:border-agri-500'
+                          ? 'bg-green-600 text-white'
+                          : 'bg-gray-800 text-gray-300 border border-gray-700 hover:border-green-500'
                       }`}
                     >
                       {variety.name}
@@ -503,37 +503,37 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                   <div className="mt-4 overflow-x-auto">
                     <table className="w-full text-sm">
                       <thead>
-                        <tr className="bg-agri-100">
-                          <th className="p-2 text-left text-earth-300 font-bold">{t('Özellik', 'Feature')}</th>
+                        <tr className="bg-green-100">
+                          <th className="p-2 text-left text-gray-300 font-bold">{t('Özellik', 'Feature')}</th>
                           {comparisonVarieties.map(vid => {
                             const v = TURKISH_OLIVE_VARIETIES.find(variety => variety.id === vid);
-                            return <th key={vid} className="p-2 text-center text-earth-300 font-bold">{v?.name}</th>;
+                            return <th key={vid} className="p-2 text-center text-gray-300 font-bold">{v?.name}</th>;
                           })}
                         </tr>
                       </thead>
-                      <tbody className="text-earth-300">
-                        <tr className="border-t border-agri-200">
+                      <tbody className="text-gray-300">
+                        <tr className="border-t border-green-200">
                           <td className="p-2 font-semibold">{t('Yağ İçeriği', 'Oil Content')}</td>
                           {comparisonVarieties.map(vid => {
                             const v = TURKISH_OLIVE_VARIETIES.find(variety => variety.id === vid);
                             return <td key={vid} className="p-2 text-center">{v?.oilContent}%</td>;
                           })}
                         </tr>
-                        <tr className="border-t border-agri-200">
+                        <tr className="border-t border-green-200">
                           <td className="p-2 font-semibold">{t('Ağaç Başına Verim', 'Yield/Tree')}</td>
                           {comparisonVarieties.map(vid => {
                             const v = TURKISH_OLIVE_VARIETIES.find(variety => variety.id === vid);
                             return <td key={vid} className="p-2 text-center">{v?.yieldPerTree} kg</td>;
                           })}
                         </tr>
-                        <tr className="border-t border-agri-200">
+                        <tr className="border-t border-green-200">
                           <td className="p-2 font-semibold">{t('Su Gereksinimi', 'Water Req.')}</td>
                           {comparisonVarieties.map(vid => {
                             const v = TURKISH_OLIVE_VARIETIES.find(variety => variety.id === vid);
                             return <td key={vid} className="p-2 text-center capitalize">{v?.waterRequirement}</td>;
                           })}
                         </tr>
-                        <tr className="border-t border-agri-200">
+                        <tr className="border-t border-green-200">
                           <td className="p-2 font-semibold">{t('Kullanım', 'Best For')}</td>
                           {comparisonVarieties.map(vid => {
                             const v = TURKISH_OLIVE_VARIETIES.find(variety => variety.id === vid);
@@ -555,38 +555,38 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       onClick={() => setSelectedVariety(variety)}
                       className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
                         selectedVariety?.id === variety.id
-                          ? 'border-agri-600 bg-agri-50 shadow-lg'
-                          : 'border-earth-700 hover:border-agri-400 hover:shadow'
+                          ? 'border-green-600 bg-green-50 shadow-lg'
+                          : 'border-gray-700 hover:border-green-400 hover:shadow'
                       }`}
                     >
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <h4 className="text-lg font-bold text-earth-200">{variety.name}</h4>
-                          <p className="text-sm text-earth-300 italic">{variety.nameTr}</p>
+                          <h4 className="text-lg font-bold text-gray-100">{variety.name}</h4>
+                          <p className="text-sm text-gray-300 italic">{variety.nameTr}</p>
                         </div>
                         <div className={`px-3 py-1 rounded-full text-xs font-bold ${
-                          variety.bestFor === 'oil' ? 'bg-harvest-100 text-harvest-700' :
-                          variety.bestFor === 'table' ? 'bg-forest-100 text-forest-700' :
-                          'bg-agri-100 text-agri-700'
+                          variety.bestFor === 'oil' ? 'bg-orange-100 text-orange-700' :
+                          variety.bestFor === 'table' ? 'bg-green-100 text-green-700' :
+                          'bg-green-100 text-green-700'
                         }`}>
                           {variety.bestFor.toUpperCase()}
                         </div>
                       </div>
 
                       <div className="grid grid-cols-2 gap-3 text-sm">
-                        <div className="flex items-center gap-2 text-earth-300">
-                          <Package className="w-4 h-4 text-agri-600" />
+                        <div className="flex items-center gap-2 text-gray-300">
+                          <Package className="w-4 h-4 text-green-600" />
                           <span className="font-semibold">{variety.yieldPerTree} kg</span>
                         </div>
-                        <div className="flex items-center gap-2 text-earth-300">
-                          <Droplets className="w-4 h-4 text-agri-600" />
+                        <div className="flex items-center gap-2 text-gray-300">
+                          <Droplets className="w-4 h-4 text-green-600" />
                           <span className="font-semibold">{variety.oilContent}% {t('yağ', 'oil')}</span>
                         </div>
                       </div>
 
                       <div className="mt-2 flex flex-wrap gap-1">
                         {variety.region.slice(0, 2).map(region => (
-                          <span key={region} className="text-xs bg-earth-900 text-earth-300 px-2 py-1 rounded">
+                          <span key={region} className="text-xs bg-gray-800 text-gray-300 px-2 py-1 rounded">
                             {region}
                           </span>
                         ))}
@@ -596,55 +596,55 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                 </div>
 
                 {/* Variety Details */}
-                <div className="bg-earth-900 rounded-lg p-6 border border-earth-700 max-h-[600px] overflow-y-auto">
+                <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 max-h-[600px] overflow-y-auto">
                   {selectedVariety ? (
                     <div className="space-y-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-earth-200 mb-1">{selectedVariety.name}</h3>
-                        <p className="text-earth-300 italic mb-4">{selectedVariety.nameTr}</p>
+                        <h3 className="text-2xl font-bold text-gray-100 mb-1">{selectedVariety.name}</h3>
+                        <p className="text-gray-300 italic mb-4">{selectedVariety.nameTr}</p>
                       </div>
 
                       <div className="grid grid-cols-2 gap-4">
-                        <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                          <p className="text-sm text-earth-300 mb-1">{t('Yağ İçeriği', 'Oil Content')}</p>
-                          <p className="text-2xl font-bold text-agri-700">{selectedVariety.oilContent}%</p>
+                        <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                          <p className="text-sm text-gray-300 mb-1">{t('Yağ İçeriği', 'Oil Content')}</p>
+                          <p className="text-2xl font-bold text-green-700">{selectedVariety.oilContent}%</p>
                         </div>
-                        <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                          <p className="text-sm text-earth-300 mb-1">{t('Verim', 'Yield')}</p>
-                          <p className="text-2xl font-bold text-forest-700">{selectedVariety.yieldPerTree} kg</p>
+                        <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                          <p className="text-sm text-gray-300 mb-1">{t('Verim', 'Yield')}</p>
+                          <p className="text-2xl font-bold text-green-700">{selectedVariety.yieldPerTree} kg</p>
                         </div>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
-                          <Thermometer className="w-5 h-5 text-agri-600" />
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
+                          <Thermometer className="w-5 h-5 text-green-600" />
                           {t('Optimal Sıcaklık', 'Optimal Temperature')}
                         </h4>
-                        <p className="text-earth-300">{selectedVariety.optimalTemp.min}°C - {selectedVariety.optimalTemp.max}°C</p>
+                        <p className="text-gray-300">{selectedVariety.optimalTemp.min}°C - {selectedVariety.optimalTemp.max}°C</p>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
-                          <Calendar className="w-5 h-5 text-agri-600" />
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
+                          <Calendar className="w-5 h-5 text-green-600" />
                           {t('Olgunlaşma Dönemi', 'Maturity Period')}
                         </h4>
-                        <p className="text-earth-300">{selectedVariety.maturityPeriod}</p>
+                        <p className="text-gray-300">{selectedVariety.maturityPeriod}</p>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2">{t('Özellikler', 'Characteristics')}</h4>
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2">{t('Özellikler', 'Characteristics')}</h4>
                         <ul className="space-y-1">
                           {selectedVariety.characteristics.map((char, idx) => (
-                            <li key={idx} className="text-sm text-earth-300 flex items-start gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-agri-600 mt-0.5 flex-shrink-0" />
+                            <li key={idx} className="text-sm text-gray-300 flex items-start gap-2">
+                              <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                               {char}
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
                           <Shield className="w-5 h-5 text-green-600" />
                           {t('Dayanıklı', 'Resistant To')}
                         </h4>
@@ -657,8 +657,8 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                         </div>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
                           <AlertTriangle className="w-5 h-5 text-red-600" />
                           {t('Hassas', 'Susceptible To')}
                         </h4>
@@ -671,11 +671,11 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                         </div>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2">{t('Bölgeler', 'Regions')}</h4>
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2">{t('Bölgeler', 'Regions')}</h4>
                         <div className="flex flex-wrap gap-2">
                           {selectedVariety.region.map((region, idx) => (
-                            <span key={idx} className="text-sm bg-agri-100 text-agri-700 px-3 py-1 rounded-lg font-semibold">
+                            <span key={idx} className="text-sm bg-green-100 text-green-700 px-3 py-1 rounded-lg font-semibold">
                               {region}
                             </span>
                           ))}
@@ -683,15 +683,15 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       </div>
 
                       {/* Oil Quality Prediction */}
-                      <div className="bg-gradient-to-br from-harvest-50 to-harvest-100 p-4 rounded-lg border border-harvest-300">
-                        <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
-                          <Zap className="w-5 h-5 text-harvest-600" />
+                      <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-300">
+                        <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
+                          <Zap className="w-5 h-5 text-orange-600" />
                           {t('Tahmini Yağ Kalitesi', 'Predicted Oil Quality')}
                         </h4>
-                        <p className="text-3xl font-bold text-harvest-700">
+                        <p className="text-3xl font-bold text-orange-700">
                           {predictOilQuality(selectedVariety, climateData.temp, climateData.rainfall).toFixed(1)}%
                         </p>
-                        <p className="text-xs text-earth-300 mt-1">{t('Mevcut iklim koşullarına göre', 'Based on current climate conditions')}</p>
+                        <p className="text-xs text-gray-300 mt-1">{t('Mevcut iklim koşullarına göre', 'Based on current climate conditions')}</p>
                       </div>
                     </div>
                   ) : (
@@ -713,42 +713,42 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
           <div className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* AI Disease Detection Simulator */}
-              <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+              <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                 <div className="flex items-center gap-3 mb-4">
-                  <Camera className="w-6 h-6 text-agri-600" />
-                  <h3 className="text-xl font-bold text-earth-200">
+                  <Camera className="w-6 h-6 text-green-600" />
+                  <h3 className="text-xl font-bold text-gray-100">
                     {t('AI Hastalık Tanılama', 'AI Disease Detection')}
                   </h3>
                 </div>
 
-                <div className="border-2 border-dashed border-earth-700 rounded-lg p-8 text-center mb-4">
+                <div className="border-2 border-dashed border-gray-700 rounded-lg p-8 text-center mb-4">
                   <Upload className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-                  <p className="text-earth-300 mb-2">{t('Yaprak veya meyve fotoğrafı yükleyin', 'Upload leaf or fruit image')}</p>
-                  <button className="bg-gradient-to-r from-agri-600 to-forest-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                  <p className="text-gray-300 mb-2">{t('Yaprak veya meyve fotoğrafı yükleyin', 'Upload leaf or fruit image')}</p>
+                  <button className="bg-gradient-to-r from-green-600 to-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
                     {t('Fotoğraf Seç', 'Choose Photo')}
                   </button>
                 </div>
 
-                <div className="bg-agri-50 border border-agri-200 rounded-lg p-4">
-                  <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
-                    <Info className="w-5 h-5 text-agri-600" />
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
+                    <Info className="w-5 h-5 text-green-600" />
                     {t('AI Tanılama Nasıl Çalışır?', 'How AI Detection Works?')}
                   </h4>
-                  <ul className="space-y-2 text-sm text-earth-300">
+                  <ul className="space-y-2 text-sm text-gray-300">
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-agri-600 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                       {t('Yaprak veya meyve fotoğrafı analiz edilir', 'Leaf or fruit image is analyzed')}
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-agri-600 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                       {t('Hastalık belirtileri tespit edilir', 'Disease symptoms are detected')}
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-agri-600 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                       {t('Olası hastalıklar %95+ doğrulukla belirlenir', 'Likely diseases identified with 95%+ accuracy')}
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-agri-600 mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                       {t('Tedavi önerileri sunulur', 'Treatment recommendations provided')}
                     </li>
                   </ul>
@@ -756,22 +756,22 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
               </div>
 
               {/* Symptom Checker */}
-              <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+              <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                 <div className="flex items-center gap-3 mb-4">
-                  <AlertTriangle className="w-6 h-6 text-agri-600" />
-                  <h3 className="text-xl font-bold text-earth-200">
+                  <AlertTriangle className="w-6 h-6 text-green-600" />
+                  <h3 className="text-xl font-bold text-gray-100">
                     {t('Belirti Kontrol Sistemi', 'Symptom Checker')}
                   </h3>
                 </div>
 
-                <p className="text-sm text-earth-300 mb-4">
+                <p className="text-sm text-gray-300 mb-4">
                   {t('Gözlemlediğiniz belirtileri seçin:', 'Select observed symptoms:')}
                 </p>
 
-                <div className="max-h-64 overflow-y-auto mb-4 border border-earth-700 rounded-lg p-3">
+                <div className="max-h-64 overflow-y-auto mb-4 border border-gray-700 rounded-lg p-3">
                   <div className="space-y-2">
                     {allSymptoms.slice(0, 15).map(symptom => (
-                      <label key={symptom} className="flex items-center gap-2 cursor-pointer hover:bg-earth-900 p-2 rounded">
+                      <label key={symptom} className="flex items-center gap-2 cursor-pointer hover:bg-gray-800 p-2 rounded">
                         <input
                           type="checkbox"
                           checked={selectedSymptoms.includes(symptom)}
@@ -782,9 +782,9 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                               setSelectedSymptoms(selectedSymptoms.filter(s => s !== symptom));
                             }
                           }}
-                          className="w-4 h-4 text-agri-600 rounded"
+                          className="w-4 h-4 text-green-600 rounded"
                         />
-                        <span className="text-sm text-earth-300">{symptom}</span>
+                        <span className="text-sm text-gray-300">{symptom}</span>
                       </label>
                     ))}
                   </div>
@@ -792,7 +792,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
                 {diseasesBySymptoms.length > 0 && (
                   <div className="space-y-3">
-                    <h4 className="font-bold text-earth-200">{t('Olası Hastalıklar:', 'Likely Diseases:')}</h4>
+                    <h4 className="font-bold text-gray-100">{t('Olası Hastalıklar:', 'Likely Diseases:')}</h4>
                     {diseasesBySymptoms.map(disease => (
                       <div
                         key={disease.id}
@@ -800,14 +800,14 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                         onClick={() => setSelectedDisease(disease)}
                       >
                         <div className="flex items-center justify-between mb-1">
-                          <h5 className="font-bold text-earth-200">
+                          <h5 className="font-bold text-gray-100">
                             {language === 'tr' ? disease.nameTr : disease.name}
                           </h5>
                           <span className="text-xs bg-red-600 text-white px-2 py-1 rounded font-bold">
                             {disease.economicImpact}% {t('kayıp', 'loss')}
                           </span>
                         </div>
-                        <p className="text-xs text-earth-300 italic">{disease.scientificName}</p>
+                        <p className="text-xs text-gray-300 italic">{disease.scientificName}</p>
                       </div>
                     ))}
                   </div>
@@ -816,8 +816,8 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
             </div>
 
             {/* Disease List */}
-            <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
-              <h3 className="text-xl font-bold text-earth-200 mb-4">
+            <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+              <h3 className="text-xl font-bold text-gray-100 mb-4">
                 {t('Tüm Zeytin Hastalıkları', 'All Olive Diseases')}
               </h3>
 
@@ -831,15 +831,15 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
                         selectedDisease?.id === disease.id
                           ? 'border-red-600 bg-red-50 shadow-lg'
-                          : 'border-earth-700 hover:border-red-400 hover:shadow'
+                          : 'border-gray-700 hover:border-red-400 hover:shadow'
                       }`}
                     >
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <h4 className="text-lg font-bold text-earth-200">
+                          <h4 className="text-lg font-bold text-gray-100">
                             {language === 'tr' ? disease.nameTr : disease.name}
                           </h4>
-                          <p className="text-sm text-earth-300 italic">{disease.scientificName}</p>
+                          <p className="text-sm text-gray-300 italic">{disease.scientificName}</p>
                         </div>
                         <div className={`px-3 py-1 rounded-full text-xs font-bold ${
                           disease.type === 'fungal' ? 'bg-orange-100 text-orange-700' :
@@ -851,7 +851,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       </div>
 
                       <div className="flex items-center gap-4 text-sm">
-                        <div className="flex items-center gap-1 text-earth-300">
+                        <div className="flex items-center gap-1 text-gray-300">
                           <TrendingDown className="w-4 h-4 text-red-600" />
                           <span className="font-semibold">{disease.economicImpact}% {t('kayıp', 'loss')}</span>
                         </div>
@@ -861,14 +861,14 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                 </div>
 
                 {/* Disease Details */}
-                <div className="bg-earth-900 rounded-lg p-6 border border-earth-700 max-h-[500px] overflow-y-auto">
+                <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 max-h-[500px] overflow-y-auto">
                   {selectedDisease ? (
                     <div className="space-y-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-earth-200 mb-1">
+                        <h3 className="text-2xl font-bold text-gray-100 mb-1">
                           {language === 'tr' ? selectedDisease.nameTr : selectedDisease.name}
                         </h3>
-                        <p className="text-earth-300 italic mb-2">{selectedDisease.scientificName}</p>
+                        <p className="text-gray-300 italic mb-2">{selectedDisease.scientificName}</p>
                         <div className="flex items-center gap-2">
                           <span className={`px-3 py-1 rounded-lg text-xs font-bold ${
                             selectedDisease.type === 'fungal' ? 'bg-orange-100 text-orange-700' :
@@ -883,11 +883,11 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                         </div>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2">{t('Belirtiler', 'Symptoms')}</h4>
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2">{t('Belirtiler', 'Symptoms')}</h4>
                         <ul className="space-y-1">
                           {selectedDisease.symptoms.map((symptom, idx) => (
-                            <li key={idx} className="text-sm text-earth-300 flex items-start gap-2">
+                            <li key={idx} className="text-sm text-gray-300 flex items-start gap-2">
                               <AlertTriangle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
                               {symptom}
                             </li>
@@ -895,8 +895,8 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                         </ul>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2">{t('Etkilenen Kısımlar', 'Affected Parts')}</h4>
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2">{t('Etkilenen Kısımlar', 'Affected Parts')}</h4>
                         <div className="flex flex-wrap gap-2">
                           {selectedDisease.affectedParts.map((part, idx) => (
                             <span key={idx} className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded font-semibold">
@@ -906,11 +906,11 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                         </div>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2">{t('Önleme', 'Prevention')}</h4>
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2">{t('Önleme', 'Prevention')}</h4>
                         <ul className="space-y-1">
                           {selectedDisease.prevention.map((method, idx) => (
-                            <li key={idx} className="text-sm text-earth-300 flex items-start gap-2">
+                            <li key={idx} className="text-sm text-gray-300 flex items-start gap-2">
                               <Shield className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                               {method}
                             </li>
@@ -919,12 +919,12 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                          <h4 className="font-bold text-earth-200 mb-2 text-sm">{t('Konvansiyonel Tedavi', 'Conventional Treatment')}</h4>
+                        <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                          <h4 className="font-bold text-gray-100 mb-2 text-sm">{t('Konvansiyonel Tedavi', 'Conventional Treatment')}</h4>
                           <ul className="space-y-1">
                             {selectedDisease.treatment.map((method, idx) => (
-                              <li key={idx} className="text-xs text-earth-300 flex items-start gap-1">
-                                <CheckCircle2 className="w-3 h-3 text-agri-600 mt-0.5 flex-shrink-0" />
+                              <li key={idx} className="text-xs text-gray-300 flex items-start gap-1">
+                                <CheckCircle2 className="w-3 h-3 text-green-600 mt-0.5 flex-shrink-0" />
                                 {method}
                               </li>
                             ))}
@@ -932,10 +932,10 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                         </div>
 
                         <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                          <h4 className="font-bold text-earth-200 mb-2 text-sm">{t('Organik Kontrol', 'Organic Control')}</h4>
+                          <h4 className="font-bold text-gray-100 mb-2 text-sm">{t('Organik Kontrol', 'Organic Control')}</h4>
                           <ul className="space-y-1">
                             {selectedDisease.organicControl.map((method, idx) => (
-                              <li key={idx} className="text-xs text-earth-300 flex items-start gap-1">
+                              <li key={idx} className="text-xs text-gray-300 flex items-start gap-1">
                                 <CheckCircle2 className="w-3 h-3 text-green-600 mt-0.5 flex-shrink-0" />
                                 {method}
                               </li>
@@ -962,10 +962,10 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
         {activeTab === 'pest' && (
           <div className="space-y-6">
             {/* Pest Activity Timeline */}
-            <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+            <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
               <div className="flex items-center gap-3 mb-4">
-                <Clock className="w-6 h-6 text-agri-600" />
-                <h3 className="text-xl font-bold text-earth-200">
+                <Clock className="w-6 h-6 text-green-600" />
+                <h3 className="text-xl font-bold text-gray-100">
                   {t('Zararlı Aktivite Takvimi', 'Pest Activity Timeline')}
                 </h3>
               </div>
@@ -974,12 +974,12 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                 <div className="min-w-[800px]">
                   {pestTimeline.map((month, idx) => (
                     <div key={idx} className="mb-4">
-                      <p className="text-sm font-bold text-earth-300 mb-2">{month.month}</p>
+                      <p className="text-sm font-bold text-gray-300 mb-2">{month.month}</p>
                       <div className="grid grid-cols-3 gap-3">
                         <div>
                           <div className="flex items-center justify-between mb-1">
-                            <span className="text-xs text-earth-300">{t('Zeytin Sineği', 'Olive Fly')}</span>
-                            <span className="text-xs font-bold text-earth-300">{month.oliveFly}%</span>
+                            <span className="text-xs text-gray-300">{t('Zeytin Sineği', 'Olive Fly')}</span>
+                            <span className="text-xs font-bold text-gray-300">{month.oliveFly}%</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2">
                             <div
@@ -991,8 +991,8 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
                         <div>
                           <div className="flex items-center justify-between mb-1">
-                            <span className="text-xs text-earth-300">{t('Zeytin Güvesi', 'Olive Moth')}</span>
-                            <span className="text-xs font-bold text-earth-300">{month.oliveMoth}%</span>
+                            <span className="text-xs text-gray-300">{t('Zeytin Güvesi', 'Olive Moth')}</span>
+                            <span className="text-xs font-bold text-gray-300">{month.oliveMoth}%</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2">
                             <div
@@ -1004,8 +1004,8 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
                         <div>
                           <div className="flex items-center justify-between mb-1">
-                            <span className="text-xs text-earth-300">{t('Kabuklu Bit', 'Black Scale')}</span>
-                            <span className="text-xs font-bold text-earth-300">{month.scale}%</span>
+                            <span className="text-xs text-gray-300">{t('Kabuklu Bit', 'Black Scale')}</span>
+                            <span className="text-xs font-bold text-gray-300">{month.scale}%</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-2">
                             <div
@@ -1022,8 +1022,8 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
             </div>
 
             {/* Pest List and Details */}
-            <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
-              <h3 className="text-xl font-bold text-earth-200 mb-4">
+            <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
+              <h3 className="text-xl font-bold text-gray-100 mb-4">
                 {t('Zeytin Zararlıları', 'Olive Pests')}
               </h3>
 
@@ -1037,15 +1037,15 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
                         selectedPest?.id === pest.id
                           ? 'border-orange-600 bg-orange-50 shadow-lg'
-                          : 'border-earth-700 hover:border-orange-400 hover:shadow'
+                          : 'border-gray-700 hover:border-orange-400 hover:shadow'
                       }`}
                     >
                       <div className="flex items-start justify-between mb-2">
                         <div>
-                          <h4 className="text-lg font-bold text-earth-200">
+                          <h4 className="text-lg font-bold text-gray-100">
                             {language === 'tr' ? pest.nameTr : pest.name}
                           </h4>
-                          <p className="text-sm text-earth-300 italic">{pest.scientificName}</p>
+                          <p className="text-sm text-gray-300 italic">{pest.scientificName}</p>
                         </div>
                         <div className={`px-3 py-1 rounded-full text-xs font-bold ${
                           pest.type === 'insect' ? 'bg-orange-100 text-orange-700' :
@@ -1057,12 +1057,12 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       </div>
 
                       <div className="flex items-center gap-4 text-sm">
-                        <div className="flex items-center gap-1 text-earth-300">
+                        <div className="flex items-center gap-1 text-gray-300">
                           <TrendingDown className="w-4 h-4 text-red-600" />
                           <span className="font-semibold">{pest.economicImpact}% {t('kayıp', 'loss')}</span>
                         </div>
-                        <div className="flex items-center gap-1 text-earth-300">
-                          <Clock className="w-4 h-4 text-agri-600" />
+                        <div className="flex items-center gap-1 text-gray-300">
+                          <Clock className="w-4 h-4 text-green-600" />
                           <span className="font-semibold text-xs">{pest.lifecycle}</span>
                         </div>
                       </div>
@@ -1071,14 +1071,14 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                 </div>
 
                 {/* Pest Details */}
-                <div className="bg-earth-900 rounded-lg p-6 border border-earth-700 max-h-[600px] overflow-y-auto">
+                <div className="bg-gray-800 rounded-lg p-6 border border-gray-700 max-h-[600px] overflow-y-auto">
                   {selectedPest ? (
                     <div className="space-y-4">
                       <div>
-                        <h3 className="text-2xl font-bold text-earth-200 mb-1">
+                        <h3 className="text-2xl font-bold text-gray-100 mb-1">
                           {language === 'tr' ? selectedPest.nameTr : selectedPest.name}
                         </h3>
-                        <p className="text-earth-300 italic mb-2">{selectedPest.scientificName}</p>
+                        <p className="text-gray-300 italic mb-2">{selectedPest.scientificName}</p>
                         <div className="flex items-center gap-2">
                           <span className={`px-3 py-1 rounded-lg text-xs font-bold ${
                             selectedPest.type === 'insect' ? 'bg-orange-100 text-orange-700' :
@@ -1093,16 +1093,16 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                         </div>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2">{t('Yaşam Döngüsü', 'Lifecycle')}</h4>
-                        <p className="text-sm text-earth-300">{selectedPest.lifecycle}</p>
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2">{t('Yaşam Döngüsü', 'Lifecycle')}</h4>
+                        <p className="text-sm text-gray-300">{selectedPest.lifecycle}</p>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2">{t('Zarar Tipi', 'Damage Type')}</h4>
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2">{t('Zarar Tipi', 'Damage Type')}</h4>
                         <ul className="space-y-1">
                           {selectedPest.damageType.map((damage, idx) => (
-                            <li key={idx} className="text-sm text-earth-300 flex items-start gap-2">
+                            <li key={idx} className="text-sm text-gray-300 flex items-start gap-2">
                               <XCircle className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" />
                               {damage}
                             </li>
@@ -1110,33 +1110,33 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                         </ul>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2">{t('Tespit Yöntemleri', 'Detection Methods')}</h4>
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2">{t('Tespit Yöntemleri', 'Detection Methods')}</h4>
                         <ul className="space-y-1">
                           {selectedPest.detection.map((method, idx) => (
-                            <li key={idx} className="text-sm text-earth-300 flex items-start gap-2">
-                              <Search className="w-4 h-4 text-agri-600 mt-0.5 flex-shrink-0" />
+                            <li key={idx} className="text-sm text-gray-300 flex items-start gap-2">
+                              <Search className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                               {method}
                             </li>
                           ))}
                         </ul>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
-                          <Target className="w-5 h-5 text-agri-600" />
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
+                          <Target className="w-5 h-5 text-green-600" />
                           {t('Eşik Değer', 'Threshold')}
                         </h4>
-                        <p className="text-sm font-semibold text-agri-700 bg-agri-50 px-3 py-2 rounded">
+                        <p className="text-sm font-semibold text-green-700 bg-green-50 px-3 py-2 rounded">
                           {selectedPest.threshold}
                         </p>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2">{t('Önleme', 'Prevention')}</h4>
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2">{t('Önleme', 'Prevention')}</h4>
                         <ul className="space-y-1">
                           {selectedPest.prevention.map((method, idx) => (
-                            <li key={idx} className="text-sm text-earth-300 flex items-start gap-2">
+                            <li key={idx} className="text-sm text-gray-300 flex items-start gap-2">
                               <Shield className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                               {method}
                             </li>
@@ -1146,10 +1146,10 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                          <h4 className="font-bold text-earth-200 mb-2 text-sm">{t('Biyolojik Kontrol', 'Biological Control')}</h4>
+                          <h4 className="font-bold text-gray-100 mb-2 text-sm">{t('Biyolojik Kontrol', 'Biological Control')}</h4>
                           <ul className="space-y-1">
                             {selectedPest.biologicalControl.map((method, idx) => (
-                              <li key={idx} className="text-xs text-earth-300 flex items-start gap-1">
+                              <li key={idx} className="text-xs text-gray-300 flex items-start gap-1">
                                 <CheckCircle2 className="w-3 h-3 text-green-600 mt-0.5 flex-shrink-0" />
                                 {method}
                               </li>
@@ -1157,12 +1157,12 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                           </ul>
                         </div>
 
-                        <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                          <h4 className="font-bold text-earth-200 mb-2 text-sm">{t('Kimyasal Kontrol', 'Chemical Control')}</h4>
+                        <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                          <h4 className="font-bold text-gray-100 mb-2 text-sm">{t('Kimyasal Kontrol', 'Chemical Control')}</h4>
                           <ul className="space-y-1">
                             {selectedPest.chemicalControl.map((method, idx) => (
-                              <li key={idx} className="text-xs text-earth-300 flex items-start gap-1">
-                                <CheckCircle2 className="w-3 h-3 text-agri-600 mt-0.5 flex-shrink-0" />
+                              <li key={idx} className="text-xs text-gray-300 flex items-start gap-1">
+                                <CheckCircle2 className="w-3 h-3 text-green-600 mt-0.5 flex-shrink-0" />
                                 {method}
                               </li>
                             ))}
@@ -1170,8 +1170,8 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                         </div>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <h4 className="font-bold text-earth-200 mb-2">{t('Yoğun Aktivite Dönemleri', 'Peak Activity Periods')}</h4>
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <h4 className="font-bold text-gray-100 mb-2">{t('Yoğun Aktivite Dönemleri', 'Peak Activity Periods')}</h4>
                         <div className="flex flex-wrap gap-2">
                           {selectedPest.peakActivity.map((period, idx) => (
                             <span key={idx} className="text-xs bg-orange-100 text-orange-700 px-3 py-1 rounded-lg font-semibold">
@@ -1200,23 +1200,23 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
           <div className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Harvest Calculator */}
-              <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+              <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                 <div className="flex items-center gap-3 mb-4">
-                  <Calculator className="w-6 h-6 text-agri-600" />
-                  <h3 className="text-xl font-bold text-earth-200">
+                  <Calculator className="w-6 h-6 text-green-600" />
+                  <h3 className="text-xl font-bold text-gray-100">
                     {t('Hasat Olgunluk İndeksi', 'Harvest Maturity Index')}
                   </h3>
                 </div>
 
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-semibold text-earth-300 mb-2 block">
+                    <label className="text-sm font-semibold text-gray-300 mb-2 block">
                       {t('Çeşit Seçin', 'Select Variety')}
                     </label>
                     <select
                       value={harvestData.variety}
                       onChange={(e) => setHarvestData({ ...harvestData, variety: e.target.value })}
-                      className="w-full px-4 py-3 border border-earth-700 rounded-lg focus:ring-2 focus:ring-agri-500 text-earth-300"
+                      className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 text-gray-300"
                     >
                       {TURKISH_OLIVE_VARIETIES.map(v => (
                         <option key={v.id} value={v.id}>{v.name}</option>
@@ -1225,14 +1225,14 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                   </div>
 
                   <div>
-                    <label className="text-sm font-semibold text-earth-300 mb-2 block">
+                    <label className="text-sm font-semibold text-gray-300 mb-2 block">
                       {t('Ağaç Sayısı', 'Number of Trees')}
                     </label>
                     <input
                       type="number"
                       value={harvestData.trees}
                       onChange={(e) => setHarvestData({ ...harvestData, trees: Number(e.target.value) })}
-                      className="w-full px-4 py-3 border border-earth-700 rounded-lg focus:ring-2 focus:ring-agri-500 text-earth-300"
+                      className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 text-gray-300"
                     />
                   </div>
 
@@ -1245,48 +1245,48 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
                     return (
                       <>
-                        <div className="bg-gradient-to-br from-agri-50 to-forest-50 p-6 rounded-lg border border-agri-300">
-                          <h4 className="font-bold text-earth-200 mb-4">{t('Hasat Tahminleri', 'Harvest Estimates')}</h4>
+                        <div className="bg-gradient-to-br from-green-50 to-green-50 p-6 rounded-lg border border-green-300">
+                          <h4 className="font-bold text-gray-100 mb-4">{t('Hasat Tahminleri', 'Harvest Estimates')}</h4>
 
                           <div className="grid grid-cols-2 gap-4 mb-4">
-                            <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                              <p className="text-sm text-earth-300 mb-1">{t('Olgunluk İndeksi', 'Maturity Index')}</p>
-                              <p className="text-3xl font-bold text-agri-700">{(maturityIndex * 100).toFixed(0)}%</p>
+                            <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                              <p className="text-sm text-gray-300 mb-1">{t('Olgunluk İndeksi', 'Maturity Index')}</p>
+                              <p className="text-3xl font-bold text-green-700">{(maturityIndex * 100).toFixed(0)}%</p>
                             </div>
-                            <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                              <p className="text-sm text-earth-300 mb-1">{t('Tahmini Süre', 'Days to Harvest')}</p>
-                              <p className="text-3xl font-bold text-forest-700">{daysToHarvest}</p>
+                            <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                              <p className="text-sm text-gray-300 mb-1">{t('Tahmini Süre', 'Days to Harvest')}</p>
+                              <p className="text-3xl font-bold text-green-700">{daysToHarvest}</p>
                             </div>
                           </div>
 
                           <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                              <p className="text-sm text-earth-300 mb-1">{t('Toplam Verim', 'Total Yield')}</p>
-                              <p className="text-2xl font-bold text-earth-200">{totalYield.toLocaleString()} kg</p>
+                            <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                              <p className="text-sm text-gray-300 mb-1">{t('Toplam Verim', 'Total Yield')}</p>
+                              <p className="text-2xl font-bold text-gray-100">{totalYield.toLocaleString()} kg</p>
                             </div>
-                            <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                              <p className="text-sm text-earth-300 mb-1">{t('Yağ Verimi', 'Oil Yield')}</p>
-                              <p className="text-2xl font-bold text-harvest-700">{oilYield.toLocaleString()} kg</p>
+                            <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                              <p className="text-sm text-gray-300 mb-1">{t('Yağ Verimi', 'Oil Yield')}</p>
+                              <p className="text-2xl font-bold text-orange-700">{oilYield.toLocaleString()} kg</p>
                             </div>
                           </div>
                         </div>
 
-                        <div className="bg-agri-50 border border-agri-200 rounded-lg p-4">
-                          <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
-                            <Info className="w-5 h-5 text-agri-600" />
+                        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                          <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
+                            <Info className="w-5 h-5 text-green-600" />
                             {t('Hasat Önerileri', 'Harvest Recommendations')}
                           </h4>
-                          <ul className="space-y-2 text-sm text-earth-300">
+                          <ul className="space-y-2 text-sm text-gray-300">
                             <li className="flex items-start gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-agri-600 mt-0.5 flex-shrink-0" />
+                              <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                               {t('Sabah erken saatlerde hasat yapın', 'Harvest in early morning hours')}
                             </li>
                             <li className="flex items-start gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-agri-600 mt-0.5 flex-shrink-0" />
+                              <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                               {t('Meyvelerin %70-80\'i olgunlaştığında hasat edin', 'Harvest when 70-80% of fruits are ripe')}
                             </li>
                             <li className="flex items-start gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-agri-600 mt-0.5 flex-shrink-0" />
+                              <CheckCircle2 className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
                               {t('Hasattan sonra 24 saat içinde işleyin', 'Process within 24 hours after harvest')}
                             </li>
                           </ul>
@@ -1298,10 +1298,10 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
               </div>
 
               {/* Precision Irrigation Recommendations */}
-              <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+              <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                 <div className="flex items-center gap-3 mb-4">
-                  <Droplets className="w-6 h-6 text-agri-600" />
-                  <h3 className="text-xl font-bold text-earth-200">
+                  <Droplets className="w-6 h-6 text-green-600" />
+                  <h3 className="text-xl font-bold text-gray-100">
                     {t('Hassas Sulama Önerileri', 'Precision Irrigation Recommendations')}
                   </h3>
                 </div>
@@ -1319,27 +1319,27 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                     return (
                       <>
                         <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg border border-blue-300">
-                          <h4 className="font-bold text-earth-200 mb-4">{t('Sulama Planı', 'Irrigation Plan')}</h4>
+                          <h4 className="font-bold text-gray-100 mb-4">{t('Sulama Planı', 'Irrigation Plan')}</h4>
 
                           <div className="grid grid-cols-1 gap-4">
-                            <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                              <p className="text-sm text-earth-300 mb-1">{t('Yıllık Su Gereksinimi', 'Annual Water Requirement')}</p>
+                            <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                              <p className="text-sm text-gray-300 mb-1">{t('Yıllık Su Gereksinimi', 'Annual Water Requirement')}</p>
                               <p className="text-3xl font-bold text-blue-700">{recommendedWater.toFixed(0)} mm</p>
-                              <p className="text-xs text-earth-300 mt-1">{t('İklim koşullarına göre ayarlandı', 'Adjusted for climate conditions')}</p>
+                              <p className="text-xs text-gray-300 mt-1">{t('İklim koşullarına göre ayarlandı', 'Adjusted for climate conditions')}</p>
                             </div>
 
-                            <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                              <p className="text-sm text-earth-300 mb-1">{t('Toplam Su (tüm bahçe)', 'Total Water (entire orchard)')}</p>
-                              <p className="text-2xl font-bold text-earth-200">
+                            <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                              <p className="text-sm text-gray-300 mb-1">{t('Toplam Su (tüm bahçe)', 'Total Water (entire orchard)')}</p>
+                              <p className="text-2xl font-bold text-gray-100">
                                 {(recommendedWater * harvestData.trees * 0.05).toLocaleString()} {t('litre', 'liters')}
                               </p>
                             </div>
                           </div>
                         </div>
 
-                        <div className="bg-agri-50 border border-agri-200 rounded-lg p-4">
-                          <h4 className="font-bold text-earth-200 mb-2">{t('Sulama Stratejisi', 'Irrigation Strategy')}</h4>
-                          <ul className="space-y-2 text-sm text-earth-300">
+                        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                          <h4 className="font-bold text-gray-100 mb-2">{t('Sulama Stratejisi', 'Irrigation Strategy')}</h4>
+                          <ul className="space-y-2 text-sm text-gray-300">
                             <li className="flex items-start gap-2">
                               <Droplets className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                               {selectedVar.waterRequirement === 'low'
@@ -1366,23 +1366,23 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
             </div>
 
             {/* Harvest Timeline */}
-            <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+            <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
               <div className="flex items-center gap-3 mb-4">
-                <Calendar className="w-6 h-6 text-agri-600" />
-                <h3 className="text-xl font-bold text-earth-200">
+                <Calendar className="w-6 h-6 text-green-600" />
+                <h3 className="text-xl font-bold text-gray-100">
                   {t('Çeşitlere Göre Hasat Takvimi', 'Harvest Calendar by Variety')}
                 </h3>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {TURKISH_OLIVE_VARIETIES.map(variety => (
-                  <div key={variety.id} className="bg-gradient-to-br from-agri-50 to-forest-50 p-4 rounded-lg border border-agri-200">
-                    <h4 className="font-bold text-earth-200 mb-2">{variety.name}</h4>
-                    <div className="flex items-center gap-2 text-sm text-earth-300">
-                      <Calendar className="w-4 h-4 text-agri-600" />
+                  <div key={variety.id} className="bg-gradient-to-br from-green-50 to-green-50 p-4 rounded-lg border border-green-200">
+                    <h4 className="font-bold text-gray-100 mb-2">{variety.name}</h4>
+                    <div className="flex items-center gap-2 text-sm text-gray-300">
+                      <Calendar className="w-4 h-4 text-green-600" />
                       <span className="font-semibold">{variety.maturityPeriod}</span>
                     </div>
-                    <div className="mt-2 text-xs text-earth-300">
+                    <div className="mt-2 text-xs text-gray-300">
                       {variety.region[0]} {t('bölgesi için', 'region')}
                     </div>
                   </div>
@@ -1396,10 +1396,10 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
         {activeTab === 'market' && (
           <div className="space-y-6">
             {/* Price Trends */}
-            <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+            <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
               <div className="flex items-center gap-3 mb-4">
-                <TrendingUp className="w-6 h-6 text-agri-600" />
-                <h3 className="text-xl font-bold text-earth-200">
+                <TrendingUp className="w-6 h-6 text-green-600" />
+                <h3 className="text-xl font-bold text-gray-100">
                   {t('Türkiye Zeytinyağı Fiyat Trendleri (2024/25)', 'Turkey Olive Oil Price Trends (2024/25)')}
                 </h3>
               </div>
@@ -1408,17 +1408,17 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                 <div className="min-w-[800px] space-y-2">
                   {marketTrends.map((month, idx) => (
                     <div key={idx} className="grid grid-cols-12 gap-2 items-center">
-                      <div className="col-span-2 text-sm font-bold text-earth-300">{month.month}</div>
+                      <div className="col-span-2 text-sm font-bold text-gray-300">{month.month}</div>
 
                       <div className="col-span-10 grid grid-cols-3 gap-4">
                         <div>
                           <div className="flex items-center justify-between mb-1">
-                            <span className="text-xs text-earth-300">{t('Fiyat', 'Price')}</span>
-                            <span className="text-xs font-bold text-harvest-700">{month.price.toFixed(0)} TRY/kg</span>
+                            <span className="text-xs text-gray-300">{t('Fiyat', 'Price')}</span>
+                            <span className="text-xs font-bold text-orange-700">{month.price.toFixed(0)} TRY/kg</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-3">
                             <div
-                              className="bg-gradient-to-r from-harvest-400 to-harvest-600 h-3 rounded-full"
+                              className="bg-gradient-to-r from-orange-400 to-orange-600 h-3 rounded-full"
                               style={{ width: `${(month.price / 180) * 100}%` }}
                             />
                           </div>
@@ -1426,12 +1426,12 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
                         <div>
                           <div className="flex items-center justify-between mb-1">
-                            <span className="text-xs text-earth-300">{t('Talep', 'Demand')}</span>
-                            <span className="text-xs font-bold text-agri-700">{month.demand.toFixed(0)}%</span>
+                            <span className="text-xs text-gray-300">{t('Talep', 'Demand')}</span>
+                            <span className="text-xs font-bold text-green-700">{month.demand.toFixed(0)}%</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-3">
                             <div
-                              className="bg-gradient-to-r from-agri-400 to-agri-600 h-3 rounded-full"
+                              className="bg-gradient-to-r from-green-400 to-agri-600 h-3 rounded-full"
                               style={{ width: `${month.demand}%` }}
                             />
                           </div>
@@ -1439,12 +1439,12 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
                         <div>
                           <div className="flex items-center justify-between mb-1">
-                            <span className="text-xs text-earth-300">{t('Üretim', 'Production')}</span>
-                            <span className="text-xs font-bold text-forest-700">{month.production.toFixed(0)}%</span>
+                            <span className="text-xs text-gray-300">{t('Üretim', 'Production')}</span>
+                            <span className="text-xs font-bold text-green-700">{month.production.toFixed(0)}%</span>
                           </div>
                           <div className="w-full bg-gray-200 rounded-full h-3">
                             <div
-                              className="bg-gradient-to-r from-forest-400 to-forest-600 h-3 rounded-full"
+                              className="bg-gradient-to-r from-green-400 to-green-600 h-3 rounded-full"
                               style={{ width: `${month.production}%` }}
                             />
                           </div>
@@ -1458,21 +1458,21 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
             {/* Market Insights */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-gradient-to-br from-harvest-500 to-sunset-600 text-white rounded-xl shadow-lg p-6">
+              <div className="bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-xl shadow-lg p-6">
                 <DollarSign className="w-12 h-12 mb-3 opacity-80" />
                 <h4 className="text-lg font-bold mb-2">{t('Ortalama Piyasa Fiyatı', 'Average Market Price')}</h4>
                 <p className="text-3xl font-bold">150 TRY/kg</p>
                 <p className="text-sm opacity-90">{t('Zeytinyağı (2024/25)', 'Olive Oil (2024/25)')}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-agri-500 to-forest-600 text-white rounded-xl shadow-lg p-6">
+              <div className="bg-gradient-to-br from-green-500 to-green-600 text-white rounded-xl shadow-lg p-6">
                 <TrendingUp className="w-12 h-12 mb-3 opacity-80" />
                 <h4 className="text-lg font-bold mb-2">{t('Yıllık Büyüme', 'Annual Growth')}</h4>
                 <p className="text-3xl font-bold">+12%</p>
                 <p className="text-sm opacity-90">{t('İhracat artışı', 'Export increase')}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-earth-500 to-earth-700 text-white rounded-xl shadow-lg p-6">
+              <div className="bg-gradient-to-br from-gray-500 to-gray-700 text-white rounded-xl shadow-lg p-6">
                 <Package className="w-12 h-12 mb-3 opacity-80" />
                 <h4 className="text-lg font-bold mb-2">{t('Toplam Üretim', 'Total Production')}</h4>
                 <p className="text-3xl font-bold">450K {t('ton', 'tons')}</p>
@@ -1481,10 +1481,10 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
             </div>
 
             {/* Regional Distribution */}
-            <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+            <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
               <div className="flex items-center gap-3 mb-4">
-                <MapPin className="w-6 h-6 text-agri-600" />
-                <h3 className="text-xl font-bold text-earth-200">
+                <MapPin className="w-6 h-6 text-green-600" />
+                <h3 className="text-xl font-bold text-gray-100">
                   {t('Bölgesel Üretim Dağılımı', 'Regional Production Distribution')}
                 </h3>
               </div>
@@ -1496,18 +1496,18 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                   { region: 'Akdeniz', tr: 'Mediterranean', percentage: 12, production: 54000 },
                   { region: 'Güneydoğu Anadolu', tr: 'Southeast Anatolia', percentage: 8, production: 36000 }
                 ].map((region, idx) => (
-                  <div key={idx} className="bg-agri-50 p-4 rounded-lg border border-agri-200">
+                  <div key={idx} className="bg-green-50 p-4 rounded-lg border border-green-200">
                     <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-bold text-earth-200">{language === 'tr' ? region.region : region.tr}</h4>
-                      <span className="text-sm font-bold text-agri-700">{region.percentage}%</span>
+                      <h4 className="font-bold text-gray-100">{language === 'tr' ? region.region : region.tr}</h4>
+                      <span className="text-sm font-bold text-green-700">{region.percentage}%</span>
                     </div>
                     <div className="w-full bg-gray-200 rounded-full h-4 mb-2">
                       <div
-                        className="bg-gradient-to-r from-agri-500 to-forest-600 h-4 rounded-full"
+                        className="bg-gradient-to-r from-green-500 to-green-600 h-4 rounded-full"
                         style={{ width: `${region.percentage}%` }}
                       />
                     </div>
-                    <p className="text-sm text-earth-300">
+                    <p className="text-sm text-gray-300">
                       {region.production.toLocaleString()} {t('ton üretim', 'tons production')}
                     </p>
                   </div>
@@ -1521,10 +1521,10 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
         {activeTab === 'analytics' && (
           <div className="space-y-6">
             {/* ROI Calculator */}
-            <div className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+            <div className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
               <div className="flex items-center gap-3 mb-4">
-                <Calculator className="w-6 h-6 text-agri-600" />
-                <h3 className="text-xl font-bold text-earth-200">
+                <Calculator className="w-6 h-6 text-green-600" />
+                <h3 className="text-xl font-bold text-gray-100">
                   {t('Yatırım Getirisi (ROI) Hesaplayıcı', 'Return on Investment (ROI) Calculator')}
                 </h3>
               </div>
@@ -1532,13 +1532,13 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-semibold text-earth-300 mb-2 block">
+                    <label className="text-sm font-semibold text-gray-300 mb-2 block">
                       {t('Çeşit', 'Variety')}
                     </label>
                     <select
                       value={harvestData.variety}
                       onChange={(e) => setHarvestData({ ...harvestData, variety: e.target.value })}
-                      className="w-full px-4 py-3 border border-earth-700 rounded-lg focus:ring-2 focus:ring-agri-500 text-earth-300"
+                      className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 text-gray-300"
                     >
                       {TURKISH_OLIVE_VARIETIES.map(v => (
                         <option key={v.id} value={v.id}>{v.name}</option>
@@ -1547,14 +1547,14 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                   </div>
 
                   <div>
-                    <label className="text-sm font-semibold text-earth-300 mb-2 block">
+                    <label className="text-sm font-semibold text-gray-300 mb-2 block">
                       {t('Ağaç Sayısı', 'Number of Trees')}
                     </label>
                     <input
                       type="number"
                       value={harvestData.trees}
                       onChange={(e) => setHarvestData({ ...harvestData, trees: Number(e.target.value) })}
-                      className="w-full px-4 py-3 border border-earth-700 rounded-lg focus:ring-2 focus:ring-agri-500 text-earth-300"
+                      className="w-full px-4 py-3 border border-gray-700 rounded-lg focus:ring-2 focus:ring-green-500 text-gray-300"
                     />
                   </div>
                 </div>
@@ -1562,18 +1562,18 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                 {(() => {
                   const roi = calculateROI(harvestData.trees, harvestData.variety, 5);
                   return (
-                    <div className="bg-gradient-to-br from-agri-50 to-forest-50 p-6 rounded-lg border border-agri-300">
-                      <h4 className="font-bold text-earth-200 mb-4">{t('5 Yıllık Projeksiyon', '5-Year Projection')}</h4>
+                    <div className="bg-gradient-to-br from-green-50 to-green-50 p-6 rounded-lg border border-green-300">
+                      <h4 className="font-bold text-gray-100 mb-4">{t('5 Yıllık Projeksiyon', '5-Year Projection')}</h4>
 
                       <div className="grid grid-cols-2 gap-4 mb-4">
-                        <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                          <p className="text-sm text-earth-300 mb-1">{t('Toplam Gelir', 'Total Revenue')}</p>
+                        <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                          <p className="text-sm text-gray-300 mb-1">{t('Toplam Gelir', 'Total Revenue')}</p>
                           <p className="text-2xl font-bold text-green-700">
                             {roi.revenue?.toLocaleString() || 0} TRY
                           </p>
                         </div>
-                        <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                          <p className="text-sm text-earth-300 mb-1">{t('Toplam Maliyet', 'Total Cost')}</p>
+                        <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                          <p className="text-sm text-gray-300 mb-1">{t('Toplam Maliyet', 'Total Cost')}</p>
                           <p className="text-2xl font-bold text-red-700">
                             {roi.costs?.toLocaleString() || 0} TRY
                           </p>
@@ -1581,23 +1581,23 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       </div>
 
                       <div className="grid grid-cols-2 gap-4 mb-4">
-                        <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                          <p className="text-sm text-earth-300 mb-1">{t('Net Kar', 'Net Profit')}</p>
+                        <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                          <p className="text-sm text-gray-300 mb-1">{t('Net Kar', 'Net Profit')}</p>
                           <p className={`text-2xl font-bold ${roi.profit > 0 ? 'text-green-700' : 'text-red-700'}`}>
                             {roi.profit?.toLocaleString() || 0} TRY
                           </p>
                         </div>
-                        <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                          <p className="text-sm text-earth-300 mb-1">{t('ROI', 'ROI')}</p>
+                        <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                          <p className="text-sm text-gray-300 mb-1">{t('ROI', 'ROI')}</p>
                           <p className={`text-2xl font-bold ${roi.roi > 0 ? 'text-green-700' : 'text-red-700'}`}>
                             {roi.roi.toFixed(1)}%
                           </p>
                         </div>
                       </div>
 
-                      <div className="bg-earth-900 p-4 rounded-lg border border-earth-700">
-                        <p className="text-sm text-earth-300 mb-1">{t('Toplam Verim (5 yıl)', 'Total Yield (5 years)')}</p>
-                        <p className="text-xl font-bold text-earth-200">
+                      <div className="bg-gray-800 p-4 rounded-lg border border-gray-700">
+                        <p className="text-sm text-gray-300 mb-1">{t('Toplam Verim (5 yıl)', 'Total Yield (5 years)')}</p>
+                        <p className="text-xl font-bold text-gray-100">
                           {roi.totalYield?.toLocaleString() || 0} kg ({roi.oilYield?.toLocaleString() || 0} kg {t('yağ', 'oil')})
                         </p>
                       </div>
@@ -1606,22 +1606,22 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                 })()}
               </div>
 
-              <div className="mt-6 bg-harvest-50 border border-harvest-300 rounded-lg p-4">
-                <h4 className="font-bold text-earth-200 mb-2 flex items-center gap-2">
-                  <Info className="w-5 h-5 text-harvest-600" />
+              <div className="mt-6 bg-orange-50 border border-orange-300 rounded-lg p-4">
+                <h4 className="font-bold text-gray-100 mb-2 flex items-center gap-2">
+                  <Info className="w-5 h-5 text-orange-600" />
                   {t('Hesaplama Notları', 'Calculation Notes')}
                 </h4>
-                <ul className="space-y-1 text-sm text-earth-300">
+                <ul className="space-y-1 text-sm text-gray-300">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-harvest-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
                     {t('İlk yatırım: 500 TRY/ağaç', 'Initial investment: 500 TRY/tree')}
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-harvest-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
                     {t('Yıllık bakım: 150 TRY/ağaç', 'Annual maintenance: 150 TRY/tree')}
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-harvest-600 mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
                     {t('Fiyatlar 2024/25 piyasa verilerine göre', 'Prices based on 2024/25 market data')}
                   </li>
                 </ul>
@@ -1633,30 +1633,30 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
               {TURKISH_OLIVE_VARIETIES.slice(0, 3).map(variety => {
                 const roi = calculateROI(100, variety.id, 5);
                 return (
-                  <div key={variety.id} className="bg-earth-900 rounded-xl shadow-lg p-6 border border-earth-700">
+                  <div key={variety.id} className="bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-700">
                     <div className="flex items-center gap-3 mb-4">
-                      <Sprout className="w-6 h-6 text-agri-600" />
-                      <h3 className="text-lg font-bold text-earth-200">{variety.name}</h3>
+                      <Sprout className="w-6 h-6 text-green-600" />
+                      <h3 className="text-lg font-bold text-gray-100">{variety.name}</h3>
                     </div>
 
                     <div className="space-y-3">
-                      <div className="bg-agri-50 p-3 rounded-lg">
-                        <p className="text-xs text-earth-300 mb-1">{t('5 Yıllık ROI', '5-Year ROI')}</p>
+                      <div className="bg-green-50 p-3 rounded-lg">
+                        <p className="text-xs text-gray-300 mb-1">{t('5 Yıllık ROI', '5-Year ROI')}</p>
                         <p className={`text-2xl font-bold ${roi.roi > 0 ? 'text-green-700' : 'text-red-700'}`}>
                           {roi.roi.toFixed(1)}%
                         </p>
                       </div>
 
-                      <div className="bg-forest-50 p-3 rounded-lg">
-                        <p className="text-xs text-earth-300 mb-1">{t('Toplam Kar', 'Total Profit')}</p>
-                        <p className="text-xl font-bold text-earth-200">
+                      <div className="bg-green-50 p-3 rounded-lg">
+                        <p className="text-xs text-gray-300 mb-1">{t('Toplam Kar', 'Total Profit')}</p>
+                        <p className="text-xl font-bold text-gray-100">
                           {roi.profit?.toLocaleString() || 0} TRY
                         </p>
                       </div>
 
-                      <div className="bg-harvest-50 p-3 rounded-lg">
-                        <p className="text-xs text-earth-300 mb-1">{t('Yağ Verimi', 'Oil Yield')}</p>
-                        <p className="text-xl font-bold text-earth-200">
+                      <div className="bg-orange-50 p-3 rounded-lg">
+                        <p className="text-xs text-gray-300 mb-1">{t('Yağ Verimi', 'Oil Yield')}</p>
+                        <p className="text-xl font-bold text-gray-100">
                           {roi.oilYield?.toLocaleString() || 0} kg
                         </p>
                       </div>

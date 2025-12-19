@@ -39,7 +39,7 @@ type TabType = 'overview' | 'soil' | 'pesticides' | 'crops' | 'global' | 'matche
 export default function Home() {
   const [selectedLocation, setSelectedLocation] = useState({ lat: 41.8781, lon: -93.0977 });
   const [activeTab, setActiveTab] = useState<TabType>('overview');
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [language, setLanguage] = useState<Language>('tr');
   const [showDevBanner, setShowDevBanner] = useState(true);
 
@@ -65,9 +65,9 @@ export default function Home() {
     // Agriculture Tools
     { key: 'soil', label: t.soilAnalysis, icon: Leaf, section: 'agri' },
     { key: 'crops', label: t.cropCatalog, icon: Sprout, section: 'agri' },
-    { key: 'olive', label: language === 'tr' ? 'Zeytincilik' : 'Olive Cultivation', icon: TreePine, section: 'agri' },
+    { key: 'olive', label: t.oliveCultivation, icon: TreePine, section: 'agri' },
     { key: 'matcher', label: t.pesticideMatcher, icon: Shield, section: 'agri' },
-    { key: 'drones', label: language === 'tr' ? 'Drone Yönetimi' : 'Drone Management', icon: Plane, section: 'agri' },
+    { key: 'drones', label: t.droneManagement, icon: Plane, section: 'agri' },
     { key: 'pesticides', label: t.pesticidesDB, icon: Database, section: 'agri' },
     { key: 'global', label: t.globalInsights, icon: Globe, section: 'agri' },
 
@@ -77,9 +77,9 @@ export default function Home() {
     { key: 'big-data', label: t.bigData, icon: Database, section: 'enterprise' },
 
     // E-Commerce & Marketplace
-    { key: 'marketplace', label: language === 'tr' ? 'B2B Pazar Yeri' : 'B2B Marketplace', icon: ShoppingCart, section: 'ecommerce' },
-    { key: 'commodity-pricing', label: language === 'tr' ? 'Canlı Fiyatlar' : 'Live Pricing', icon: DollarSign, section: 'ecommerce' },
-    { key: 'advanced-api', label: language === 'tr' ? 'API Platform' : 'API Platform', icon: Code, section: 'ecommerce' },
+    { key: 'marketplace', label: t.b2bMarketplace, icon: ShoppingCart, section: 'ecommerce' },
+    { key: 'commodity-pricing', label: t.livePricing, icon: DollarSign, section: 'ecommerce' },
+    { key: 'advanced-api', label: t.apiPlatform, icon: Code, section: 'ecommerce' },
 
     // Investor & Business
     { key: 'roadmap', label: t.roadmap, icon: Rocket, section: 'investor' },
@@ -87,10 +87,10 @@ export default function Home() {
 
     // Info & Legal
     { key: 'about', label: t.aboutProject, icon: BookOpen, section: 'info' },
-    { key: 'api-docs', label: language === 'tr' ? 'API Dokümantasyonu' : 'API Documentation', icon: Code, section: 'info' },
-    { key: 'privacy', label: language === 'tr' ? 'Gizlilik Politikası' : 'Privacy Policy', icon: Shield, section: 'info' },
-    { key: 'terms', label: language === 'tr' ? 'Kullanım Koşulları' : 'Terms of Service', icon: Scale, section: 'info' },
-    { key: 'contact', label: language === 'tr' ? 'İletişim' : 'Contact', icon: MessageSquare, section: 'info' },
+    { key: 'api-docs', label: t.apiDocumentation, icon: Code, section: 'info' },
+    { key: 'privacy', label: t.privacyPolicy, icon: Shield, section: 'info' },
+    { key: 'terms', label: t.termsOfService, icon: Scale, section: 'info' },
+    { key: 'contact', label: t.contact, icon: MessageSquare, section: 'info' },
   ];
 
   return (
@@ -115,96 +115,128 @@ export default function Home() {
         </div>
       )}
 
-      {/* Header */}
-      <header className="bg-white shadow-lg border-b-4 border-green-500 sticky top-0 z-50">
-        <div className="max-w-full px-6 py-4">
+      {/* Header - Premium Design */}
+      <header className="bg-white/95 backdrop-blur-xl shadow-2xl border-b-4 border-gradient-to-r from-green-500 to-green-600 sticky top-0 z-[100]">
+        <div className="max-w-full px-3 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="bg-gradient-to-br from-green-500 to-green-700 p-2 sm:p-3 rounded-xl shadow-lg">
+            {/* Logo & Brand */}
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Mobile Menu Button - Left Side */}
+              <button
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="lg:hidden p-2 bg-gradient-to-r from-green-500 to-green-600 text-white rounded-xl hover:from-green-600 hover:to-green-700 transition-all shadow-lg hover:shadow-xl active:scale-95"
+                aria-label="Toggle menu"
+              >
+                {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+
+              <div className="bg-gradient-to-br from-green-500 via-green-600 to-green-700 p-2 sm:p-3 rounded-xl shadow-lg">
                 <Sprout className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
+                <h1 className="text-base sm:text-lg md:text-2xl font-bold bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent">
                   Lydian AgriTech
                 </h1>
-                <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">{t.headerSubtitle}</p>
+                <p className="text-[10px] sm:text-xs md:text-sm text-gray-600 hidden sm:block">{t.headerSubtitle}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-1.5 sm:gap-3">
-              {/* Drone Management Button */}
+            {/* Action Buttons */}
+            <div className="flex items-center gap-1 sm:gap-2">
+              {/* Drone Button - Now Visible on Mobile */}
               <button
                 onClick={() => setActiveTab('drones')}
-                className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-600 text-white font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:from-green-700 hover:to-green-700 transition-all shadow-lg"
+                className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-green-600 to-green-700 text-white font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:from-green-700 hover:to-green-800 transition-all shadow-lg hover:shadow-xl active:scale-95"
               >
-                <Plane className="w-4 h-4 sm:w-5 sm:h-5 animate-bounce" />
-                <span className="text-xs sm:text-sm">Drone</span>
+                <Plane className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="text-[10px] sm:text-xs md:text-sm">Drone</span>
               </button>
 
-              {/* Dashboard Link */}
+              {/* Dashboard Link - Hidden on small mobile */}
               <a
                 href="/tarim-dashboard"
-                className="hidden sm:flex items-center gap-1.5 sm:gap-2 bg-gray-50 border-2 border-green-600 text-green-700 font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:bg-green-50 transition-all shadow-md"
+                className="hidden sm:flex items-center gap-1 sm:gap-2 bg-white border-2 border-green-600 text-green-700 font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:bg-green-50 transition-all shadow-md hover:shadow-lg active:scale-95"
               >
-                <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                <span className="text-[10px] sm:text-xs">Dashboard</span>
+                <LayoutDashboard className="w-4 h-4" />
+                <span className="text-xs">Dashboard</span>
               </a>
 
               {/* Language Switcher */}
-              <div className="flex items-center gap-0.5 sm:gap-1 bg-gray-50 rounded-lg p-0.5 sm:p-1 border border-gray-200">
+              <div className="flex items-center gap-0.5 bg-gray-100 rounded-lg p-0.5 border border-gray-200 shadow-inner">
                 <button
                   onClick={() => setLanguage('tr')}
-                  className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-semibold transition-all ${
+                  className={`px-2 py-1 rounded-md text-xs font-semibold transition-all ${
                     language === 'tr'
-                      ? 'bg-gradient-to-r from-green-500 to-green-700 text-white shadow-lg'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      ? 'bg-gradient-to-r from-green-500 to-green-700 text-white shadow-md'
+                      : 'text-gray-600 hover:bg-gray-200'
                   }`}
+                  aria-label="Türkçe"
                 >
                   🇹🇷
                 </button>
                 <button
                   onClick={() => setLanguage('en')}
-                  className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-semibold transition-all ${
+                  className={`px-2 py-1 rounded-md text-xs font-semibold transition-all ${
                     language === 'en'
-                      ? 'bg-gradient-to-r from-green-500 to-green-700 text-white shadow-lg'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      ? 'bg-gradient-to-r from-green-500 to-green-700 text-white shadow-md'
+                      : 'text-gray-600 hover:bg-gray-200'
                   }`}
+                  aria-label="English"
                 >
                   🇬🇧
                 </button>
               </div>
-
-              <button
-                onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="lg:hidden p-1.5 sm:p-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
-              >
-                {sidebarOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
-              </button>
             </div>
           </div>
         </div>
       </header>
 
       <div className="flex flex-col lg:flex-row">
-        {/* Mobile Overlay */}
+        {/* Mobile Overlay - Premium Backdrop */}
         {sidebarOpen && (
           <div
-            className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+            className="fixed inset-0 bg-gradient-to-br from-black/60 via-black/50 to-green-900/30 backdrop-blur-sm z-[90] lg:hidden animate-in fade-in duration-300"
             onClick={() => setSidebarOpen(false)}
+            aria-label="Close menu"
           />
         )}
 
-        {/* Sidebar */}
+        {/* Premium Sidebar */}
         <aside
           className={`${
             sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-          } fixed lg:static lg:translate-x-0 w-64 sm:w-72 lg:w-64 h-screen lg:h-auto bg-white shadow-2xl lg:shadow-lg z-40 transition-transform duration-300 overflow-y-auto`}
+          } fixed top-0 lg:static lg:translate-x-0 w-72 sm:w-80 lg:w-64 h-screen lg:h-auto
+          bg-white
+          shadow-2xl lg:shadow-lg z-[150]
+          transition-all duration-500 ease-out
+          ${sidebarOpen ? 'shadow-green-500/20' : ''}
+          overflow-y-auto overflow-x-hidden
+          border-r-4 border-green-500
+          pt-20 lg:pt-0`}
         >
-          <nav className="p-4 space-y-1">
+          <nav className="p-3 sm:p-4 space-y-1">
+            {/* Close button for mobile */}
+            <div className="lg:hidden flex justify-between items-center mb-4 pb-3 border-b-2 border-green-500/20">
+              <div className="flex items-center gap-2">
+                <div className="bg-gradient-to-br from-green-500 to-green-700 p-2 rounded-lg">
+                  <Sprout className="w-5 h-5 text-white" />
+                </div>
+                <span className="font-bold text-green-900">Menu</span>
+              </div>
+              <button
+                onClick={() => setSidebarOpen(false)}
+                className="p-2 hover:bg-red-50 rounded-lg transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="w-5 h-5 text-gray-600" />
+              </button>
+            </div>
+
             {/* Core Platform */}
             <div className="mb-4">
-              <h3 className="text-xs font-bold text-green-700 uppercase tracking-wider px-3 mb-2">
-                {language === 'tr' ? '📊 Ana Platform' : '📊 Core Platform'}
+              <h3 className="text-xs font-bold text-green-700 uppercase tracking-wider px-3 mb-3 flex items-center gap-2">
+                <span>📊</span>
+                <span>{language === 'tr' ? 'Ana Platform' : 'Core Platform'}</span>
               </h3>
               {tabs.filter(tab => tab.section === 'core').map(({ key, label, icon: Icon }) => (
                 <button
@@ -213,22 +245,24 @@ export default function Home() {
                     setActiveTab(key);
                     if (window.innerWidth < 1024) setSidebarOpen(false);
                   }}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl mb-1 transition-all duration-300 group ${
                     activeTab === key
-                      ? 'bg-gradient-to-r from-green-600 to-green-600 text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                      ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-lg shadow-green-500/50 scale-105'
+                      : 'bg-white hover:bg-gradient-to-r hover:from-gray-50 hover:to-green-50 text-gray-700 hover:text-green-700 hover:shadow-md active:scale-95'
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span className="font-medium text-sm">{label}</span>
+                  <Icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${activeTab === key ? 'animate-pulse' : ''}`} />
+                  <span className="font-semibold text-sm flex-1 text-left">{label}</span>
+                  {activeTab === key && <CheckCircle className="w-4 h-4" />}
                 </button>
               ))}
             </div>
 
             {/* Agriculture Tools */}
             <div className="mb-4">
-              <h3 className="text-xs font-bold text-green-700 uppercase tracking-wider px-3 mb-2">
-                {language === 'tr' ? '🌱 Tarım Araçları' : '🌱 Agriculture Tools'}
+              <h3 className="text-xs font-bold text-green-700 uppercase tracking-wider px-3 mb-3 flex items-center gap-2">
+                <span>🌱</span>
+                <span>{language === 'tr' ? 'Tarım Araçları' : 'Agriculture Tools'}</span>
               </h3>
               {tabs.filter(tab => tab.section === 'agri').map(({ key, label, icon: Icon }) => (
                 <button
@@ -237,14 +271,15 @@ export default function Home() {
                     setActiveTab(key);
                     if (window.innerWidth < 1024) setSidebarOpen(false);
                   }}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl mb-1 transition-all duration-300 group ${
                     activeTab === key
-                      ? 'bg-gradient-to-r from-green-600 to-green-600 text-white shadow-lg'
-                      : 'bg-green-50 text-green-900 hover:bg-green-100'
+                      ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-lg shadow-green-500/50 scale-105'
+                      : 'bg-green-50/50 hover:bg-gradient-to-r hover:from-green-50 hover:to-green-100 text-green-800 hover:text-green-900 hover:shadow-md active:scale-95'
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span className="font-medium text-sm">{label}</span>
+                  <Icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${activeTab === key ? 'animate-pulse' : ''}`} />
+                  <span className="font-semibold text-sm flex-1 text-left">{label}</span>
+                  {activeTab === key && <CheckCircle className="w-4 h-4" />}
                 </button>
               ))}
             </div>
@@ -261,14 +296,15 @@ export default function Home() {
                     setActiveTab(key);
                     if (window.innerWidth < 1024) setSidebarOpen(false);
                   }}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl mb-1 transition-all duration-300 group ${
                     activeTab === key
-                      ? 'bg-gradient-to-r from-blue-600 to-blue-600 text-white shadow-lg'
-                      : 'bg-blue-50 text-blue-900 hover:bg-blue-100'
+                      ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/50 scale-105'
+                      : 'bg-blue-50/50 hover:bg-gradient-to-r hover:from-blue-50 hover:to-blue-100 text-blue-800 hover:text-blue-900 hover:shadow-md active:scale-95'
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span className="font-medium text-sm">{label}</span>
+                  <Icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${activeTab === key ? 'animate-pulse' : ''}`} />
+                  <span className="font-semibold text-sm flex-1 text-left">{label}</span>
+                  {activeTab === key && <CheckCircle className="w-4 h-4" />}
                 </button>
               ))}
             </div>
@@ -285,14 +321,15 @@ export default function Home() {
                     setActiveTab(key);
                     if (window.innerWidth < 1024) setSidebarOpen(false);
                   }}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl mb-1 transition-all duration-300 group ${
                     activeTab === key
-                      ? 'bg-gradient-to-r from-purple-600 to-purple-600 text-white shadow-lg'
-                      : 'bg-purple-50 text-purple-900 hover:bg-purple-100'
+                      ? 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg shadow-purple-500/50 scale-105'
+                      : 'bg-purple-50/50 hover:bg-gradient-to-r hover:from-purple-50 hover:to-purple-100 text-purple-800 hover:text-purple-900 hover:shadow-md active:scale-95'
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span className="font-medium text-sm">{label}</span>
+                  <Icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${activeTab === key ? 'animate-pulse' : ''}`} />
+                  <span className="font-semibold text-sm flex-1 text-left">{label}</span>
+                  {activeTab === key && <CheckCircle className="w-4 h-4" />}
                 </button>
               ))}
             </div>
@@ -309,14 +346,15 @@ export default function Home() {
                     setActiveTab(key);
                     if (window.innerWidth < 1024) setSidebarOpen(false);
                   }}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl mb-1 transition-all duration-300 group ${
                     activeTab === key
-                      ? 'bg-gradient-to-r from-orange-600 to-orange-600 text-white shadow-lg'
-                      : 'bg-orange-50 text-orange-900 hover:bg-orange-100'
+                      ? 'bg-gradient-to-r from-orange-600 to-orange-700 text-white shadow-lg shadow-orange-500/50 scale-105'
+                      : 'bg-orange-50/50 hover:bg-gradient-to-r hover:from-orange-50 hover:to-orange-100 text-orange-800 hover:text-orange-900 hover:shadow-md active:scale-95'
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span className="font-medium text-sm">{label}</span>
+                  <Icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${activeTab === key ? 'animate-pulse' : ''}`} />
+                  <span className="font-semibold text-sm flex-1 text-left">{label}</span>
+                  {activeTab === key && <CheckCircle className="w-4 h-4" />}
                 </button>
               ))}
             </div>
@@ -333,14 +371,15 @@ export default function Home() {
                     setActiveTab(key);
                     if (window.innerWidth < 1024) setSidebarOpen(false);
                   }}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl mb-1 transition-all duration-300 group ${
                     activeTab === key
                       ? 'bg-gradient-to-r from-gray-600 to-gray-600 text-white shadow-lg'
                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                   }`}
                 >
-                  <Icon className="w-5 h-5" />
-                  <span className="font-medium text-sm">{label}</span>
+                  <Icon className={`w-5 h-5 transition-transform group-hover:scale-110 ${activeTab === key ? 'animate-pulse' : ''}`} />
+                  <span className="font-semibold text-sm flex-1 text-left">{label}</span>
+                  {activeTab === key && <CheckCircle className="w-4 h-4" />}
                 </button>
               ))}
             </div>
@@ -408,7 +447,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <AgriMap onLocationSelect={handleLocationSelect} />
+                <AgriMap onLocationSelect={handleLocationSelect} language={language} />
                 <WeatherWidget lat={selectedLocation.lat} lon={selectedLocation.lon} />
                 <CropYieldChart />
               </div>

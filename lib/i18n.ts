@@ -76,6 +76,17 @@ export interface Translations {
   learnMore: string;
   backToDashboard: string;
   language: string;
+
+  // Additional tabs and pages
+  oliveCultivation: string;
+  droneManagement: string;
+  b2bMarketplace: string;
+  livePricing: string;
+  apiPlatform: string;
+  apiDocumentation: string;
+  privacyPolicy: string;
+  termsOfService: string;
+  contact: string;
 }
 
 export const translations: Record<Language, Translations> = {
@@ -152,6 +163,17 @@ export const translations: Record<Language, Translations> = {
     learnMore: 'Daha Fazla Bilgi',
     backToDashboard: 'Dashboard\'a Dön',
     language: 'Dil',
+
+    // Additional tabs and pages
+    oliveCultivation: 'Zeytincilik',
+    droneManagement: 'Drone Yönetimi',
+    b2bMarketplace: 'B2B Pazar Yeri',
+    livePricing: 'Canlı Fiyatlar',
+    apiPlatform: 'API Platform',
+    apiDocumentation: 'API Dokümantasyonu',
+    privacyPolicy: 'Gizlilik Politikası',
+    termsOfService: 'Kullanım Koşulları',
+    contact: 'İletişim',
   },
 
   en: {
@@ -227,6 +249,17 @@ export const translations: Record<Language, Translations> = {
     learnMore: 'Learn More',
     backToDashboard: 'Back to Dashboard',
     language: 'Language',
+
+    // Additional tabs and pages
+    oliveCultivation: 'Olive Cultivation',
+    droneManagement: 'Drone Management',
+    b2bMarketplace: 'B2B Marketplace',
+    livePricing: 'Live Pricing',
+    apiPlatform: 'API Platform',
+    apiDocumentation: 'API Documentation',
+    privacyPolicy: 'Privacy Policy',
+    termsOfService: 'Terms of Service',
+    contact: 'Contact',
   }
 };
 
