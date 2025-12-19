@@ -174,17 +174,40 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
   return (
     <div className="min-h-screen bg-gradient-to-br from-agri-50 via-white to-forest-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-agri-600 to-forest-600 text-white py-8 px-6 shadow-lg">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-gradient-to-r from-agri-600 to-forest-600 text-white py-8 px-6 shadow-lg relative overflow-hidden">
+        {/* Animated Olive Grove Background Pattern */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="oliveGrove" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                {/* Olive tree trunk */}
+                <rect x="45" y="60" width="10" height="40" fill="#8B4513" opacity="0.6"/>
+                {/* Olive tree canopy (round) */}
+                <circle cx="50" cy="50" r="25" fill="#22c55e" opacity="0.7"/>
+                <circle cx="45" cy="45" r="8" fill="#16a34a" opacity="0.8"/>
+                <circle cx="55" cy="48" r="7" fill="#16a34a" opacity="0.8"/>
+                <circle cx="50" cy="55" r="6" fill="#15803d" opacity="0.8"/>
+                {/* Olive fruits (small dots) */}
+                <circle cx="42" cy="48" r="2" fill="#6b21a8" opacity="0.9"/>
+                <circle cx="58" cy="52" r="2" fill="#6b21a8" opacity="0.9"/>
+                <circle cx="50" cy="44" r="2" fill="#7c3aed" opacity="0.9"/>
+                <circle cx="54" cy="57" r="2" fill="#6b21a8" opacity="0.9"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#oliveGrove)"/>
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="flex items-center gap-4 mb-4">
-            <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm">
+            <div className="bg-white/20 p-3 rounded-lg backdrop-blur-sm animate-pulse">
               <Leaf className="w-10 h-10" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-white">
+              <h1 className="text-4xl font-bold text-white drop-shadow-lg">
                 {t('Zeytin Yetiştirme Yönetim Sistemi', 'Olive Cultivation Management System')}
               </h1>
-              <p className="text-white/90 text-lg font-medium">
+              <p className="text-white/90 text-lg font-medium drop-shadow-md">
                 {t('Türkiye\'nin En Kapsamlı Zeytin Tarımı Platformu', 'Turkey\'s Most Comprehensive Olive Farming Platform')}
               </p>
             </div>
