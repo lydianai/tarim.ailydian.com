@@ -294,7 +294,7 @@ export default function Home() {
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
                         ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-lg shadow-agri-500/50'
-                        : 'hover:bg-agri-50 text-gray-800 hover:text-gray-900'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
                     <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-agri-700'}`} />
@@ -320,7 +320,7 @@ export default function Home() {
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
                         ? 'bg-gradient-to-r from-forest-600 to-agri-600 text-white shadow-agri'
-                        : 'hover:bg-forest-50 text-earth-800 hover:text-earth-900'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
                     <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
@@ -346,7 +346,7 @@ export default function Home() {
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
                         ? 'bg-gradient-to-r from-sky-600 to-sky-700 text-white shadow-lg'
-                        : 'hover:bg-sky-50 text-earth-800 hover:text-earth-900'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
                     <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
@@ -372,7 +372,7 @@ export default function Home() {
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
                         ? 'bg-white border-2 border-gray-900 shadow-lg'
-                        : 'hover:bg-harvest-50 text-earth-800 hover:text-earth-900'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
                     <Icon className={`w-4 h-4 ${activeTab === key ? 'text-gray-900' : 'text-earth-700'}`} />
@@ -401,7 +401,7 @@ export default function Home() {
                         ? key === 'investor-deck'
                           ? 'bg-gradient-to-r from-purple-600 via-indigo-600 to-violet-600 text-white shadow-lg shadow-purple-500/50'
                           : 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
-                        : 'hover:bg-purple-50 text-gray-800 hover:text-purple-900'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
                     <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-purple-700'}`} />
@@ -434,7 +434,7 @@ export default function Home() {
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
                         ? 'bg-gradient-earth text-white shadow-earth'
-                        : 'hover:bg-earth-50 text-earth-800 hover:text-earth-900'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
                     <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />

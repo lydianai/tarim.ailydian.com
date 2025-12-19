@@ -102,7 +102,7 @@ export default function AnalyticsDashboard() {
               className={`px-4 py-2 rounded-md font-semibold text-sm transition-all ${
                 timeframe === period
                   ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-md'
-                  : 'text-gray-600 hover:bg-gray-100'
+                  : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
               }`}
             >
               {period}

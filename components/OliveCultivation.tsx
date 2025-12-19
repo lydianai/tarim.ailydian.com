@@ -260,7 +260,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                   className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold whitespace-nowrap transition-all ${
                     activeTab === tab.id
                       ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-lg'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                   }`}
                 >
                   <Icon className="w-5 h-5" />

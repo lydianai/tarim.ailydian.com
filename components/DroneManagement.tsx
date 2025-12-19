@@ -491,7 +491,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'fleet'
                 ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100'
+                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
             }`}
           >
             <Plane className="w-5 h-5" />
@@ -502,7 +502,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'missions'
                 ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100'
+                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
             }`}
           >
             <Target className="w-5 h-5" />
@@ -513,7 +513,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'planner'
                 ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100'
+                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
             }`}
           >
             <Map className="w-5 h-5" />
@@ -524,7 +524,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'livestream'
                 ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100'
+                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
             }`}
           >
             <Video className="w-5 h-5" />
@@ -535,7 +535,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'sensors'
                 ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100'
+                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
             }`}
           >
             <Scan className="w-5 h-5" />
@@ -546,7 +546,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'emergency'
                 ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100'
+                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
             }`}
           >
             <Shield className="w-5 h-5" />
@@ -557,7 +557,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'datalogger'
                 ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100'
+                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
             }`}
           >
             <Database className="w-5 h-5" />
@@ -568,7 +568,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'analytics'
                 ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
-                : 'text-gray-600 hover:bg-gray-100'
+                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
             }`}
           >
             <Activity className="w-5 h-5" />
