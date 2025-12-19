@@ -143,17 +143,6 @@ export default function Home() {
 
             {/* Action Buttons */}
             <div className="flex items-center gap-1 sm:gap-2">
-              {/* Medical Dashboard Link - Priority position */}
-              <a
-                href="https://otoai.ailydian.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-red-500 to-pink-600 text-white font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:from-red-600 hover:to-pink-700 transition-all shadow-lg hover:shadow-xl active:scale-95"
-              >
-                <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
-                <span className="text-[10px] sm:text-xs md:text-sm">{language === 'tr' ? 'Tıbbi' : 'Medical'}</span>
-              </a>
-
               {/* Drone Button - Now Visible on Mobile */}
               <button
                 onClick={() => setActiveTab('drones')}
