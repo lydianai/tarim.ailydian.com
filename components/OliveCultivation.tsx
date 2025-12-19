@@ -181,10 +181,10 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
               <Leaf className="w-10 h-10" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold">
+              <h1 className="text-4xl font-bold text-white">
                 {t('Zeytin Yetiştirme Yönetim Sistemi', 'Olive Cultivation Management System')}
               </h1>
-              <p className="text-agri-100 text-lg">
+              <p className="text-white/90 text-lg font-medium">
                 {t('Türkiye\'nin En Kapsamlı Zeytin Tarımı Platformu', 'Turkey\'s Most Comprehensive Olive Farming Platform')}
               </p>
             </div>
@@ -194,31 +194,31 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
-                <Sprout className="w-5 h-5 text-agri-200" />
-                <span className="text-sm text-agri-100">{t('Toplam Ağaç', 'Total Trees')}</span>
+                <Sprout className="w-5 h-5 text-white" />
+                <span className="text-sm text-white/80 font-medium">{t('Toplam Ağaç', 'Total Trees')}</span>
               </div>
-              <p className="text-2xl font-bold">182M</p>
+              <p className="text-2xl font-bold text-white">182M</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
-                <Package className="w-5 h-5 text-agri-200" />
-                <span className="text-sm text-agri-100">{t('Yıllık Üretim', 'Annual Production')}</span>
+                <Package className="w-5 h-5 text-white" />
+                <span className="text-sm text-white/80 font-medium">{t('Yıllık Üretim', 'Annual Production')}</span>
               </div>
-              <p className="text-2xl font-bold">450K {t('ton', 'tons')}</p>
+              <p className="text-2xl font-bold text-white">450K {t('ton', 'tons')}</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
-                <MapPin className="w-5 h-5 text-agri-200" />
-                <span className="text-sm text-agri-100">{t('Ana Bölge', 'Main Region')}</span>
+                <MapPin className="w-5 h-5 text-white" />
+                <span className="text-sm text-white/80 font-medium">{t('Ana Bölge', 'Main Region')}</span>
               </div>
-              <p className="text-2xl font-bold">{t('Ege', 'Aegean')}</p>
+              <p className="text-2xl font-bold text-white">{t('Ege', 'Aegean')}</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
               <div className="flex items-center gap-2 mb-2">
-                <AlertTriangle className="w-5 h-5 text-harvest-300" />
-                <span className="text-sm text-agri-100">{t('Kayıp Oranı', 'Loss Rate')}</span>
+                <AlertTriangle className="w-5 h-5 text-yellow-300" />
+                <span className="text-sm text-white/80 font-medium">{t('Kayıp Oranı', 'Loss Rate')}</span>
               </div>
-              <p className="text-2xl font-bold">~30%</p>
+              <p className="text-2xl font-bold text-white">~30%</p>
             </div>
           </div>
         </div>

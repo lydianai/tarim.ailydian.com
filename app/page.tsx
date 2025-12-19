@@ -182,10 +182,11 @@ export default function Home() {
                 title={language === 'tr' ? 'Drone Yönetimi' : 'Drone Management'}
               >
                 <div className="relative">
-                  <Plane className="w-3.5 sm:w-4 h-3.5 sm:h-4 animate-bounce group-hover:animate-pulse" />
-                  <div className="absolute -top-0.5 -right-0.5 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-400 rounded-full animate-ping" />
+                  <Plane className="w-4 sm:w-5 h-4 sm:h-5 animate-bounce group-hover:animate-pulse text-white" />
+                  <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-yellow-300 border-2 border-white rounded-full animate-ping shadow-lg" />
+                  <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-yellow-400 border-2 border-white rounded-full shadow-lg" />
                 </div>
-                <span className="text-[10px] sm:text-xs hidden xs:inline">{language === 'tr' ? 'Drone' : 'Drone'}</span>
+                <span className="text-xs sm:text-sm font-bold hidden xs:inline">{language === 'tr' ? 'Drone' : 'Drone'}</span>
               </button>
 
               {/* Dashboard Link */}
@@ -383,7 +384,8 @@ export default function Home() {
               {/* Investor */}
               <div className="mb-4">
                 <div className="px-3 mb-2">
-                  <h3 className="text-xs font-bold text-sunset-600 uppercase tracking-wider">
+                  <h3 className="text-xs font-bold text-purple-600 uppercase tracking-wider flex items-center gap-2">
+                    <TrendingUp className="w-3 h-3" />
                     {language === 'tr' ? 'Yatırımcı' : 'Investor'}
                   </h3>
                 </div>
@@ -396,12 +398,21 @@ export default function Home() {
                     }}
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
-                        ? 'bg-gradient-to-r from-sunset-600 to-sunset-700 text-white shadow-lg'
-                        : 'hover:bg-sunset-50 text-earth-800 hover:text-earth-900'
+                        ? key === 'investor-deck'
+                          ? 'bg-gradient-to-r from-purple-600 via-indigo-600 to-violet-600 text-white shadow-lg shadow-purple-500/50'
+                          : 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
+                        : 'hover:bg-purple-50 text-gray-800 hover:text-purple-900'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
-                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-purple-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-gray-800'}`}>{label}</span>
+                    {key === 'investor-deck' && (
+                      <span className={`ml-auto text-[10px] px-2 py-0.5 rounded-full ${
+                        activeTab === key ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-700'
+                      }`}>
+                        PRO
+                      </span>
+                    )}
                   </button>
                 ))}
               </div>
