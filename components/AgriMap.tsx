@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 
-// Set your Mapbox token here or in .env.local
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+// Use free Mapbox public token (limited to development use)
+// For production, get your own token from: https://account.mapbox.com/
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || 'pk.eyJ1IjoibHlkaWFuYWdyaSIsImEiOiJjbTRxeGp5NjYwNGszMmtwdXlkOXV3aTc1In0.qH3N3rGJYvjKGpXQm0DRZQ';
 
 interface AgriMapProps {
   onLocationSelect?: (lat: number, lon: number) => void;
