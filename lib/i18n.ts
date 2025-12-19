@@ -57,9 +57,19 @@ export interface Translations {
 
   // Sidebar Stats
   platformStatistics: string;
+  platformStats: string;
+  activeUsers: string;
+  dataPoints: string;
+  activeIntegrations: string;
+  globalLeaders: string;
   crops: string;
   liveDataSources: string;
   agriTechLeaders: string;
+  cropTypes: string;
+  comprehensiveDatabase: string;
+  safetyFirst: string;
+  globalCoverage: string;
+  platformOverview: string;
 
   // Common
   readMore: string;
@@ -123,9 +133,19 @@ export const translations: Record<Language, Translations> = {
 
     // Sidebar Stats
     platformStatistics: 'Platform İstatistikleri',
+    platformStats: 'Platform İstatistikleri',
+    activeUsers: 'Aktif Kullanıcı',
+    dataPoints: 'Veri Noktası',
+    activeIntegrations: 'Aktif Entegrasyon',
+    globalLeaders: 'Küresel Liderler',
     crops: 'Ürünler',
     liveDataSources: 'Canlı Veri Kaynakları',
     agriTechLeaders: 'Tarım Teknolojisi Liderleri',
+    cropTypes: 'Ürün Çeşidi',
+    comprehensiveDatabase: 'Kapsamlı Veritabanı',
+    safetyFirst: 'Güvenlik Önceliği',
+    globalCoverage: 'Küresel Kapsama',
+    platformOverview: 'Platform Genel Bakışı',
 
     // Common
     readMore: 'Devamını Oku',
@@ -188,9 +208,19 @@ export const translations: Record<Language, Translations> = {
 
     // Sidebar Stats
     platformStatistics: 'Platform Statistics',
+    platformStats: 'Platform Statistics',
+    activeUsers: 'Active Users',
+    dataPoints: 'Data Points',
+    activeIntegrations: 'Active Integrations',
+    globalLeaders: 'Global Leaders',
     crops: 'Crops',
     liveDataSources: 'Live Data Sources',
     agriTechLeaders: 'Agri Tech Leaders',
+    cropTypes: 'Crop Types',
+    comprehensiveDatabase: 'Comprehensive Database',
+    safetyFirst: 'Safety First',
+    globalCoverage: 'Global Coverage',
+    platformOverview: 'Platform Overview',
 
     // Common
     readMore: 'Read More',
