@@ -360,7 +360,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active': return 'text-green-600 bg-green-50 border-green-200';
-      case 'idle': return 'text-blue-600 bg-blue-50 border-blue-200';
+      case 'idle': return 'text-agri-700 bg-agri-50 border-agri-200';
       case 'charging': return 'text-yellow-600 bg-yellow-50 border-yellow-200';
       case 'maintenance': return 'text-red-600 bg-red-50 border-red-200';
       case 'completed': return 'text-green-600 bg-green-50 border-green-200';
@@ -392,9 +392,9 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-agri-50">
+    <div className="min-h-screen bg-gradient-to-br from-agri-50 via-white to-forest-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-agri-600 via-forest-600 to-sky-600 text-white p-6 shadow-lg">
+      <div className="bg-gradient-to-r from-agri-600 via-forest-600 to-agri-700 text-white p-6 shadow-lg">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -534,7 +534,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
               >
                 <div className={`p-4 bg-gradient-to-r ${
                   drone.status === 'active' ? 'from-green-500 to-green-600' :
-                  drone.status === 'idle' ? 'from-blue-500 to-blue-600' :
+                  drone.status === 'idle' ? 'from-agri-600 to-forest-600' :
                   drone.status === 'charging' ? 'from-yellow-500 to-yellow-600' :
                   'from-red-500 to-red-600'
                 } text-white`}>
@@ -578,7 +578,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   {/* Flight Stats */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center gap-2">
-                      <Navigation className="w-5 h-5 text-blue-600" />
+                      <Navigation className="w-5 h-5 text-agri-700" />
                       <div>
                         <div className="text-xs text-gray-500">{t.altitude}</div>
                         <div className="font-bold text-gray-900">{drone.altitude.toFixed(0)}m</div>
@@ -599,7 +599,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Wind className="w-5 h-5 text-sky-600" />
+                      <Wind className="w-5 h-5 text-forest-700" />
                       <div>
                         <div className="text-xs text-gray-500">{t.windSpeed}</div>
                         <div className="font-bold text-gray-900">{drone.windSpeed.toFixed(1)} m/s</div>
@@ -653,7 +653,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-4">
                     <div className={`p-3 rounded-xl ${
-                      mission.type === 'survey' ? 'bg-blue-100 text-blue-600' :
+                      mission.type === 'survey' ? 'bg-agri-100 text-agri-700' :
                       mission.type === 'spray' ? 'bg-green-100 text-green-600' :
                       mission.type === 'monitoring' ? 'bg-purple-100 text-purple-600' :
                       'bg-orange-100 text-orange-600'
@@ -769,8 +769,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             {/* Soil Moisture */}
             <div className="bg-white rounded-xl shadow-lg p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="bg-blue-100 p-3 rounded-xl">
-                  <Droplet className="w-6 h-6 text-blue-600" />
+                <div className="bg-agri-100 p-3 rounded-xl">
+                  <Droplet className="w-6 h-6 text-agri-700" />
                 </div>
                 <div>
                   <h3 className="font-bold text-gray-900">{t.soilMoisture}</h3>
@@ -778,12 +778,12 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 </div>
               </div>
               <div className="text-center">
-                <div className="text-5xl font-bold text-blue-600 mb-2">
+                <div className="text-5xl font-bold text-agri-700 mb-2">
                   {sensorData.soilMoisture.toFixed(0)}%
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3">
                   <div
-                    className="bg-blue-500 h-3 rounded-full"
+                    className="bg-agri-600 h-3 rounded-full"
                     style={{ width: `${sensorData.soilMoisture}%` }}
                   />
                 </div>
@@ -898,8 +898,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   </div>
                   <div className="text-sm text-gray-600">{t.temperature}</div>
                 </div>
-                <div className="text-center p-4 bg-blue-50 rounded-lg">
-                  <div className="text-3xl font-bold text-blue-600">
+                <div className="text-center p-4 bg-forest-50 rounded-lg">
+                  <div className="text-3xl font-bold text-forest-700">
                     {drones[0].humidity}%
                   </div>
                   <div className="text-sm text-gray-600">{t.humidity}</div>
@@ -989,8 +989,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
               {/* Resource Optimization */}
               <div className="bg-white rounded-xl shadow-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-blue-100 p-3 rounded-xl">
-                    <Droplet className="w-6 h-6 text-blue-600" />
+                  <div className="bg-agri-100 p-3 rounded-xl">
+                    <Droplet className="w-6 h-6 text-agri-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-900">
@@ -1000,11 +1000,11 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   </div>
                 </div>
                 <div className="space-y-4">
-                  <div className="p-4 bg-blue-50 rounded-lg">
+                  <div className="p-4 bg-agri-50 rounded-lg">
                     <div className="text-sm text-gray-600 mb-1">
                       {language === 'tr' ? 'Su Tasarrufu' : 'Water Savings'}
                     </div>
-                    <div className="text-3xl font-bold text-blue-600">34%</div>
+                    <div className="text-3xl font-bold text-agri-700">34%</div>
                   </div>
                   <div className="p-4 bg-green-50 rounded-lg">
                     <div className="text-sm text-gray-600 mb-1">

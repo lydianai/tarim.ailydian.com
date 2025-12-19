@@ -26,20 +26,21 @@ import PrivacyPolicy from '@/components/PrivacyPolicy';
 import TermsOfService from '@/components/TermsOfService';
 import ContactPage from '@/components/ContactPage';
 import DroneManagement from '@/components/DroneManagement';
+import OliveCultivation from '@/components/OliveCultivation';
 import { LydianAgriLogoWithText } from '@/components/LydianAgriLogo';
-import { Sprout, MapPin, Globe, BarChart3, Leaf, Menu, X, Database, Shield, Sparkles, Activity, LineChart, Languages, BookOpen, AlertCircle, Package, Award, Rocket, TrendingUp, CheckCircle, Zap, Code, Scale, MessageSquare, ShoppingCart, DollarSign, LayoutDashboard, Plane } from 'lucide-react';
+import { Sprout, MapPin, Globe, BarChart3, Leaf, Menu, X, Database, Shield, Sparkles, Activity, LineChart, Languages, BookOpen, AlertCircle, Package, Award, Rocket, TrendingUp, CheckCircle, Zap, Code, Scale, MessageSquare, ShoppingCart, DollarSign, LayoutDashboard, Plane, TreePine } from 'lucide-react';
 import { CROPS_DATABASE } from '@/lib/crops-database';
 import { PESTICIDES_DATABASE } from '@/lib/pesticides-database';
 import { DATA_SOURCES } from '@/lib/bigdata-collector';
 import { GLOBAL_AGRI_LEADERS } from '@/lib/global-agri-insights';
 import { Language, getTranslation, detectBrowserLanguage } from '@/lib/i18n';
 
-type TabType = 'overview' | 'soil' | 'pesticides' | 'crops' | 'global' | 'matcher' | 'insights' | 'live-data' | 'analytics' | 'supply-chain' | 'esg' | 'big-data' | 'roadmap' | 'investor-deck' | 'api-docs' | 'advanced-api' | 'marketplace' | 'commodity-pricing' | 'privacy' | 'terms' | 'contact' | 'about' | 'drones';
+type TabType = 'overview' | 'soil' | 'pesticides' | 'crops' | 'global' | 'matcher' | 'insights' | 'live-data' | 'analytics' | 'supply-chain' | 'esg' | 'big-data' | 'roadmap' | 'investor-deck' | 'api-docs' | 'advanced-api' | 'marketplace' | 'commodity-pricing' | 'privacy' | 'terms' | 'contact' | 'about' | 'drones' | 'olive';
 
 export default function Home() {
   const [selectedLocation, setSelectedLocation] = useState({ lat: 41.8781, lon: -93.0977 });
   const [activeTab, setActiveTab] = useState<TabType>('overview');
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false); // Start closed on mobile
   const [language, setLanguage] = useState<Language>('tr');
   const [showDevBanner, setShowDevBanner] = useState(true);
 
@@ -47,6 +48,19 @@ export default function Home() {
     // Detect browser language on mount
     const detected = detectBrowserLanguage();
     setLanguage(detected);
+
+    // Open sidebar on desktop
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setSidebarOpen(true);
+      } else {
+        setSidebarOpen(false);
+      }
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const t = getTranslation(language);
@@ -65,6 +79,7 @@ export default function Home() {
     // Agriculture Tools
     { key: 'soil', label: t.soilAnalysis, icon: Leaf, section: 'agri' },
     { key: 'crops', label: t.cropCatalog, icon: Sprout, section: 'agri' },
+    { key: 'olive', label: language === 'tr' ? 'Zeytincilik' : 'Olive Cultivation', icon: TreePine, section: 'agri' },
     { key: 'matcher', label: t.pesticideMatcher, icon: Shield, section: 'agri' },
     { key: 'drones', label: language === 'tr' ? 'Drone Yönetimi' : 'Drone Management', icon: Plane, section: 'agri' },
     { key: 'pesticides', label: t.pesticidesDB, icon: Database, section: 'agri' },
@@ -163,23 +178,23 @@ export default function Home() {
               {/* Drone Icon with Animation */}
               <button
                 onClick={() => setActiveTab('drones')}
-                className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-blue-500 to-sky-500 text-white font-bold px-3 py-2 rounded-lg hover:from-blue-600 hover:to-sky-600 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden"
+                className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-agri-600 to-forest-600 text-white font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:from-agri-700 hover:to-forest-700 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden"
                 title={language === 'tr' ? 'Drone Yönetimi' : 'Drone Management'}
               >
                 <div className="relative">
-                  <Plane className="w-4 h-4 animate-bounce group-hover:animate-pulse" />
-                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full animate-ping" />
+                  <Plane className="w-3.5 sm:w-4 h-3.5 sm:h-4 animate-bounce group-hover:animate-pulse" />
+                  <div className="absolute -top-0.5 -right-0.5 w-1.5 sm:w-2 h-1.5 sm:h-2 bg-green-400 rounded-full animate-ping" />
                 </div>
-                <span className="text-xs">{language === 'tr' ? 'Drone' : 'Drone'}</span>
+                <span className="text-[10px] sm:text-xs hidden xs:inline">{language === 'tr' ? 'Drone' : 'Drone'}</span>
               </button>
 
               {/* Dashboard Link */}
               <a
                 href="/tarim-dashboard"
-                className="hidden sm:flex items-center gap-2 bg-white border-2 border-gray-900 text-gray-900 font-bold px-3 py-2 rounded-lg hover:bg-gray-100 transition-all shadow-md"
+                className="flex items-center gap-1 sm:gap-2 bg-white border-2 border-agri-600 text-agri-700 font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:bg-agri-50 transition-all shadow-md"
               >
-                <LayoutDashboard className="w-4 h-4" />
-                <span className="text-xs">Dashboard</span>
+                <LayoutDashboard className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
+                <span className="text-[10px] sm:text-xs hidden xs:inline">Dashboard</span>
               </a>
 
               {/* Language Switcher */}
@@ -216,10 +231,17 @@ export default function Home() {
               </div>
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="lg:hidden p-1.5 sm:p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                className="lg:hidden p-2 bg-gradient-to-br from-agri-500 to-forest-600 hover:from-agri-600 hover:to-forest-700 rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-95 relative group"
                 aria-label="Toggle menu"
               >
-                {sidebarOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
+                {sidebarOpen ? (
+                  <X className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                ) : (
+                  <div className="relative">
+                    <Sprout className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:rotate-12 transition-transform" />
+                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+                  </div>
+                )}
               </button>
             </div>
           </div>
@@ -643,6 +665,12 @@ export default function Home() {
           {activeTab === 'drones' && (
             <div>
               <DroneManagement language={language} />
+            </div>
+          )}
+
+          {activeTab === 'olive' && (
+            <div>
+              <OliveCultivation language={language} />
             </div>
           )}
 
