@@ -248,7 +248,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
       </div>
 
       {/* Tabs */}
-      <div className="bg-white shadow-md border-b border-gray-200 sticky top-0 z-10">
+      <div className="bg-gradient-to-br from-agri-50 to-forest-50 shadow-md border-b border-agri-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex overflow-x-auto gap-2 py-4">
             {tabs.map(tab => {

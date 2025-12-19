@@ -293,12 +293,12 @@ export default function Home() {
                     }}
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
-                        ? 'bg-gradient-agri text-white shadow-agri'
-                        : 'hover:bg-agri-50 text-earth-800 hover:text-earth-900'
+                        ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-lg shadow-agri-500/50'
+                        : 'hover:bg-agri-50 text-gray-800 hover:text-gray-900'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
-                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-agri-700'}`} />
+                    <span className={`font-bold text-sm ${activeTab === key ? 'text-white' : 'text-gray-800'}`}>{label}</span>
                   </button>
                 ))}
               </div>
