@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { MapPin } from 'lucide-react';
+import 'leaflet/dist/leaflet.css';
 
 interface AgriMapProps {
   onLocationSelect?: (lat: number, lon: number) => void;
@@ -32,9 +33,6 @@ function AgriMapComponent({ onLocationSelect, language = 'en' }: AgriMapProps) {
         setMapReady(true);
       }
     }, 1000);
-
-    // Check if Leaflet CSS is already loaded
-    const existingLink = document.querySelector('link[href*="leaflet.css"]');
 
     const initMap = () => {
       import('leaflet').then((L) => {
@@ -199,29 +197,8 @@ function AgriMapComponent({ onLocationSelect, language = 'en' }: AgriMapProps) {
       });
     };
 
-    // If CSS already exists, init immediately
-    if (existingLink) {
-      initMap();
-    } else {
-      // Load Leaflet CSS first
-      const cssLink = document.createElement('link');
-      cssLink.rel = 'stylesheet';
-      cssLink.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
-      cssLink.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
-      cssLink.crossOrigin = '';
-
-      cssLink.onload = () => {
-        initMap();
-      };
-
-      cssLink.onerror = () => {
-        console.error('Failed to load Leaflet CSS');
-        setMapReady(true);
-        setIsLoaded(true); // Show even if CSS fails
-      };
-
-      document.head.appendChild(cssLink);
-    }
+    // Initialize map immediately (CSS is now imported)
+    initMap();
 
     return () => {
       clearTimeout(safetyTimeout);
