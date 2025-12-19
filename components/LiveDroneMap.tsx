@@ -98,9 +98,9 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
     return () => clearInterval(interval);
   }, []);
 
-  // Draw flight paths on canvas
+  // Draw agricultural field pattern and flight paths on canvas
   useEffect(() => {
-    if (!canvasRef.current || !showPaths) return;
+    if (!canvasRef.current) return;
 
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
@@ -109,22 +109,45 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Draw grid
-    ctx.strokeStyle = '#e5e7eb';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 10; i++) {
-      // Vertical lines
+    // Draw agricultural field pattern (green crop rows)
+    const rowHeight = 30;
+    const rowCount = Math.ceil(canvas.height / rowHeight);
+
+    for (let i = 0; i < rowCount; i++) {
+      // Alternating shades of green for crop rows
+      const shade = i % 2 === 0 ? 'rgba(34, 197, 94, 0.08)' : 'rgba(22, 163, 74, 0.08)';
+      ctx.fillStyle = shade;
+      ctx.fillRect(0, i * rowHeight, canvas.width, rowHeight);
+
+      // Draw crop texture lines
+      ctx.strokeStyle = 'rgba(22, 163, 74, 0.15)';
+      ctx.lineWidth = 2;
+      for (let j = 0; j < canvas.width; j += 8) {
+        ctx.beginPath();
+        ctx.moveTo(j, i * rowHeight + 5);
+        ctx.lineTo(j + 4, i * rowHeight + rowHeight - 5);
+        ctx.stroke();
+      }
+    }
+
+    // Draw field boundary lines
+    ctx.strokeStyle = 'rgba(34, 197, 94, 0.3)';
+    ctx.lineWidth = 2;
+    for (let i = 0; i <= 4; i++) {
+      // Vertical field divisions
       ctx.beginPath();
-      ctx.moveTo((i / 10) * canvas.width, 0);
-      ctx.lineTo((i / 10) * canvas.width, canvas.height);
+      ctx.moveTo((i / 4) * canvas.width, 0);
+      ctx.lineTo((i / 4) * canvas.width, canvas.height);
       ctx.stroke();
 
-      // Horizontal lines
+      // Horizontal field divisions
       ctx.beginPath();
-      ctx.moveTo(0, (i / 10) * canvas.height);
-      ctx.lineTo(canvas.width, (i / 10) * canvas.height);
+      ctx.moveTo(0, (i / 4) * canvas.height);
+      ctx.lineTo(canvas.width, (i / 4) * canvas.height);
       ctx.stroke();
     }
+
+    if (!showPaths) return;
 
     // Draw flight paths for active drones
     drones.forEach(drone => {
@@ -188,7 +211,7 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
   return (
     <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-gray-200">
       {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4">
+      <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
@@ -207,7 +230,7 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
               onClick={() => setShowPaths(!showPaths)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all ${
                 showPaths
-                  ? 'bg-white text-blue-600'
+                  ? 'bg-white text-agri-700'
                   : 'bg-white/20 text-white hover:bg-white/30'
               }`}
             >
