@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { fetchDroneTelemetry, fetchWeather, fetchSatelliteData } from '@/lib/api-client';
+import LiveDroneMap from './LiveDroneMap';
 import {
   Plane,
   Battery,
@@ -542,8 +543,13 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
 
         {/* Fleet View */}
         {activeTab === 'fleet' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {drones.map(drone => (
+          <div className="space-y-6">
+            {/* Live Map */}
+            <LiveDroneMap language={language} />
+
+            {/* Drone Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {drones.map(drone => (
               <div
                 key={drone.id}
                 className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all cursor-pointer"
@@ -657,7 +663,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   </div>
                 </div>
               </div>
-            ))}
+              ))}
+            </div>
           </div>
         )}
 
