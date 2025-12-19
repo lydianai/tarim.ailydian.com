@@ -16,14 +16,24 @@ import AboutProject from '@/components/AboutProject';
 import SupplyChainTracker from '@/components/SupplyChainTracker';
 import ESGDashboard from '@/components/ESGDashboard';
 import BigDataDashboard from '@/components/BigDataDashboard';
-import { Sprout, MapPin, Globe, BarChart3, Leaf, Menu, X, Database, Shield, Sparkles, Activity, LineChart, Languages, BookOpen, AlertCircle, Package, Award } from 'lucide-react';
+import Roadmap from '@/components/Roadmap';
+import InvestorDeck from '@/components/InvestorDeck';
+import ApiDocumentation from '@/components/ApiDocumentation';
+import AdvancedApiDocs from '@/components/AdvancedApiDocs';
+import AgriMarketplace from '@/components/AgriMarketplace';
+import LiveCommodityPricing from '@/components/LiveCommodityPricing';
+import PrivacyPolicy from '@/components/PrivacyPolicy';
+import TermsOfService from '@/components/TermsOfService';
+import ContactPage from '@/components/ContactPage';
+import { LydianAgriLogoWithText } from '@/components/LydianAgriLogo';
+import { Sprout, MapPin, Globe, BarChart3, Leaf, Menu, X, Database, Shield, Sparkles, Activity, LineChart, Languages, BookOpen, AlertCircle, Package, Award, Rocket, TrendingUp, CheckCircle, Zap, Code, Scale, MessageSquare, ShoppingCart, DollarSign, LayoutDashboard } from 'lucide-react';
 import { CROPS_DATABASE } from '@/lib/crops-database';
 import { PESTICIDES_DATABASE } from '@/lib/pesticides-database';
 import { DATA_SOURCES } from '@/lib/bigdata-collector';
 import { GLOBAL_AGRI_LEADERS } from '@/lib/global-agri-insights';
 import { Language, getTranslation, detectBrowserLanguage } from '@/lib/i18n';
 
-type TabType = 'overview' | 'soil' | 'pesticides' | 'crops' | 'global' | 'matcher' | 'insights' | 'live-data' | 'analytics' | 'supply-chain' | 'esg' | 'big-data' | 'about';
+type TabType = 'overview' | 'soil' | 'pesticides' | 'crops' | 'global' | 'matcher' | 'insights' | 'live-data' | 'analytics' | 'supply-chain' | 'esg' | 'big-data' | 'roadmap' | 'investor-deck' | 'api-docs' | 'advanced-api' | 'marketplace' | 'commodity-pricing' | 'privacy' | 'terms' | 'contact' | 'about';
 
 export default function Home() {
   const [selectedLocation, setSelectedLocation] = useState({ lat: 41.8781, lon: -93.0977 });
@@ -44,24 +54,44 @@ export default function Home() {
     setSelectedLocation({ lat, lon });
   };
 
-  const tabs: Array<{key: TabType, label: string, icon: any}> = [
-    { key: 'overview', label: t.overview, icon: BarChart3 },
-    { key: 'analytics', label: t.analytics, icon: LineChart },
-    { key: 'insights', label: t.aiInsights, icon: Sparkles },
-    { key: 'live-data', label: t.liveData, icon: Activity },
-    { key: 'soil', label: t.soilAnalysis, icon: Leaf },
-    { key: 'crops', label: t.cropCatalog, icon: Sprout },
-    { key: 'matcher', label: t.pesticideMatcher, icon: Shield },
-    { key: 'pesticides', label: t.pesticidesDB, icon: Database },
-    { key: 'global', label: t.globalInsights, icon: Globe },
-    { key: 'supply-chain', label: t.supplyChain, icon: Package },
-    { key: 'esg', label: t.esgMetrics, icon: Award },
-    { key: 'big-data', label: t.bigData, icon: Database },
-    { key: 'about', label: t.aboutProject, icon: BookOpen },
+  const tabs: Array<{key: TabType, label: string, icon: any, section?: string}> = [
+    // Core Platform
+    { key: 'overview', label: t.overview, icon: BarChart3, section: 'core' },
+    { key: 'analytics', label: t.analytics, icon: LineChart, section: 'core' },
+    { key: 'insights', label: t.aiInsights, icon: Sparkles, section: 'core' },
+    { key: 'live-data', label: t.liveData, icon: Activity, section: 'core' },
+
+    // Agriculture Tools
+    { key: 'soil', label: t.soilAnalysis, icon: Leaf, section: 'agri' },
+    { key: 'crops', label: t.cropCatalog, icon: Sprout, section: 'agri' },
+    { key: 'matcher', label: t.pesticideMatcher, icon: Shield, section: 'agri' },
+    { key: 'pesticides', label: t.pesticidesDB, icon: Database, section: 'agri' },
+    { key: 'global', label: t.globalInsights, icon: Globe, section: 'agri' },
+
+    // Enterprise
+    { key: 'supply-chain', label: t.supplyChain, icon: Package, section: 'enterprise' },
+    { key: 'esg', label: t.esgMetrics, icon: Award, section: 'enterprise' },
+    { key: 'big-data', label: t.bigData, icon: Database, section: 'enterprise' },
+
+    // E-Commerce & Marketplace
+    { key: 'marketplace', label: language === 'tr' ? 'B2B Pazar Yeri' : 'B2B Marketplace', icon: ShoppingCart, section: 'ecommerce' },
+    { key: 'commodity-pricing', label: language === 'tr' ? 'Canlı Fiyatlar' : 'Live Pricing', icon: DollarSign, section: 'ecommerce' },
+    { key: 'advanced-api', label: language === 'tr' ? 'API Platform' : 'API Platform', icon: Code, section: 'ecommerce' },
+
+    // Investor & Business
+    { key: 'roadmap', label: t.roadmap, icon: Rocket, section: 'investor' },
+    { key: 'investor-deck', label: t.investorDeck, icon: TrendingUp, section: 'investor' },
+
+    // Info & Legal
+    { key: 'about', label: t.aboutProject, icon: BookOpen, section: 'info' },
+    { key: 'api-docs', label: language === 'tr' ? 'API Dokümantasyonu' : 'API Documentation', icon: Code, section: 'info' },
+    { key: 'privacy', label: language === 'tr' ? 'Gizlilik Politikası' : 'Privacy Policy', icon: Shield, section: 'info' },
+    { key: 'terms', label: language === 'tr' ? 'Kullanım Koşulları' : 'Terms of Service', icon: Scale, section: 'info' },
+    { key: 'contact', label: language === 'tr' ? 'İletişim' : 'Contact', icon: MessageSquare, section: 'info' },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-agri-50 via-sky-50 to-harvest-50">
       {/* Development Banner */}
       {showDevBanner && (
         <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 sm:px-6 py-2 sm:py-3 flex items-center justify-between gap-2">
@@ -84,34 +114,67 @@ export default function Home() {
       )}
 
       {/* Header */}
-      <header className="bg-white shadow-lg border-b-4 border-green-500 sticky top-0 z-50">
+      <header className="bg-white shadow-agri-lg border-b-4 border-agri-500 sticky top-0 z-50 backdrop-blur-sm bg-white/95">
         <div className="max-w-full px-3 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between gap-2">
-            <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
-              <div className="bg-gradient-to-br from-green-500 to-green-700 p-2 sm:p-3 rounded-lg sm:rounded-xl shadow-lg flex-shrink-0">
-                <Sprout className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
+            <div className="flex items-center gap-3 flex-1 min-w-0">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12">
+                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                  <circle cx="100" cy="100" r="95" fill="url(#earthGradient)" />
+                  <g transform="translate(100, 40)">
+                    <path d="M0 0 L0 60" stroke="#fff" strokeWidth="3" strokeLinecap="round" />
+                    <ellipse cx="-8" cy="15" rx="6" ry="10" fill="#fff" opacity="0.9" />
+                    <ellipse cx="-10" cy="30" rx="6" ry="10" fill="#fff" opacity="0.9" />
+                    <ellipse cx="-8" cy="45" rx="6" ry="10" fill="#fff" opacity="0.9" />
+                    <ellipse cx="8" cy="15" rx="6" ry="10" fill="#fff" opacity="0.9" />
+                    <ellipse cx="10" cy="30" rx="6" ry="10" fill="#fff" opacity="0.9" />
+                    <ellipse cx="8" cy="45" rx="6" ry="10" fill="#fff" opacity="0.9" />
+                  </g>
+                  <g transform="translate(100, 110)">
+                    <path d="M-5 0 Q-30 -10 -35 -25 Q-30 -15 -5 -5 Z" fill="url(#leafGradient)" opacity="0.95" />
+                    <path d="M5 0 Q30 -10 35 -25 Q30 -15 5 -5 Z" fill="url(#leafGradient)" opacity="0.95" />
+                  </g>
+                  <path d="M30 140 Q50 145 70 140 T110 140 T150 140 T170 140" stroke="#fff" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+                  <circle cx="60" cy="100" r="3" fill="#fff" opacity="0.6" />
+                  <circle cx="140" cy="100" r="3" fill="#fff" opacity="0.6" />
+                  <circle cx="75" cy="85" r="2" fill="#fff" opacity="0.5" />
+                  <circle cx="125" cy="85" r="2" fill="#fff" opacity="0.5" />
+                  <defs>
+                    <linearGradient id="earthGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#22c55e" />
+                      <stop offset="50%" stopColor="#16a34a" />
+                      <stop offset="100%" stopColor="#15803d" />
+                    </linearGradient>
+                    <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#ffffff" stopOpacity="1" />
+                      <stop offset="100%" stopColor="#ffffff" stopOpacity="0.8" />
+                    </linearGradient>
+                  </defs>
+                </svg>
               </div>
-              <div className="min-w-0 flex-1">
-                <h1 className="text-base sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent flex items-center gap-1 sm:gap-2 flex-wrap">
-                  <span className="truncate">{t.headerTitle}</span>
-                  <span className="hidden sm:inline text-sm sm:text-lg font-normal text-gray-400">by</span>
-                  <span className="text-base sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Lydian
-                  </span>
-                </h1>
-                <p className="text-xs sm:text-sm text-gray-600 truncate">{t.headerSubtitle}</p>
-              </div>
+              <h1 className="text-xl sm:text-2xl lg:text-3xl font-display font-bold text-agri-800 tracking-tight">
+                Lydian
+              </h1>
             </div>
 
             <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+              {/* Dashboard Link */}
+              <a
+                href="/tarim-dashboard"
+                className="hidden sm:flex items-center gap-2 bg-white border-2 border-gray-900 text-gray-900 font-bold px-3 py-2 rounded-lg hover:bg-gray-100 transition-all shadow-md"
+              >
+                <LayoutDashboard className="w-4 h-4" />
+                <span className="text-xs">Dashboard</span>
+              </a>
+
               {/* Language Switcher */}
-              <div className="flex items-center gap-0.5 sm:gap-1 bg-gray-50 rounded-lg p-0.5 sm:p-1 border border-gray-200">
+              <div className="flex items-center gap-0.5 sm:gap-1 bg-earth-50 rounded-lg p-0.5 sm:p-1 border border-earth-200">
                 <button
                   onClick={() => setLanguage('tr')}
                   className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-semibold transition-all ${
                     language === 'tr'
-                      ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-md'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      ? 'bg-gradient-agri text-white shadow-agri'
+                      : 'text-earth-600 hover:bg-earth-100'
                   }`}
                 >
                   🇹🇷
@@ -120,21 +183,21 @@ export default function Home() {
                   onClick={() => setLanguage('en')}
                   className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-semibold transition-all ${
                     language === 'en'
-                      ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-md'
-                      : 'text-gray-600 hover:bg-gray-100'
+                      ? 'bg-gradient-agri text-white shadow-agri'
+                      : 'text-earth-600 hover:bg-earth-100'
                   }`}
                 >
                   🇬🇧
                 </button>
               </div>
 
-              <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-purple-50 to-pink-50 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-purple-200">
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-xs font-bold text-purple-700 hidden md:inline">{t.liveStatus}</span>
+              <div className="hidden sm:flex items-center gap-1.5 sm:gap-2 bg-gradient-to-r from-agri-50 to-forest-50 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg border border-agri-200">
+                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-agri-500 rounded-full animate-pulse shadow-agri"></div>
+                <span className="text-xs font-bold text-agri-700 hidden md:inline">{t.liveStatus}</span>
               </div>
-              <div className="hidden xl:flex items-center gap-2 bg-blue-50 px-3 py-2 rounded-lg border border-blue-200">
-                <Database className="w-3 h-3 text-blue-700" />
-                <span className="text-xs font-semibold text-blue-900">{DATA_SOURCES.length} {t.dataSources}</span>
+              <div className="hidden xl:flex items-center gap-2 bg-sky-50 px-3 py-2 rounded-lg border border-sky-200">
+                <Database className="w-3 h-3 text-sky-700" />
+                <span className="text-xs font-semibold text-sky-900">{DATA_SOURCES.length} {t.dataSources}</span>
               </div>
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -172,72 +235,248 @@ export default function Home() {
           z-50 lg:z-auto
           transition-transform duration-300 ease-in-out
           overflow-y-auto
-          lg:overflow-y-visible
+          scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100
         `}>
-          <nav className="p-4 space-y-2">
-            {tabs.map(({ key, label, icon: Icon }) => (
-              <button
-                key={key}
-                onClick={() => setActiveTab(key)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${
-                  activeTab === key
-                    ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg'
-                    : 'hover:bg-gray-100 text-gray-700'
-                }`}
-              >
-                <Icon className="w-5 h-5" />
-                <span className="font-semibold">{label}</span>
-              </button>
-            ))}
-          </nav>
+          <div className="min-h-full pb-6">
+            <nav className="p-4 space-y-1">
+              {/* Core Platform */}
+              <div className="mb-4">
+                <div className="px-3 mb-2">
+                  <h3 className="text-xs font-bold text-agri-700 uppercase tracking-wider">
+                    {language === 'tr' ? 'Ana Platform' : 'Core Platform'}
+                  </h3>
+                </div>
+                {tabs.filter(tab => tab.section === 'core').map(({ key, label, icon: Icon }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setActiveTab(key);
+                      setSidebarOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                      activeTab === key
+                        ? 'bg-gradient-agri text-white shadow-agri'
+                        : 'hover:bg-agri-50 text-earth-800 hover:text-earth-900'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
+                  </button>
+                ))}
+              </div>
 
-          <div className="p-4 mt-6 space-y-4">
-            {/* Platform Stats */}
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-4 border border-blue-200">
-              <h3 className="font-semibold text-blue-900 mb-3 text-sm">{t.platformStatistics}</h3>
-              <div className="space-y-2 text-xs">
-                <div className="flex justify-between">
-                  <span className="text-blue-700">{t.crops}:</span>
-                  <span className="font-bold text-blue-900">{CROPS_DATABASE.length}</span>
+              {/* Agriculture Tools */}
+              <div className="mb-4">
+                <div className="px-3 mb-2">
+                  <h3 className="text-xs font-bold text-forest-700 uppercase tracking-wider">
+                    {language === 'tr' ? 'Tarım Araçları' : 'Agriculture Tools'}
+                  </h3>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-blue-700">{t.pesticides}:</span>
-                  <span className="font-bold text-blue-900">{PESTICIDES_DATABASE.length}</span>
+                {tabs.filter(tab => tab.section === 'agri').map(({ key, label, icon: Icon }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setActiveTab(key);
+                      setSidebarOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                      activeTab === key
+                        ? 'bg-gradient-to-r from-forest-600 to-agri-600 text-white shadow-agri'
+                        : 'hover:bg-forest-50 text-earth-800 hover:text-earth-900'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Enterprise */}
+              <div className="mb-4">
+                <div className="px-3 mb-2">
+                  <h3 className="text-xs font-bold text-sky-700 uppercase tracking-wider">
+                    {language === 'tr' ? 'Kurumsal' : 'Enterprise'}
+                  </h3>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-blue-700">{t.dataSources}:</span>
-                  <span className="font-bold text-blue-900">{DATA_SOURCES.length}</span>
+                {tabs.filter(tab => tab.section === 'enterprise').map(({ key, label, icon: Icon }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setActiveTab(key);
+                      setSidebarOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                      activeTab === key
+                        ? 'bg-gradient-to-r from-sky-600 to-sky-700 text-white shadow-lg'
+                        : 'hover:bg-sky-50 text-earth-800 hover:text-earth-900'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* E-Commerce & Marketplace */}
+              <div className="mb-4">
+                <div className="px-3 mb-2">
+                  <h3 className="text-xs font-bold text-harvest-700 uppercase tracking-wider">
+                    {language === 'tr' ? 'E-Ticaret' : 'E-Commerce'}
+                  </h3>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-blue-700">{t.countries}:</span>
-                  <span className="font-bold text-blue-900">{GLOBAL_AGRI_LEADERS.length}</span>
+                {tabs.filter(tab => tab.section === 'ecommerce').map(({ key, label, icon: Icon }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setActiveTab(key);
+                      setSidebarOpen(false); // Close sidebar on mobile after selection
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                      activeTab === key
+                        ? 'bg-white border-2 border-gray-900 shadow-lg'
+                        : 'hover:bg-harvest-50 text-earth-800 hover:text-earth-900'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-gray-900' : 'text-earth-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-gray-900' : 'text-earth-800'}`}>{label}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Investor */}
+              <div className="mb-4">
+                <div className="px-3 mb-2">
+                  <h3 className="text-xs font-bold text-sunset-600 uppercase tracking-wider">
+                    {language === 'tr' ? 'Yatırımcı' : 'Investor'}
+                  </h3>
+                </div>
+                {tabs.filter(tab => tab.section === 'investor').map(({ key, label, icon: Icon }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setActiveTab(key);
+                      setSidebarOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                      activeTab === key
+                        ? 'bg-gradient-to-r from-sunset-600 to-sunset-700 text-white shadow-lg'
+                        : 'hover:bg-sunset-50 text-earth-800 hover:text-earth-900'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
+                  </button>
+                ))}
+              </div>
+
+              {/* Info & Legal */}
+              <div className="mb-2">
+                <div className="px-3 mb-2">
+                  <h3 className="text-xs font-bold text-earth-600 uppercase tracking-wider">
+                    {language === 'tr' ? 'Bilgi & Yasal' : 'Info & Legal'}
+                  </h3>
+                </div>
+                {tabs.filter(tab => tab.section === 'info').map(({ key, label, icon: Icon }) => (
+                  <button
+                    key={key}
+                    onClick={() => {
+                      setActiveTab(key);
+                      setSidebarOpen(false);
+                    }}
+                    className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
+                      activeTab === key
+                        ? 'bg-gradient-earth text-white shadow-earth'
+                        : 'hover:bg-earth-50 text-earth-800 hover:text-earth-900'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
+                  </button>
+                ))}
+              </div>
+            </nav>
+
+            <div className="px-4 mt-6 space-y-4">
+              {/* Platform Stats */}
+              <div className="bg-gradient-to-br from-agri-50 to-forest-50 rounded-lg p-4 border border-agri-200">
+                <h3 className="font-semibold text-agri-900 mb-3 text-sm">{t.platformStatistics}</h3>
+                <div className="space-y-2 text-xs">
+                  <div className="flex justify-between items-center">
+                    <span className="text-agri-700">{t.crops}:</span>
+                    <span className="font-bold text-agri-900">{CROPS_DATABASE.length}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-forest-700">{t.pesticides}:</span>
+                    <span className="font-bold text-forest-900">{PESTICIDES_DATABASE.length}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-agri-700">{t.dataSources}:</span>
+                    <span className="font-bold text-agri-900">{DATA_SOURCES.length}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-forest-700">{t.countries}:</span>
+                    <span className="font-bold text-forest-900">{GLOBAL_AGRI_LEADERS.length}</span>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Data Sources */}
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-4 border border-purple-200">
-              <h3 className="font-semibold text-purple-900 mb-2 text-sm">{t.liveDataSources}</h3>
-              <ul className="space-y-1 text-xs text-purple-800">
-                <li>• USDA NASS API</li>
-                <li>• EPA PPLS Database</li>
-                <li>• OpenWeather Agro</li>
-                <li>• NASA MODIS/SMAP</li>
-                <li>• Sentinel-2 Satellite</li>
-                <li>• SSURGO Soil Data</li>
-                <li>• FAO FAOSTAT</li>
-              </ul>
-            </div>
+              {/* Data Sources */}
+              <div className="bg-gradient-to-br from-sky-50 to-sky-100 rounded-lg p-4 border border-sky-200">
+                <h3 className="font-semibold text-sky-900 mb-3 text-sm">{t.liveDataSources}</h3>
+                <ul className="space-y-1.5 text-xs text-sky-800">
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
+                    <span>USDA NASS API</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
+                    <span>EPA PPLS Database</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
+                    <span>OpenWeather Agro</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
+                    <span>NASA MODIS/SMAP</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
+                    <span>Sentinel-2 Satellite</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
+                    <span>SSURGO Soil Data</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
+                    <span>FAO FAOSTAT</span>
+                  </li>
+                </ul>
+              </div>
 
-            {/* Global Leaders */}
-            <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg p-4 border border-amber-200">
-              <h3 className="font-semibold text-amber-900 mb-2 text-sm">{t.agriTechLeaders}</h3>
-              <ul className="space-y-1 text-xs text-amber-800">
-                <li>🇳🇱 {language === 'tr' ? 'Hollanda' : 'Netherlands'} (#1)</li>
-                <li>🇮🇱 {language === 'tr' ? 'İsrail' : 'Israel'} (#2)</li>
-                <li>🇯🇵 {language === 'tr' ? 'Japonya' : 'Japan'} (#3)</li>
-                <li>🇺🇸 ABD (#4)</li>
-              </ul>
+              {/* Global Leaders */}
+              <div className="bg-gradient-to-br from-harvest-50 to-sunset-50 rounded-lg p-4 border border-harvest-200">
+                <h3 className="font-semibold text-harvest-900 mb-3 text-sm">{t.agriTechLeaders}</h3>
+                <ul className="space-y-1.5 text-xs text-harvest-800">
+                  <li className="flex items-center gap-2">
+                    <span className="text-base">🇳🇱</span>
+                    <span>{language === 'tr' ? 'Hollanda' : 'Netherlands'} (#1)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-base">🇮🇱</span>
+                    <span>{language === 'tr' ? 'İsrail' : 'Israel'} (#2)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-base">🇯🇵</span>
+                    <span>{language === 'tr' ? 'Japonya' : 'Japan'} (#3)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="text-base">🇺🇸</span>
+                    <span>ABD (#4)</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </aside>
@@ -248,40 +487,40 @@ export default function Home() {
             <div className="space-y-4 sm:space-y-6">
               {/* Stats Overview */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                <div className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-green-500">
+                <div className="bg-gradient-to-br from-white to-agri-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-agri-600">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs sm:text-sm text-gray-600 mb-1">Total Crops</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-gray-900">{CROPS_DATABASE.length}</div>
+                      <div className="text-xs sm:text-sm text-earth-600 mb-1">Total Crops</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-agri-900">{CROPS_DATABASE.length}</div>
                     </div>
-                    <Sprout className="w-10 h-10 sm:w-12 sm:h-12 text-green-500 opacity-20" />
+                    <Sprout className="w-10 h-10 sm:w-12 sm:h-12 text-agri-500 opacity-20" />
                   </div>
                 </div>
-                <div className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-purple-500">
+                <div className="bg-gradient-to-br from-white to-forest-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-forest-600">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs sm:text-sm text-gray-600 mb-1">Pesticides</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-gray-900">{PESTICIDES_DATABASE.length}</div>
+                      <div className="text-xs sm:text-sm text-earth-600 mb-1">Pesticides</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-forest-900">{PESTICIDES_DATABASE.length}</div>
                     </div>
-                    <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-purple-500 opacity-20" />
+                    <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-forest-500 opacity-20" />
                   </div>
                 </div>
-                <div className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-blue-500">
+                <div className="bg-gradient-to-br from-white to-sky-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-sky-600">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs sm:text-sm text-gray-600 mb-1">Data Sources</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-gray-900">{DATA_SOURCES.length}</div>
+                      <div className="text-xs sm:text-sm text-earth-600 mb-1">Data Sources</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-sky-900">{DATA_SOURCES.length}</div>
                     </div>
-                    <Database className="w-10 h-10 sm:w-12 sm:h-12 text-blue-500 opacity-20" />
+                    <Database className="w-10 h-10 sm:w-12 sm:h-12 text-sky-500 opacity-20" />
                   </div>
                 </div>
-                <div className="bg-white rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-orange-500">
+                <div className="bg-gradient-to-br from-white to-harvest-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-harvest-600">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs sm:text-sm text-gray-600 mb-1">Countries</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-gray-900">{GLOBAL_AGRI_LEADERS.length}</div>
+                      <div className="text-xs sm:text-sm text-earth-600 mb-1">Countries</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-harvest-900">{GLOBAL_AGRI_LEADERS.length}</div>
                     </div>
-                    <Globe className="w-10 h-10 sm:w-12 sm:h-12 text-orange-500 opacity-20" />
+                    <Globe className="w-10 h-10 sm:w-12 sm:h-12 text-harvest-500 opacity-20" />
                   </div>
                 </div>
               </div>
@@ -380,63 +619,210 @@ export default function Home() {
             </div>
           )}
 
+          {activeTab === 'marketplace' && (
+            <div>
+              <AgriMarketplace language={language} />
+            </div>
+          )}
+
+          {activeTab === 'commodity-pricing' && (
+            <div>
+              <LiveCommodityPricing />
+            </div>
+          )}
+
+          {activeTab === 'advanced-api' && (
+            <div>
+              <AdvancedApiDocs />
+            </div>
+          )}
+
+          {activeTab === 'roadmap' && (
+            <div>
+              <Roadmap />
+            </div>
+          )}
+
+          {activeTab === 'investor-deck' && (
+            <div>
+              <InvestorDeck />
+            </div>
+          )}
+
           {activeTab === 'about' && (
             <div>
               <AboutProject lang={language} />
             </div>
           )}
+
+          {activeTab === 'api-docs' && (
+            <div>
+              <ApiDocumentation />
+            </div>
+          )}
+
+          {activeTab === 'privacy' && (
+            <div>
+              <PrivacyPolicy />
+            </div>
+          )}
+
+          {activeTab === 'terms' && (
+            <div>
+              <TermsOfService />
+            </div>
+          )}
+
+          {activeTab === 'contact' && (
+            <div>
+              <ContactPage />
+            </div>
+          )}
         </main>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-8 sm:mt-12">
-        <div className="max-w-full px-3 sm:px-6 py-4 sm:py-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 mb-4 sm:mb-6">
-            <div>
-              <h3 className="font-bold text-gray-800 mb-2 text-sm sm:text-base">About AgriTech Platform</h3>
-              <p className="text-xs sm:text-sm text-gray-600">
-                World's most comprehensive agricultural intelligence platform powered by real-time data from USDA, NASA, EPA, and global sources.
+      {/* Premium Footer */}
+      <footer className="bg-gradient-to-br from-gray-900 via-earth-900 to-gray-950 mt-8 sm:mt-12 text-white border-t-4 border-agri-600" style={{backgroundColor: '#1a1410'}}>
+        {/* Main Footer Content */}
+        <div className="max-w-full px-3 sm:px-8 py-8 sm:py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 mb-8">
+            {/* Company Info */}
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-gradient-agri p-3 rounded-xl shadow-agri-lg">
+                  <Sprout className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold font-display bg-gradient-to-r from-agri-400 to-harvest-400 bg-clip-text text-transparent">
+                    Lydian AgriTech Platform Pro
+                  </h3>
+                  <p className="text-xs text-earth-300">Agricultural Intelligence</p>
+                </div>
+              </div>
+              <p className="text-sm text-earth-200 mb-4 leading-relaxed">
+                World's most comprehensive agricultural intelligence platform powered by real-time data from USDA, NASA, EPA, and 18+ global sources. Transforming agriculture through blockchain transparency, ESG metrics, and big data analytics.
               </p>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 bg-agri-900/30 px-3 py-2 rounded-lg border border-agri-700/50">
+                  <div className="w-2 h-2 bg-agri-500 rounded-full animate-pulse shadow-agri"></div>
+                  <span className="text-xs font-semibold text-agri-400">Live Streaming</span>
+                </div>
+                <div className="bg-harvest-900/30 px-3 py-2 rounded-lg border border-harvest-700/50">
+                  <span className="text-xs font-semibold text-harvest-400">AAA ESG Rating</span>
+                </div>
+              </div>
             </div>
+
+            {/* Platform Features */}
             <div>
-              <h3 className="font-bold text-gray-800 mb-2 text-sm sm:text-base">Data Sources</h3>
-              <ul className="text-xs sm:text-sm text-gray-600 space-y-1">
-                <li>• USDA NASS QuickStats & CDL</li>
-                <li>• NASA MODIS & SMAP Satellites</li>
-                <li>• EPA Pesticide Database</li>
-                <li>• Copernicus Sentinel-2</li>
+              <h3 className="font-bold text-white mb-4 text-sm sm:text-base flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-agri-400" />
+                Platform Features
+              </h3>
+              <ul className="text-xs sm:text-sm text-earth-200 space-y-2">
+                <li onClick={() => setActiveTab('crops')} className="hover:text-agri-400 transition-colors cursor-pointer">→ 30+ Crop Database</li>
+                <li onClick={() => setActiveTab('pesticides')} className="hover:text-agri-400 transition-colors cursor-pointer">→ 20+ Pesticide Solutions</li>
+                <li onClick={() => setActiveTab('supply-chain')} className="hover:text-agri-400 transition-colors cursor-pointer">→ Blockchain Supply Chain</li>
+                <li onClick={() => setActiveTab('esg')} className="hover:text-agri-400 transition-colors cursor-pointer">→ Carbon Credit Marketplace</li>
+                <li onClick={() => setActiveTab('analytics')} className="hover:text-agri-400 transition-colors cursor-pointer">→ Real-time Analytics</li>
+                <li onClick={() => setActiveTab('global')} className="hover:text-agri-400 transition-colors cursor-pointer">→ Global Insights (8 Countries)</li>
               </ul>
             </div>
+
+            {/* Data Sources */}
             <div>
-              <h3 className="font-bold text-gray-800 mb-2 text-sm sm:text-base">Features</h3>
-              <ul className="text-xs sm:text-sm text-gray-600 space-y-1">
-                <li>• 30+ Crop Database</li>
-                <li>• 20+ Pesticide Solutions</li>
-                <li>• Global Country Comparison</li>
-                <li>• Real-time Weather & Satellite</li>
+              <h3 className="font-bold text-white mb-4 text-sm sm:text-base flex items-center gap-2">
+                <Database className="w-4 h-4 text-sky-400" />
+                Data Sources
+              </h3>
+              <ul className="text-xs sm:text-sm text-earth-200 space-y-2">
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-sky-400 transition-colors cursor-pointer">→ USDA NASS QuickStats</li>
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-sky-400 transition-colors cursor-pointer">→ NASA POWER Weather</li>
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-sky-400 transition-colors cursor-pointer">→ EPA PPLS Database</li>
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-sky-400 transition-colors cursor-pointer">→ Sentinel-2 Satellite</li>
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-sky-400 transition-colors cursor-pointer">→ OpenWeather Agro API</li>
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-sky-400 transition-colors cursor-pointer">→ SoilGrids REST API</li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="font-bold text-white mb-4 text-sm sm:text-base flex items-center gap-2">
+                <BookOpen className="w-4 h-4 text-harvest-400" />
+                Resources
+              </h3>
+              <ul className="text-xs sm:text-sm text-earth-200 space-y-2">
+                <li onClick={() => setActiveTab('api-docs')} className="hover:text-harvest-400 transition-colors cursor-pointer">→ API Documentation</li>
+                <li onClick={() => setActiveTab('investor-deck')} className="hover:text-harvest-400 transition-colors cursor-pointer">→ Investor Deck</li>
+                <li onClick={() => setActiveTab('roadmap')} className="hover:text-harvest-400 transition-colors cursor-pointer">→ Product Roadmap</li>
+                <li onClick={() => setActiveTab('esg')} className="hover:text-harvest-400 transition-colors cursor-pointer">→ ESG Report 2025</li>
+                <li onClick={() => setActiveTab('about')} className="hover:text-harvest-400 transition-colors cursor-pointer">→ Technical Blog</li>
+                <li onClick={() => setActiveTab('supply-chain')} className="hover:text-harvest-400 transition-colors cursor-pointer">→ Case Studies</li>
               </ul>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-4 sm:pt-6 border-t border-gray-200 text-xs sm:text-sm text-gray-600">
-            <div className="flex flex-col sm:flex-row items-center gap-2">
-              <p className="text-center sm:text-left">© 2025 AgriTech Platform Pro</p>
-              <span className="hidden sm:inline text-gray-400">•</span>
+          {/* Stats Bar */}
+          <div className="bg-gradient-to-r from-agri-900/50 via-sky-900/50 to-harvest-900/50 rounded-xl p-6 mb-8 border border-agri-600/70" style={{backgroundColor: 'rgba(26, 20, 16, 0.5)'}}>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {[
+                { label: 'Data Records', value: '2.8M+', icon: Database },
+                { label: 'API Sources', value: '18+', icon: Globe },
+                { label: 'Countries', value: '8', icon: Globe },
+                { label: 'Uptime', value: '99.9%', icon: CheckCircle },
+                { label: 'Response Time', value: '<100ms', icon: Zap },
+                { label: 'ESG Score', value: 'AAA', icon: Award },
+              ].map((stat, idx) => (
+                <div key={idx} className="text-center">
+                  <div className="flex items-center justify-center gap-1 mb-1">
+                    <stat.icon className="w-3 h-3 text-earth-300" />
+                    <div className="text-xs text-earth-300">{stat.label}</div>
+                  </div>
+                  <div className="text-xl font-bold text-white">{stat.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 pt-8 border-t border-earth-700">
+            {/* Copyright */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-xs sm:text-sm text-earth-200">
+              <p className="text-center sm:text-left">© 2025 Lydian AgriTech Platform Pro</p>
+              <span className="hidden sm:inline text-earth-600">•</span>
               <p className="flex items-center gap-1">
-                <span className="text-gray-600">Developed by</span>
-                <span className="font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <span>Developed by</span>
+                <span className="font-bold font-display bg-gradient-to-r from-harvest-400 to-agri-400 bg-clip-text text-transparent">
                   Lydian
                 </span>
               </p>
+              <span className="hidden sm:inline text-earth-600">•</span>
+              <a href="https://tarim.ailydian.com" className="text-agri-400 hover:text-agri-300 transition-colors">
+                tarim.ailydian.com
+              </a>
             </div>
+
+            {/* Social & Links */}
             <div className="flex items-center gap-4">
-              <span className="flex items-center gap-1 text-xs sm:text-sm">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                Live Data Streaming
-              </span>
+              <div className="flex items-center gap-3">
+                <button onClick={() => setActiveTab('privacy')} className="text-earth-200 hover:text-white transition-colors">
+                  <span className="text-xs">Privacy Policy</span>
+                </button>
+                <span className="text-earth-600">•</span>
+                <button onClick={() => setActiveTab('terms')} className="text-earth-200 hover:text-white transition-colors">
+                  <span className="text-xs">Terms of Service</span>
+                </button>
+                <span className="text-earth-600">•</span>
+                <button onClick={() => setActiveTab('contact')} className="text-earth-200 hover:text-white transition-colors">
+                  <span className="text-xs">Contact</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Bottom Gradient Bar */}
+        <div className="h-1 bg-gradient-to-r from-agri-500 via-sky-500 to-harvest-500"></div>
       </footer>
     </div>
   );

@@ -23,6 +23,8 @@ export interface Translations {
   supplyChain: string;
   esgMetrics: string;
   bigData: string;
+  roadmap: string;
+  investorDeck: string;
   aboutProject: string;
 
   // Development Banner
@@ -87,6 +89,8 @@ export const translations: Record<Language, Translations> = {
     supplyChain: 'Tedarik Zinciri',
     esgMetrics: 'ESG Metrikleri',
     bigData: 'Big Data Altyapısı',
+    roadmap: 'Yol Haritası',
+    investorDeck: 'Yatırımcı Sunumu',
     aboutProject: 'Proje Hakkında',
 
     // Development Banner
@@ -150,6 +154,8 @@ export const translations: Record<Language, Translations> = {
     supplyChain: 'Supply Chain',
     esgMetrics: 'ESG Metrics',
     bigData: 'Big Data Infrastructure',
+    roadmap: 'Roadmap',
+    investorDeck: 'Investor Deck',
     aboutProject: 'About Project',
 
     // Development Banner
