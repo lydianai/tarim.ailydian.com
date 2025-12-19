@@ -94,7 +94,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
+    <div className={`min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 ${sidebarOpen ? 'lg:overflow-visible overflow-hidden' : ''}`}>
       {/* Development Banner */}
       {showDevBanner && (
         <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 flex items-center justify-between">
@@ -143,6 +143,17 @@ export default function Home() {
 
             {/* Action Buttons */}
             <div className="flex items-center gap-1 sm:gap-2">
+              {/* Medical Dashboard Link - Priority position */}
+              <a
+                href="https://otoai.ailydian.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 sm:gap-2 bg-gradient-to-r from-red-500 to-pink-600 text-white font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:from-red-600 hover:to-pink-700 transition-all shadow-lg hover:shadow-xl active:scale-95"
+              >
+                <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
+                <span className="text-[10px] sm:text-xs md:text-sm">{language === 'tr' ? 'Tıbbi' : 'Medical'}</span>
+              </a>
+
               {/* Drone Button - Now Visible on Mobile */}
               <button
                 onClick={() => setActiveTab('drones')}
@@ -205,14 +216,15 @@ export default function Home() {
         <aside
           className={`${
             sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-          } fixed top-0 lg:static lg:translate-x-0 w-72 sm:w-80 lg:w-64 h-screen lg:h-auto
+          } fixed top-0 left-0 lg:static lg:translate-x-0 w-72 sm:w-80 lg:w-64 h-full lg:h-auto
           bg-white
           shadow-2xl lg:shadow-lg z-[150]
           transition-all duration-500 ease-out
           ${sidebarOpen ? 'shadow-green-500/20' : ''}
           overflow-y-auto overflow-x-hidden
           border-r-4 border-green-500
-          pt-20 lg:pt-0`}
+          pt-20 lg:pt-0
+          max-h-screen`}
         >
           <nav className="p-3 sm:p-4 space-y-1">
             {/* Close button for mobile */}
@@ -422,8 +434,17 @@ export default function Home() {
           </div>
         </aside>
 
+        {/* Overlay - prevents main content interaction when sidebar is open on mobile */}
+        {sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-[140] lg:hidden"
+            onClick={() => setSidebarOpen(false)}
+            aria-label="Close sidebar overlay"
+          />
+        )}
+
         {/* Main Content */}
-        <main className="flex-1 p-3 sm:p-4 md:p-6 overflow-y-auto min-h-screen">
+        <main className="flex-1 p-3 sm:p-4 md:p-6 overflow-y-auto min-h-screen relative">
           <div className="max-w-7xl mx-auto">
             {activeTab === 'overview' && (
               <div className="space-y-4 sm:space-y-6">

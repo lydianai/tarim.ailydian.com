@@ -11,6 +11,7 @@ export interface Translations {
   dataSources: string;
 
   // Navigation Tabs
+  medicalDashboard: string;
   overview: string;
   analytics: string;
   aiInsights: string;
@@ -106,6 +107,7 @@ export const translations: Record<Language, Translations> = {
     dataSources: 'Kaynak',
 
     // Navigation Tabs
+    medicalDashboard: 'Tıbbi Dashboard',
     overview: 'Genel Bakış',
     analytics: 'Analitik',
     aiInsights: 'Yapay Zeka Öngörüleri',
@@ -200,6 +202,7 @@ export const translations: Record<Language, Translations> = {
     dataSources: 'Sources',
 
     // Navigation Tabs
+    medicalDashboard: 'Medical Dashboard',
     overview: 'Overview',
     analytics: 'Analytics',
     aiInsights: 'AI Insights',
