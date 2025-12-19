@@ -432,6 +432,150 @@ export default function Home() {
           </div>
         </main>
       </div>
+
+      {/* Premium Footer */}
+      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-950 mt-12 text-white border-t-4 border-green-600">
+        {/* Main Footer Content */}
+        <div className="max-w-full px-8 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
+            {/* Company Info */}
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-gradient-to-r from-green-500 to-green-700 p-3 rounded-xl shadow-lg">
+                  <Sprout className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
+                    Lydian AgriTech Platform Pro
+                  </h3>
+                  <p className="text-xs text-gray-300">Agricultural Intelligence</p>
+                </div>
+              </div>
+              <p className="text-sm text-gray-200 mb-4 leading-relaxed">
+                World's most comprehensive agricultural intelligence platform powered by real-time data from USDA, NASA, EPA, and 18+ global sources. Transforming agriculture through blockchain transparency, ESG metrics, and big data analytics.
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 bg-green-900/30 px-3 py-2 rounded-lg border border-green-700/50">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-lg"></div>
+                  <span className="text-xs font-semibold text-green-400">Live Streaming</span>
+                </div>
+                <div className="bg-yellow-900/30 px-3 py-2 rounded-lg border border-yellow-700/50">
+                  <span className="text-xs font-semibold text-yellow-400">AAA ESG Rating</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Platform Features */}
+            <div>
+              <h3 className="font-bold text-white mb-4 text-base flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-green-400" />
+                Platform Features
+              </h3>
+              <ul className="text-sm text-gray-200 space-y-2">
+                <li onClick={() => setActiveTab('crops')} className="hover:text-green-400 transition-colors cursor-pointer">→ 30+ Crop Database</li>
+                <li onClick={() => setActiveTab('pesticides')} className="hover:text-green-400 transition-colors cursor-pointer">→ 20+ Pesticide Solutions</li>
+                <li onClick={() => setActiveTab('supply-chain')} className="hover:text-green-400 transition-colors cursor-pointer">→ Blockchain Supply Chain</li>
+                <li onClick={() => setActiveTab('esg')} className="hover:text-green-400 transition-colors cursor-pointer">→ Carbon Credit Marketplace</li>
+                <li onClick={() => setActiveTab('analytics')} className="hover:text-green-400 transition-colors cursor-pointer">→ Real-time Analytics</li>
+                <li onClick={() => setActiveTab('global')} className="hover:text-green-400 transition-colors cursor-pointer">→ Global Insights (8 Countries)</li>
+              </ul>
+            </div>
+
+            {/* Data Sources */}
+            <div>
+              <h3 className="font-bold text-white mb-4 text-base flex items-center gap-2">
+                <Database className="w-4 h-4 text-blue-400" />
+                Data Sources
+              </h3>
+              <ul className="text-sm text-gray-200 space-y-2">
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-blue-400 transition-colors cursor-pointer">→ USDA NASS QuickStats</li>
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-blue-400 transition-colors cursor-pointer">→ NASA POWER Weather</li>
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-blue-400 transition-colors cursor-pointer">→ EPA PPLS Database</li>
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-blue-400 transition-colors cursor-pointer">→ Sentinel-2 Satellite</li>
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-blue-400 transition-colors cursor-pointer">→ OpenWeather Agro API</li>
+                <li onClick={() => setActiveTab('big-data')} className="hover:text-blue-400 transition-colors cursor-pointer">→ SoilGrids REST API</li>
+              </ul>
+            </div>
+
+            {/* Resources */}
+            <div>
+              <h3 className="font-bold text-white mb-4 text-base flex items-center gap-2">
+                <BookOpen className="w-4 h-4 text-yellow-400" />
+                Resources
+              </h3>
+              <ul className="text-sm text-gray-200 space-y-2">
+                <li onClick={() => setActiveTab('api-docs')} className="hover:text-yellow-400 transition-colors cursor-pointer">→ API Documentation</li>
+                <li onClick={() => setActiveTab('investor-deck')} className="hover:text-yellow-400 transition-colors cursor-pointer">→ Investor Deck</li>
+                <li onClick={() => setActiveTab('roadmap')} className="hover:text-yellow-400 transition-colors cursor-pointer">→ Product Roadmap</li>
+                <li onClick={() => setActiveTab('esg')} className="hover:text-yellow-400 transition-colors cursor-pointer">→ ESG Report 2025</li>
+                <li onClick={() => setActiveTab('about')} className="hover:text-yellow-400 transition-colors cursor-pointer">→ Technical Blog</li>
+                <li onClick={() => setActiveTab('supply-chain')} className="hover:text-yellow-400 transition-colors cursor-pointer">→ Case Studies</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Stats Bar */}
+          <div className="bg-gradient-to-r from-green-900/50 via-blue-900/50 to-yellow-900/50 rounded-xl p-6 mb-8 border border-green-600/70">
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {[
+                { label: 'Data Records', value: '2.8M+', icon: Database },
+                { label: 'API Sources', value: '18+', icon: Globe },
+                { label: 'Countries', value: '8', icon: Globe },
+                { label: 'Uptime', value: '99.9%', icon: CheckCircle },
+                { label: 'Response Time', value: '<100ms', icon: Zap },
+                { label: 'ESG Score', value: 'AAA', icon: Award },
+              ].map((stat, idx) => (
+                <div key={idx} className="text-center">
+                  <div className="flex items-center justify-center gap-1 mb-1">
+                    <stat.icon className="w-3 h-3 text-gray-300" />
+                    <div className="text-xs text-gray-300">{stat.label}</div>
+                  </div>
+                  <div className="text-xl font-bold text-white">{stat.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom Bar */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-700">
+            {/* Copyright */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 text-sm text-gray-200">
+              <p className="text-center sm:text-left">© 2025 Lydian AgriTech Platform Pro</p>
+              <span className="hidden sm:inline text-gray-600">•</span>
+              <p className="flex items-center gap-1">
+                <span>Developed by</span>
+                <span className="font-bold bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">
+                  Lydian
+                </span>
+              </p>
+              <span className="hidden sm:inline text-gray-600">•</span>
+              <a href="https://tarim.ailydian.com" className="text-green-400 hover:text-green-300 transition-colors">
+                tarim.ailydian.com
+              </a>
+            </div>
+
+            {/* Social & Links */}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
+                <button onClick={() => setActiveTab('privacy')} className="text-gray-200 hover:text-white transition-colors">
+                  <span className="text-xs">Privacy Policy</span>
+                </button>
+                <span className="text-gray-600">•</span>
+                <button onClick={() => setActiveTab('terms')} className="text-gray-200 hover:text-white transition-colors">
+                  <span className="text-xs">Terms of Service</span>
+                </button>
+                <span className="text-gray-600">•</span>
+                <button onClick={() => setActiveTab('contact')} className="text-gray-200 hover:text-white transition-colors">
+                  <span className="text-xs">Contact</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Gradient Bar */}
+        <div className="h-1 bg-gradient-to-r from-green-500 via-blue-500 to-yellow-500"></div>
+      </footer>
     </div>
   );
 }
