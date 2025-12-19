@@ -535,40 +535,40 @@ export default function Home() {
             <div className="space-y-4 sm:space-y-6">
               {/* Stats Overview */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                <div className="bg-gradient-to-br from-neon-50 to-agri-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-agri-600">
+                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-agri-500">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs sm:text-sm text-earth-600 mb-1">Total Crops</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-agri-900">{CROPS_DATABASE.length}</div>
+                      <div className="text-xs sm:text-sm text-earth-300 mb-1">Total Crops</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-agri-400">{CROPS_DATABASE.length}</div>
                     </div>
-                    <Sprout className="w-10 h-10 sm:w-12 sm:h-12 text-agri-500 opacity-20" />
+                    <Sprout className="w-10 h-10 sm:w-12 sm:h-12 text-agri-500 opacity-30" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-neon-50 to-forest-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-forest-600">
+                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-forest-500">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs sm:text-sm text-earth-600 mb-1">Pesticides</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-forest-900">{PESTICIDES_DATABASE.length}</div>
+                      <div className="text-xs sm:text-sm text-earth-300 mb-1">Pesticides</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-forest-400">{PESTICIDES_DATABASE.length}</div>
                     </div>
-                    <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-forest-500 opacity-20" />
+                    <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-forest-500 opacity-30" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-neon-50 to-sky-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-sky-600">
+                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-sky-500">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs sm:text-sm text-earth-600 mb-1">Data Sources</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-sky-900">{DATA_SOURCES.length}</div>
+                      <div className="text-xs sm:text-sm text-earth-300 mb-1">Data Sources</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-sky-400">{DATA_SOURCES.length}</div>
                     </div>
-                    <Database className="w-10 h-10 sm:w-12 sm:h-12 text-sky-500 opacity-20" />
+                    <Database className="w-10 h-10 sm:w-12 sm:h-12 text-sky-500 opacity-30" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-neon-50 to-harvest-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-harvest-600">
+                <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-harvest-500">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-xs sm:text-sm text-earth-600 mb-1">Countries</div>
-                      <div className="text-2xl sm:text-3xl font-bold text-harvest-900">{GLOBAL_AGRI_LEADERS.length}</div>
+                      <div className="text-xs sm:text-sm text-earth-300 mb-1">Countries</div>
+                      <div className="text-2xl sm:text-3xl font-bold text-harvest-400">{GLOBAL_AGRI_LEADERS.length}</div>
                     </div>
-                    <Globe className="w-10 h-10 sm:w-12 sm:h-12 text-harvest-500 opacity-20" />
+                    <Globe className="w-10 h-10 sm:w-12 sm:h-12 text-harvest-500 opacity-30" />
                   </div>
                 </div>
               </div>
