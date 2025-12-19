@@ -129,12 +129,12 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
     <div className="space-y-12">
       {/* EXECUTIVE SUMMARY */}
       <div className="bg-gradient-to-br from-purple-600 via-indigo-600 to-violet-700 rounded-2xl p-10 shadow-2xl text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-neon-100/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
 
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-8">
-            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
               <Rocket className="w-14 h-14" />
             </div>
             <div>
@@ -143,7 +143,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             </div>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mb-8">
+          <div className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mb-8">
             <h3 className="text-xl font-bold mb-4">Mission & Vision</h3>
             <p className="text-lg leading-relaxed mb-4">
               To revolutionize global agriculture through unified big data intelligence, blockchain traceability,
@@ -162,7 +162,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               { label: 'Break-even', value: 'Year 2', sublabel: '75% Gross Margin', icon: DollarSign },
               { label: 'ESG Rating', value: 'AAA', sublabel: 'Carbon Negative', icon: Award },
             ].map((stat, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-neon-100/20 transition-all duration-300">
                 <div className="flex items-center gap-2 mb-2">
                   <stat.icon className="w-6 h-6" />
                   <span className="text-sm opacity-90 font-medium">{stat.label}</span>
@@ -176,7 +176,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
       </div>
 
       {/* PROBLEM STATEMENT */}
-      <div className="bg-white rounded-2xl p-10 shadow-xl border border-purple-100">
+      <div className="bg-neon-100 rounded-2xl p-10 shadow-xl border border-purple-100">
         <div className="flex items-center gap-4 mb-8">
           <div className="bg-gradient-to-br from-purple-100 to-indigo-100 p-4 rounded-xl">
             <Target className="w-10 h-10 text-purple-600" />
@@ -308,7 +308,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               ],
             },
           ].map((solution, idx) => (
-            <div key={idx} className="bg-white rounded-xl p-6 border-2 border-purple-300 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div key={idx} className="bg-neon-100 rounded-xl p-6 border-2 border-purple-300 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               <div className={`bg-gradient-to-br ${solution.gradient} p-3 rounded-lg inline-block mb-4`}>
                 <solution.icon className="w-8 h-8 text-white" />
               </div>
@@ -341,7 +341,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
       </div>
 
       {/* PLATFORM FEATURES & CAPABILITIES */}
-      <div className="bg-white rounded-2xl p-10 shadow-xl border border-purple-100">
+      <div className="bg-neon-100 rounded-2xl p-10 shadow-xl border border-purple-100">
         <div className="flex items-center gap-4 mb-8">
           <div className="bg-gradient-to-br from-purple-100 to-indigo-100 p-4 rounded-xl">
             <Layers className="w-10 h-10 text-purple-600" />
@@ -528,7 +528,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               { label: 'API Integrations', value: '18+ Sources' },
               { label: 'Countries', value: '8 (Expanding)' },
             ].map((stat, idx) => (
-              <div key={idx} className="bg-white/20 backdrop-blur-sm rounded-lg p-4 text-center">
+              <div key={idx} className="bg-neon-100/20 backdrop-blur-sm rounded-lg p-4 text-center">
                 <div className="text-2xl font-bold mb-1">{stat.value}</div>
                 <div className="text-sm text-white/80">{stat.label}</div>
               </div>
@@ -551,7 +551,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Market Growth Chart */}
-          <div className="bg-white rounded-xl p-6 border-2 border-purple-300">
+          <div className="bg-neon-100 rounded-xl p-6 border-2 border-purple-300">
             <h3 className="font-bold text-gray-900 mb-4 text-xl">Global AgTech Market Growth (2024-2032)</h3>
             <ResponsiveContainer width="100%" height={320}>
               <AreaChart data={marketGrowthData}>
@@ -577,7 +577,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
           </div>
 
           {/* TAM/SAM/SOM Breakdown */}
-          <div className="bg-white rounded-xl p-6 border-2 border-purple-300">
+          <div className="bg-neon-100 rounded-xl p-6 border-2 border-purple-300">
             <h3 className="font-bold text-gray-900 mb-4 text-xl">Market Size Breakdown (2032)</h3>
             <ResponsiveContainer width="100%" height={320}>
               <BarChart data={marketSizeBreakdown} layout="vertical">
@@ -636,7 +636,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                 { segment: 'Food Manufacturers', size: '30K+ companies', revenue: 'Enterprise contracts', icon: ShoppingCart },
                 { segment: 'API Developers & Resellers', size: 'Unlimited', revenue: '$0.01/call', icon: Activity },
               ].map((customer, idx) => (
-                <div key={idx} className="bg-white rounded-lg p-4 border-2 border-purple-300 hover:shadow-md transition-shadow">
+                <div key={idx} className="bg-neon-100 rounded-lg p-4 border-2 border-purple-300 hover:shadow-md transition-shadow">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="bg-purple-100 p-2 rounded-lg">
                       <customer.icon className="w-5 h-5 text-purple-600" />
@@ -655,7 +655,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
       </div>
 
       {/* BUSINESS MODEL */}
-      <div className="bg-white rounded-2xl p-10 shadow-xl border border-purple-100">
+      <div className="bg-neon-100 rounded-2xl p-10 shadow-xl border border-purple-100">
         <div className="flex items-center gap-4 mb-8">
           <div className="bg-gradient-to-br from-purple-100 to-indigo-100 p-4 rounded-xl">
             <DollarSign className="w-10 h-10 text-purple-600" />
@@ -744,7 +744,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
       {/* 3-YEAR ROADMAP */}
       <div className="bg-gradient-to-br from-purple-600 via-indigo-600 to-violet-700 rounded-2xl p-10 shadow-2xl text-white">
         <div className="flex items-center gap-4 mb-8">
-          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
             <MapPin className="w-10 h-10" />
           </div>
           <div>
@@ -756,7 +756,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
         {/* 2025 Roadmap */}
         <div className="mb-8">
           <h3 className="text-3xl font-bold mb-6 flex items-center gap-2">
-            <span className="bg-white/20 px-3 py-1 rounded-lg">2025</span>
+            <span className="bg-neon-100/20 px-3 py-1 rounded-lg">2025</span>
             <span>Launch & Product-Market Fit</span>
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -802,7 +802,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                 ],
               },
             ].map((qtr, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-all">
+              <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-neon-100/20 transition-all">
                 <h4 className="font-bold text-xl mb-3">{qtr.quarter}</h4>
                 <ul className="space-y-2 text-sm">
                   {qtr.goals.map((goal, gidx) => (
@@ -820,7 +820,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
         {/* 2026 Roadmap */}
         <div className="mb-8">
           <h3 className="text-3xl font-bold mb-6 flex items-center gap-2">
-            <span className="bg-white/20 px-3 py-1 rounded-lg">2026</span>
+            <span className="bg-neon-100/20 px-3 py-1 rounded-lg">2026</span>
             <span>Scale & Expansion</span>
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -866,7 +866,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                 ],
               },
             ].map((qtr, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-all">
+              <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-neon-100/20 transition-all">
                 <h4 className="font-bold text-xl mb-3">{qtr.quarter}</h4>
                 <ul className="space-y-2 text-sm">
                   {qtr.goals.map((goal, gidx) => (
@@ -884,7 +884,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
         {/* 2027 Roadmap */}
         <div>
           <h3 className="text-3xl font-bold mb-6 flex items-center gap-2">
-            <span className="bg-white/20 px-3 py-1 rounded-lg">2027</span>
+            <span className="bg-neon-100/20 px-3 py-1 rounded-lg">2027</span>
             <span>International Expansion & Exit Preparation</span>
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -930,7 +930,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                 ],
               },
             ].map((qtr, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-white/20 transition-all">
+              <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-5 border border-white/20 hover:bg-neon-100/20 transition-all">
                 <h4 className="font-bold text-xl mb-3">{qtr.quarter}</h4>
                 <ul className="space-y-2 text-sm">
                   {qtr.goals.map((goal, gidx) => (
@@ -947,7 +947,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
       </div>
 
       {/* COMPETITIVE ADVANTAGE */}
-      <div className="bg-white rounded-2xl p-10 shadow-xl border border-purple-100">
+      <div className="bg-neon-100 rounded-2xl p-10 shadow-xl border border-purple-100">
         <div className="flex items-center gap-4 mb-8">
           <div className="bg-gradient-to-br from-purple-100 to-indigo-100 p-4 rounded-xl">
             <Award className="w-10 h-10 text-purple-600" />
@@ -1114,7 +1114,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
         </div>
 
         {/* User Growth Chart */}
-        <div className="bg-white rounded-xl p-6 border-2 border-purple-300 mb-8">
+        <div className="bg-neon-100 rounded-xl p-6 border-2 border-purple-300 mb-8">
           <h3 className="font-bold text-gray-900 mb-4 text-xl">Projected User Growth (2025-2026)</h3>
           <ResponsiveContainer width="100%" height={320}>
             <ComposedChart data={userGrowthData}>
@@ -1132,7 +1132,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
         </div>
 
         {/* MRR Growth */}
-        <div className="bg-white rounded-xl p-6 border-2 border-purple-300">
+        <div className="bg-neon-100 rounded-xl p-6 border-2 border-purple-300">
           <h3 className="font-bold text-gray-900 mb-4 text-xl">Monthly Recurring Revenue (MRR) - 2025 Projection</h3>
           <ResponsiveContainer width="100%" height={280}>
             <AreaChart data={mrrGrowthData}>
@@ -1160,7 +1160,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
       </div>
 
       {/* FINANCIAL PROJECTIONS */}
-      <div className="bg-white rounded-2xl p-10 shadow-xl border border-purple-100">
+      <div className="bg-neon-100 rounded-2xl p-10 shadow-xl border border-purple-100">
         <div className="flex items-center gap-4 mb-8">
           <div className="bg-gradient-to-br from-purple-100 to-indigo-100 p-4 rounded-xl">
             <BarChart3 className="w-10 h-10 text-purple-600" />
@@ -1249,7 +1249,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
       {/* USE OF FUNDS */}
       <div className="bg-gradient-to-br from-purple-600 via-indigo-600 to-violet-700 rounded-2xl p-10 shadow-2xl text-white">
         <div className="flex items-center gap-4 mb-8">
-          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
             <Rocket className="w-10 h-10" />
           </div>
           <div>
@@ -1264,12 +1264,12 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <h3 className="text-2xl font-bold mb-5">Funding Allocation</h3>
             <div className="space-y-4">
               {useOfFunds.map((item, idx) => (
-                <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-lg p-5 border border-white/20 hover:bg-white/15 transition-all">
+                <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-5 border border-white/20 hover:bg-neon-100/15 transition-all">
                   <div className="flex items-center justify-between mb-3">
                     <span className="font-bold text-lg">{item.category}</span>
                     <span className="text-3xl font-bold">{item.amount}%</span>
                   </div>
-                  <div className="w-full bg-white/20 rounded-full h-3 mb-3">
+                  <div className="w-full bg-neon-100/20 rounded-full h-3 mb-3">
                     <div
                       className="h-3 rounded-full transition-all duration-500"
                       style={{ width: `${item.amount}%`, backgroundColor: item.color }}
@@ -1285,7 +1285,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
           <div>
             <h3 className="text-2xl font-bold mb-5">Funding Strategy</h3>
             <div className="space-y-4 mb-6">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+              <div className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-lg font-semibold">Seed Round (Current)</span>
                   <span className="text-2xl font-bold">$2-3M</span>
@@ -1293,7 +1293,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                 <div className="text-sm opacity-90 mb-2">12-18 month runway • Product-market fit • 20% dilution</div>
                 <div className="text-xs text-white/70">Valuation: $10-15M pre-money</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+              <div className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-lg font-semibold">Series A (Q4 2025)</span>
                   <span className="text-2xl font-bold">$10-15M</span>
@@ -1301,7 +1301,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                 <div className="text-sm opacity-90 mb-2">Scale operations • Geographic expansion • 15-20% dilution</div>
                 <div className="text-xs text-white/70">Valuation: $50-75M pre-money</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+              <div className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-lg font-semibold">Series B (2027)</span>
                   <span className="text-2xl font-bold">$30-50M</span>
@@ -1311,7 +1311,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               </div>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
+            <div className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-5 border border-white/20">
               <h3 className="text-xl font-bold mb-3">Investment Highlights</h3>
               <ul className="space-y-2 text-sm">
                 {[
@@ -1333,7 +1333,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
         </div>
 
         {/* 12-Month Milestones */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+        <div className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
           <h3 className="text-2xl font-bold mb-5">12-Month Milestones (Post-Seed)</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
@@ -1342,7 +1342,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               { quarter: 'Q3', milestone: 'Launch blockchain traceability', kpi: '$120K MRR' },
               { quarter: 'Q4', milestone: 'Break-even + Series A ready', kpi: '$200K MRR' },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+              <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                 <div className="text-xl font-bold mb-2">{item.quarter}</div>
                 <div className="text-sm mb-2">{item.milestone}</div>
                 <div className="text-xs text-white/70">Target: {item.kpi}</div>
@@ -1353,7 +1353,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
       </div>
 
       {/* TEAM */}
-      <div className="bg-white rounded-2xl p-10 shadow-xl border border-purple-100">
+      <div className="bg-neon-100 rounded-2xl p-10 shadow-xl border border-purple-100">
         <div className="flex items-center gap-4 mb-8">
           <div className="bg-gradient-to-br from-purple-100 to-indigo-100 p-4 rounded-xl">
             <Users className="w-10 h-10 text-purple-600" />
@@ -1441,7 +1441,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                 contribution: 'Fundraising strategy, venture scaling',
               },
             ].map((advisor, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-4 border border-purple-300">
+              <div key={idx} className="bg-neon-100 rounded-lg p-4 border border-purple-300">
                 <h4 className="font-bold text-gray-900">{advisor.name}</h4>
                 <p className="text-sm text-purple-600 font-semibold mb-1">{advisor.title}</p>
                 <p className="text-xs text-gray-600">{advisor.contribution}</p>
@@ -1454,7 +1454,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
       {/* LEGAL & COMPLIANCE */}
       <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-10 shadow-2xl text-white border-2 border-gray-700">
         <div className="flex items-center gap-4 mb-8">
-          <div className="bg-white/10 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/10 backdrop-blur-sm p-4 rounded-xl">
             <Scale className="w-10 h-10" />
           </div>
           <div>
@@ -1465,7 +1465,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
         <div className="space-y-6">
           {/* SEC Regulation D */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+          <div className="bg-neon-100/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <h3 className="font-bold text-xl mb-3 flex items-center gap-2">
               <Lock className="w-6 h-6" />
               SEC Regulation D - Private Placement Exemption
@@ -1484,7 +1484,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
           </div>
 
           {/* Blue Sky Laws */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+          <div className="bg-neon-100/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <h3 className="font-bold text-xl mb-3 flex items-center gap-2">
               <FileText className="w-6 h-6" />
               Blue Sky Laws - State Securities Compliance
@@ -1500,7 +1500,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
           </div>
 
           {/* California Merit Test Notice */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+          <div className="bg-neon-100/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <h3 className="font-bold text-xl mb-3 flex items-center gap-2">
               <AlertCircle className="w-6 h-6" />
               California Merit Test & Corporate Securities Law
@@ -1513,7 +1513,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
           </div>
 
           {/* Forward-Looking Statements */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+          <div className="bg-neon-100/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <h3 className="font-bold text-xl mb-3 flex items-center gap-2">
               <Eye className="w-6 h-6" />
               Forward-Looking Statements Disclaimer
@@ -1527,7 +1527,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
           </div>
 
           {/* Risk Factors */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+          <div className="bg-neon-100/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <h3 className="font-bold text-xl mb-3 flex items-center gap-2">
               <AlertCircle className="w-6 h-6" />
               Risk Factors Disclosure
@@ -1547,7 +1547,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
           </div>
 
           {/* Anti-Fraud Compliance */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+          <div className="bg-neon-100/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <h3 className="font-bold text-xl mb-3 flex items-center gap-2">
               <Shield className="w-6 h-6" />
               Anti-Fraud Compliance Statement
@@ -1560,7 +1560,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
           </div>
 
           {/* Form D Filing Status */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+          <div className="bg-neon-100/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <h3 className="font-bold text-xl mb-3 flex items-center gap-2">
               <FileText className="w-6 h-6" />
               Form D Filing Status
@@ -1573,7 +1573,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
           </div>
 
           {/* General Disclaimer */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
+          <div className="bg-neon-100/5 backdrop-blur-sm rounded-xl p-6 border border-white/10">
             <h3 className="font-bold text-xl mb-3">General Disclaimer</h3>
             <p className="text-sm text-white/80 leading-relaxed">
               <strong>NOT AN OFFER TO SELL:</strong> This investor deck does not constitute an offer to sell or a solicitation of an offer to buy securities.
@@ -1609,7 +1609,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
       {/* CLOSING CTA */}
       <div className="bg-gradient-to-br from-purple-600 via-indigo-600 to-violet-700 rounded-2xl p-10 shadow-2xl text-white text-center relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-neon-100/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl"></div>
 
         <div className="relative z-10">
@@ -1621,11 +1621,11 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl px-8 py-4 border border-white/30 hover:bg-white/30 transition-all">
+            <div className="bg-neon-100/20 backdrop-blur-sm rounded-xl px-8 py-4 border border-white/30 hover:bg-neon-100/30 transition-all">
               <div className="text-sm text-white/80 mb-1">For Investment Inquiries</div>
               <div className="font-bold text-xl">investors@agritech-platform.com</div>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-xl px-8 py-4 border border-white/30 hover:bg-white/30 transition-all">
+            <div className="bg-neon-100/20 backdrop-blur-sm rounded-xl px-8 py-4 border border-white/30 hover:bg-neon-100/30 transition-all">
               <div className="text-sm text-white/80 mb-1">Visit Our Platform</div>
               <div className="font-bold text-xl">tarim.ailydian.com</div>
             </div>

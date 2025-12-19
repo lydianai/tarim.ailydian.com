@@ -209,12 +209,12 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border-2 border-gray-200">
+    <div className="bg-neon-100 rounded-2xl shadow-2xl overflow-hidden border-2 border-gray-200">
       {/* Header */}
       <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
+            <div className="bg-neon-100/20 p-2 rounded-lg backdrop-blur-sm">
               <Navigation className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -230,8 +230,8 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
               onClick={() => setShowPaths(!showPaths)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all ${
                 showPaths
-                  ? 'bg-white text-agri-700'
-                  : 'bg-white/20 text-white hover:bg-white/30'
+                  ? 'bg-neon-100 text-agri-700'
+                  : 'bg-neon-100/20 text-white hover:bg-neon-100/30'
               }`}
             >
               <Radio className="w-4 h-4" />
@@ -297,7 +297,7 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
               {/* Battery indicator */}
               {drone.status === 'active' && (
                 <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-                  <div className="bg-white rounded-full px-2 py-1 shadow-md flex items-center gap-1">
+                  <div className="bg-neon-100 rounded-full px-2 py-1 shadow-md flex items-center gap-1">
                     <Zap className={`w-3 h-3 ${
                       drone.battery > 60 ? 'text-green-500' :
                       drone.battery > 30 ? 'text-yellow-500' : 'text-red-500'
@@ -313,7 +313,7 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
         ))}
 
         {/* Legend */}
-        <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+        <div className="absolute top-4 right-4 bg-neon-100/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
           <div className="text-xs font-semibold text-gray-700 mb-2">
             {language === 'tr' ? 'Durum' : 'Status'}
           </div>
@@ -358,19 +358,19 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
               </div>
 
               <div className="grid grid-cols-4 gap-3">
-                <div className="bg-white rounded-lg p-3 text-center">
+                <div className="bg-neon-100 rounded-lg p-3 text-center">
                   <div className="text-xs text-gray-500 mb-1">{t.altitude}</div>
                   <div className="text-lg font-bold text-blue-600">
                     {drone.altitude.toFixed(0)}m
                   </div>
                 </div>
-                <div className="bg-white rounded-lg p-3 text-center">
+                <div className="bg-neon-100 rounded-lg p-3 text-center">
                   <div className="text-xs text-gray-500 mb-1">{t.speed}</div>
                   <div className="text-lg font-bold text-green-600">
                     {drone.speed.toFixed(1)} m/s
                   </div>
                 </div>
-                <div className="bg-white rounded-lg p-3 text-center">
+                <div className="bg-neon-100 rounded-lg p-3 text-center">
                   <div className="text-xs text-gray-500 mb-1">{t.battery}</div>
                   <div className={`text-lg font-bold ${
                     drone.battery > 60 ? 'text-green-600' :
@@ -379,7 +379,7 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
                     {drone.battery.toFixed(0)}%
                   </div>
                 </div>
-                <div className="bg-white rounded-lg p-3 text-center">
+                <div className="bg-neon-100 rounded-lg p-3 text-center">
                   <div className="text-xs text-gray-500 mb-1">{t.heading}</div>
                   <div className="text-lg font-bold text-purple-600">
                     {drone.heading.toFixed(0)}°

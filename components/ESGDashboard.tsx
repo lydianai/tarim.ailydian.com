@@ -36,7 +36,7 @@ export default function ESGDashboard() {
       <div className={`bg-gradient-to-r ${getRatingColor(selectedFarm.esgScore.rating)} rounded-xl p-6 shadow-2xl`}>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-4">
-            <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+            <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
               <Award className="w-8 h-8 text-white" />
             </div>
             <div>
@@ -57,14 +57,14 @@ export default function ESGDashboard() {
             { label: 'Social', value: selectedFarm.esgScore.social, icon: Users },
             { label: 'Governance', value: selectedFarm.esgScore.governance, icon: Shield }
           ].map((metric, idx) => (
-            <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+            <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
               <div className="flex items-center gap-2 mb-2">
                 <metric.icon className="w-5 h-5 text-white" />
                 <span className="text-xs text-white/80">{metric.label}</span>
               </div>
               <div className="text-3xl font-bold text-white">{metric.value}</div>
-              <div className="mt-2 bg-white/20 rounded-full h-2">
-                <div className="bg-white h-2 rounded-full" style={{ width: `${metric.value}%` }}></div>
+              <div className="mt-2 bg-neon-100/20 rounded-full h-2">
+                <div className="bg-neon-100 h-2 rounded-full" style={{ width: `${metric.value}%` }}></div>
               </div>
             </div>
           ))}
@@ -72,7 +72,7 @@ export default function ESGDashboard() {
       </div>
 
       {/* Farm Selector */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
         <h3 className="text-lg font-bold text-gray-800 mb-4">Select Farm</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {SAMPLE_ESG_DATA.map((farm) => (
@@ -114,7 +114,7 @@ export default function ESGDashboard() {
 
       {/* ESG Radar Chart & Carbon Footprint */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl p-6 shadow-lg">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
           <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
             <BarChart3 className="w-5 h-5 text-purple-600" />
             ESG Performance Radar
@@ -142,7 +142,7 @@ export default function ESGDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl p-6 shadow-lg">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
           <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
             <Wind className="w-5 h-5 text-blue-600" />
             Carbon Footprint Breakdown
@@ -176,7 +176,7 @@ export default function ESGDashboard() {
           Environmental Performance
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-white rounded-lg p-4 shadow-sm">
+          <div className="bg-neon-100 rounded-lg p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Droplet className="w-5 h-5 text-blue-600" />
               <div className="text-sm text-gray-600">Water Efficiency</div>
@@ -186,7 +186,7 @@ export default function ESGDashboard() {
               Saved: {(selectedFarm.environmental.waterUsage.savedVsBaseline / 1000).toFixed(0)}K gal
             </div>
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
+          <div className="bg-neon-100 rounded-lg p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Leaf className="w-5 h-5 text-green-600" />
               <div className="text-sm text-gray-600">Soil Health Index</div>
@@ -196,7 +196,7 @@ export default function ESGDashboard() {
               +{selectedFarm.environmental.soilHealth.organicMatterIncrease}% organic matter
             </div>
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
+          <div className="bg-neon-100 rounded-lg p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Wind className="w-5 h-5 text-purple-600" />
               <div className="text-sm text-gray-600">Carbon Sequestered</div>
@@ -206,7 +206,7 @@ export default function ESGDashboard() {
               {selectedFarm.environmental.soilHealth.erosionReduction}% erosion reduction
             </div>
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
+          <div className="bg-neon-100 rounded-lg p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Heart className="w-5 h-5 text-pink-600" />
               <div className="text-sm text-gray-600">Biodiversity</div>
@@ -226,7 +226,7 @@ export default function ESGDashboard() {
           Social Impact & Labor Practices
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white rounded-lg p-4 shadow-sm">
+          <div className="bg-neon-100 rounded-lg p-4 shadow-sm">
             <h4 className="font-semibold text-gray-800 mb-3">Employment</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
@@ -243,7 +243,7 @@ export default function ESGDashboard() {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
+          <div className="bg-neon-100 rounded-lg p-4 shadow-sm">
             <h4 className="font-semibold text-gray-800 mb-3">Worker Wellbeing</h4>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm">
@@ -260,7 +260,7 @@ export default function ESGDashboard() {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-lg p-4 shadow-sm">
+          <div className="bg-neon-100 rounded-lg p-4 shadow-sm">
             <h4 className="font-semibold text-gray-800 mb-3">Community Impact</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
@@ -288,7 +288,7 @@ export default function ESGDashboard() {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           {selectedFarm.carbonCredits.map((credit) => (
-            <div key={credit.creditId} className="bg-white rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
+            <div key={credit.creditId} className="bg-neon-100 rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
               <div className="flex items-center justify-between mb-2">
                 <div className="font-bold text-gray-900">{credit.methodology}</div>
                 <div className={`px-2 py-1 rounded-full text-xs font-semibold ${
@@ -318,7 +318,7 @@ export default function ESGDashboard() {
             </div>
           ))}
         </div>
-        <div className="bg-white rounded-lg p-4 shadow-sm">
+        <div className="bg-neon-100 rounded-lg p-4 shadow-sm">
           <div className="flex items-center justify-between">
             <div>
               <div className="text-sm text-gray-600">Total Carbon Credits</div>
@@ -342,7 +342,7 @@ export default function ESGDashboard() {
           <DollarSign className="w-6 h-6 text-orange-600" />
           Investment ROI Analysis
         </h3>
-        <div className="bg-white rounded-lg p-4 shadow-sm mb-4">
+        <div className="bg-neon-100 rounded-lg p-4 shadow-sm mb-4">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={INVESTMENT_ROI_DATA}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -357,7 +357,7 @@ export default function ESGDashboard() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {INVESTMENT_ROI_DATA.map((investment, idx) => (
-            <div key={idx} className="bg-white rounded-lg p-3 shadow-sm">
+            <div key={idx} className="bg-neon-100 rounded-lg p-3 shadow-sm">
               <div className="text-xs text-gray-600 mb-1 truncate" title={investment.category}>
                 {investment.category.split('(')[0].trim()}
               </div>
@@ -372,7 +372,7 @@ export default function ESGDashboard() {
 
       {/* Investment Attractiveness */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-xl p-6 shadow-lg">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
           <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-green-600" />
             Investment Attractiveness
@@ -401,7 +401,7 @@ export default function ESGDashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl p-6 shadow-lg">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
           <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
             <FileCheck className="w-5 h-5 text-blue-600" />
             Governance & Compliance

@@ -53,7 +53,7 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-neon-100 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-6 text-white">
           <div className="flex items-center justify-between">
@@ -66,7 +66,7 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
             </div>
             <button
               onClick={onClose}
-              className="bg-white hover:bg-gray-100 p-2 rounded-lg transition-all shadow-md"
+              className="bg-neon-100 hover:bg-gray-100 p-2 rounded-lg transition-all shadow-md"
               aria-label={t.closeCart}
             >
               <X className="w-6 h-6 text-gray-900" />
@@ -87,7 +87,7 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
               {items.map((item) => (
                 <div key={item.id} className="bg-gray-50 rounded-xl p-4 flex gap-4 border border-gray-200">
                   {/* Product Image */}
-                  <div className="bg-white rounded-lg p-4 w-24 h-24 flex items-center justify-center flex-shrink-0">
+                  <div className="bg-neon-100 rounded-lg p-4 w-24 h-24 flex items-center justify-center flex-shrink-0">
                     <span className="text-4xl">{item.image}</span>
                   </div>
 
@@ -115,14 +115,14 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
                         <button
                           onClick={() => onUpdateQuantity(item.id, Math.max(item.minOrder || 1, item.quantity - 1))}
                           disabled={item.quantity <= (item.minOrder || 1)}
-                          className="bg-white border border-gray-300 p-1 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="bg-neon-100 border border-gray-300 p-1 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           <Minus className="w-4 h-4" />
                         </button>
                         <span className="font-semibold text-gray-900 w-12 text-center">{item.quantity}</span>
                         <button
                           onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-                          className="bg-white border border-gray-300 p-1 rounded hover:bg-gray-50"
+                          className="bg-neon-100 border border-gray-300 p-1 rounded hover:bg-gray-50"
                         >
                           <Plus className="w-4 h-4" />
                         </button>
@@ -194,7 +194,7 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
             {/* Checkout Button */}
             <button
               onClick={onCheckout}
-              className="w-full bg-white border-2 border-gray-900 font-bold py-4 rounded-xl hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
+              className="w-full bg-neon-100 border-2 border-gray-900 font-bold py-4 rounded-xl hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
             >
               <CreditCard className="w-5 h-5 text-gray-900" />
               <span className="text-gray-900">{t.proceedToCheckout}</span>

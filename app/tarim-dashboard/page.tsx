@@ -370,7 +370,7 @@ export default function TarimDashboard() {
   const StatCard = ({ title, value, change, icon: Icon, prefix = '', suffix = '' }: { title: string; value: number | string; change: number; icon: any; prefix?: string; suffix?: string }) => {
     const isPositive = change >= 0;
     return (
-      <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-agri-300 transition-all">
+      <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100 hover:border-agri-300 transition-all">
         <div className="flex items-start justify-between mb-4">
           <div className="bg-gradient-to-br from-agri-100 to-forest-100 p-3 rounded-lg">
             <Icon className="w-6 h-6 text-agri-700" />
@@ -405,10 +405,10 @@ export default function TarimDashboard() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-agri-600 via-forest-600 to-agri-700 flex items-center justify-center p-4">
-        <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+        <div className="bg-neon-100 rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-8 text-white text-center">
-            <div className="bg-white/20 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-neon-100/20 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
               <BarChart3 className="w-12 h-12" />
             </div>
             <h1 className="text-3xl font-display font-bold mb-2">Tarım Dashboard</h1>
@@ -504,7 +504,7 @@ export default function TarimDashboard() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-agri-50 to-forest-50">
       {/* Header */}
-      <header className="bg-white border-b-2 border-gray-200 sticky top-0 z-40 shadow-md">
+      <header className="bg-neon-100 border-b-2 border-gray-200 sticky top-0 z-40 shadow-md">
         <div className="max-w-[1800px] mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo & Title */}
@@ -531,7 +531,7 @@ export default function TarimDashboard() {
             <div className="flex items-center gap-4">
               <button
                 onClick={() => setLanguage(language === 'tr' ? 'en' : 'tr')}
-                className="flex items-center gap-2 bg-white border-2 border-agri-600 text-agri-600 font-bold px-4 py-2 rounded-lg hover:bg-agri-50 transition-all"
+                className="flex items-center gap-2 bg-neon-100 border-2 border-agri-600 text-agri-600 font-bold px-4 py-2 rounded-lg hover:bg-agri-50 transition-all"
               >
                 <Globe className="w-5 h-5" />
                 <span>{language === 'tr' ? 'EN' : 'TR'}</span>
@@ -542,14 +542,14 @@ export default function TarimDashboard() {
               </button>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-2 bg-white border-2 border-red-600 text-red-600 font-bold px-4 py-2 rounded-lg hover:bg-red-50 transition-all"
+                className="flex items-center gap-2 bg-neon-100 border-2 border-red-600 text-red-600 font-bold px-4 py-2 rounded-lg hover:bg-red-50 transition-all"
               >
                 <Lock className="w-5 h-5" />
                 <span>Çıkış / Logout</span>
               </button>
               <button
                 onClick={() => setShowSettingsModal(true)}
-                className="flex items-center gap-2 bg-white border-2 border-gray-900 text-gray-900 font-bold px-4 py-2 rounded-lg hover:bg-gray-100 transition-all"
+                className="flex items-center gap-2 bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold px-4 py-2 rounded-lg hover:bg-gray-100 transition-all"
               >
                 <Settings className="w-5 h-5" />
                 <span>Settings</span>
@@ -560,7 +560,7 @@ export default function TarimDashboard() {
       </header>
 
       {/* Navigation Tabs */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-neon-100 border-b border-gray-200">
         <div className="max-w-[1800px] mx-auto px-6">
           <div className="flex gap-2 overflow-x-auto">
             {[
@@ -627,7 +627,7 @@ export default function TarimDashboard() {
             {/* Charts & Activity Section */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* Recent Orders */}
-              <div className="lg:col-span-2 bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100">
+              <div className="lg:col-span-2 bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-xl font-bold text-gray-900">Recent Orders</h2>
                   <button
@@ -664,26 +664,26 @@ export default function TarimDashboard() {
               {/* Quick Actions & Alerts */}
               <div className="space-y-6">
                 {/* Quick Actions */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100">
+                <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
                   <h3 className="text-lg font-bold text-gray-900 mb-4">Quick Actions</h3>
                   <div className="space-y-2">
                     <button
                       onClick={() => setShowAddProductModal(true)}
-                      className="w-full bg-white border-2 border-gray-900 text-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
+                      className="w-full bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
                     >
                       <Package className="w-5 h-5" />
                       Add Product
                     </button>
                     <button
                       onClick={() => setShowAddCustomerModal(true)}
-                      className="w-full bg-white border-2 border-gray-900 text-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
+                      className="w-full bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
                     >
                       <Users className="w-5 h-5" />
                       Add Customer
                     </button>
                     <button
                       onClick={exportReport}
-                      className="w-full bg-white border-2 border-gray-900 text-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
+                      className="w-full bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
                     >
                       <Download className="w-5 h-5" />
                       Export Report
@@ -692,7 +692,7 @@ export default function TarimDashboard() {
                 </div>
 
                 {/* System Alerts */}
-                <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100">
+                <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
                   <h3 className="text-lg font-bold text-gray-900 mb-4">System Alerts</h3>
                   <div className="space-y-3">
                     <div className="bg-amber-50 border-l-4 border-amber-500 p-3 rounded">
@@ -728,7 +728,7 @@ export default function TarimDashboard() {
             </div>
 
             {/* Top Products Table */}
-            <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100">
+            <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-xl font-bold text-gray-900">Top Selling Products</h2>
                 <div className="flex gap-2">
@@ -790,25 +790,25 @@ export default function TarimDashboard() {
             <div className="bg-gradient-to-r from-agri-600 via-forest-600 to-agri-700 rounded-xl p-6 shadow-2xl">
               <h3 className="text-xl font-bold text-white mb-4">Platform Quick Links</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <a href="/?tab=soil" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-lg p-4 border border-white/20 transition-all group">
+                <a href="/?tab=soil" className="bg-neon-100/10 backdrop-blur-sm hover:bg-neon-100/20 rounded-lg p-4 border border-white/20 transition-all group">
                   <div className="text-white">
                     <div className="text-sm font-semibold mb-1">Soil Analysis</div>
                     <div className="text-xs text-white/80">USDA SSURGO Data</div>
                   </div>
                 </a>
-                <a href="/?tab=drones" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-lg p-4 border border-white/20 transition-all group">
+                <a href="/?tab=drones" className="bg-neon-100/10 backdrop-blur-sm hover:bg-neon-100/20 rounded-lg p-4 border border-white/20 transition-all group">
                   <div className="text-white">
                     <div className="text-sm font-semibold mb-1">Live Drone Map</div>
                     <div className="text-xs text-white/80">Real-time monitoring</div>
                   </div>
                 </a>
-                <a href="/?tab=crops" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-lg p-4 border border-white/20 transition-all group">
+                <a href="/?tab=crops" className="bg-neon-100/10 backdrop-blur-sm hover:bg-neon-100/20 rounded-lg p-4 border border-white/20 transition-all group">
                   <div className="text-white">
                     <div className="text-sm font-semibold mb-1">Crop Catalog</div>
                     <div className="text-xs text-white/80">5000+ varieties</div>
                   </div>
                 </a>
-                <a href="/?tab=big-data" className="bg-white/10 backdrop-blur-sm hover:bg-white/20 rounded-lg p-4 border border-white/20 transition-all group">
+                <a href="/?tab=big-data" className="bg-neon-100/10 backdrop-blur-sm hover:bg-neon-100/20 rounded-lg p-4 border border-white/20 transition-all group">
                   <div className="text-white">
                     <div className="text-sm font-semibold mb-1">Big Data</div>
                     <div className="text-xs text-white/80">Analytics & Insights</div>
@@ -820,7 +820,7 @@ export default function TarimDashboard() {
         )}
 
         {activeTab === 'orders' && (
-          <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100">
+          <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-gray-900">All Orders</h2>
               <div className="flex gap-2">
@@ -884,7 +884,7 @@ export default function TarimDashboard() {
         )}
 
         {activeTab === 'products' && (
-          <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100">
+          <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-gray-900">Product Catalog</h2>
               <div className="flex gap-2">
@@ -953,7 +953,7 @@ export default function TarimDashboard() {
         )}
 
         {activeTab === 'customers' && (
-          <div className="bg-white rounded-xl shadow-lg p-6 border-2 border-gray-100">
+          <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-2xl font-bold text-gray-900">Customer Management</h2>
               <div className="flex gap-2">
@@ -1034,7 +1034,7 @@ export default function TarimDashboard() {
       {/* Settings Modal */}
       {showSettingsModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-neon-100 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-6 text-white flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Settings className="w-8 h-8" />
@@ -1042,7 +1042,7 @@ export default function TarimDashboard() {
               </div>
               <button
                 onClick={() => setShowSettingsModal(false)}
-                className="p-2 hover:bg-white/20 rounded-lg transition-all"
+                className="p-2 hover:bg-neon-100/20 rounded-lg transition-all"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -1061,7 +1061,7 @@ export default function TarimDashboard() {
                     className={`flex-1 py-3 px-4 rounded-lg border-2 font-bold transition-all ${
                       settings.language === 'tr'
                         ? 'border-agri-600 bg-agri-50 text-agri-700'
-                        : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 bg-neon-100 text-gray-700 hover:border-gray-400'
                     }`}
                   >
                     Türkçe
@@ -1071,7 +1071,7 @@ export default function TarimDashboard() {
                     className={`flex-1 py-3 px-4 rounded-lg border-2 font-bold transition-all ${
                       settings.language === 'en'
                         ? 'border-agri-600 bg-agri-50 text-agri-700'
-                        : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 bg-neon-100 text-gray-700 hover:border-gray-400'
                     }`}
                   >
                     English
@@ -1091,7 +1091,7 @@ export default function TarimDashboard() {
                     className={`py-3 px-4 rounded-lg border-2 font-bold transition-all flex items-center gap-2 justify-center ${
                       settings.theme === 'light'
                         ? 'border-agri-600 bg-agri-50 text-agri-700'
-                        : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 bg-neon-100 text-gray-700 hover:border-gray-400'
                     }`}
                   >
                     <Sun className="w-5 h-5" />
@@ -1102,7 +1102,7 @@ export default function TarimDashboard() {
                     className={`py-3 px-4 rounded-lg border-2 font-bold transition-all flex items-center gap-2 justify-center ${
                       settings.theme === 'dark'
                         ? 'border-agri-600 bg-agri-50 text-agri-700'
-                        : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 bg-neon-100 text-gray-700 hover:border-gray-400'
                     }`}
                   >
                     <Moon className="w-5 h-5" />
@@ -1113,7 +1113,7 @@ export default function TarimDashboard() {
                     className={`py-3 px-4 rounded-lg border-2 font-bold transition-all flex items-center gap-2 justify-center ${
                       settings.theme === 'auto'
                         ? 'border-agri-600 bg-agri-50 text-agri-700'
-                        : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 bg-neon-100 text-gray-700 hover:border-gray-400'
                     }`}
                   >
                     <Monitor className="w-5 h-5" />
@@ -1253,7 +1253,7 @@ export default function TarimDashboard() {
       {/* Add Product Modal */}
       {showAddProductModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full">
+          <div className="bg-neon-100 rounded-2xl shadow-2xl max-w-md w-full">
             <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-6 text-white flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Package className="w-8 h-8" />
@@ -1261,7 +1261,7 @@ export default function TarimDashboard() {
               </div>
               <button
                 onClick={() => setShowAddProductModal(false)}
-                className="p-2 hover:bg-white/20 rounded-lg transition-all"
+                className="p-2 hover:bg-neon-100/20 rounded-lg transition-all"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -1301,7 +1301,7 @@ export default function TarimDashboard() {
       {/* Add Customer Modal */}
       {showAddCustomerModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full">
+          <div className="bg-neon-100 rounded-2xl shadow-2xl max-w-md w-full">
             <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-6 text-white flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <Users className="w-8 h-8" />
@@ -1309,7 +1309,7 @@ export default function TarimDashboard() {
               </div>
               <button
                 onClick={() => setShowAddCustomerModal(false)}
-                className="p-2 hover:bg-white/20 rounded-lg transition-all"
+                className="p-2 hover:bg-neon-100/20 rounded-lg transition-all"
               >
                 <X className="w-6 h-6" />
               </button>
@@ -1340,7 +1340,7 @@ export default function TarimDashboard() {
       )}
 
       {/* Footer */}
-      <footer className="bg-white border-t-2 border-gray-200 mt-12">
+      <footer className="bg-neon-100 border-t-2 border-gray-200 mt-12">
         <div className="max-w-[1800px] mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-6 text-sm text-gray-600">

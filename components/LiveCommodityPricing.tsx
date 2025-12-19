@@ -106,7 +106,7 @@ export default function LiveCommodityPricing() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white rounded-xl shadow-agri-lg border-l-4 border-agri-600 p-6">
+      <div className="bg-neon-100 rounded-xl shadow-agri-lg border-l-4 border-agri-600 p-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="bg-gradient-to-br from-agri-500 to-forest-600 p-3 rounded-xl">
@@ -133,12 +133,12 @@ export default function LiveCommodityPricing() {
       {/* Commodity Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {commodities.map((commodity, idx) => (
-          <div key={idx} className="bg-white rounded-xl shadow-lg hover:shadow-agri-lg transition-all overflow-hidden border border-gray-100">
+          <div key={idx} className="bg-neon-100 rounded-xl shadow-lg hover:shadow-agri-lg transition-all overflow-hidden border border-gray-100">
             {/* Header with gradient */}
             <div className={`bg-gradient-to-r ${colorClasses[commodity.color]} p-4 text-white`}>
               <div className="flex items-center justify-between mb-2">
                 <span className="text-4xl">{commodity.icon}</span>
-                <span className="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold">
+                <span className="bg-neon-100/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold">
                   {commodity.symbol}
                 </span>
               </div>
@@ -197,21 +197,21 @@ export default function LiveCommodityPricing() {
 
       {/* Market Summary */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white rounded-xl p-6 shadow-lg border-t-4 border-agri-500">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border-t-4 border-agri-500">
           <BarChart3 className="w-8 h-8 text-agri-600 mb-3" />
           <div className="text-sm text-earth-600 mb-1">Today's Gainers</div>
           <div className="text-2xl font-bold text-agri-700">4 commodities</div>
           <div className="text-xs text-earth-600 mt-2">Corn, Wheat, Cotton, Cattle</div>
         </div>
 
-        <div className="bg-white rounded-xl p-6 shadow-lg border-t-4 border-red-500">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border-t-4 border-red-500">
           <TrendingDown className="w-8 h-8 text-red-600 mb-3" />
           <div className="text-sm text-earth-600 mb-1">Today's Losers</div>
           <div className="text-2xl font-bold text-red-700">2 commodities</div>
           <div className="text-xs text-earth-600 mt-2">Soybeans, Lean Hogs</div>
         </div>
 
-        <div className="bg-white rounded-xl p-6 shadow-lg border-t-4 border-sky-500">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border-t-4 border-sky-500">
           <DollarSign className="w-8 h-8 text-sky-600 mb-3" />
           <div className="text-sm text-earth-600 mb-1">Total Market Volume</div>
           <div className="text-2xl font-bold text-sky-700">767K+</div>
@@ -230,9 +230,9 @@ export default function LiveCommodityPricing() {
               Data updates every 60 seconds with 2-decimal precision.
             </p>
             <div className="flex gap-2 text-xs">
-              <span className="bg-white px-3 py-1 rounded-full text-sky-700 font-semibold">CBOT Exchange</span>
-              <span className="bg-white px-3 py-1 rounded-full text-sky-700 font-semibold">CME Exchange</span>
-              <span className="bg-white px-3 py-1 rounded-full text-sky-700 font-semibold">ICE Exchange</span>
+              <span className="bg-neon-100 px-3 py-1 rounded-full text-sky-700 font-semibold">CBOT Exchange</span>
+              <span className="bg-neon-100 px-3 py-1 rounded-full text-sky-700 font-semibold">CME Exchange</span>
+              <span className="bg-neon-100 px-3 py-1 rounded-full text-sky-700 font-semibold">ICE Exchange</span>
             </div>
           </div>
         </div>

@@ -206,12 +206,12 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+    <div className="bg-neon-100 rounded-xl shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
+            <div className="bg-neon-100/20 p-2 rounded-lg backdrop-blur-sm">
               <Database className="w-6 h-6" />
             </div>
             <div>
@@ -221,7 +221,7 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
           </div>
 
           <div className="flex items-center gap-2">
-            <label className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-2 rounded-lg cursor-pointer hover:bg-white/30 transition-all">
+            <label className="flex items-center gap-2 bg-neon-100/20 backdrop-blur-sm px-3 py-2 rounded-lg cursor-pointer hover:bg-neon-100/30 transition-all">
               <input
                 type="checkbox"
                 checked={autoSync}
@@ -234,7 +234,7 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
             <button
               onClick={manualSync}
               disabled={syncInProgress}
-              className="bg-white/20 backdrop-blur-sm px-3 py-2 rounded-lg hover:bg-white/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+              className="bg-neon-100/20 backdrop-blur-sm px-3 py-2 rounded-lg hover:bg-neon-100/30 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
             >
               <RefreshCw className={`w-4 h-4 ${syncInProgress ? 'animate-spin' : ''}`} />
               <span className="text-sm font-semibold">{t.manualSync}</span>
@@ -242,7 +242,7 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
 
             <button
               onClick={exportData}
-              className="bg-white/20 backdrop-blur-sm px-3 py-2 rounded-lg hover:bg-white/30 transition-all flex items-center gap-2"
+              className="bg-neon-100/20 backdrop-blur-sm px-3 py-2 rounded-lg hover:bg-neon-100/30 transition-all flex items-center gap-2"
             >
               <Download className="w-4 h-4" />
               <span className="text-sm font-semibold">{t.export}</span>
@@ -262,7 +262,7 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
           <div className="flex items-center justify-between">
             {/* Drone */}
             <div className="text-center">
-              <div className="bg-white p-4 rounded-xl shadow-md mb-2">
+              <div className="bg-neon-100 p-4 rounded-xl shadow-md mb-2">
                 <Server className="w-8 h-8 text-purple-600 mx-auto" />
               </div>
               <p className="text-sm font-semibold text-gray-700">Drones</p>
@@ -277,7 +277,7 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
 
             {/* Data Logger */}
             <div className="text-center">
-              <div className="bg-white p-4 rounded-xl shadow-md mb-2">
+              <div className="bg-neon-100 p-4 rounded-xl shadow-md mb-2">
                 <Database className="w-8 h-8 text-blue-600 mx-auto" />
               </div>
               <p className="text-sm font-semibold text-gray-700">Logger</p>
@@ -292,7 +292,7 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
 
             {/* Tarim Dashboard */}
             <div className="text-center">
-              <div className="bg-white p-4 rounded-xl shadow-md mb-2">
+              <div className="bg-neon-100 p-4 rounded-xl shadow-md mb-2">
                 <BarChart3 className="w-8 h-8 text-green-600 mx-auto" />
               </div>
               <p className="text-sm font-semibold text-gray-700">Tarim</p>
@@ -307,7 +307,7 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
 
             {/* BigData */}
             <div className="text-center">
-              <div className="bg-white p-4 rounded-xl shadow-md mb-2">
+              <div className="bg-neon-100 p-4 rounded-xl shadow-md mb-2">
                 <Cloud className="w-8 h-8 text-indigo-600 mx-auto" />
               </div>
               <p className="text-sm font-semibold text-gray-700">BigData</p>

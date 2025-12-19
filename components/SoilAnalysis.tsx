@@ -31,7 +31,7 @@ export default function SoilAnalysis() {
   ];
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-lg">
+    <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
       <div className="mb-6">
         <h3 className="text-xl font-bold text-gray-800 mb-2">Soil Analysis</h3>
         <p className="text-sm text-gray-600">Based on USDA SSURGO Database</p>

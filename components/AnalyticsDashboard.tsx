@@ -94,7 +94,7 @@ export default function AnalyticsDashboard() {
           <h2 className="text-3xl font-bold text-gray-900">Analytics Dashboard</h2>
           <p className="text-gray-600 mt-1">Comprehensive performance insights and metrics</p>
         </div>
-        <div className="flex items-center gap-2 bg-white rounded-lg p-1 shadow-md border border-gray-200">
+        <div className="flex items-center gap-2 bg-neon-100 rounded-lg p-1 shadow-md border border-gray-200">
           {(['1M', '3M', '6M', '1Y'] as const).map((period) => (
             <button
               key={period}
@@ -116,7 +116,7 @@ export default function AnalyticsDashboard() {
         {kpiCards.map((kpi, idx) => (
           <div
             key={idx}
-            className="relative overflow-hidden bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100 group hover:scale-105 duration-300"
+            className="relative overflow-hidden bg-neon-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100 group hover:scale-105 duration-300"
           >
             <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${kpi.color} opacity-10 blur-2xl group-hover:opacity-20 transition-opacity`}></div>
 
@@ -145,7 +145,7 @@ export default function AnalyticsDashboard() {
       {/* Performance Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Yield & Revenue Trend */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
           <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-green-600" />
             Yield & Revenue Trend
@@ -195,7 +195,7 @@ export default function AnalyticsDashboard() {
         </div>
 
         {/* Resource Usage Reduction */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
           <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
             <Droplet className="w-5 h-5 text-blue-600" />
             Resource Usage Reduction
@@ -225,7 +225,7 @@ export default function AnalyticsDashboard() {
       {/* Technology ROI & Performance Radar */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Technology ROI */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
           <h3 className="text-lg font-bold text-gray-800 mb-4">Technology ROI Analysis</h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={technologyROI} layout="vertical">
@@ -245,7 +245,7 @@ export default function AnalyticsDashboard() {
         </div>
 
         {/* Performance Radar */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
           <h3 className="text-lg font-bold text-gray-800 mb-4">Performance vs Industry Average</h3>
           <ResponsiveContainer width="100%" height={350}>
             <RadarChart data={cropPerformanceRadar}>
@@ -265,15 +265,15 @@ export default function AnalyticsDashboard() {
       <div className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 rounded-xl p-6 shadow-2xl">
         <h3 className="text-xl font-bold text-white mb-4">Key Insights Summary</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
             <div className="text-3xl font-bold text-white mb-1">23.5%</div>
             <div className="text-sm text-white/80">Revenue increase compared to last quarter</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
             <div className="text-3xl font-bold text-white mb-1">30%</div>
             <div className="text-sm text-white/80">Reduction in water usage through precision irrigation</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
             <div className="text-3xl font-bold text-white mb-1">$410</div>
             <div className="text-sm text-white/80">Highest ROI technology: Vertical Farming</div>
           </div>

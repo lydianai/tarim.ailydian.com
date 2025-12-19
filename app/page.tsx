@@ -122,7 +122,7 @@ export default function Home() {
           </div>
           <button
             onClick={() => setShowDevBanner(false)}
-            className="p-1 hover:bg-white/20 rounded transition-colors flex-shrink-0"
+            className="p-1 hover:bg-neon-200/20 rounded transition-colors flex-shrink-0"
             aria-label="Close banner"
           >
             <X className="w-4 h-4" />
@@ -131,7 +131,7 @@ export default function Home() {
       )}
 
       {/* Header */}
-      <header className="bg-white shadow-agri-lg border-b-4 border-agri-500 sticky top-0 z-50 backdrop-blur-sm bg-white/95">
+      <header className="bg-neon-100 shadow-agri-lg border-b-4 border-agri-500 sticky top-0 z-50 backdrop-blur-sm bg-neon-100/95">
         <div className="max-w-full px-3 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-3 flex-1 min-w-0">
@@ -192,7 +192,7 @@ export default function Home() {
               {/* Dashboard Link */}
               <a
                 href="/tarim-dashboard"
-                className="flex items-center gap-1 sm:gap-2 bg-white border-2 border-agri-600 text-agri-700 font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:bg-agri-50 transition-all shadow-md"
+                className="flex items-center gap-1 sm:gap-2 bg-neon-50 border-2 border-agri-600 text-agri-700 font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:bg-agri-50 transition-all shadow-md"
               >
                 <LayoutDashboard className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
                 <span className="text-[10px] sm:text-xs hidden xs:inline">Dashboard</span>
@@ -268,7 +268,7 @@ export default function Home() {
           left-0
           w-64 sm:w-72 lg:w-64
           h-screen lg:h-[calc(100vh-88px)]
-          bg-white
+          bg-neon-100
           shadow-2xl lg:shadow-lg
           z-50 lg:z-auto
           transition-transform duration-300 ease-in-out
@@ -371,7 +371,7 @@ export default function Home() {
                     }}
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
-                        ? 'bg-white border-2 border-gray-900 shadow-lg'
+                        ? 'bg-neon-50 border-2 border-gray-900 shadow-lg'
                         : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
@@ -408,7 +408,7 @@ export default function Home() {
                     <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-gray-800'}`}>{label}</span>
                     {key === 'investor-deck' && (
                       <span className={`ml-auto text-[10px] px-2 py-0.5 rounded-full ${
-                        activeTab === key ? 'bg-white/20 text-white' : 'bg-purple-100 text-purple-700'
+                        activeTab === key ? 'bg-neon-50/20 text-white' : 'bg-purple-100 text-purple-700'
                       }`}>
                         PRO
                       </span>
@@ -535,7 +535,7 @@ export default function Home() {
             <div className="space-y-4 sm:space-y-6">
               {/* Stats Overview */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-                <div className="bg-gradient-to-br from-white to-agri-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-agri-600">
+                <div className="bg-gradient-to-br from-neon-50 to-agri-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-agri-600">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs sm:text-sm text-earth-600 mb-1">Total Crops</div>
@@ -544,7 +544,7 @@ export default function Home() {
                     <Sprout className="w-10 h-10 sm:w-12 sm:h-12 text-agri-500 opacity-20" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-white to-forest-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-forest-600">
+                <div className="bg-gradient-to-br from-neon-50 to-forest-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-agri-lg border-l-4 border-forest-600">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs sm:text-sm text-earth-600 mb-1">Pesticides</div>
@@ -553,7 +553,7 @@ export default function Home() {
                     <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-forest-500 opacity-20" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-white to-sky-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-sky-600">
+                <div className="bg-gradient-to-br from-neon-50 to-sky-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-sky-600">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs sm:text-sm text-earth-600 mb-1">Data Sources</div>
@@ -562,7 +562,7 @@ export default function Home() {
                     <Database className="w-10 h-10 sm:w-12 sm:h-12 text-sky-500 opacity-20" />
                   </div>
                 </div>
-                <div className="bg-gradient-to-br from-white to-harvest-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-harvest-600">
+                <div className="bg-gradient-to-br from-neon-50 to-harvest-50 rounded-lg sm:rounded-xl p-4 sm:p-6 shadow-lg border-l-4 border-harvest-600">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="text-xs sm:text-sm text-earth-600 mb-1">Countries</div>

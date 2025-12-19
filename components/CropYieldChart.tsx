@@ -39,14 +39,14 @@ export default function CropYieldChart() {
 
   if (loading) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-lg animate-pulse">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg animate-pulse">
         <div className="h-64 bg-gray-200 rounded"></div>
       </div>
     );
   }
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-lg">
+    <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-xl font-bold text-gray-800">Corn Yield Trends</h3>

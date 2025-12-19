@@ -279,7 +279,7 @@ export default function DroneEmergencyPanel({
   const warningAlerts = alerts.filter(a => a.type === 'warning' && !a.acknowledged);
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+    <div className="bg-neon-100 rounded-xl shadow-lg overflow-hidden">
       {/* Header */}
       <div className={`bg-gradient-to-r p-4 text-white ${
         statusColor === 'red' ? 'from-red-600 to-red-700' :
@@ -288,7 +288,7 @@ export default function DroneEmergencyPanel({
       }`}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-white/20 p-2 rounded-lg backdrop-blur-sm">
+            <div className="bg-neon-100/20 p-2 rounded-lg backdrop-blur-sm">
               <Shield className="w-6 h-6" />
             </div>
             <div>
@@ -301,7 +301,7 @@ export default function DroneEmergencyPanel({
             <button
               onClick={() => setVoiceEnabled(!voiceEnabled)}
               className={`p-2 rounded-lg transition-all ${
-                voiceEnabled ? 'bg-white/30' : 'bg-white/10'
+                voiceEnabled ? 'bg-neon-100/30' : 'bg-neon-100/10'
               }`}
             >
               {voiceEnabled ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
@@ -309,7 +309,7 @@ export default function DroneEmergencyPanel({
             <button
               onClick={() => setAlertsEnabled(!alertsEnabled)}
               className={`p-2 rounded-lg transition-all ${
-                alertsEnabled ? 'bg-white/30' : 'bg-white/10'
+                alertsEnabled ? 'bg-neon-100/30' : 'bg-neon-100/10'
               }`}
             >
               <Bell className="w-5 h-5" />
@@ -319,15 +319,15 @@ export default function DroneEmergencyPanel({
 
         {/* Alert Summary */}
         <div className="grid grid-cols-3 gap-3 mt-4">
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+          <div className="bg-neon-100/20 backdrop-blur-sm rounded-lg p-3 text-center">
             <div className="text-2xl font-bold">{criticalAlerts.length}</div>
             <div className="text-xs">{t.criticalAlerts}</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+          <div className="bg-neon-100/20 backdrop-blur-sm rounded-lg p-3 text-center">
             <div className="text-2xl font-bold">{warningAlerts.length}</div>
             <div className="text-xs">{t.warnings}</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg p-3 text-center">
+          <div className="bg-neon-100/20 backdrop-blur-sm rounded-lg p-3 text-center">
             <div className="text-2xl font-bold">{alerts.length}</div>
             <div className="text-xs">{t.activeAlerts}</div>
           </div>

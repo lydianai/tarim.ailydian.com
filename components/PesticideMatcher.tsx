@@ -42,7 +42,7 @@ export default function PesticideMatcher() {
   };
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-lg">
+    <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
       <div className="mb-6">
         <div className="flex items-center gap-3 mb-4">
           <Shield className="w-8 h-8 text-purple-600" />

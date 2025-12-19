@@ -41,12 +41,12 @@ export default function ProductDetailsModal({ product, onClose, onAddToCart, lan
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-neon-100 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-6 text-white relative">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 bg-white hover:bg-gray-100 p-2 rounded-lg transition-all shadow-md"
+            className="absolute top-4 right-4 bg-neon-100 hover:bg-gray-100 p-2 rounded-lg transition-all shadow-md"
             aria-label={t.close}
           >
             <X className="w-6 h-6 text-gray-900" />
@@ -158,7 +158,7 @@ export default function ProductDetailsModal({ product, onClose, onAddToCart, lan
           <div className="flex gap-4">
             <button
               onClick={onAddToCart}
-              className="flex-1 bg-white border-2 border-gray-900 font-bold py-4 px-6 rounded-xl hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-3"
+              className="flex-1 bg-neon-100 border-2 border-gray-900 font-bold py-4 px-6 rounded-xl hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-3"
             >
               <ShoppingCart className="w-5 h-5 text-gray-900" />
               <span className="text-gray-900 text-lg">{t.addToCart}</span>

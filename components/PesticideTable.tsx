@@ -47,7 +47,7 @@ export default function PesticideTable() {
 
   if (loading) {
     return (
-      <div className="bg-white rounded-xl p-6 shadow-lg animate-pulse">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg animate-pulse">
         <div className="h-96 bg-gray-200 rounded"></div>
       </div>
     );
@@ -59,7 +59,7 @@ export default function PesticideTable() {
   );
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-lg">
+    <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
       <div className="mb-6">
         <h3 className="text-xl font-bold text-gray-800 mb-2">EPA Registered Pesticides</h3>
         <p className="text-sm text-gray-600 mb-4">Agricultural chemicals database with safety information</p>

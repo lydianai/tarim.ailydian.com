@@ -148,7 +148,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 rounded-xl p-8 shadow-2xl text-white">
         <div className="flex items-center gap-4 mb-4">
-          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
             <BookOpen className="w-10 h-10 text-white" />
           </div>
           <div>
@@ -159,7 +159,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
       </div>
 
       {/* Project Goal */}
-      <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
         <div className="flex items-center gap-3 mb-4">
           <Target className="w-6 h-6 text-green-600" />
           <h2 className="text-2xl font-bold text-gray-900">{t.projectGoalTitle}</h2>
@@ -176,7 +176,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100 group hover:scale-105 duration-300"
+              className="bg-neon-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100 group hover:scale-105 duration-300"
             >
               <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${feature.color} mb-4`}>
                 <feature.icon className="w-6 h-6 text-white" />
@@ -189,7 +189,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
       </div>
 
       {/* Benefits */}
-      <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
         <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
           <CheckCircle className="w-6 h-6 text-green-600" />
           {t.benefitsTitle}
@@ -224,7 +224,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
       {/* Data Sources & Tech Stack Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Data Sources */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
             <Database className="w-6 h-6 text-blue-600" />
             {t.dataSourcesTitle}
@@ -240,7 +240,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
         </div>
 
         {/* Platform Capabilities */}
-        <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
             <Code className="w-6 h-6 text-purple-600" />
             {lang === 'tr' ? 'Platform Yetenekleri' : 'Platform Capabilities'}
@@ -272,7 +272,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
             { title: 'IoT Integration', desc: 'Real farm sensors' },
             { title: 'Blockchain', desc: 'Transparent supply chain' }
           ]).map((vision, idx) => (
-            <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+            <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
               <h3 className="font-bold text-lg mb-1">{vision.title}</h3>
               <p className="text-sm text-white/80">{vision.desc}</p>
             </div>

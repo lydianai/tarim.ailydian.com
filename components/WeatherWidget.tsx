@@ -72,7 +72,7 @@ export default function WeatherWidget({ lat = 41.8781, lon = -93.0977 }: Weather
       </div>
 
       <div className="grid grid-cols-2 gap-4 mb-6">
-        <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+        <div className="bg-neon-100/10 rounded-lg p-4 backdrop-blur-sm">
           <div className="flex items-center gap-2 mb-2">
             <Thermometer className="w-5 h-5" />
             <span className="text-sm text-blue-100">Temperature</span>
@@ -80,7 +80,7 @@ export default function WeatherWidget({ lat = 41.8781, lon = -93.0977 }: Weather
           <div className="text-3xl font-bold">{Math.round(weather.current.main.temp)}°F</div>
         </div>
 
-        <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+        <div className="bg-neon-100/10 rounded-lg p-4 backdrop-blur-sm">
           <div className="flex items-center gap-2 mb-2">
             <Droplets className="w-5 h-5" />
             <span className="text-sm text-blue-100">Humidity</span>
@@ -89,7 +89,7 @@ export default function WeatherWidget({ lat = 41.8781, lon = -93.0977 }: Weather
         </div>
       </div>
 
-      <div className="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+      <div className="bg-neon-100/10 rounded-lg p-4 backdrop-blur-sm">
         <div className="flex items-center gap-2 mb-2">
           <Wind className="w-5 h-5" />
           <span className="text-sm text-blue-100">Wind Speed</span>
@@ -101,7 +101,7 @@ export default function WeatherWidget({ lat = 41.8781, lon = -93.0977 }: Weather
         <h4 className="text-sm font-semibold mb-3 text-blue-100">5-Day Forecast</h4>
         <div className="grid grid-cols-5 gap-2">
           {weather.forecast?.list?.slice(0, 5).map((day, idx) => (
-            <div key={idx} className="bg-white/10 rounded-lg p-2 text-center backdrop-blur-sm">
+            <div key={idx} className="bg-neon-100/10 rounded-lg p-2 text-center backdrop-blur-sm">
               <div className="text-xs text-blue-100 mb-1">
                 {new Date(day.dt_txt).toLocaleDateString('en-US', { weekday: 'short' })}
               </div>

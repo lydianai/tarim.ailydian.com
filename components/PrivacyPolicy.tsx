@@ -8,7 +8,7 @@ export default function PrivacyPolicy() {
       {/* Header */}
       <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-2xl p-8 shadow-2xl text-white">
         <div className="flex items-center gap-4 mb-4">
-          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
             <Shield className="w-10 h-10" />
           </div>
           <div>
@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Key Commitments */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Privacy Commitments</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Information We Collect */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <div className="flex items-center gap-3 mb-6">
           <div className="bg-green-100 p-3 rounded-lg">
             <Database className="w-8 h-8 text-green-600" />
@@ -86,7 +86,7 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* How We Use Your Information */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <div className="flex items-center gap-3 mb-6">
           <div className="bg-blue-100 p-3 rounded-lg">
             <FileText className="w-8 h-8 text-blue-600" />
@@ -149,7 +149,7 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Data Sharing */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">Data Sharing & Disclosure</h2>
         <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 border-2 border-orange-300">
           <h3 className="font-bold text-orange-900 mb-4 text-xl">We NEVER Sell Your Data</h3>
@@ -178,7 +178,7 @@ export default function PrivacyPolicy() {
       </div>
 
       {/* Your Rights */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">Your Privacy Rights</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
@@ -208,7 +208,7 @@ export default function PrivacyPolicy() {
         <Lock className="w-16 h-16 mx-auto mb-4" />
         <h2 className="text-3xl font-bold mb-4">Questions About Privacy?</h2>
         <p className="text-xl mb-6 opacity-90">Contact our Data Protection Officer</p>
-        <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3 inline-block">
+        <div className="bg-neon-100/20 backdrop-blur-sm rounded-lg px-6 py-3 inline-block">
           <div className="text-sm opacity-90">Email</div>
           <div className="font-bold text-lg">privacy@agritech-platform.com</div>
         </div>

@@ -127,7 +127,7 @@ export default function AgriMap({ onLocationSelect }: AgriMapProps) {
   return (
     <div className="relative w-full h-full">
       <div ref={mapContainer} className="w-full h-full rounded-lg" />
-      <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg text-sm">
+      <div className="absolute top-4 left-4 bg-neon-100/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-lg text-sm">
         <div className="font-semibold text-gray-800">Map Coordinates</div>
         <div className="text-gray-600">
           Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}

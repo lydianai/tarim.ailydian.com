@@ -71,7 +71,7 @@ export default function GlobalComparison() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
         <div className="flex items-center gap-3 mb-4">
           <Globe className="w-8 h-8 text-blue-600" />
           <div>
@@ -129,7 +129,7 @@ export default function GlobalComparison() {
       </div>
 
       {/* Multi-Metric Radar Chart */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
         <h3 className="text-xl font-bold text-gray-800 mb-4">Multi-Dimensional Comparison</h3>
         <ResponsiveContainer width="100%" height={400}>
           <RadarChart data={getRadarData()}>
@@ -156,7 +156,7 @@ export default function GlobalComparison() {
       </div>
 
       {/* Bar Chart Comparison */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
         <h3 className="text-xl font-bold text-gray-800 mb-4">
           {comparisonMetric.charAt(0).toUpperCase() + comparisonMetric.slice(1)} Comparison
         </h3>
@@ -178,7 +178,7 @@ export default function GlobalComparison() {
       </div>
 
       {/* Technology Adoption Comparison */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
         <h3 className="text-xl font-bold text-gray-800 mb-4">Technology Adoption Rates</h3>
         <ResponsiveContainer width="100%" height={400}>
           <BarChart data={technologyData} layout="horizontal">
@@ -205,7 +205,7 @@ export default function GlobalComparison() {
       {/* Country Details Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {GLOBAL_AGRI_LEADERS.filter(c => selectedCountries.includes(c.code)).map((country, idx) => (
-          <div key={country.code} className="bg-white rounded-xl p-6 shadow-lg border-t-4" style={{ borderColor: colors[idx] }}>
+          <div key={country.code} className="bg-neon-100 rounded-xl p-6 shadow-lg border-t-4" style={{ borderColor: colors[idx] }}>
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h3 className="text-xl font-bold text-gray-800">{country.country}</h3>
@@ -275,7 +275,7 @@ export default function GlobalComparison() {
           <h3 className="text-xl font-bold text-gray-800">Insights for US Agriculture</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-neon-100 rounded-lg p-4">
             <div className="text-sm font-semibold text-gray-700 mb-2">🇳🇱 Learn from Netherlands</div>
             <ul className="text-xs text-gray-600 space-y-1">
               <li>• Vertical farming can increase yields by 300%</li>
@@ -283,7 +283,7 @@ export default function GlobalComparison() {
               <li>• LED systems optimize growth</li>
             </ul>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-neon-100 rounded-lg p-4">
             <div className="text-sm font-semibold text-gray-700 mb-2">🇮🇱 Learn from Israel</div>
             <ul className="text-xs text-gray-600 space-y-1">
               <li>• Drip irrigation saves 70% water</li>
@@ -291,7 +291,7 @@ export default function GlobalComparison() {
               <li>• Desert farming techniques</li>
             </ul>
           </div>
-          <div className="bg-white rounded-lg p-4">
+          <div className="bg-neon-100 rounded-lg p-4">
             <div className="text-sm font-semibold text-gray-700 mb-2">🇯🇵 Learn from Japan</div>
             <ul className="text-xs text-gray-600 space-y-1">
               <li>• Robotics reduce labor costs 35%</li>

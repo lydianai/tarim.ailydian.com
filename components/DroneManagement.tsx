@@ -412,7 +412,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
         <div className="max-w-7xl mx-auto p-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
+              <div className="bg-neon-100/20 backdrop-blur-sm p-3 rounded-xl">
                 <Plane className="w-8 h-8" />
               </div>
               <div>
@@ -433,7 +433,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
               </div>
               <button
                 onClick={() => setRealTimeData(!realTimeData)}
-                className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-white/30 transition-all"
+                className="bg-neon-100/20 backdrop-blur-sm px-4 py-2 rounded-lg hover:bg-neon-100/30 transition-all"
               >
                 {realTimeData ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
               </button>
@@ -442,7 +442,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
 
           {/* Quick Stats */}
           <div className="grid grid-cols-4 gap-4 mt-6">
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-3">
                 <Plane className="w-8 h-8 text-white" />
                 <div>
@@ -451,7 +451,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 </div>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-3">
                 <Target className="w-8 h-8 text-white" />
                 <div>
@@ -460,7 +460,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 </div>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-3">
                 <Globe className="w-8 h-8 text-white" />
                 <div>
@@ -469,7 +469,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 </div>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-3">
                 <Layers className="w-8 h-8 text-white" />
                 <div>
@@ -485,7 +485,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
       {/* Main Content */}
       <div className="max-w-7xl mx-auto p-6">
         {/* Tab Navigation */}
-        <div className="grid grid-cols-4 md:grid-cols-8 gap-2 mb-6 bg-white rounded-xl p-2 shadow-lg">
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-2 mb-6 bg-neon-100 rounded-xl p-2 shadow-lg">
           <button
             onClick={() => setActiveTab('fleet')}
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
@@ -587,7 +587,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
               {drones.map(drone => (
               <div
                 key={drone.id}
-                className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all cursor-pointer"
+                className="bg-neon-100 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all cursor-pointer"
                 onClick={() => setSelectedDrone(drone.id)}
               >
                 <div className={`p-4 bg-gradient-to-r ${
@@ -604,7 +604,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                         <p className="text-sm opacity-90">{drone.model}</p>
                       </div>
                     </div>
-                    <div className={`px-3 py-1 rounded-full text-sm font-semibold bg-white/20 backdrop-blur-sm`}>
+                    <div className={`px-3 py-1 rounded-full text-sm font-semibold bg-neon-100/20 backdrop-blur-sm`}>
                       {t[drone.status as keyof typeof t] || drone.status}
                     </div>
                   </div>
@@ -707,7 +707,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
         {activeTab === 'missions' && (
           <div className="space-y-6">
             {missions.map(mission => (
-              <div key={mission.id} className="bg-white rounded-xl shadow-lg p-6">
+              <div key={mission.id} className="bg-neon-100 rounded-xl shadow-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-4">
                     <div className={`p-3 rounded-xl ${
@@ -796,7 +796,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
         {activeTab === 'sensors' && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* NDVI Index */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-neon-100 rounded-xl shadow-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-green-100 p-3 rounded-xl">
                   <Sprout className="w-6 h-6 text-green-600" />
@@ -825,7 +825,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             </div>
 
             {/* Soil Moisture */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-neon-100 rounded-xl shadow-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-agri-100 p-3 rounded-xl">
                   <Droplet className="w-6 h-6 text-agri-700" />
@@ -854,7 +854,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             </div>
 
             {/* Crop Health */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-neon-100 rounded-xl shadow-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-green-100 p-3 rounded-xl">
                   <Activity className="w-6 h-6 text-green-600" />
@@ -895,7 +895,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             </div>
 
             {/* NPK Levels */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-neon-100 rounded-xl shadow-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-purple-100 p-3 rounded-xl">
                   <Zap className="w-6 h-6 text-purple-600" />
@@ -937,7 +937,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             </div>
 
             {/* Temperature & Humidity */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-neon-100 rounded-xl shadow-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className="bg-orange-100 p-3 rounded-xl">
                   <ThermometerSun className="w-6 h-6 text-orange-600" />
@@ -966,7 +966,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             </div>
 
             {/* Disease & Pest Detection */}
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-neon-100 rounded-xl shadow-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <div className={`p-3 rounded-xl ${sensorData.pestDetection ? 'bg-red-100' : 'bg-green-100'}`}>
                   {sensorData.pestDetection ? (
@@ -1018,7 +1018,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Yield Prediction */}
-              <div className="bg-white rounded-xl shadow-lg p-6">
+              <div className="bg-neon-100 rounded-xl shadow-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="bg-green-100 p-3 rounded-xl">
                     <TrendingUp className="w-6 h-6 text-green-600" />
@@ -1045,7 +1045,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
               </div>
 
               {/* Resource Optimization */}
-              <div className="bg-white rounded-xl shadow-lg p-6">
+              <div className="bg-neon-100 rounded-xl shadow-lg p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="bg-agri-100 p-3 rounded-xl">
                     <Droplet className="w-6 h-6 text-agri-700" />
@@ -1074,7 +1074,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
               </div>
 
               {/* Coverage Map */}
-              <div className="bg-white rounded-xl shadow-lg p-6 md:col-span-2">
+              <div className="bg-neon-100 rounded-xl shadow-lg p-6 md:col-span-2">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="bg-purple-100 p-3 rounded-xl">
                     <MapPin className="w-6 h-6 text-purple-600" />
@@ -1113,7 +1113,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 onClose={() => setSelectedDrone(null)}
               />
             ) : (
-              <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+              <div className="bg-neon-100 rounded-xl shadow-lg p-8 text-center">
                 <Video className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {language === 'tr' ? 'Drone Seçiniz' : 'Select a Drone'}
@@ -1158,7 +1158,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
               />
             ))}
             {drones.filter(d => d.status === 'active').length === 0 && (
-              <div className="col-span-2 bg-white rounded-xl shadow-lg p-8 text-center">
+              <div className="col-span-2 bg-neon-100 rounded-xl shadow-lg p-8 text-center">
                 <Shield className="w-16 h-16 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {language === 'tr' ? 'Aktif Drone Yok' : 'No Active Drones'}

@@ -81,7 +81,7 @@ export default function ApiDocumentation() {
       {/* Header */}
       <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 rounded-2xl p-8 shadow-2xl text-white">
         <div className="flex items-center gap-4 mb-4">
-          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
             <Code className="w-10 h-10" />
           </div>
           <div>
@@ -96,7 +96,7 @@ export default function ApiDocumentation() {
             { label: 'Request Limit', value: '1000/day', icon: Shield },
             { label: 'Response Time', value: '<100ms', icon: CheckCircle },
           ].map((stat, idx) => (
-            <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+            <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
               <div className="flex items-center gap-2 mb-2">
                 <stat.icon className="w-5 h-5" />
                 <span className="text-sm opacity-90">{stat.label}</span>
@@ -108,7 +108,7 @@ export default function ApiDocumentation() {
       </div>
 
       {/* Authentication */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <div className="flex items-center gap-3 mb-6">
           <div className="bg-green-100 p-3 rounded-lg">
             <Key className="w-8 h-8 text-green-600" />
@@ -145,7 +145,7 @@ export default function ApiDocumentation() {
         </div>
 
         {apiEndpoints.map((api, idx) => (
-          <div key={idx} className="bg-white rounded-xl p-8 shadow-lg border border-gray-200">
+          <div key={idx} className="bg-neon-100 rounded-xl p-8 shadow-lg border border-gray-200">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-2xl font-bold text-gray-900">{api.name}</h3>
               <span className={`px-4 py-2 rounded-lg font-bold text-sm ${
@@ -206,7 +206,7 @@ export default function ApiDocumentation() {
       </div>
 
       {/* Rate Limits */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <div className="flex items-center gap-3 mb-6">
           <div className="bg-orange-100 p-3 rounded-lg">
             <Shield className="w-8 h-8 text-orange-600" />
@@ -235,11 +235,11 @@ export default function ApiDocumentation() {
         <h2 className="text-3xl font-bold mb-4">Need Help?</h2>
         <p className="text-xl mb-6 opacity-90">Our technical team is here to assist you</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+          <div className="bg-neon-100/20 backdrop-blur-sm rounded-lg px-6 py-3">
             <div className="text-sm opacity-90">Email Support</div>
             <div className="font-bold">api@agritech-platform.com</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+          <div className="bg-neon-100/20 backdrop-blur-sm rounded-lg px-6 py-3">
             <div className="text-sm opacity-90">Documentation</div>
             <div className="font-bold">docs.tarim.ailydian.com</div>
           </div>

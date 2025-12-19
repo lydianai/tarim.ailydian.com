@@ -23,7 +23,7 @@ export default function ContactPage() {
       {/* Header */}
       <div className="bg-gradient-to-br from-green-600 via-blue-600 to-purple-600 rounded-2xl p-8 shadow-2xl text-white">
         <div className="flex items-center gap-4 mb-4">
-          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
             <MessageSquare className="w-10 h-10" />
           </div>
           <div>
@@ -35,7 +35,7 @@ export default function ContactPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Contact Form */}
-        <div className="lg:col-span-2 bg-white rounded-xl p-8 shadow-lg">
+        <div className="lg:col-span-2 bg-neon-100 rounded-xl p-8 shadow-lg">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -112,7 +112,7 @@ export default function ContactPage() {
         {/* Contact Information */}
         <div className="space-y-6">
           {/* Contact Cards */}
-          <div className="bg-white rounded-xl p-6 shadow-lg">
+          <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
             <h3 className="font-bold text-gray-900 mb-4 text-lg">Contact Information</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
@@ -195,7 +195,7 @@ export default function ContactPage() {
           </div>
 
           {/* Social Media */}
-          <div className="bg-white rounded-xl p-6 shadow-lg">
+          <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
             <h3 className="font-bold text-gray-900 mb-4 text-lg">Follow Us</h3>
             <div className="flex gap-3">
               <a
@@ -225,7 +225,7 @@ export default function ContactPage() {
       </div>
 
       {/* Departments */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact by Department</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
@@ -251,10 +251,10 @@ export default function ContactPage() {
         <h2 className="text-3xl font-bold mb-4">Have a Question?</h2>
         <p className="text-xl mb-6 opacity-90">Check our FAQ or reach out directly</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="bg-white text-green-600 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+          <button className="bg-neon-100 text-green-600 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
             View FAQ
           </button>
-          <button className="bg-white/20 backdrop-blur-sm text-white font-bold px-8 py-3 rounded-lg border-2 border-white hover:bg-white/30 transition-colors">
+          <button className="bg-neon-100/20 backdrop-blur-sm text-white font-bold px-8 py-3 rounded-lg border-2 border-white hover:bg-neon-100/30 transition-colors">
             Live Chat
           </button>
         </div>

@@ -466,7 +466,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
   const flightPlan = calculateFlightStats();
 
   return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+    <div className="bg-neon-100 rounded-xl shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
         <div className="flex items-center justify-between">
@@ -476,11 +476,11 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
           </div>
 
           <div className="flex items-center gap-2">
-            <button className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-lg hover:bg-white/30 transition-all text-sm flex items-center gap-2">
+            <button className="bg-neon-100/20 backdrop-blur-sm px-3 py-1.5 rounded-lg hover:bg-neon-100/30 transition-all text-sm flex items-center gap-2">
               <Upload className="w-4 h-4" />
               {t.import}
             </button>
-            <button className="bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-lg hover:bg-white/30 transition-all text-sm flex items-center gap-2">
+            <button className="bg-neon-100/20 backdrop-blur-sm px-3 py-1.5 rounded-lg hover:bg-neon-100/30 transition-all text-sm flex items-center gap-2">
               <Download className="w-4 h-4" />
               {t.export}
             </button>
@@ -565,7 +565,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
                   className={`py-2 px-3 rounded-lg text-sm font-semibold transition-all ${
                     coveragePattern === pattern
                       ? 'bg-blue-600 text-white'
-                      : 'bg-white text-gray-700 hover:bg-gray-100'
+                      : 'bg-neon-100 text-gray-700 hover:bg-gray-100'
                   }`}
                 >
                   {t[pattern]}

@@ -43,7 +43,7 @@ export default function CropCatalog() {
   };
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-lg">
+    <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
       <div className="mb-6">
         <div className="flex items-center gap-3 mb-4">
           <Sprout className="w-8 h-8 text-green-600" />
@@ -140,7 +140,7 @@ export default function CropCatalog() {
               </div>
 
               {/* Growing Conditions */}
-              <div className="bg-white rounded-lg p-4 border border-gray-200">
+              <div className="bg-neon-100 rounded-lg p-4 border border-gray-200">
                 <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
                   <Thermometer className="w-4 h-4 text-orange-600" />
                   Growing Conditions
@@ -166,7 +166,7 @@ export default function CropCatalog() {
               </div>
 
               {/* Yield */}
-              <div className="bg-white rounded-lg p-4 border border-gray-200">
+              <div className="bg-neon-100 rounded-lg p-4 border border-gray-200">
                 <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
                   <Activity className="w-4 h-4 text-green-600" />
                   Expected Yield
@@ -180,7 +180,7 @@ export default function CropCatalog() {
               </div>
 
               {/* Nutrients */}
-              <div className="bg-white rounded-lg p-4 border border-gray-200">
+              <div className="bg-neon-100 rounded-lg p-4 border border-gray-200">
                 <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
                   <FlaskConical className="w-4 h-4 text-purple-600" />
                   Nutrient Requirements
@@ -202,7 +202,7 @@ export default function CropCatalog() {
               </div>
 
               {/* Pests & Diseases */}
-              <div className="bg-white rounded-lg p-4 border border-gray-200">
+              <div className="bg-neon-100 rounded-lg p-4 border border-gray-200">
                 <h4 className="font-semibold text-gray-800 mb-3 flex items-center gap-2">
                   <Bug className="w-4 h-4 text-red-600" />
                   Common Pests & Diseases
@@ -232,7 +232,7 @@ export default function CropCatalog() {
               </div>
 
               {/* Major Producers */}
-              <div className="bg-white rounded-lg p-4 border border-gray-200">
+              <div className="bg-neon-100 rounded-lg p-4 border border-gray-200">
                 <h4 className="font-semibold text-gray-800 mb-2">Major Producers</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedCrop.majorProducers.map((country, idx) => (

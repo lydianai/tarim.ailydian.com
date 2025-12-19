@@ -248,7 +248,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
       <div className="bg-gradient-to-br from-agri-600 via-forest-600 to-sky-700 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-agri-lg text-white">
         <div className="flex items-start justify-between gap-3 sm:gap-4">
           <div className="flex items-start gap-3 sm:gap-4 flex-1 min-w-0">
-            <div className="bg-white/20 backdrop-blur-sm p-3 sm:p-4 rounded-xl flex-shrink-0">
+            <div className="bg-neon-100/20 backdrop-blur-sm p-3 sm:p-4 rounded-xl flex-shrink-0">
               <ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10" />
             </div>
             <div className="flex-1 min-w-0">
@@ -260,7 +260,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
           {/* Cart Button */}
           <button
             onClick={() => setShowCart(true)}
-            className="relative bg-white/20 hover:bg-white/30 backdrop-blur-sm p-3 sm:p-4 rounded-xl transition-all flex-shrink-0 shadow-lg hover:shadow-xl"
+            className="relative bg-neon-100/20 hover:bg-neon-100/30 backdrop-blur-sm p-3 sm:p-4 rounded-xl transition-all flex-shrink-0 shadow-lg hover:shadow-xl"
             aria-label={`Shopping cart with ${cart.length} items`}
           >
             <ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8" />
@@ -278,7 +278,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
         {marketplaceStats.map((stat, idx) => {
           const Icon = stat.icon;
           return (
-            <div key={idx} className="bg-white rounded-xl p-6 shadow-lg border-l-4 border-agri-500">
+            <div key={idx} className="bg-neon-100 rounded-xl p-6 shadow-lg border-l-4 border-agri-500">
               <Icon className={`w-8 h-8 text-${stat.color}-600 mb-2`} />
               <div className="text-2xl font-bold text-gray-900">{stat.value}</div>
               <div className="text-sm text-earth-600">{stat.label}</div>
@@ -288,7 +288,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
       </div>
 
       {/* Search & Filter */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
         <div className="flex flex-col md:flex-row gap-4">
           {/* Search */}
           <div className="flex-1 relative">
@@ -308,7 +308,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-3 border border-earth-300 rounded-lg focus:ring-2 focus:ring-agri-500 focus:border-transparent bg-white"
+              className="px-4 py-3 border border-earth-300 rounded-lg focus:ring-2 focus:ring-agri-500 focus:border-transparent bg-neon-100"
             >
               {categories.map(cat => (
                 <option key={cat.id} value={cat.id}>
@@ -327,7 +327,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProducts.map((product) => (
-            <div key={product.id} className="bg-white rounded-xl shadow-lg hover:shadow-agri-lg transition-all overflow-hidden border border-gray-100">
+            <div key={product.id} className="bg-neon-100 rounded-xl shadow-lg hover:shadow-agri-lg transition-all overflow-hidden border border-gray-100">
               {/* Product Image */}
               <div className="bg-gradient-to-br from-agri-50 to-forest-50 p-8 text-center border-b border-agri-200">
                 <div className="text-6xl mb-2">{product.image}</div>
@@ -394,7 +394,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
                 <div className="flex flex-col gap-2">
                   <button
                     onClick={() => addToCart(product)}
-                    className="w-full bg-white border-2 border-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all shadow-md hover:shadow-lg text-sm flex items-center justify-center gap-2"
+                    className="w-full bg-neon-100 border-2 border-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all shadow-md hover:shadow-lg text-sm flex items-center justify-center gap-2"
                   >
                     <ShoppingCart className="w-4 h-4 text-gray-900" />
                     <span className="text-gray-900">{language === 'tr' ? 'Sepete Ekle' : 'Add to Cart'}</span>
@@ -404,7 +404,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
                       setSelectedProduct(product);
                       setShowDetailsModal(true);
                     }}
-                    className="w-full bg-white border-2 border-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all text-sm"
+                    className="w-full bg-neon-100 border-2 border-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all text-sm"
                   >
                     <span className="text-gray-900">{language === 'tr' ? 'Detaylar' : 'Details'}</span>
                   </button>
@@ -422,7 +422,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {['FBN Direct', 'CommoditAg', 'AgriExpo', 'Tradewheel USA', 'Agri Marketplace', 'Agroy', 'Local Suppliers', 'Equipment Dealers'].map((supplier, idx) => (
-            <div key={idx} className="bg-white rounded-lg p-4 shadow-md hover:shadow-agri transition-all text-center">
+            <div key={idx} className="bg-neon-100 rounded-lg p-4 shadow-md hover:shadow-agri transition-all text-center">
               <div className="text-2xl mb-2">🏢</div>
               <div className="font-semibold text-sm text-gray-900">{supplier}</div>
               <div className="text-xs text-earth-600 mt-1">
@@ -445,10 +445,10 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
             : 'Join 117,000+ farms across 187M acres • Direct-to-farm delivery • Competitive wholesale pricing'}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-white font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-all shadow-lg border-2 border-gray-900">
+          <button className="bg-neon-100 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-all shadow-lg border-2 border-gray-900">
             <span className="text-gray-900">{language === 'tr' ? 'Hesap Oluştur' : 'Create Account'}</span>
           </button>
-          <button className="bg-white font-bold px-8 py-3 rounded-lg border-2 border-gray-900 hover:bg-gray-100 transition-all shadow-lg">
+          <button className="bg-neon-100 font-bold px-8 py-3 rounded-lg border-2 border-gray-900 hover:bg-gray-100 transition-all shadow-lg">
             <span className="text-gray-900">{language === 'tr' ? 'Tüm Ürünleri Görüntüle' : 'View All Products'}</span>
           </button>
         </div>

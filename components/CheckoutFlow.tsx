@@ -126,10 +126,10 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
     return (
       <div className="min-h-screen bg-gradient-to-br from-agri-50 to-forest-50 p-8">
         <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+          <div className="bg-neon-100 rounded-2xl shadow-2xl overflow-hidden">
             {/* Success Header */}
             <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-8 text-white text-center">
-              <div className="bg-white/20 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-neon-100/20 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="w-12 h-12" />
               </div>
               <h1 className="text-3xl font-display font-bold mb-2">{t.orderConfirmed}</h1>
@@ -184,7 +184,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
 
               {/* Actions */}
               <div className="flex gap-4">
-                <button className="flex-1 bg-white border-2 border-gray-900 text-gray-900 font-bold py-3 rounded-lg hover:bg-gray-100 transition-all">
+                <button className="flex-1 bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-3 rounded-lg hover:bg-gray-100 transition-all">
                   {t.trackOrderBtn}
                 </button>
                 <button
@@ -205,7 +205,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
     <div className="min-h-screen bg-gradient-to-br from-agri-50 to-forest-50 p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
+        <div className="bg-neon-100 rounded-xl shadow-lg p-6 mb-6">
           <button
             onClick={onBack}
             className="text-agri-700 hover:text-agri-900 font-semibold mb-4 flex items-center gap-2"
@@ -247,7 +247,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Main Content */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-lg p-6">
+            <div className="bg-neon-100 rounded-xl shadow-lg p-6">
               {/* Step 1: Business Information */}
               {currentStep === 'business' && (
                 <div className="space-y-6">
@@ -407,7 +407,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
 
                   <button
                     onClick={() => setCurrentStep('shipping')}
-                    className="w-full bg-white border-2 border-gray-900 text-gray-900 font-bold py-4 rounded-lg hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
+                    className="w-full bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-4 rounded-lg hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
                   >
                     {t.continueToShipping}
                     <ChevronRight className="w-5 h-5" />
@@ -541,7 +541,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                     </button>
                     <button
                       onClick={() => setCurrentStep('payment')}
-                      className="flex-1 bg-white border-2 border-gray-900 text-gray-900 font-bold py-4 rounded-lg hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
+                      className="flex-1 bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-4 rounded-lg hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
                     >
                       {t.continueToPayment}
                       <ChevronRight className="w-5 h-5" />
@@ -773,7 +773,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                     </button>
                     <button
                       onClick={() => setCurrentStep('review')}
-                      className="flex-1 bg-white border-2 border-gray-900 text-gray-900 font-bold py-4 rounded-lg hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
+                      className="flex-1 bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-4 rounded-lg hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
                     >
                       Review Order
                       <ChevronRight className="w-5 h-5" />
@@ -853,7 +853,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                     </button>
                     <button
                       onClick={handlePlaceOrder}
-                      className="flex-1 bg-white border-2 border-gray-900 text-gray-900 font-bold py-4 rounded-lg hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
+                      className="flex-1 bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-4 rounded-lg hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
                     >
                       <Lock className="w-5 h-5" />
                       Place Secure Order
@@ -866,7 +866,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
 
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl shadow-lg p-6 sticky top-6">
+            <div className="bg-neon-100 rounded-xl shadow-lg p-6 sticky top-6">
               <h3 className="text-xl font-bold text-gray-900 mb-4">Order Summary</h3>
 
               {/* Items */}

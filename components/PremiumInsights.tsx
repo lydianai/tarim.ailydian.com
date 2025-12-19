@@ -89,7 +89,7 @@ export default function PremiumInsights() {
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-xl p-8 shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
-          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
             <Sparkles className="w-8 h-8 text-white" />
           </div>
           <div>
@@ -105,7 +105,7 @@ export default function PremiumInsights() {
             { label: 'Yield Increase', value: '+23%', icon: Award },
             { label: 'AI Confidence', value: '93%', icon: Brain }
           ].map((stat, idx) => (
-            <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+            <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
               <div className="flex items-center gap-2 mb-2">
                 <stat.icon className="w-5 h-5 text-white" />
                 <span className="text-xs text-white/70">{stat.label}</span>
@@ -124,8 +124,8 @@ export default function PremiumInsights() {
             onClick={() => setSelectedInsight(idx)}
             className={`relative overflow-hidden rounded-xl p-6 cursor-pointer transition-all duration-300 ${
               selectedInsight === idx
-                ? 'bg-white shadow-2xl scale-105 ring-2 ring-purple-500'
-                : 'bg-white shadow-lg hover:shadow-xl'
+                ? 'bg-neon-100 shadow-2xl scale-105 ring-2 ring-purple-500'
+                : 'bg-neon-100 shadow-lg hover:shadow-xl'
             }`}
           >
             {/* Gradient Background */}
@@ -192,7 +192,7 @@ export default function PremiumInsights() {
       {/* Analytics Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Adoption Pie Chart */}
-        <div className="bg-white rounded-xl p-6 shadow-lg">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
           <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
             <Target className="w-5 h-5 text-blue-600" />
             Technology Adoption by Country
@@ -228,7 +228,7 @@ export default function PremiumInsights() {
         </div>
 
         {/* Trend Area Chart */}
-        <div className="bg-white rounded-xl p-6 shadow-lg">
+        <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
           <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-green-600" />
             Productivity Trend Projection
@@ -282,9 +282,9 @@ export default function PremiumInsights() {
             { step: 2, title: 'Short-term', action: 'Install drip irrigation', timeline: '1-2 months' },
             { step: 3, title: 'Long-term', action: 'Implement AI analytics', timeline: '3-6 months' }
           ].map((item) => (
-            <div key={item.step} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+            <div key={item.step} className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white font-bold">
+                <div className="w-8 h-8 rounded-full bg-neon-100/20 flex items-center justify-center text-white font-bold">
                   {item.step}
                 </div>
                 <span className="text-xs text-white/70 uppercase tracking-wide">{item.title}</span>

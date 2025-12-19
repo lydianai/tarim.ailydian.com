@@ -8,7 +8,7 @@ export default function TermsOfService() {
       {/* Header */}
       <div className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-2xl p-8 shadow-2xl text-white">
         <div className="flex items-center gap-4 mb-4">
-          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
             <Scale className="w-10 h-10" />
           </div>
           <div>
@@ -20,7 +20,7 @@ export default function TermsOfService() {
       </div>
 
       {/* Acceptance */}
-      <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-blue-500">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg border-l-4 border-blue-500">
         <div className="flex items-center gap-3 mb-4">
           <CheckCircle className="w-8 h-8 text-blue-600" />
           <h2 className="text-3xl font-bold text-gray-900">1. Acceptance of Terms</h2>
@@ -38,7 +38,7 @@ export default function TermsOfService() {
       </div>
 
       {/* Account Terms */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <div className="flex items-center gap-3 mb-6">
           <div className="bg-purple-100 p-3 rounded-lg">
             <Users className="w-8 h-8 text-purple-600" />
@@ -91,7 +91,7 @@ export default function TermsOfService() {
       </div>
 
       {/* Service Usage */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <div className="flex items-center gap-3 mb-6">
           <div className="bg-green-100 p-3 rounded-lg">
             <Shield className="w-8 h-8 text-green-600" />
@@ -132,7 +132,7 @@ export default function TermsOfService() {
       </div>
 
       {/* Payments */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <div className="flex items-center gap-3 mb-6">
           <div className="bg-blue-100 p-3 rounded-lg">
             <FileText className="w-8 h-8 text-blue-600" />
@@ -177,7 +177,7 @@ export default function TermsOfService() {
       </div>
 
       {/* Intellectual Property */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">5. Intellectual Property</h2>
         <div className="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-xl p-6 border border-indigo-200">
           <div className="space-y-4 text-gray-700">
@@ -195,7 +195,7 @@ export default function TermsOfService() {
       </div>
 
       {/* Limitation of Liability */}
-      <div className="bg-white rounded-xl p-8 shadow-lg border-l-4 border-orange-500">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg border-l-4 border-orange-500">
         <div className="flex items-center gap-3 mb-4">
           <AlertCircle className="w-8 h-8 text-orange-600" />
           <h2 className="text-3xl font-bold text-gray-900">6. Limitation of Liability</h2>
@@ -226,7 +226,7 @@ export default function TermsOfService() {
       </div>
 
       {/* Termination */}
-      <div className="bg-white rounded-xl p-8 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">7. Termination</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-blue-50 rounded-xl p-6 border border-blue-200">
@@ -250,11 +250,11 @@ export default function TermsOfService() {
         <h2 className="text-3xl font-bold mb-4">Questions About Terms?</h2>
         <p className="text-xl mb-6 opacity-90">Our legal team is here to help</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+          <div className="bg-neon-100/20 backdrop-blur-sm rounded-lg px-6 py-3">
             <div className="text-sm opacity-90">Email</div>
             <div className="font-bold">legal@agritech-platform.com</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-6 py-3">
+          <div className="bg-neon-100/20 backdrop-blur-sm rounded-lg px-6 py-3">
             <div className="text-sm opacity-90">Address</div>
             <div className="font-bold text-sm">Lydian Technologies, Delaware, USA</div>
           </div>

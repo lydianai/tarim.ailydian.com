@@ -290,7 +290,7 @@ export default function Roadmap() {
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 rounded-xl p-8 shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
-          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
             <Rocket className="w-8 h-8 text-white" />
           </div>
           <div>
@@ -304,7 +304,7 @@ export default function Roadmap() {
             <div
               key={idx}
               onClick={() => setSelectedPhase(idx)}
-              className={`bg-white/10 backdrop-blur-sm rounded-lg p-4 border-2 cursor-pointer transition-all ${
+              className={`bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border-2 cursor-pointer transition-all ${
                 selectedPhase === idx ? 'border-white shadow-lg scale-105' : 'border-white/20 hover:border-white/40'
               }`}
             >
@@ -313,9 +313,9 @@ export default function Roadmap() {
                 <span className="text-sm font-semibold text-white">{phase.phase}</span>
               </div>
               <div className="text-xs text-white/80 mb-2">{phase.period}</div>
-              <div className="bg-white/20 rounded-full h-2 mb-2">
+              <div className="bg-neon-100/20 rounded-full h-2 mb-2">
                 <div
-                  className="bg-white h-2 rounded-full transition-all duration-500"
+                  className="bg-neon-100 h-2 rounded-full transition-all duration-500"
                   style={{ width: `${phase.progress}%` }}
                 ></div>
               </div>
@@ -326,7 +326,7 @@ export default function Roadmap() {
       </div>
 
       {/* Timeline View */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
         <div className="flex items-center justify-between mb-6">
           <h3 className="text-2xl font-bold text-gray-800">{roadmapPhases[selectedPhase].title}</h3>
           {getStatusBadge(roadmapPhases[selectedPhase].status)}

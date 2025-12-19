@@ -54,7 +54,7 @@ export default function BigDataDashboard() {
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-xl p-6 shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
-          <div className="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
             <Database className="w-8 h-8 text-white" />
           </div>
           <div>
@@ -70,7 +70,7 @@ export default function BigDataDashboard() {
             { label: 'Storage Size', value: metrics.storageSize, icon: HardDrive, color: 'from-purple-500 to-pink-500' },
             { label: 'Data Freshness', value: 'Real-time', icon: Zap, color: 'from-orange-500 to-red-500' }
           ].map((stat, idx) => (
-            <div key={idx} className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+            <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
               <div className="flex items-center gap-2 mb-2">
                 <stat.icon className="w-5 h-5 text-white" />
                 <span className="text-xs text-white/80">{stat.label}</span>
@@ -83,7 +83,7 @@ export default function BigDataDashboard() {
       </div>
 
       {/* Real-time Data Stream */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
         <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
           <Activity className="w-5 h-5 text-green-600 animate-pulse" />
           Real-time Data Stream (2-second refresh)
@@ -133,7 +133,7 @@ export default function BigDataDashboard() {
       </div>
 
       {/* API Health Status */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
         <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
           <Wifi className="w-5 h-5 text-blue-600" />
           API Health Status ({Object.keys(metrics.apiHealth).length} Sources)
@@ -161,7 +161,7 @@ export default function BigDataDashboard() {
       </div>
 
       {/* Data Collection Schedule */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
+      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
         <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
           <Clock className="w-5 h-5 text-purple-600" />
           Data Collection Schedule
@@ -207,7 +207,7 @@ export default function BigDataDashboard() {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {Object.entries(API_CONFIGS).map(([key, config]) => (
-            <div key={key} className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+            <div key={key} className="bg-neon-100 rounded-lg p-4 shadow-sm border border-gray-200">
               <div className="font-semibold text-gray-900 mb-2">{config.name}</div>
               <div className="space-y-1 text-xs text-gray-600">
                 <div className="flex items-center gap-2">
