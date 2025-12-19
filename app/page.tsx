@@ -25,15 +25,16 @@ import LiveCommodityPricing from '@/components/LiveCommodityPricing';
 import PrivacyPolicy from '@/components/PrivacyPolicy';
 import TermsOfService from '@/components/TermsOfService';
 import ContactPage from '@/components/ContactPage';
+import DroneManagement from '@/components/DroneManagement';
 import { LydianAgriLogoWithText } from '@/components/LydianAgriLogo';
-import { Sprout, MapPin, Globe, BarChart3, Leaf, Menu, X, Database, Shield, Sparkles, Activity, LineChart, Languages, BookOpen, AlertCircle, Package, Award, Rocket, TrendingUp, CheckCircle, Zap, Code, Scale, MessageSquare, ShoppingCart, DollarSign, LayoutDashboard } from 'lucide-react';
+import { Sprout, MapPin, Globe, BarChart3, Leaf, Menu, X, Database, Shield, Sparkles, Activity, LineChart, Languages, BookOpen, AlertCircle, Package, Award, Rocket, TrendingUp, CheckCircle, Zap, Code, Scale, MessageSquare, ShoppingCart, DollarSign, LayoutDashboard, Plane } from 'lucide-react';
 import { CROPS_DATABASE } from '@/lib/crops-database';
 import { PESTICIDES_DATABASE } from '@/lib/pesticides-database';
 import { DATA_SOURCES } from '@/lib/bigdata-collector';
 import { GLOBAL_AGRI_LEADERS } from '@/lib/global-agri-insights';
 import { Language, getTranslation, detectBrowserLanguage } from '@/lib/i18n';
 
-type TabType = 'overview' | 'soil' | 'pesticides' | 'crops' | 'global' | 'matcher' | 'insights' | 'live-data' | 'analytics' | 'supply-chain' | 'esg' | 'big-data' | 'roadmap' | 'investor-deck' | 'api-docs' | 'advanced-api' | 'marketplace' | 'commodity-pricing' | 'privacy' | 'terms' | 'contact' | 'about';
+type TabType = 'overview' | 'soil' | 'pesticides' | 'crops' | 'global' | 'matcher' | 'insights' | 'live-data' | 'analytics' | 'supply-chain' | 'esg' | 'big-data' | 'roadmap' | 'investor-deck' | 'api-docs' | 'advanced-api' | 'marketplace' | 'commodity-pricing' | 'privacy' | 'terms' | 'contact' | 'about' | 'drones';
 
 export default function Home() {
   const [selectedLocation, setSelectedLocation] = useState({ lat: 41.8781, lon: -93.0977 });
@@ -65,6 +66,7 @@ export default function Home() {
     { key: 'soil', label: t.soilAnalysis, icon: Leaf, section: 'agri' },
     { key: 'crops', label: t.cropCatalog, icon: Sprout, section: 'agri' },
     { key: 'matcher', label: t.pesticideMatcher, icon: Shield, section: 'agri' },
+    { key: 'drones', label: language === 'tr' ? 'Drone Yönetimi' : 'Drone Management', icon: Plane, section: 'agri' },
     { key: 'pesticides', label: t.pesticidesDB, icon: Database, section: 'agri' },
     { key: 'global', label: t.globalInsights, icon: Globe, section: 'agri' },
 
@@ -158,6 +160,19 @@ export default function Home() {
             </div>
 
             <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+              {/* Drone Icon with Animation */}
+              <button
+                onClick={() => setActiveTab('drones')}
+                className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-blue-500 to-sky-500 text-white font-bold px-3 py-2 rounded-lg hover:from-blue-600 hover:to-sky-600 transition-all shadow-lg hover:shadow-xl group relative overflow-hidden"
+                title={language === 'tr' ? 'Drone Yönetimi' : 'Drone Management'}
+              >
+                <div className="relative">
+                  <Plane className="w-4 h-4 animate-bounce group-hover:animate-pulse" />
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-green-400 rounded-full animate-ping" />
+                </div>
+                <span className="text-xs">{language === 'tr' ? 'Drone' : 'Drone'}</span>
+              </button>
+
               {/* Dashboard Link */}
               <a
                 href="/tarim-dashboard"
@@ -622,6 +637,12 @@ export default function Home() {
           {activeTab === 'marketplace' && (
             <div>
               <AgriMarketplace language={language} />
+            </div>
+          )}
+
+          {activeTab === 'drones' && (
+            <div>
+              <DroneManagement language={language} />
             </div>
           )}
 

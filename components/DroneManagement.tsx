@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { fetchDroneTelemetry, fetchWeather, fetchSatelliteData } from '@/lib/api-client';
+import { useDroneContext } from '@/contexts/DroneContext';
 import LiveDroneMap from './LiveDroneMap';
 import {
   Plane,
@@ -78,9 +79,21 @@ interface FlightMission {
 }
 
 export default function DroneManagement({ language = 'tr' }: DroneManagementProps) {
+  // Use shared drone context
+  const {
+    drones: contextDrones,
+    setDrones: setContextDrones,
+    missions: contextMissions,
+    setMissions: setContextMissions,
+    sensorData: contextSensorData,
+    setSensorData: setContextSensorData,
+    realTimeData,
+    setRealTimeData,
+    selectedDrone,
+    setSelectedDrone
+  } = useDroneContext();
+
   const [activeTab, setActiveTab] = useState<'fleet' | 'missions' | 'sensors' | 'analytics'>('fleet');
-  const [selectedDrone, setSelectedDrone] = useState<string | null>(null);
-  const [realTimeData, setRealTimeData] = useState<boolean>(true);
 
   const t = {
     // Main Navigation
@@ -150,121 +163,77 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
     dataCollected: language === 'tr' ? 'Toplanan Veri' : 'Data Collected',
   };
 
-  // Simulated real-time drone data
-  const [drones, setDrones] = useState<DroneStatus[]>([
-    {
-      id: 'DJI-M3M-001',
-      name: 'Mavic 3 Multispectral Alpha',
-      model: 'DJI Mavic 3M',
-      status: 'active',
-      battery: 78,
-      altitude: 120,
-      speed: 15.2,
-      position: { lat: 39.9334, lng: 32.8597 },
-      temperature: 24,
-      humidity: 45,
-      windSpeed: 8.5,
-      flightTime: 28,
-      coverage: 156.3,
-      lastUpdate: new Date(),
-    },
-    {
-      id: 'DJI-T40-002',
-      name: 'Agras T40 Bravo',
-      model: 'DJI Agras T40',
-      status: 'active',
-      battery: 92,
-      altitude: 8,
-      speed: 6.8,
-      position: { lat: 39.9342, lng: 32.8612 },
-      temperature: 25,
-      humidity: 43,
-      windSpeed: 7.2,
-      flightTime: 12,
-      coverage: 42.8,
-      lastUpdate: new Date(),
-    },
-    {
-      id: 'SNT-P4M-003',
-      name: 'Phantom 4 Multispectral Charlie',
-      model: 'DJI P4 Multispectral',
-      status: 'idle',
-      battery: 100,
-      altitude: 0,
-      speed: 0,
-      position: { lat: 39.9320, lng: 32.8580 },
-      temperature: 23,
-      humidity: 48,
-      windSpeed: 0,
-      flightTime: 0,
-      coverage: 0,
-      lastUpdate: new Date(),
-    },
-    {
-      id: 'AGE-RX60-004',
-      name: 'AgEagle RX60 Delta',
-      model: 'AgEagle RX60',
-      status: 'charging',
-      battery: 45,
-      altitude: 0,
-      speed: 0,
-      position: { lat: 39.9315, lng: 32.8590 },
-      temperature: 22,
-      humidity: 50,
-      windSpeed: 0,
-      flightTime: 0,
-      coverage: 0,
-      lastUpdate: new Date(),
-    },
-  ]);
+  // Map context data to local interfaces
+  const drones: DroneStatus[] = contextDrones.map(d => ({
+    id: d.id,
+    name: d.name,
+    model: d.model,
+    status: d.status,
+    battery: d.battery,
+    altitude: d.altitude,
+    speed: d.speed,
+    position: { lat: d.latitude, lng: d.longitude },
+    temperature: d.temperature,
+    humidity: d.humidity,
+    windSpeed: d.windSpeed,
+    flightTime: d.flightTime,
+    coverage: d.coverage,
+    lastUpdate: d.lastUpdate,
+  }));
 
-  const [sensorData, setSensorData] = useState<SensorData>({
-    ndvi: 0.78,
-    soilMoisture: 62,
-    cropHealth: 87,
-    temperature: 24.5,
-    nitrogen: 75,
-    phosphorus: 68,
-    potassium: 72,
-    pestDetection: false,
-    diseaseRisk: 'low',
-  });
+  const setDrones = (newDrones: DroneStatus[]) => {
+    setContextDrones(newDrones.map(d => ({
+      ...contextDrones.find(cd => cd.id === d.id)!,
+      id: d.id,
+      name: d.name,
+      model: d.model,
+      status: d.status,
+      battery: d.battery,
+      altitude: d.altitude,
+      speed: d.speed,
+      latitude: d.position.lat,
+      longitude: d.position.lng,
+      temperature: d.temperature,
+      humidity: d.humidity,
+      windSpeed: d.windSpeed,
+      flightTime: d.flightTime,
+      coverage: d.coverage,
+      lastUpdate: d.lastUpdate,
+    })));
+  };
 
-  const [missions, setMissions] = useState<FlightMission[]>([
-    {
-      id: 'MSN-001',
-      name: 'Buğday Tarlası NDVI Taraması',
-      type: 'survey',
-      area: 250,
-      status: 'active',
-      progress: 65,
-      droneId: 'DJI-M3M-001',
-      startTime: new Date(Date.now() - 28 * 60000),
-      estimatedCompletion: new Date(Date.now() + 15 * 60000),
-    },
-    {
-      id: 'MSN-002',
-      name: 'Mısır Tarlası İlaçlama',
-      type: 'spray',
-      area: 85,
-      status: 'active',
-      progress: 42,
-      droneId: 'DJI-T40-002',
-      startTime: new Date(Date.now() - 12 * 60000),
-      estimatedCompletion: new Date(Date.now() + 16 * 60000),
-    },
-    {
-      id: 'MSN-003',
-      name: 'Sera İzleme',
-      type: 'monitoring',
-      area: 15,
-      status: 'scheduled',
-      progress: 0,
-      droneId: 'SNT-P4M-003',
-      startTime: new Date(Date.now() + 30 * 60000),
-      estimatedCompletion: new Date(Date.now() + 50 * 60000),
-    },
-  ]);
+  const sensorData = contextSensorData;
+  const setSensorData = setContextSensorData;
+
+  // Map missions from context (simplified mapping for now)
+  const missions: FlightMission[] = contextMissions.map(m => ({
+    id: m.id,
+    name: m.name,
+    type: m.type as 'survey' | 'spray' | 'monitoring' | 'seeding',
+    area: m.area,
+    status: m.status as 'scheduled' | 'active' | 'completed' | 'paused',
+    progress: m.progress,
+    droneId: m.droneId,
+    startTime: new Date(m.startTime),
+    estimatedCompletion: new Date(m.estimatedCompletion),
+  }));
+
+  const setMissions = (newMissions: FlightMission[]) => {
+    setContextMissions(newMissions.map(m => ({
+      id: m.id,
+      name: m.name,
+      type: m.type as 'mapping' | 'spraying' | 'monitoring' | 'inspection',
+      droneId: m.droneId,
+      status: m.status as 'active' | 'completed' | 'scheduled' | 'paused',
+      progress: m.progress,
+      area: m.area,
+      startTime: m.startTime.toISOString().substring(11, 16),
+      estimatedCompletion: m.estimatedCompletion.toISOString().substring(11, 16),
+      priority: contextMissions.find(cm => cm.id === m.id)?.priority || 'medium',
+    })));
+  };
+
+  // Context now handles initialization
 
   // Fetch real data from APIs
   useEffect(() => {
