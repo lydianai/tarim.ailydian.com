@@ -448,7 +448,7 @@ export default function Home() {
                   </div>
                 </div>
                 <AgriMap onLocationSelect={handleLocationSelect} language={language} />
-                <WeatherWidget lat={selectedLocation.lat} lon={selectedLocation.lon} />
+                <WeatherWidget lat={selectedLocation.lat} lon={selectedLocation.lon} language={language} />
                 <CropYieldChart />
               </div>
             )}

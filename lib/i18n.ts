@@ -87,6 +87,14 @@ export interface Translations {
   privacyPolicy: string;
   termsOfService: string;
   contact: string;
+
+  // Weather Widget
+  currentWeather: string;
+  temperature: string;
+  humidity: string;
+  windSpeed: string;
+  forecast5Day: string;
+  loading: string;
 }
 
 export const translations: Record<Language, Translations> = {
@@ -174,6 +182,14 @@ export const translations: Record<Language, Translations> = {
     privacyPolicy: 'Gizlilik Politikası',
     termsOfService: 'Kullanım Koşulları',
     contact: 'İletişim',
+
+    // Weather Widget
+    currentWeather: 'Güncel Hava Durumu',
+    temperature: 'Sıcaklık',
+    humidity: 'Nem',
+    windSpeed: 'Rüzgar Hızı',
+    forecast5Day: '5 Günlük Tahmin',
+    loading: 'Yükleniyor',
   },
 
   en: {
@@ -260,6 +276,14 @@ export const translations: Record<Language, Translations> = {
     privacyPolicy: 'Privacy Policy',
     termsOfService: 'Terms of Service',
     contact: 'Contact',
+
+    // Weather Widget
+    currentWeather: 'Current Weather',
+    temperature: 'Temperature',
+    humidity: 'Humidity',
+    windSpeed: 'Wind Speed',
+    forecast5Day: '5-Day Forecast',
+    loading: 'Loading',
   }
 };
 
