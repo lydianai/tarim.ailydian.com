@@ -181,7 +181,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
     lastUpdate: d.lastUpdate,
   }));
 
-  const setDrones = (newDrones: DroneStatus[]) => {
+  const setDrones = (updater: DroneStatus[] | ((prev: DroneStatus[]) => DroneStatus[])) => {
+    const newDrones = typeof updater === 'function' ? updater(drones) : updater;
     setContextDrones(newDrones.map(d => ({
       ...contextDrones.find(cd => cd.id === d.id)!,
       id: d.id,
@@ -203,7 +204,13 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
   };
 
   const sensorData = contextSensorData;
-  const setSensorData = setContextSensorData;
+  const setSensorData = (updater: SensorData | ((prev: SensorData) => SensorData)) => {
+    if (typeof updater === 'function') {
+      setContextSensorData(updater(contextSensorData));
+    } else {
+      setContextSensorData(updater);
+    }
+  };
 
   // Map missions from context (simplified mapping for now)
   const missions: FlightMission[] = contextMissions.map(m => ({
@@ -218,7 +225,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
     estimatedCompletion: new Date(m.estimatedCompletion),
   }));
 
-  const setMissions = (newMissions: FlightMission[]) => {
+  const setMissions = (updater: FlightMission[] | ((prev: FlightMission[]) => FlightMission[])) => {
+    const newMissions = typeof updater === 'function' ? updater(missions) : updater;
     setContextMissions(newMissions.map(m => ({
       id: m.id,
       name: m.name,
@@ -264,7 +272,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
           // Update sensor data from multispectral drones
           const multispectralDrone = telemetryData.data.find((d: any) => d.sensors?.multispectral);
           if (multispectralDrone?.sensors) {
-            setSensorData(prev => ({
+            setSensorData((prev: SensorData) => ({
               ...prev,
               ndvi: multispectralDrone.sensors.multispectral.ndvi.current,
               temperature: multispectralDrone.sensors.temperature.ground,
@@ -276,7 +284,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
         const satelliteData = await fetchSatelliteData(39.9334, 32.8597, 7);
         if (satelliteData?.success && satelliteData.data?.timeSeriesData?.length > 0) {
           const latestSatellite = satelliteData.data.timeSeriesData[satelliteData.data.timeSeriesData.length - 1];
-          setSensorData(prev => ({
+          setSensorData((prev: SensorData) => ({
             ...prev,
             ndvi: latestSatellite.indices.ndvi.value,
             soilMoisture: latestSatellite.soilMoisture.percentage,
@@ -287,7 +295,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
         // Fetch weather data
         const weatherData = await fetchWeather(39.9334, 32.8597);
         if (weatherData?.success && weatherData.current) {
-          setSensorData(prev => ({
+          setSensorData((prev: SensorData) => ({
             ...prev,
             temperature: (weatherData.current.main.temp - 32) * 5/9, // F to C
           }));
@@ -312,7 +320,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
     if (!realTimeData) return;
 
     const interval = setInterval(() => {
-      setDrones(prev => prev.map(drone => {
+      setDrones((prev: DroneStatus[]) => prev.map(drone => {
         if (drone.status === 'active') {
           return {
             ...drone,
@@ -327,13 +335,13 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
         return { ...drone, lastUpdate: new Date() };
       }));
 
-      setSensorData(prev => ({
+      setSensorData((prev: SensorData) => ({
         ...prev,
         soilMoisture: Math.max(0, Math.min(100, prev.soilMoisture + (Math.random() - 0.5) * 0.5)),
         cropHealth: Math.max(0, Math.min(100, prev.cropHealth + (Math.random() - 0.5) * 0.3)),
       }));
 
-      setMissions(prev => prev.map(mission => {
+      setMissions((prev: FlightMission[]) => prev.map(mission => {
         if (mission.status === 'active') {
           const newProgress = Math.min(100, mission.progress + Math.random() * 0.5);
           return {
