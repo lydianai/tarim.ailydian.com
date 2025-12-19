@@ -25,7 +25,7 @@ The platform is prepared for **real agricultural data** integration. Currently u
 # 2. .env.local dosyası oluşturun / Create .env.local file
 echo "NEXT_PUBLIC_OPENWEATHER_API_KEY=your_key_here" >> .env.local
 
-# 3. Restart dev server
+# 3. Restart development server
 npm run dev
 ```
 
@@ -233,23 +233,23 @@ Dashboard'da:
 
 ## 🚀 İleri Seviye Entegrasyonlar / Advanced Integrations
 
-### 1. Veritabanı (Vercel Postgres)
+### 1. Database Integration
 
 ```bash
-# 1. Vercel Postgres ekle / Add Vercel Postgres
-vercel postgres create
+# 1. Create database instance
+[database-setup-command]
 
-# 2. Prisma kur / Install Prisma
+# 2. Install ORM client / Prisma kur
 npm install @prisma/client
 npm install -D prisma
 
-# 3. Prisma başlat / Initialize Prisma
+# 3. Initialize ORM / Prisma başlat
 npx prisma init
 
-# 4. Schema tanımla / Define schema
+# 4. Define schema / Schema tanımla
 # prisma/schema.prisma dosyasını düzenle / Edit prisma/schema.prisma
 
-# 5. Migration çalıştır / Run migration
+# 5. Run migration / Migration çalıştır
 npx prisma migrate dev
 ```
 
@@ -333,7 +333,7 @@ await controlDrone('DJI-M3M-001', 'return');
 1. **API Anahtarları**:
    - ❌ Asla git'e commit etmeyin / Never commit to git
    - ✅ `.env.local` kullanın / Use .env.local
-   - ✅ Vercel'da Environment Variables olarak ekleyin / Add as Environment Variables in Vercel
+   - ✅ Cloud platformda Environment Variables olarak ekleyin / Add as Environment Variables in cloud platform
 
 2. **Rate Limiting**:
    - API limitlerini aşmamak için önlem alınmıştır / Measures taken to not exceed API limits

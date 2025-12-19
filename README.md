@@ -8,7 +8,6 @@
 ![Platform Status](https://img.shields.io/badge/Status-Live-brightgreen)
 ![Version](https://img.shields.io/badge/Version-2.0-blue)
 ![Data Sources](https://img.shields.io/badge/Data_Sources-18+-orange)
-![Tech Stack](https://img.shields.io/badge/Next.js-16-black)
 
 ---
 
@@ -174,24 +173,18 @@ npm run dev
 
 ---
 
-## 🛠️ Tech Stack
-
-**Frontend:**
-- Next.js 16 (Turbopack)
-- React 19
-- TypeScript 5
-- Tailwind CSS 4
+## 🛠️ Platform Technology
 
 **Visualization:**
-- Recharts (Area, Line, Bar, Pie, Radar)
-- Mapbox GL JS (Satellite maps)
-- Lucide Icons
+- Advanced charting (Area, Line, Bar, Pie, Radar)
+- Satellite mapping with real-time overlays
+- Modern iconography
 
 **Performance:**
-- Server Components
-- Code Splitting
-- Image Optimization
-- Fast Refresh
+- Optimized server-side rendering
+- Intelligent code splitting
+- Advanced image optimization
+- Live hot-reload in development
 
 ---
 

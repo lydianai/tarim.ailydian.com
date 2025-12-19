@@ -34,7 +34,7 @@ export default function Roadmap() {
       milestones: [
         {
           title: 'Platform Architecture',
-          description: 'Next.js 16 + TypeScript + Tailwind CSS infrastructure',
+          description: 'Modern web framework with type-safe infrastructure',
           status: 'completed',
           completion: 'January 2025'
         },
@@ -64,7 +64,7 @@ export default function Roadmap() {
         },
         {
           title: 'Production Deployment',
-          description: 'Vercel Edge deployment with custom domain (tarim.ailydian.com)',
+          description: 'Cloud edge deployment with custom domain (tarim.ailydian.com)',
           status: 'completed',
           completion: 'June 2025'
         }
@@ -105,7 +105,7 @@ export default function Roadmap() {
         },
         {
           title: 'Blockchain Supply Chain',
-          description: 'FDA FSMA 204 compliant traceability, GS1 standards, Hyperledger Fabric',
+          description: 'FDA FSMA 204 compliant traceability, GS1 standards, distributed ledger',
           status: 'completed',
           completion: 'November 2025'
         },
@@ -134,7 +134,7 @@ export default function Roadmap() {
         },
         {
           title: 'Database Integration',
-          description: 'PostgreSQL/Supabase for data persistence, user data, historical records',
+          description: 'Scalable database for data persistence, user data, historical records',
           status: 'in-progress',
           completion: 'Q1 2026'
         },
@@ -181,7 +181,7 @@ export default function Roadmap() {
         },
         {
           title: 'Enterprise Partnerships',
-          description: 'Partnerships with John Deere, Bayer, Syngenta, BASF for data integration',
+          description: 'Partnerships with major agricultural technology companies for data integration',
           status: 'planned',
           completion: 'Q3 2026'
         },

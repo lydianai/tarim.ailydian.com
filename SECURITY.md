@@ -13,7 +13,7 @@ This application implements military-grade security measures to protect sensitiv
 - **Use Cases**: Sensitive data at rest, API credentials
 
 ### 2. Rate Limiting
-- **Edge Runtime**: In-memory rate limiting
+- **Server Runtime**: In-memory rate limiting
 - **Default Limits**: 100 requests per 15 minutes per IP
 - **Automatic Cleanup**: Periodic memory cleanup
 - **Response**: 429 Too Many Requests with Retry-After header
@@ -48,7 +48,7 @@ form-action 'self'
 - **Whitelist-Only**: Allowed origins explicitly defined
 - **Production Domains**:
   - https://tarim.ailydian.com
-  - https://agritech-platform.vercel.app
+  - Production deployment domain
 - **Development**: localhost:3000 (dev mode only)
 - **Methods**: GET, POST, PUT, DELETE, OPTIONS
 - **Headers**: Content-Type, Authorization
@@ -89,12 +89,12 @@ NEXT_PUBLIC_SECRET_KEY=sensitive_data
 
 ### API Key Rotation
 - Rotate all API keys every 90 days minimum
-- Update keys in Vercel Environment Variables
+- Update keys in cloud platform environment variables
 - Never commit keys to git repository
 - Use different keys for development/production
 
 ### Deployment Checklist
-- [ ] All environment variables set in Vercel
+- [ ] All environment variables set in cloud platform
 - [ ] `.env.local` added to `.gitignore`
 - [ ] No hardcoded secrets in code
 - [ ] Security headers configured
@@ -127,7 +127,7 @@ secureLogger.info('Operation completed');
 ```
 
 ### `middleware.ts`
-**Edge Runtime Compatible** - Provides:
+**Server Runtime Compatible** - Provides:
 - Rate limiting per IP
 - Security header injection
 - CORS enforcement
@@ -138,7 +138,7 @@ secureLogger.info('Operation completed');
 
 ### If API Key is Exposed
 1. **Immediate**: Rotate the compromised key
-2. **Update**: Change in Vercel Environment Variables
+2. **Update**: Change in cloud platform environment variables
 3. **Redeploy**: Force new deployment
 4. **Monitor**: Check for unusual API usage
 5. **Document**: Log the incident
@@ -179,9 +179,9 @@ If you discover a security vulnerability:
 ## 📚 References
 
 - [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/)
-- [Next.js Security](https://nextjs.org/docs/advanced-features/security-headers)
-- [Vercel Security](https://vercel.com/docs/security)
+- [Security Headers Best Practices](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers)
 - [CSP Reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+- [Web Application Security](https://owasp.org/www-project-web-security-testing-guide/)
 
 ---
 

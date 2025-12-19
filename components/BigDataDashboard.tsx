@@ -260,23 +260,6 @@ export default function BigDataDashboard() {
         </div>
       </div>
 
-      {/* Technology Stack */}
-      <div className="bg-white rounded-xl p-6 shadow-lg">
-        <h3 className="text-lg font-bold text-gray-800 mb-4">Technology Stack</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[
-            { name: 'Next.js 16', desc: 'Frontend Framework', color: 'from-black to-gray-800' },
-            { name: 'Vercel Edge', desc: 'Serverless Functions', color: 'from-blue-600 to-cyan-600' },
-            { name: 'React Query', desc: 'Data Fetching', color: 'from-red-500 to-pink-500' },
-            { name: 'TypeScript', desc: 'Type Safety', color: 'from-blue-500 to-indigo-600' }
-          ].map((tech, idx) => (
-            <div key={idx} className={`bg-gradient-to-br ${tech.color} rounded-lg p-4 text-white`}>
-              <div className="font-bold mb-1">{tech.name}</div>
-              <div className="text-xs opacity-80">{tech.desc}</div>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }

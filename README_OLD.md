@@ -100,12 +100,12 @@ agritech-platform/
 
 ## 🛠️ Technology Stack
 
-- **Framework:** Next.js 15 (React 19)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Mapping:** Mapbox GL JS
-- **Charts:** Recharts
-- **Icons:** Lucide React
+- **Framework:** Modern web framework
+- **Language:** Type-safe programming
+- **Styling:** Modern CSS framework
+- **Mapping:** Satellite mapping library
+- **Charts:** Interactive charting library
+- **Icons:** Modern icon set
 - **HTTP Client:** Axios
 
 ## 🌐 API Integration

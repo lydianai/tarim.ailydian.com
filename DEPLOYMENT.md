@@ -1,9 +1,9 @@
 # AgriTech Platform Deployment Guide
 
-## Deploying to Vercel (tarim.ailydian.com)
+## Cloud Deployment (tarim.ailydian.com)
 
 ### Prerequisites
-- Vercel account with domain `ailydian.com` configured
+- Cloud hosting account with domain `ailydian.com` configured
 - Git repository initialized
 - Node.js 18+ installed locally
 
@@ -23,39 +23,38 @@ git branch -M main
 git push -u origin main
 ```
 
-### Step 3: Deploy to Vercel via CLI
+### Step 3: Deploy via CLI
 
-#### Install Vercel CLI
+#### Install Cloud CLI
 ```bash
-npm install -g vercel
+npm install -g [cloud-provider-cli]
 ```
 
-#### Login to Vercel
+#### Login to Cloud Provider
 ```bash
-vercel login
+[cloud-login-command]
 ```
 
 #### Deploy
 ```bash
 cd /Users/sardag/Desktop/agritech-platform
-vercel --prod
+[deploy-command] --prod
 ```
 
 During deployment, configure:
 - **Project Name**: `agritech-platform`
-- **Framework**: Next.js
 - **Build Command**: `npm run build`
 - **Output Directory**: `.next`
 - **Install Command**: `npm install`
 
 ### Step 4: Configure Custom Domain
 
-#### Via Vercel Dashboard:
-1. Go to https://vercel.com/dashboard
+#### Via Cloud Dashboard:
+1. Go to cloud provider dashboard
 2. Select your project: `agritech-platform`
 3. Go to Settings → Domains
 4. Add domain: `tarim.ailydian.com`
-5. Vercel will provide DNS configuration instructions
+5. Provider will supply DNS configuration instructions
 
 #### DNS Configuration:
 Add the following DNS records to your domain provider:
@@ -64,7 +63,7 @@ Add the following DNS records to your domain provider:
 ```
 Type: CNAME
 Name: tarim
-Value: cname.vercel-dns.com
+Value: [cloud-provider-dns]
 ```
 
 ### Dashboard Access Credentials
@@ -118,8 +117,8 @@ Password: LydianAgri2025!
 ## Production Optimizations
 
 The platform is built with:
-- Next.js 16 with Turbopack (3x faster builds)
-- TypeScript for type safety
+- Modern build system (3x faster builds)
+- Type-safe programming
 - Automatic code splitting
 - Image optimization
 - Font optimization
@@ -131,7 +130,7 @@ The platform is built with:
 
 ## Continuous Deployment
 
-Once connected to GitHub, Vercel will automatically:
+Once connected to GitHub, the platform will automatically:
 - Deploy on every push to `main` branch
 - Create preview deployments for pull requests
 - Run build checks before deployment
@@ -145,7 +144,7 @@ Once connected to GitHub, Vercel will automatically:
 npm run build
 ```
 
-### Check TypeScript Errors
+### Check Type Safety
 ```bash
 npx tsc --noEmit
 ```
@@ -157,7 +156,5 @@ rm -rf .next && npm run build
 
 ---
 
-**Platform Version**: 1.0.0  
-**Framework**: Next.js 16.0.10  
-**Deployment**: Vercel  
+**Platform Version**: 1.0.0
 **Domain**: tarim.ailydian.com

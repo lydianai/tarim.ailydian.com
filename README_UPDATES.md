@@ -176,16 +176,16 @@
 ## 🔥 Teknik Özellikler
 
 ### Frontend
-- Next.js 16 (Turbopack)
-- React 19
-- TypeScript
-- Tailwind CSS 4
-- Mapbox GL JS
-- Recharts
-- Lucide React Icons
+- Modern web framework with fast build system
+- Latest component library
+- Type-safe programming
+- Modern CSS framework
+- Satellite mapping
+- Interactive charts
+- Icon library
 
 ### Data Management
-- 30+ Crops Database (TypeScript interface)
+- 30+ Crops Database (Type-safe interface)
 - 20+ Pesticides Database (Comprehensive)
 - 8 Country Profiles (Global insights)
 - 18 Data Sources (API integration)

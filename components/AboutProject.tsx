@@ -128,19 +128,19 @@ export default function AboutProject({ lang }: AboutProjectProps) {
   ];
 
   const techStack = lang === 'tr' ? [
-    { name: 'Next.js 16', desc: 'React framework (Turbopack)' },
-    { name: 'TypeScript', desc: 'Tip güvenli programlama' },
-    { name: 'Tailwind CSS 4', desc: 'Modern UI framework' },
-    { name: 'Mapbox GL', desc: 'Uydu haritaları' },
-    { name: 'Recharts', desc: 'Veri görselleştirme' },
-    { name: 'Vercel', desc: 'Cloud hosting' }
+    { name: 'Modern Framework', desc: 'Hızlı build sistemi' },
+    { name: 'Tip Güvenli', desc: 'Güvenli programlama' },
+    { name: 'Modern UI', desc: 'Duyarlı tasarım' },
+    { name: 'Haritalar', desc: 'Uydu haritaları' },
+    { name: 'Görselleştirme', desc: 'Veri grafikleri' },
+    { name: 'Cloud Platform', desc: 'Cloud barındırma' }
   ] : [
-    { name: 'Next.js 16', desc: 'React framework (Turbopack)' },
-    { name: 'TypeScript', desc: 'Type-safe programming' },
-    { name: 'Tailwind CSS 4', desc: 'Modern UI framework' },
-    { name: 'Mapbox GL', desc: 'Satellite maps' },
-    { name: 'Recharts', desc: 'Data visualization' },
-    { name: 'Vercel', desc: 'Cloud hosting' }
+    { name: 'Modern Framework', desc: 'Fast build system' },
+    { name: 'Type Safety', desc: 'Secure programming' },
+    { name: 'Modern UI', desc: 'Responsive design' },
+    { name: 'Mapping', desc: 'Satellite maps' },
+    { name: 'Visualization', desc: 'Data charts' },
+    { name: 'Cloud Platform', desc: 'Cloud hosting' }
   ];
 
   return (
@@ -239,11 +239,11 @@ export default function AboutProject({ lang }: AboutProjectProps) {
           </div>
         </div>
 
-        {/* Technology Stack */}
+        {/* Platform Capabilities */}
         <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
           <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
             <Code className="w-6 h-6 text-purple-600" />
-            {t.technologyStackTitle}
+            {lang === 'tr' ? 'Platform Yetenekleri' : 'Platform Capabilities'}
           </h2>
           <div className="space-y-3">
             {techStack.map((tech, idx) => (
