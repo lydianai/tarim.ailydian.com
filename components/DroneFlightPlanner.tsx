@@ -466,7 +466,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
   const flightPlan = calculateFlightStats();
 
   return (
-    <div className="bg-neon-100 rounded-xl shadow-lg overflow-hidden">
+    <div className="bg-earth-900 rounded-xl shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4">
         <div className="flex items-center justify-between">
@@ -476,11 +476,11 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
           </div>
 
           <div className="flex items-center gap-2">
-            <button className="bg-neon-100/20 backdrop-blur-sm px-3 py-1.5 rounded-lg hover:bg-neon-100/30 transition-all text-sm flex items-center gap-2">
+            <button className="bg-earth-950/20 backdrop-blur-sm px-3 py-1.5 rounded-lg hover:bg-earth-950/30 transition-all text-sm flex items-center gap-2">
               <Upload className="w-4 h-4" />
               {t.import}
             </button>
-            <button className="bg-neon-100/20 backdrop-blur-sm px-3 py-1.5 rounded-lg hover:bg-neon-100/30 transition-all text-sm flex items-center gap-2">
+            <button className="bg-earth-950/20 backdrop-blur-sm px-3 py-1.5 rounded-lg hover:bg-earth-950/30 transition-all text-sm flex items-center gap-2">
               <Download className="w-4 h-4" />
               {t.export}
             </button>
@@ -506,7 +506,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
             <button
               onClick={() => setMode('view')}
               className={`flex-1 py-2 px-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 ${
-                mode === 'view' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                mode === 'view' ? 'bg-blue-600 text-white' : 'bg-earth-800 text-earth-200 hover:bg-earth-700'
               }`}
             >
               <Eye className="w-4 h-4" />
@@ -515,7 +515,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
             <button
               onClick={() => setMode('boundary')}
               className={`flex-1 py-2 px-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 ${
-                mode === 'boundary' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                mode === 'boundary' ? 'bg-blue-600 text-white' : 'bg-earth-800 text-earth-200 hover:bg-earth-700'
               }`}
             >
               <Shapes className="w-4 h-4" />
@@ -524,7 +524,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
             <button
               onClick={() => setMode('waypoint')}
               className={`flex-1 py-2 px-4 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 ${
-                mode === 'waypoint' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                mode === 'waypoint' ? 'bg-blue-600 text-white' : 'bg-earth-800 text-earth-200 hover:bg-earth-700'
               }`}
             >
               <MapPin className="w-4 h-4" />
@@ -555,8 +555,8 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
         {/* Settings Panel */}
         <div className="space-y-4">
           {/* Coverage Pattern */}
-          <div className="bg-gray-50 rounded-lg p-4">
-            <label className="text-sm font-semibold text-gray-700 mb-2 block">{t.coveragePattern}</label>
+          <div className="bg-earth-800 rounded-lg p-4">
+            <label className="text-sm font-semibold text-earth-200 mb-2 block">{t.coveragePattern}</label>
             <div className="grid grid-cols-2 gap-2">
               {(['parallel', 'zigzag', 'circular', 'custom'] as const).map(pattern => (
                 <button
@@ -565,7 +565,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
                   className={`py-2 px-3 rounded-lg text-sm font-semibold transition-all ${
                     coveragePattern === pattern
                       ? 'bg-blue-600 text-white'
-                      : 'bg-neon-100 text-gray-700 hover:bg-gray-100'
+                      : 'bg-earth-900 text-earth-200 hover:bg-earth-700'
                   }`}
                 >
                   {t[pattern]}
@@ -575,9 +575,9 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
           </div>
 
           {/* Flight Parameters */}
-          <div className="bg-gray-50 rounded-lg p-4 space-y-3">
+          <div className="bg-earth-800 rounded-lg p-4 space-y-3">
             <div>
-              <label className="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-2">
+              <label className="text-sm font-semibold text-earth-200 mb-1 flex items-center gap-2">
                 <Navigation className="w-4 h-4" />
                 {t.altitude}: {altitude}ft
               </label>
@@ -592,7 +592,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
             </div>
 
             <div>
-              <label className="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-2">
+              <label className="text-sm font-semibold text-earth-200 mb-1 flex items-center gap-2">
                 <Zap className="w-4 h-4" />
                 {t.speed}: {speed} mph
               </label>
@@ -607,7 +607,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
             </div>
 
             <div>
-              <label className="text-sm font-semibold text-gray-700 mb-1 flex items-center gap-2">
+              <label className="text-sm font-semibold text-earth-200 mb-1 flex items-center gap-2">
                 <Grid3x3 className="w-4 h-4" />
                 {t.overlap}: {overlap}%
               </label>
@@ -634,23 +634,23 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
 
           {/* Flight Statistics */}
           {flightPlan && (
-            <div className="bg-gray-50 rounded-lg p-4 space-y-2">
-              <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+            <div className="bg-earth-800 rounded-lg p-4 space-y-2">
+              <h3 className="font-bold text-earth-100 mb-3 flex items-center gap-2">
                 <Calculator className="w-5 h-5" />
                 Flight Statistics
               </h3>
 
               <div className="space-y-2 text-sm">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">{t.waypoints}:</span>
-                  <span className="font-bold text-gray-900">{flightPlan.waypoints.length}</span>
+                  <span className="text-earth-300">{t.waypoints}:</span>
+                  <span className="font-bold text-earth-100">{flightPlan.waypoints.length}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">{t.estimatedTime}:</span>
-                  <span className="font-bold text-gray-900">{flightPlan.estimatedTime.toFixed(1)} min</span>
+                  <span className="text-earth-300">{t.estimatedTime}:</span>
+                  <span className="font-bold text-earth-100">{flightPlan.estimatedTime.toFixed(1)} min</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">{t.estimatedBattery}:</span>
+                  <span className="text-earth-300">{t.estimatedBattery}:</span>
                   <span className={`font-bold ${flightPlan.estimatedBattery > 80 ? 'text-red-600' : 'text-green-600'}`}>
                     {flightPlan.estimatedBattery.toFixed(0)}%
                   </span>
@@ -658,13 +658,13 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
               </div>
 
               {flightPlan.warnings.length > 0 && (
-                <div className="mt-3 pt-3 border-t border-gray-200">
+                <div className="mt-3 pt-3 border-t border-earth-700">
                   <div className="flex items-center gap-2 text-orange-600 font-semibold text-sm mb-2">
                     <AlertTriangle className="w-4 h-4" />
                     {t.warnings}
                   </div>
                   {flightPlan.warnings.map((warning, i) => (
-                    <div key={i} className="text-xs text-gray-600 ml-6 mb-1">
+                    <div key={i} className="text-xs text-earth-300 ml-6 mb-1">
                       • {warning}
                     </div>
                   ))}
@@ -674,7 +674,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
           )}
 
           {/* Display Options */}
-          <div className="bg-gray-50 rounded-lg p-4 space-y-2">
+          <div className="bg-earth-800 rounded-lg p-4 space-y-2">
             <label className="flex items-center gap-2 text-sm cursor-pointer">
               <input
                 type="checkbox"
@@ -682,7 +682,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
                 onChange={(e) => setShowGrid(e.target.checked)}
                 className="w-4 h-4"
               />
-              <span className="text-gray-700">Show Grid</span>
+              <span className="text-earth-200">Show Grid</span>
             </label>
             <label className="flex items-center gap-2 text-sm cursor-pointer">
               <input
@@ -691,7 +691,7 @@ export default function DroneFlightPlanner({ language = 'en', onPlanCreated }: D
                 onChange={(e) => setShowNoFlyZones(e.target.checked)}
                 className="w-4 h-4"
               />
-              <span className="text-gray-700">{t.noFlyZones}</span>
+              <span className="text-earth-200">{t.noFlyZones}</span>
             </label>
           </div>
 

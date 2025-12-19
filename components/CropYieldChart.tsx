@@ -39,18 +39,18 @@ export default function CropYieldChart() {
 
   if (loading) {
     return (
-      <div className="bg-neon-100 rounded-xl p-6 shadow-lg animate-pulse">
-        <div className="h-64 bg-gray-200 rounded"></div>
+      <div className="bg-earth-900 rounded-xl p-6 shadow-lg animate-pulse">
+        <div className="h-64 bg-earth-800 rounded"></div>
       </div>
     );
   }
 
   return (
-    <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
+    <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-xl font-bold text-gray-800">Corn Yield Trends</h3>
-          <p className="text-sm text-gray-600">Iowa - Bushels per Acre</p>
+          <h3 className="text-xl font-bold text-earth-100">Corn Yield Trends</h3>
+          <p className="text-sm text-earth-300">Iowa - Bushels per Acre</p>
         </div>
         <div className="flex items-center gap-2 text-green-600">
           <TrendingUp className="w-5 h-5" />
@@ -73,10 +73,11 @@ export default function CropYieldChart() {
           />
           <Tooltip
             contentStyle={{
-              backgroundColor: 'white',
-              border: '1px solid #e5e7eb',
+              backgroundColor: '#1a1410',
+              border: '1px solid #4a3f35',
               borderRadius: '8px',
-              boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
+              boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+              color: '#e8e2d8'
             }}
           />
           <Legend />

@@ -209,12 +209,12 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
   };
 
   return (
-    <div className="bg-neon-100 rounded-2xl shadow-2xl overflow-hidden border-2 border-gray-200">
+    <div className="bg-earth-900 rounded-2xl shadow-2xl overflow-hidden border-2 border-earth-700">
       {/* Header */}
       <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="bg-neon-100/20 p-2 rounded-lg backdrop-blur-sm">
+            <div className="bg-earth-900/20 p-2 rounded-lg backdrop-blur-sm">
               <Navigation className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -230,8 +230,8 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
               onClick={() => setShowPaths(!showPaths)}
               className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all ${
                 showPaths
-                  ? 'bg-neon-100 text-agri-700'
-                  : 'bg-neon-100/20 text-white hover:bg-neon-100/30'
+                  ? 'bg-earth-900 text-agri-700'
+                  : 'bg-earth-900/20 text-white hover:bg-earth-900/30'
               }`}
             >
               <Radio className="w-4 h-4" />
@@ -297,12 +297,12 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
               {/* Battery indicator */}
               {drone.status === 'active' && (
                 <div className="absolute -top-6 left-1/2 -translate-x-1/2">
-                  <div className="bg-neon-100 rounded-full px-2 py-1 shadow-md flex items-center gap-1">
+                  <div className="bg-earth-900 rounded-full px-2 py-1 shadow-md flex items-center gap-1">
                     <Zap className={`w-3 h-3 ${
                       drone.battery > 60 ? 'text-green-500' :
                       drone.battery > 30 ? 'text-yellow-500' : 'text-red-500'
                     }`} />
-                    <span className="text-xs font-bold text-gray-700">
+                    <span className="text-xs font-bold text-earth-300">
                       {drone.battery.toFixed(0)}%
                     </span>
                   </div>
@@ -313,22 +313,22 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
         ))}
 
         {/* Legend */}
-        <div className="absolute top-4 right-4 bg-neon-100/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
-          <div className="text-xs font-semibold text-gray-700 mb-2">
+        <div className="absolute top-4 right-4 bg-earth-900/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+          <div className="text-xs font-semibold text-earth-300 mb-2">
             {language === 'tr' ? 'Durum' : 'Status'}
           </div>
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-green-500 rounded-full" />
-              <span className="text-xs text-gray-600">{t.active}</span>
+              <span className="text-xs text-earth-300">{t.active}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-blue-500 rounded-full" />
-              <span className="text-xs text-gray-600">{t.idle}</span>
+              <span className="text-xs text-earth-300">{t.idle}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-              <span className="text-xs text-gray-600">
+              <span className="text-xs text-earth-300">
                 {language === 'tr' ? 'Şarjda' : 'Charging'}
               </span>
             </div>
@@ -338,39 +338,39 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
 
       {/* Selected Drone Details */}
       {selectedDrone && (
-        <div className="bg-gray-50 border-t-2 border-gray-200 p-4">
+        <div className="bg-earth-900 border-t-2 border-earth-700 p-4">
           {drones.filter(d => d.id === selectedDrone).map(drone => (
             <div key={drone.id} className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Plane className="w-6 h-6 text-blue-600" />
                   <div>
-                    <div className="font-bold text-gray-900">{drone.name}</div>
+                    <div className="font-bold text-earth-100">{drone.name}</div>
                     <div className="text-xs text-gray-500">{drone.id}</div>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedDrone(null)}
-                  className="text-gray-400 hover:text-gray-600"
+                  className="text-gray-400 hover:text-earth-300"
                 >
                   ✕
                 </button>
               </div>
 
               <div className="grid grid-cols-4 gap-3">
-                <div className="bg-neon-100 rounded-lg p-3 text-center">
+                <div className="bg-earth-900 rounded-lg p-3 text-center">
                   <div className="text-xs text-gray-500 mb-1">{t.altitude}</div>
                   <div className="text-lg font-bold text-blue-600">
                     {drone.altitude.toFixed(0)}m
                   </div>
                 </div>
-                <div className="bg-neon-100 rounded-lg p-3 text-center">
+                <div className="bg-earth-900 rounded-lg p-3 text-center">
                   <div className="text-xs text-gray-500 mb-1">{t.speed}</div>
                   <div className="text-lg font-bold text-green-600">
                     {drone.speed.toFixed(1)} m/s
                   </div>
                 </div>
-                <div className="bg-neon-100 rounded-lg p-3 text-center">
+                <div className="bg-earth-900 rounded-lg p-3 text-center">
                   <div className="text-xs text-gray-500 mb-1">{t.battery}</div>
                   <div className={`text-lg font-bold ${
                     drone.battery > 60 ? 'text-green-600' :
@@ -379,7 +379,7 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
                     {drone.battery.toFixed(0)}%
                   </div>
                 </div>
-                <div className="bg-neon-100 rounded-lg p-3 text-center">
+                <div className="bg-earth-900 rounded-lg p-3 text-center">
                   <div className="text-xs text-gray-500 mb-1">{t.heading}</div>
                   <div className="text-lg font-bold text-purple-600">
                     {drone.heading.toFixed(0)}°

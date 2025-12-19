@@ -279,7 +279,7 @@ export default function DroneEmergencyPanel({
   const warningAlerts = alerts.filter(a => a.type === 'warning' && !a.acknowledged);
 
   return (
-    <div className="bg-neon-100 rounded-xl shadow-lg overflow-hidden">
+    <div className="bg-earth-900 rounded-xl shadow-lg overflow-hidden">
       {/* Header */}
       <div className={`bg-gradient-to-r p-4 text-white ${
         statusColor === 'red' ? 'from-red-600 to-red-700' :
@@ -301,7 +301,7 @@ export default function DroneEmergencyPanel({
             <button
               onClick={() => setVoiceEnabled(!voiceEnabled)}
               className={`p-2 rounded-lg transition-all ${
-                voiceEnabled ? 'bg-neon-100/30' : 'bg-neon-100/10'
+                voiceEnabled ? 'bg-earth-950/30' : 'bg-earth-950/10'
               }`}
             >
               {voiceEnabled ? <Volume2 className="w-5 h-5" /> : <VolumeX className="w-5 h-5" />}
@@ -309,7 +309,7 @@ export default function DroneEmergencyPanel({
             <button
               onClick={() => setAlertsEnabled(!alertsEnabled)}
               className={`p-2 rounded-lg transition-all ${
-                alertsEnabled ? 'bg-neon-100/30' : 'bg-neon-100/10'
+                alertsEnabled ? 'bg-earth-950/30' : 'bg-earth-950/10'
               }`}
             >
               <Bell className="w-5 h-5" />
@@ -337,7 +337,7 @@ export default function DroneEmergencyPanel({
       <div className="p-4 space-y-4">
         {/* Safety Status Grid */}
         <div>
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-earth-100 mb-3 flex items-center gap-2">
             <Activity className="w-5 h-5" />
             {t.safetyStatus}
           </h3>
@@ -426,7 +426,7 @@ export default function DroneEmergencyPanel({
 
         {/* Emergency Actions */}
         <div>
-          <h3 className="font-bold text-gray-900 mb-3">Emergency Actions</h3>
+          <h3 className="font-bold text-earth-100 mb-3">Emergency Actions</h3>
           <div className="grid grid-cols-2 gap-3">
             <button
               onClick={() => onEmergencyAction?.('return_home')}
@@ -474,7 +474,7 @@ export default function DroneEmergencyPanel({
         {/* Active Alerts */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-earth-100 flex items-center gap-2">
               <AlertTriangle className="w-5 h-5" />
               {t.activeAlerts}
             </h3>
@@ -501,10 +501,10 @@ export default function DroneEmergencyPanel({
                   <div
                     key={alert.id}
                     className={`border rounded-lg p-3 ${
-                      alert.acknowledged ? 'bg-gray-50 border-gray-200 opacity-60' :
-                      alert.type === 'critical' ? 'bg-red-50 border-red-300' :
-                      alert.type === 'warning' ? 'bg-yellow-50 border-yellow-300' :
-                      'bg-blue-50 border-blue-300'
+                      alert.acknowledged ? 'bg-earth-800 border-earth-700 opacity-60' :
+                      alert.type === 'critical' ? 'bg-red-900/30 border-red-700' :
+                      alert.type === 'warning' ? 'bg-yellow-900/30 border-yellow-700' :
+                      'bg-blue-900/30 border-blue-700'
                     }`}
                   >
                     <div className="flex items-start gap-3">
@@ -517,14 +517,14 @@ export default function DroneEmergencyPanel({
 
                       <div className="flex-1">
                         <p className={`font-semibold text-sm ${
-                          alert.acknowledged ? 'text-gray-600' :
-                          alert.type === 'critical' ? 'text-red-900' :
-                          alert.type === 'warning' ? 'text-yellow-900' :
-                          'text-blue-900'
+                          alert.acknowledged ? 'text-earth-400' :
+                          alert.type === 'critical' ? 'text-red-300' :
+                          alert.type === 'warning' ? 'text-yellow-300' :
+                          'text-blue-300'
                         }`}>
                           {alert.message}
                         </p>
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-xs text-earth-400 mt-1">
                           {alert.timestamp.toLocaleTimeString()}
                         </p>
                       </div>

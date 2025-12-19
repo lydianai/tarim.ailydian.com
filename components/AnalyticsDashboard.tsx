@@ -91,10 +91,10 @@ export default function AnalyticsDashboard() {
       {/* Header with Timeframe Selector */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900">Analytics Dashboard</h2>
-          <p className="text-gray-600 mt-1">Comprehensive performance insights and metrics</p>
+          <h2 className="text-3xl font-bold text-earth-100">Analytics Dashboard</h2>
+          <p className="text-earth-300 mt-1">Comprehensive performance insights and metrics</p>
         </div>
-        <div className="flex items-center gap-2 bg-neon-100 rounded-lg p-1 shadow-md border border-gray-200">
+        <div className="flex items-center gap-2 bg-earth-800 rounded-lg p-1 shadow-md border border-earth-700">
           {(['1M', '3M', '6M', '1Y'] as const).map((period) => (
             <button
               key={period}
@@ -102,7 +102,7 @@ export default function AnalyticsDashboard() {
               className={`px-4 py-2 rounded-md font-semibold text-sm transition-all ${
                 timeframe === period
                   ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-md'
-                  : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                  : 'bg-earth-700 text-earth-200 hover:bg-earth-600'
               }`}
             >
               {period}
@@ -116,7 +116,7 @@ export default function AnalyticsDashboard() {
         {kpiCards.map((kpi, idx) => (
           <div
             key={idx}
-            className="relative overflow-hidden bg-neon-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100 group hover:scale-105 duration-300"
+            className="relative overflow-hidden bg-earth-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-earth-700 group hover:scale-105 duration-300"
           >
             <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${kpi.color} opacity-10 blur-2xl group-hover:opacity-20 transition-opacity`}></div>
 
@@ -135,8 +135,8 @@ export default function AnalyticsDashboard() {
                 </div>
               </div>
 
-              <div className="text-sm text-gray-600 mb-1">{kpi.title}</div>
-              <div className="text-3xl font-bold text-gray-900">{kpi.value}</div>
+              <div className="text-sm text-earth-300 mb-1">{kpi.title}</div>
+              <div className="text-3xl font-bold text-earth-100">{kpi.value}</div>
             </div>
           </div>
         ))}
@@ -145,8 +145,8 @@ export default function AnalyticsDashboard() {
       {/* Performance Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Yield & Revenue Trend */}
-        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
-          <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+        <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
+          <h3 className="text-lg font-bold text-earth-100 mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-green-600" />
             Yield & Revenue Trend
           </h3>
@@ -167,10 +167,11 @@ export default function AnalyticsDashboard() {
               <YAxis stroke="#9ca3af" style={{ fontSize: '12px' }} />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: 'white',
-                  border: '1px solid #e5e7eb',
+                  backgroundColor: '#1a1410',
+                  border: '1px solid #4a3f35',
                   borderRadius: '8px',
-                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+                  color: '#e8e2d8'
                 }}
               />
               <Legend />
@@ -195,8 +196,8 @@ export default function AnalyticsDashboard() {
         </div>
 
         {/* Resource Usage Reduction */}
-        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
-          <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+        <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
+          <h3 className="text-lg font-bold text-earth-100 mb-4 flex items-center gap-2">
             <Droplet className="w-5 h-5 text-blue-600" />
             Resource Usage Reduction
           </h3>
@@ -207,9 +208,10 @@ export default function AnalyticsDashboard() {
               <YAxis stroke="#9ca3af" style={{ fontSize: '12px' }} />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: 'white',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '8px'
+                  backgroundColor: '#1a1410',
+                  border: '1px solid #4a3f35',
+                  borderRadius: '8px',
+                  color: '#e8e2d8'
                 }}
               />
               <Legend />
@@ -225,8 +227,8 @@ export default function AnalyticsDashboard() {
       {/* Technology ROI & Performance Radar */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Technology ROI */}
-        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
-          <h3 className="text-lg font-bold text-gray-800 mb-4">Technology ROI Analysis</h3>
+        <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
+          <h3 className="text-lg font-bold text-earth-100 mb-4">Technology ROI Analysis</h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={technologyROI} layout="vertical">
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -234,9 +236,10 @@ export default function AnalyticsDashboard() {
               <YAxis dataKey="technology" type="category" width={150} stroke="#9ca3af" style={{ fontSize: '11px' }} />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: 'white',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '8px'
+                  backgroundColor: '#1a1410',
+                  border: '1px solid #4a3f35',
+                  borderRadius: '8px',
+                  color: '#e8e2d8'
                 }}
               />
               <Bar dataKey="roi" fill="#10b981" radius={[0, 8, 8, 0]} name="ROI %" />
@@ -245,8 +248,8 @@ export default function AnalyticsDashboard() {
         </div>
 
         {/* Performance Radar */}
-        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
-          <h3 className="text-lg font-bold text-gray-800 mb-4">Performance vs Industry Average</h3>
+        <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
+          <h3 className="text-lg font-bold text-earth-100 mb-4">Performance vs Industry Average</h3>
           <ResponsiveContainer width="100%" height={350}>
             <RadarChart data={cropPerformanceRadar}>
               <PolarGrid stroke="#e5e7eb" />
@@ -265,15 +268,15 @@ export default function AnalyticsDashboard() {
       <div className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 rounded-xl p-6 shadow-2xl">
         <h3 className="text-xl font-bold text-white mb-4">Key Insights Summary</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div className="bg-earth-950/30 backdrop-blur-sm rounded-lg p-4 border border-white/20">
             <div className="text-3xl font-bold text-white mb-1">23.5%</div>
             <div className="text-sm text-white/80">Revenue increase compared to last quarter</div>
           </div>
-          <div className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div className="bg-earth-950/30 backdrop-blur-sm rounded-lg p-4 border border-white/20">
             <div className="text-3xl font-bold text-white mb-1">30%</div>
             <div className="text-sm text-white/80">Reduction in water usage through precision irrigation</div>
           </div>
-          <div className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+          <div className="bg-earth-950/30 backdrop-blur-sm rounded-lg p-4 border border-white/20">
             <div className="text-3xl font-bold text-white mb-1">$410</div>
             <div className="text-sm text-white/80">Highest ROI technology: Vertical Farming</div>
           </div>

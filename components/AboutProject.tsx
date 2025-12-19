@@ -159,38 +159,38 @@ export default function AboutProject({ lang }: AboutProjectProps) {
       </div>
 
       {/* Project Goal */}
-      <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
+      <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
         <div className="flex items-center gap-3 mb-4">
           <Target className="w-6 h-6 text-green-600" />
-          <h2 className="text-2xl font-bold text-gray-900">{t.projectGoalTitle}</h2>
+          <h2 className="text-2xl font-bold text-earth-100">{t.projectGoalTitle}</h2>
         </div>
-        <p className="text-gray-700 leading-relaxed text-lg">
+        <p className="text-earth-300 leading-relaxed text-lg">
           {t.projectGoalText}
         </p>
       </div>
 
       {/* Key Features */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.keyFeaturesTitle}</h2>
+        <h2 className="text-2xl font-bold text-earth-100 mb-6">{t.keyFeaturesTitle}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((feature, idx) => (
             <div
               key={idx}
-              className="bg-neon-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-gray-100 group hover:scale-105 duration-300"
+              className="bg-earth-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all border border-earth-700 group hover:scale-105 duration-300"
             >
               <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${feature.color} mb-4`}>
                 <feature.icon className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <h3 className="text-xl font-bold text-earth-100 mb-2">{feature.title}</h3>
+              <p className="text-earth-300">{feature.description}</p>
             </div>
           ))}
         </div>
       </div>
 
       {/* Benefits */}
-      <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+      <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
+        <h2 className="text-2xl font-bold text-earth-100 mb-6 flex items-center gap-3">
           <CheckCircle className="w-6 h-6 text-green-600" />
           {t.benefitsTitle}
         </h2>
@@ -198,7 +198,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
           {benefits.map((benefit, idx) => (
             <div key={idx} className="flex items-start gap-3">
               <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-              <span className="text-gray-700">{benefit}</span>
+              <span className="text-earth-300">{benefit}</span>
             </div>
           ))}
         </div>
@@ -206,16 +206,16 @@ export default function AboutProject({ lang }: AboutProjectProps) {
 
       {/* Target Audience */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">{t.targetAudienceTitle}</h2>
+        <h2 className="text-2xl font-bold text-earth-100 mb-6">{t.targetAudienceTitle}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {targetAudience.map((audience, idx) => (
             <div
               key={idx}
-              className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-lg border border-gray-200"
+              className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-xl p-6 shadow-lg border border-earth-700"
             >
               <audience.icon className="w-10 h-10 text-green-600 mb-4" />
-              <h3 className="text-lg font-bold text-gray-900 mb-2">{audience.title}</h3>
-              <p className="text-gray-600 text-sm">{audience.description}</p>
+              <h3 className="text-lg font-bold text-earth-100 mb-2">{audience.title}</h3>
+              <p className="text-earth-300 text-sm">{audience.description}</p>
             </div>
           ))}
         </div>
@@ -224,8 +224,8 @@ export default function AboutProject({ lang }: AboutProjectProps) {
       {/* Data Sources & Tech Stack Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Data Sources */}
-        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
-          <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+        <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
+          <h2 className="text-xl font-bold text-earth-100 mb-4 flex items-center gap-3">
             <Database className="w-6 h-6 text-blue-600" />
             {t.dataSourcesTitle}
           </h2>
@@ -233,23 +233,23 @@ export default function AboutProject({ lang }: AboutProjectProps) {
             {dataSources.map((source, idx) => (
               <div key={idx} className="flex items-center gap-2 text-sm">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="text-gray-700">{source}</span>
+                <span className="text-earth-300">{source}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Platform Capabilities */}
-        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border border-gray-100">
-          <h2 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-3">
+        <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
+          <h2 className="text-xl font-bold text-earth-100 mb-4 flex items-center gap-3">
             <Code className="w-6 h-6 text-purple-600" />
             {lang === 'tr' ? 'Platform Yetenekleri' : 'Platform Capabilities'}
           </h2>
           <div className="space-y-3">
             {techStack.map((tech, idx) => (
               <div key={idx} className="flex items-center justify-between">
-                <span className="font-semibold text-gray-900">{tech.name}</span>
-                <span className="text-sm text-gray-600">{tech.desc}</span>
+                <span className="font-semibold text-earth-100">{tech.name}</span>
+                <span className="text-sm text-earth-300">{tech.desc}</span>
               </div>
             ))}
           </div>
@@ -272,7 +272,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
             { title: 'IoT Integration', desc: 'Real farm sensors' },
             { title: 'Blockchain', desc: 'Transparent supply chain' }
           ]).map((vision, idx) => (
-            <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+            <div key={idx} className="bg-earth-950/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
               <h3 className="font-bold text-lg mb-1">{vision.title}</h3>
               <p className="text-sm text-white/80">{vision.desc}</p>
             </div>

@@ -168,7 +168,7 @@ export default function AdvancedApiDocs() {
   return (
     <div className="space-y-8">
       {/* Hero Header */}
-      <div className="bg-neon-100 rounded-2xl shadow-agri-lg border-l-4 border-agri-600 p-8">
+      <div className="bg-earth-900 rounded-2xl shadow-agri-lg border-l-4 border-agri-600 p-8">
         <div className="flex items-start gap-6">
           <div className="bg-gradient-to-br from-agri-500 to-forest-600 p-4 rounded-xl shadow-agri">
             <Code className="w-12 h-12 text-white" />
@@ -203,11 +203,11 @@ export default function AdvancedApiDocs() {
           {apiCapabilities.map((capability, idx) => {
             const Icon = capability.icon;
             return (
-              <div key={idx} className="bg-neon-100 rounded-xl p-6 shadow-lg hover:shadow-agri-lg transition-all border border-gray-100">
+              <div key={idx} className="bg-earth-900 rounded-xl p-6 shadow-lg hover:shadow-agri-lg transition-all border border-gray-100">
                 <div className={`bg-gradient-to-br ${colorMap[capability.color]} p-3 rounded-lg w-fit mb-4`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-display font-bold text-lg text-gray-900 mb-2">{capability.title}</h3>
+                <h3 className="font-display font-bold text-lg text-earth-100 mb-2">{capability.title}</h3>
                 <p className="text-sm text-earth-600">{capability.description}</p>
               </div>
             );
@@ -220,7 +220,7 @@ export default function AdvancedApiDocs() {
         <h2 className="text-2xl font-display font-bold text-agri-900 mb-6">Real-Time API Endpoints</h2>
         <div className="space-y-6">
           {realTimeApis.map((api, idx) => (
-            <div key={idx} className="bg-neon-100 rounded-xl shadow-lg border-l-4 border-agri-500 overflow-hidden">
+            <div key={idx} className="bg-earth-900 rounded-xl shadow-lg border-l-4 border-agri-500 overflow-hidden">
               {/* API Header */}
               <div className="bg-gradient-to-r from-agri-50 to-forest-50 p-6 border-b border-agri-200">
                 <div className="flex items-start justify-between mb-3">
@@ -250,7 +250,7 @@ export default function AdvancedApiDocs() {
                 </div>
 
                 {/* Endpoint URL */}
-                <div className="bg-neon-100 rounded-lg p-3 border border-earth-200 font-mono text-sm break-all">
+                <div className="bg-earth-900 rounded-lg p-3 border border-earth-200 font-mono text-sm break-all">
                   <span className="text-earth-600">{api.endpoint}</span>
                 </div>
               </div>
@@ -282,9 +282,9 @@ export default function AdvancedApiDocs() {
               </div>
 
               {/* Response Example */}
-              <div className="p-6 bg-gray-50 border-t border-gray-200">
+              <div className="p-6 bg-earth-900 border-t border-earth-700">
                 <span className="text-earth-800 font-semibold text-sm mb-3 block">Example Response (JSON)</span>
-                <pre className="bg-neon-100 rounded-lg p-4 border border-earth-200 text-xs text-gray-700 overflow-x-auto">
+                <pre className="bg-earth-900 rounded-lg p-4 border border-earth-200 text-xs text-earth-300 overflow-x-auto">
                   <code>{JSON.stringify(api.response, null, 2)}</code>
                 </pre>
               </div>
@@ -303,10 +303,10 @@ export default function AdvancedApiDocs() {
             Free tier available with 1,000 requests/day.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <button className="bg-neon-100 text-agri-700 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-all shadow-lg">
+            <button className="bg-earth-900 text-agri-700 font-bold px-8 py-3 rounded-lg hover:bg-earth-900 transition-all shadow-lg">
               Get API Key
             </button>
-            <button className="bg-neon-100/20 backdrop-blur-sm text-white font-bold px-8 py-3 rounded-lg border-2 border-white hover:bg-neon-100/30 transition-all">
+            <button className="bg-earth-900/20 backdrop-blur-sm text-white font-bold px-8 py-3 rounded-lg border-2 border-white hover:bg-earth-900/30 transition-all">
               View Documentation
             </button>
           </div>
@@ -315,9 +315,9 @@ export default function AdvancedApiDocs() {
 
       {/* Technical Specs */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border-t-4 border-agri-500">
+        <div className="bg-earth-900 rounded-xl p-6 shadow-lg border-t-4 border-agri-500">
           <Database className="w-8 h-8 text-agri-600 mb-3" />
-          <h3 className="font-bold text-lg text-gray-900 mb-2">Data Sources</h3>
+          <h3 className="font-bold text-lg text-earth-100 mb-2">Data Sources</h3>
           <ul className="space-y-1 text-sm text-earth-600">
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-agri-500" /> USDA NASS</li>
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-agri-500" /> USDA AMS</li>
@@ -327,9 +327,9 @@ export default function AdvancedApiDocs() {
           </ul>
         </div>
 
-        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border-t-4 border-sky-500">
+        <div className="bg-earth-900 rounded-xl p-6 shadow-lg border-t-4 border-sky-500">
           <Shield className="w-8 h-8 text-sky-600 mb-3" />
-          <h3 className="font-bold text-lg text-gray-900 mb-2">Security & Auth</h3>
+          <h3 className="font-bold text-lg text-earth-100 mb-2">Security & Auth</h3>
           <ul className="space-y-1 text-sm text-earth-600">
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-sky-500" /> API Key Authentication</li>
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-sky-500" /> HTTPS/TLS 1.3</li>
@@ -339,9 +339,9 @@ export default function AdvancedApiDocs() {
           </ul>
         </div>
 
-        <div className="bg-neon-100 rounded-xl p-6 shadow-lg border-t-4 border-harvest-500">
+        <div className="bg-earth-900 rounded-xl p-6 shadow-lg border-t-4 border-harvest-500">
           <TrendingUp className="w-8 h-8 text-harvest-600 mb-3" />
-          <h3 className="font-bold text-lg text-gray-900 mb-2">Performance</h3>
+          <h3 className="font-bold text-lg text-earth-100 mb-2">Performance</h3>
           <ul className="space-y-1 text-sm text-earth-600">
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-harvest-500" /> &lt;100ms Latency</li>
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-harvest-500" /> 99.9% Uptime SLA</li>

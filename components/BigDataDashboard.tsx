@@ -54,7 +54,7 @@ export default function BigDataDashboard() {
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-xl p-6 shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
-          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-earth-900/20 backdrop-blur-sm p-4 rounded-xl">
             <Database className="w-8 h-8 text-white" />
           </div>
           <div>
@@ -70,7 +70,7 @@ export default function BigDataDashboard() {
             { label: 'Storage Size', value: metrics.storageSize, icon: HardDrive, color: 'from-purple-500 to-pink-500' },
             { label: 'Data Freshness', value: 'Real-time', icon: Zap, color: 'from-orange-500 to-red-500' }
           ].map((stat, idx) => (
-            <div key={idx} className="bg-neon-100/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+            <div key={idx} className="bg-earth-900/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
               <div className="flex items-center gap-2 mb-2">
                 <stat.icon className="w-5 h-5 text-white" />
                 <span className="text-xs text-white/80">{stat.label}</span>
@@ -83,8 +83,8 @@ export default function BigDataDashboard() {
       </div>
 
       {/* Real-time Data Stream */}
-      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
-        <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+      <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
+        <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
           <Activity className="w-5 h-5 text-green-600 animate-pulse" />
           Real-time Data Stream (2-second refresh)
         </h3>
@@ -125,7 +125,7 @@ export default function BigDataDashboard() {
             { label: 'Active Connections', value: realtimeData[realtimeData.length - 1]?.activeConnections || 0, color: 'pink' }
           ].map((metric, idx) => (
             <div key={idx} className={`bg-${metric.color}-50 rounded-lg p-3 border border-${metric.color}-200`}>
-              <div className="text-xs text-gray-600 mb-1">{metric.label}</div>
+              <div className="text-xs text-earth-300 mb-1">{metric.label}</div>
               <div className={`text-xl font-bold text-${metric.color}-600`}>{metric.value}</div>
             </div>
           ))}
@@ -133,8 +133,8 @@ export default function BigDataDashboard() {
       </div>
 
       {/* API Health Status */}
-      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
-        <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+      <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
+        <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
           <Wifi className="w-5 h-5 text-blue-600" />
           API Health Status ({Object.keys(metrics.apiHealth).length} Sources)
         </h3>
@@ -149,7 +149,7 @@ export default function BigDataDashboard() {
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-semibold text-gray-900 truncate">{api}</span>
+                <span className="text-sm font-semibold text-earth-100 truncate">{api}</span>
                 {getStatusIcon(status)}
               </div>
               <div className={`text-xs font-semibold px-2 py-1 rounded-full inline-block ${getStatusColor(status)}`}>
@@ -161,14 +161,14 @@ export default function BigDataDashboard() {
       </div>
 
       {/* Data Collection Schedule */}
-      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
-        <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+      <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
+        <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
           <Clock className="w-5 h-5 text-purple-600" />
           Data Collection Schedule
         </h3>
         <div className="space-y-3">
           {DATA_COLLECTION_SCHEDULE.map((job, idx) => (
-            <div key={idx} className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg p-4 border border-gray-200">
+            <div key={idx} className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg p-4 border border-earth-700">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-3">
                   <div className={`w-3 h-3 rounded-full ${
@@ -177,15 +177,15 @@ export default function BigDataDashboard() {
                     'bg-gray-400'
                   }`}></div>
                   <div>
-                    <div className="font-semibold text-gray-900">{job.name}</div>
-                    <div className="text-xs text-gray-600">
+                    <div className="font-semibold text-earth-100">{job.name}</div>
+                    <div className="text-xs text-earth-300">
                       Frequency: <span className="font-semibold">{job.frequency}</span> |
                       Records: <span className="font-semibold">{job.recordsCollected.toLocaleString()}</span>
                     </div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-gray-600">Next run</div>
+                  <div className="text-xs text-earth-300">Next run</div>
                   <div className="text-xs font-semibold text-blue-600">
                     {new Date(job.nextRun).toLocaleString()}
                   </div>
@@ -201,15 +201,15 @@ export default function BigDataDashboard() {
 
       {/* API Documentation Links */}
       <div className="bg-gradient-to-br from-indigo-50 to-purple-100 rounded-xl p-6 shadow-lg border border-indigo-200">
-        <h3 className="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
           <Server className="w-5 h-5 text-indigo-600" />
           Connected Data Sources
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {Object.entries(API_CONFIGS).map(([key, config]) => (
-            <div key={key} className="bg-neon-100 rounded-lg p-4 shadow-sm border border-gray-200">
-              <div className="font-semibold text-gray-900 mb-2">{config.name}</div>
-              <div className="space-y-1 text-xs text-gray-600">
+            <div key={key} className="bg-earth-900 rounded-lg p-4 shadow-sm border border-earth-700">
+              <div className="font-semibold text-earth-100 mb-2">{config.name}</div>
+              <div className="space-y-1 text-xs text-earth-300">
                 <div className="flex items-center gap-2">
                   <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
                     config.requiresAuth ? 'bg-yellow-100 text-yellow-700' : 'bg-green-100 text-green-700'

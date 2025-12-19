@@ -206,7 +206,7 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
   };
 
   return (
-    <div className="bg-neon-100 rounded-xl shadow-lg overflow-hidden">
+    <div className="bg-earth-900 rounded-xl shadow-lg overflow-hidden">
       {/* Header */}
       <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4">
         <div className="flex items-center justify-between">
@@ -277,10 +277,10 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
 
             {/* Data Logger */}
             <div className="text-center">
-              <div className="bg-neon-100 p-4 rounded-xl shadow-md mb-2">
+              <div className="bg-earth-800 p-4 rounded-xl shadow-md mb-2">
                 <Database className="w-8 h-8 text-blue-600 mx-auto" />
               </div>
-              <p className="text-sm font-semibold text-gray-700">Logger</p>
+              <p className="text-sm font-semibold text-earth-200">Logger</p>
             </div>
 
             {/* Arrow */}
@@ -292,10 +292,10 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
 
             {/* Tarim Dashboard */}
             <div className="text-center">
-              <div className="bg-neon-100 p-4 rounded-xl shadow-md mb-2">
+              <div className="bg-earth-800 p-4 rounded-xl shadow-md mb-2">
                 <BarChart3 className="w-8 h-8 text-green-600 mx-auto" />
               </div>
-              <p className="text-sm font-semibold text-gray-700">Tarim</p>
+              <p className="text-sm font-semibold text-earth-200">Tarim</p>
             </div>
 
             {/* Arrow */}
@@ -307,17 +307,17 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
 
             {/* BigData */}
             <div className="text-center">
-              <div className="bg-neon-100 p-4 rounded-xl shadow-md mb-2">
+              <div className="bg-earth-800 p-4 rounded-xl shadow-md mb-2">
                 <Cloud className="w-8 h-8 text-indigo-600 mx-auto" />
               </div>
-              <p className="text-sm font-semibold text-gray-700">BigData</p>
+              <p className="text-sm font-semibold text-earth-200">BigData</p>
             </div>
           </div>
         </div>
 
         {/* Metrics Grid */}
         <div>
-          <h3 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-earth-100 mb-3 flex items-center gap-2">
             <TrendingUp className="w-5 h-5" />
             {t.metrics}
           </h3>
@@ -369,7 +369,7 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
         {/* Recent Logs */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-gray-900 flex items-center gap-2">
+            <h3 className="font-bold text-earth-100 flex items-center gap-2">
               <FileText className="w-5 h-5" />
               {t.recentLogs}
             </h3>
@@ -379,7 +379,7 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
               <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value as any)}
-                className="border border-gray-300 rounded-lg px-3 py-1.5 text-sm"
+                className="border border-earth-700 bg-earth-800 text-earth-100 rounded-lg px-3 py-1.5 text-sm"
               >
                 <option value="all">{t.all}</option>
                 <option value="survey">{t.survey}</option>
@@ -389,28 +389,28 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
             </div>
           </div>
 
-          <div className="border border-gray-200 rounded-lg overflow-hidden">
+          <div className="border border-earth-700 rounded-lg overflow-hidden">
             <div className="max-h-96 overflow-y-auto">
               <table className="w-full">
-                <thead className="bg-gray-50 sticky top-0">
+                <thead className="bg-earth-800 sticky top-0">
                   <tr>
-                    <th className="px-4 py-2 text-left text-xs font-semibold text-gray-600">Time</th>
-                    <th className="px-4 py-2 text-left text-xs font-semibold text-gray-600">Drone</th>
-                    <th className="px-4 py-2 text-left text-xs font-semibold text-gray-600">Activity</th>
-                    <th className="px-4 py-2 text-right text-xs font-semibold text-gray-600">Duration</th>
-                    <th className="px-4 py-2 text-right text-xs font-semibold text-gray-600">Area</th>
-                    <th className="px-4 py-2 text-center text-xs font-semibold text-gray-600">Status</th>
-                    <th className="px-4 py-2 text-center text-xs font-semibold text-gray-600">Tarim</th>
-                    <th className="px-4 py-2 text-center text-xs font-semibold text-gray-600">BigData</th>
+                    <th className="px-4 py-2 text-left text-xs font-semibold text-earth-300">Time</th>
+                    <th className="px-4 py-2 text-left text-xs font-semibold text-earth-300">Drone</th>
+                    <th className="px-4 py-2 text-left text-xs font-semibold text-earth-300">Activity</th>
+                    <th className="px-4 py-2 text-right text-xs font-semibold text-earth-300">Duration</th>
+                    <th className="px-4 py-2 text-right text-xs font-semibold text-earth-300">Area</th>
+                    <th className="px-4 py-2 text-center text-xs font-semibold text-earth-300">Status</th>
+                    <th className="px-4 py-2 text-center text-xs font-semibold text-earth-300">Tarim</th>
+                    <th className="px-4 py-2 text-center text-xs font-semibold text-earth-300">BigData</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-200">
+                <tbody className="divide-y divide-earth-700">
                   {filteredLogs.slice(0, 20).map(log => (
-                    <tr key={log.id} className="hover:bg-gray-50">
-                      <td className="px-4 py-2 text-sm text-gray-600">
+                    <tr key={log.id} className="hover:bg-earth-800">
+                      <td className="px-4 py-2 text-sm text-earth-300">
                         {log.timestamp.toLocaleTimeString()}
                       </td>
-                      <td className="px-4 py-2 text-sm font-medium text-gray-900">
+                      <td className="px-4 py-2 text-sm font-medium text-earth-100">
                         {log.droneId}
                       </td>
                       <td className="px-4 py-2">
@@ -422,10 +422,10 @@ export default function DroneDataLogger({ language = 'en' }: DroneDataLoggerProp
                           {log.activityType}
                         </span>
                       </td>
-                      <td className="px-4 py-2 text-sm text-right text-gray-600">
+                      <td className="px-4 py-2 text-sm text-right text-earth-300">
                         {log.duration.toFixed(1)}m
                       </td>
-                      <td className="px-4 py-2 text-sm text-right text-gray-600">
+                      <td className="px-4 py-2 text-sm text-right text-earth-300">
                         {log.area.toFixed(1)} ac
                       </td>
                       <td className="px-4 py-2 text-center">

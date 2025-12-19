@@ -326,12 +326,12 @@ export default function Roadmap() {
       </div>
 
       {/* Timeline View */}
-      <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
+      <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl font-bold text-gray-800">{roadmapPhases[selectedPhase].title}</h3>
+          <h3 className="text-2xl font-bold text-earth-100">{roadmapPhases[selectedPhase].title}</h3>
           {getStatusBadge(roadmapPhases[selectedPhase].status)}
         </div>
-        <div className="text-gray-600 mb-4">{roadmapPhases[selectedPhase].period}</div>
+        <div className="text-earth-300 mb-4">{roadmapPhases[selectedPhase].period}</div>
 
         <div className="relative">
           {/* Timeline Line */}
@@ -371,12 +371,12 @@ export default function Roadmap() {
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="text-lg font-bold text-gray-900">{milestone.title}</h4>
+                    <h4 className="text-lg font-bold text-earth-100">{milestone.title}</h4>
                     {milestone.completion && (
-                      <span className="text-xs text-gray-600 font-semibold">{milestone.completion}</span>
+                      <span className="text-xs text-earth-400 font-semibold">{milestone.completion}</span>
                     )}
                   </div>
-                  <p className="text-sm text-gray-700">{milestone.description}</p>
+                  <p className="text-sm text-earth-300">{milestone.description}</p>
                 </div>
               </div>
             ))}

@@ -53,7 +53,7 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-neon-100 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="bg-earth-900 rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-6 text-white">
           <div className="flex items-center justify-between">
@@ -66,10 +66,10 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
             </div>
             <button
               onClick={onClose}
-              className="bg-neon-100 hover:bg-gray-100 p-2 rounded-lg transition-all shadow-md"
+              className="bg-earth-900 hover:bg-earth-900 p-2 rounded-lg transition-all shadow-md"
               aria-label={t.closeCart}
             >
-              <X className="w-6 h-6 text-gray-900" />
+              <X className="w-6 h-6 text-earth-100" />
             </button>
           </div>
         </div>
@@ -79,15 +79,15 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
           {items.length === 0 ? (
             <div className="text-center py-12">
               <ShoppingCart className="w-16 h-16 text-gray-300 mx-auto mb-4" />
-              <p className="text-xl font-semibold text-gray-600">{t.cartEmpty}</p>
+              <p className="text-xl font-semibold text-earth-300">{t.cartEmpty}</p>
               <p className="text-sm text-gray-500 mt-2">{t.addProducts}</p>
             </div>
           ) : (
             <div className="space-y-4">
               {items.map((item) => (
-                <div key={item.id} className="bg-gray-50 rounded-xl p-4 flex gap-4 border border-gray-200">
+                <div key={item.id} className="bg-earth-900 rounded-xl p-4 flex gap-4 border border-earth-700">
                   {/* Product Image */}
-                  <div className="bg-neon-100 rounded-lg p-4 w-24 h-24 flex items-center justify-center flex-shrink-0">
+                  <div className="bg-earth-900 rounded-lg p-4 w-24 h-24 flex items-center justify-center flex-shrink-0">
                     <span className="text-4xl">{item.image}</span>
                   </div>
 
@@ -95,8 +95,8 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
                   <div className="flex-1">
                     <div className="flex items-start justify-between mb-2">
                       <div>
-                        <h3 className="font-bold text-gray-900">{item.name}</h3>
-                        <p className="text-sm text-gray-600">{t.by} {item.supplier}</p>
+                        <h3 className="font-bold text-earth-100">{item.name}</h3>
+                        <p className="text-sm text-earth-300">{t.by} {item.supplier}</p>
                         <span className="inline-block bg-agri-100 text-agri-700 text-xs font-semibold px-2 py-1 rounded mt-1">
                           {item.category}
                         </span>
@@ -115,23 +115,23 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
                         <button
                           onClick={() => onUpdateQuantity(item.id, Math.max(item.minOrder || 1, item.quantity - 1))}
                           disabled={item.quantity <= (item.minOrder || 1)}
-                          className="bg-neon-100 border border-gray-300 p-1 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="bg-earth-900 border border-earth-700 p-1 rounded hover:bg-earth-900 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                           <Minus className="w-4 h-4" />
                         </button>
-                        <span className="font-semibold text-gray-900 w-12 text-center">{item.quantity}</span>
+                        <span className="font-semibold text-earth-100 w-12 text-center">{item.quantity}</span>
                         <button
                           onClick={() => onUpdateQuantity(item.id, item.quantity + 1)}
-                          className="bg-neon-100 border border-gray-300 p-1 rounded hover:bg-gray-50"
+                          className="bg-earth-900 border border-earth-700 p-1 rounded hover:bg-earth-900"
                         >
                           <Plus className="w-4 h-4" />
                         </button>
-                        <span className="text-xs text-gray-600 ml-2">{item.unit}</span>
+                        <span className="text-xs text-earth-300 ml-2">{item.unit}</span>
                       </div>
 
                       {/* Price */}
                       <div className="text-right">
-                        <div className="text-sm text-gray-600">${item.price.toFixed(2)} / {item.unit}</div>
+                        <div className="text-sm text-earth-300">${item.price.toFixed(2)} / {item.unit}</div>
                         <div className="text-xl font-bold text-agri-700">
                           ${(item.price * item.quantity).toFixed(2)}
                         </div>
@@ -152,16 +152,16 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
 
         {/* Footer with Summary */}
         {items.length > 0 && (
-          <div className="border-t border-gray-200 p-6 bg-gray-50">
+          <div className="border-t border-earth-700 p-6 bg-earth-900">
             {/* Order Summary */}
             <div className="space-y-3 mb-4">
               <div className="flex justify-between text-sm">
-                <span className="text-gray-600">{t.subtotal}</span>
-                <span className="font-semibold text-gray-900">${subtotal.toFixed(2)}</span>
+                <span className="text-earth-300">{t.subtotal}</span>
+                <span className="font-semibold text-earth-100">${subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-gray-600">{t.shipping}</span>
-                <span className="font-semibold text-gray-900">
+                <span className="text-earth-300">{t.shipping}</span>
+                <span className="font-semibold text-earth-100">
                   {shipping === 0 ? (
                     <span className="text-agri-600">{t.free}</span>
                   ) : (
@@ -170,11 +170,11 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
                 </span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-gray-600">{t.tax}</span>
-                <span className="font-semibold text-gray-900">${tax.toFixed(2)}</span>
+                <span className="text-earth-300">{t.tax}</span>
+                <span className="font-semibold text-earth-100">${tax.toFixed(2)}</span>
               </div>
-              <div className="border-t border-gray-300 pt-3 flex justify-between">
-                <span className="font-bold text-lg text-gray-900">{t.total}</span>
+              <div className="border-t border-earth-700 pt-3 flex justify-between">
+                <span className="font-bold text-lg text-earth-100">{t.total}</span>
                 <span className="font-bold text-2xl text-agri-700">${total.toFixed(2)}</span>
               </div>
             </div>
@@ -194,14 +194,14 @@ export default function ShoppingCartComponent({ items, onUpdateQuantity, onRemov
             {/* Checkout Button */}
             <button
               onClick={onCheckout}
-              className="w-full bg-neon-100 border-2 border-gray-900 font-bold py-4 rounded-xl hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-2"
+              className="w-full bg-earth-900 border-2 border-gray-900 font-bold py-4 rounded-xl hover:bg-earth-900 transition-all shadow-lg flex items-center justify-center gap-2"
             >
-              <CreditCard className="w-5 h-5 text-gray-900" />
-              <span className="text-gray-900">{t.proceedToCheckout}</span>
+              <CreditCard className="w-5 h-5 text-earth-100" />
+              <span className="text-earth-100">{t.proceedToCheckout}</span>
             </button>
 
             {/* Security Badge */}
-            <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-600">
+            <div className="flex items-center justify-center gap-2 mt-4 text-sm text-earth-300">
               <Shield className="w-4 h-4 text-agri-600" />
               <span>{t.secureCheckout}</span>
             </div>

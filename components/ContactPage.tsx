@@ -23,7 +23,7 @@ export default function ContactPage() {
       {/* Header */}
       <div className="bg-gradient-to-br from-green-600 via-blue-600 to-purple-600 rounded-2xl p-8 shadow-2xl text-white">
         <div className="flex items-center gap-4 mb-4">
-          <div className="bg-neon-100/20 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-earth-900/20 backdrop-blur-sm p-4 rounded-xl">
             <MessageSquare className="w-10 h-10" />
           </div>
           <div>
@@ -35,12 +35,12 @@ export default function ContactPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Contact Form */}
-        <div className="lg:col-span-2 bg-neon-100 rounded-xl p-8 shadow-lg">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+        <div className="lg:col-span-2 bg-earth-900 rounded-xl p-8 shadow-lg">
+          <h2 className="text-2xl font-bold text-earth-100 mb-6">Send Us a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-earth-300 mb-2">
                   Full Name *
                 </label>
                 <input
@@ -49,12 +49,12 @@ export default function ContactPage() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-earth-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="John Doe"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-earth-300 mb-2">
                   Email Address *
                 </label>
                 <input
@@ -63,14 +63,14 @@ export default function ContactPage() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-earth-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="john@example.com"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="subject" className="block text-sm font-semibold text-earth-300 mb-2">
                 Subject *
               </label>
               <input
@@ -79,13 +79,13 @@ export default function ContactPage() {
                 required
                 value={formData.subject}
                 onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-earth-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 placeholder="How can we help you?"
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+              <label htmlFor="message" className="block text-sm font-semibold text-earth-300 mb-2">
                 Message *
               </label>
               <textarea
@@ -94,7 +94,7 @@ export default function ContactPage() {
                 rows={6}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
+                className="w-full px-4 py-3 border border-earth-700 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"
                 placeholder="Tell us more about your inquiry..."
               />
             </div>
@@ -112,16 +112,16 @@ export default function ContactPage() {
         {/* Contact Information */}
         <div className="space-y-6">
           {/* Contact Cards */}
-          <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
-            <h3 className="font-bold text-gray-900 mb-4 text-lg">Contact Information</h3>
+          <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
+            <h3 className="font-bold text-earth-100 mb-4 text-lg">Contact Information</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="bg-green-100 p-2 rounded-lg">
                   <Mail className="w-5 h-5 text-green-600" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600">Email</div>
-                  <a href="mailto:support@agritech-platform.com" className="font-semibold text-gray-900 hover:text-green-600">
+                  <div className="text-sm text-earth-300">Email</div>
+                  <a href="mailto:support@agritech-platform.com" className="font-semibold text-earth-100 hover:text-green-600">
                     support@agritech-platform.com
                   </a>
                 </div>
@@ -132,8 +132,8 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600">Phone</div>
-                  <a href="tel:+18005551234" className="font-semibold text-gray-900 hover:text-blue-600">
+                  <div className="text-sm text-earth-300">Phone</div>
+                  <a href="tel:+18005551234" className="font-semibold text-earth-100 hover:text-blue-600">
                     +1 (800) 555-1234
                   </a>
                 </div>
@@ -144,8 +144,8 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5 text-purple-600" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600">Address</div>
-                  <div className="font-semibold text-gray-900">
+                  <div className="text-sm text-earth-300">Address</div>
+                  <div className="font-semibold text-earth-100">
                     Lydian Technologies<br />
                     1234 Innovation Drive<br />
                     Wilmington, DE 19801, USA
@@ -158,8 +158,8 @@ export default function ContactPage() {
                   <Globe className="w-5 h-5 text-orange-600" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-600">Website</div>
-                  <a href="https://tarim.ailydian.com" className="font-semibold text-gray-900 hover:text-orange-600">
+                  <div className="text-sm text-earth-300">Website</div>
+                  <a href="https://tarim.ailydian.com" className="font-semibold text-earth-100 hover:text-orange-600">
                     tarim.ailydian.com
                   </a>
                 </div>
@@ -171,23 +171,23 @@ export default function ContactPage() {
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
             <div className="flex items-center gap-2 mb-4">
               <Clock className="w-6 h-6 text-blue-600" />
-              <h3 className="font-bold text-gray-900 text-lg">Business Hours</h3>
+              <h3 className="font-bold text-earth-100 text-lg">Business Hours</h3>
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-gray-600">Monday - Friday</span>
-                <span className="font-semibold text-gray-900">9:00 AM - 6:00 PM EST</span>
+                <span className="text-earth-300">Monday - Friday</span>
+                <span className="font-semibold text-earth-100">9:00 AM - 6:00 PM EST</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Saturday</span>
-                <span className="font-semibold text-gray-900">10:00 AM - 4:00 PM EST</span>
+                <span className="text-earth-300">Saturday</span>
+                <span className="font-semibold text-earth-100">10:00 AM - 4:00 PM EST</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Sunday</span>
-                <span className="font-semibold text-gray-900">Closed</span>
+                <span className="text-earth-300">Sunday</span>
+                <span className="font-semibold text-earth-100">Closed</span>
               </div>
               <div className="mt-4 pt-4 border-t border-blue-200">
-                <div className="text-xs text-gray-600">
+                <div className="text-xs text-earth-300">
                   <strong>24/7 Support:</strong> Enterprise customers have access to round-the-clock technical support.
                 </div>
               </div>
@@ -195,8 +195,8 @@ export default function ContactPage() {
           </div>
 
           {/* Social Media */}
-          <div className="bg-neon-100 rounded-xl p-6 shadow-lg">
-            <h3 className="font-bold text-gray-900 mb-4 text-lg">Follow Us</h3>
+          <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
+            <h3 className="font-bold text-earth-100 mb-4 text-lg">Follow Us</h3>
             <div className="flex gap-3">
               <a
                 href="#"
@@ -225,8 +225,8 @@ export default function ContactPage() {
       </div>
 
       {/* Departments */}
-      <div className="bg-neon-100 rounded-xl p-8 shadow-lg">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact by Department</h2>
+      <div className="bg-earth-900 rounded-xl p-8 shadow-lg">
+        <h2 className="text-2xl font-bold text-earth-100 mb-6">Contact by Department</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { dept: 'Sales', email: 'sales@agritech-platform.com', desc: 'Pricing and subscription inquiries', color: 'green' },
@@ -239,7 +239,7 @@ export default function ContactPage() {
               <a href={`mailto:${item.email}`} className={`text-sm font-semibold text-${item.color}-700 hover:text-${item.color}-900 block mb-2`}>
                 {item.email}
               </a>
-              <p className="text-xs text-gray-600">{item.desc}</p>
+              <p className="text-xs text-earth-300">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -251,10 +251,10 @@ export default function ContactPage() {
         <h2 className="text-3xl font-bold mb-4">Have a Question?</h2>
         <p className="text-xl mb-6 opacity-90">Check our FAQ or reach out directly</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button className="bg-neon-100 text-green-600 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors">
+          <button className="bg-earth-900 text-green-600 font-bold px-8 py-3 rounded-lg hover:bg-earth-900 transition-colors">
             View FAQ
           </button>
-          <button className="bg-neon-100/20 backdrop-blur-sm text-white font-bold px-8 py-3 rounded-lg border-2 border-white hover:bg-neon-100/30 transition-colors">
+          <button className="bg-earth-900/20 backdrop-blur-sm text-white font-bold px-8 py-3 rounded-lg border-2 border-white hover:bg-earth-900/30 transition-colors">
             Live Chat
           </button>
         </div>
