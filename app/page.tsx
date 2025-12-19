@@ -120,41 +120,41 @@ export default function Home() {
         <div className="max-w-full px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="bg-gradient-to-br from-green-500 to-green-700 p-3 rounded-xl shadow-lg">
-                <Sprout className="w-8 h-8 text-white" />
+              <div className="bg-gradient-to-br from-green-500 to-green-700 p-2 sm:p-3 rounded-xl shadow-lg">
+                <Sprout className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-green-700 to-green-900 bg-clip-text text-transparent">
-                  {t.headerTitle}
+                <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
+                  Lydian AgriTech
                 </h1>
-                <p className="text-sm text-gray-600">{t.headerSubtitle}</p>
+                <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">{t.headerSubtitle}</p>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5 sm:gap-3">
               {/* Drone Management Button */}
               <button
                 onClick={() => setActiveTab('drones')}
-                className="flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-600 text-white font-bold px-3 py-2 rounded-lg hover:from-green-700 hover:to-green-700 transition-all shadow-lg group"
+                className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-green-600 to-green-600 text-white font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:from-green-700 hover:to-green-700 transition-all shadow-lg"
               >
-                <Plane className="w-5 h-5 animate-bounce" />
-                <span className="text-sm">{language === 'tr' ? 'Drone' : 'Drone'}</span>
+                <Plane className="w-4 h-4 sm:w-5 sm:h-5 animate-bounce" />
+                <span className="text-xs sm:text-sm">Drone</span>
               </button>
 
               {/* Dashboard Link */}
               <a
                 href="/tarim-dashboard"
-                className="flex items-center gap-2 bg-gray-50 border-2 border-green-600 text-green-700 font-bold px-3 py-2 rounded-lg hover:bg-green-50 transition-all shadow-md"
+                className="hidden sm:flex items-center gap-1.5 sm:gap-2 bg-gray-50 border-2 border-green-600 text-green-700 font-bold px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg hover:bg-green-50 transition-all shadow-md"
               >
-                <LayoutDashboard className="w-4 h-4" />
-                <span className="text-xs">Dashboard</span>
+                <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="text-[10px] sm:text-xs">Dashboard</span>
               </a>
 
               {/* Language Switcher */}
-              <div className="flex items-center gap-1 bg-gray-50 rounded-lg p-1 border border-gray-200">
+              <div className="flex items-center gap-0.5 sm:gap-1 bg-gray-50 rounded-lg p-0.5 sm:p-1 border border-gray-200">
                 <button
                   onClick={() => setLanguage('tr')}
-                  className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all ${
+                  className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-semibold transition-all ${
                     language === 'tr'
                       ? 'bg-gradient-to-r from-green-500 to-green-700 text-white shadow-lg'
                       : 'text-gray-600 hover:bg-gray-100'
@@ -164,7 +164,7 @@ export default function Home() {
                 </button>
                 <button
                   onClick={() => setLanguage('en')}
-                  className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all ${
+                  className={`px-2 sm:px-3 py-1 sm:py-1.5 rounded-md text-xs font-semibold transition-all ${
                     language === 'en'
                       ? 'bg-gradient-to-r from-green-500 to-green-700 text-white shadow-lg'
                       : 'text-gray-600 hover:bg-gray-100'
@@ -176,21 +176,29 @@ export default function Home() {
 
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="lg:hidden p-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+                className="lg:hidden p-1.5 sm:p-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
               >
-                {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {sidebarOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
               </button>
             </div>
           </div>
         </div>
       </header>
 
-      <div className="flex">
+      <div className="flex flex-col lg:flex-row">
+        {/* Mobile Overlay */}
+        {sidebarOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-30 lg:hidden"
+            onClick={() => setSidebarOpen(false)}
+          />
+        )}
+
         {/* Sidebar */}
         <aside
           className={`${
             sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-          } fixed lg:static lg:translate-x-0 w-64 h-screen bg-white shadow-lg z-40 transition-transform duration-300 overflow-y-auto`}
+          } fixed lg:static lg:translate-x-0 w-64 sm:w-72 lg:w-64 h-screen lg:h-auto bg-white shadow-2xl lg:shadow-lg z-40 transition-transform duration-300 overflow-y-auto`}
         >
           <nav className="p-4 space-y-1">
             {/* Core Platform */}
@@ -376,27 +384,27 @@ export default function Home() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 p-6 overflow-y-auto">
+        <main className="flex-1 p-3 sm:p-4 md:p-6 overflow-y-auto min-h-screen">
           <div className="max-w-7xl mx-auto">
             {activeTab === 'overview' && (
-              <div className="space-y-6">
-                <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500">
-                  <h2 className="text-2xl font-bold text-gray-900 mb-4">{t.platformOverview}</h2>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                      <Database className="w-8 h-8 text-green-600 mb-2" />
-                      <h3 className="font-bold text-green-900">{CROPS_DATABASE.length} {t.cropTypes}</h3>
-                      <p className="text-sm text-green-700">{t.comprehensiveDatabase}</p>
+              <div className="space-y-4 sm:space-y-6">
+                <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-green-500">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">{t.platformOverview}</h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+                    <div className="bg-green-50 p-3 sm:p-4 rounded-lg border border-green-200">
+                      <Database className="w-6 h-6 sm:w-8 sm:h-8 text-green-600 mb-2" />
+                      <h3 className="font-bold text-sm sm:text-base text-green-900">{CROPS_DATABASE.length} {t.cropTypes}</h3>
+                      <p className="text-xs sm:text-sm text-green-700">{t.comprehensiveDatabase}</p>
                     </div>
-                    <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                      <Shield className="w-8 h-8 text-blue-600 mb-2" />
-                      <h3 className="font-bold text-blue-900">{PESTICIDES_DATABASE.length} {t.pesticides}</h3>
-                      <p className="text-sm text-blue-700">{t.safetyFirst}</p>
+                    <div className="bg-blue-50 p-3 sm:p-4 rounded-lg border border-blue-200">
+                      <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-blue-600 mb-2" />
+                      <h3 className="font-bold text-sm sm:text-base text-blue-900">{PESTICIDES_DATABASE.length} {t.pesticides}</h3>
+                      <p className="text-xs sm:text-sm text-blue-700">{t.safetyFirst}</p>
                     </div>
-                    <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-                      <Globe className="w-8 h-8 text-purple-600 mb-2" />
-                      <h3 className="font-bold text-purple-900">{GLOBAL_AGRI_LEADERS.length} {t.countries}</h3>
-                      <p className="text-sm text-purple-700">{t.globalCoverage}</p>
+                    <div className="bg-purple-50 p-3 sm:p-4 rounded-lg border border-purple-200">
+                      <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-purple-600 mb-2" />
+                      <h3 className="font-bold text-sm sm:text-base text-purple-900">{GLOBAL_AGRI_LEADERS.length} {t.countries}</h3>
+                      <p className="text-xs sm:text-sm text-purple-700">{t.globalCoverage}</p>
                     </div>
                   </div>
                 </div>
@@ -445,8 +453,8 @@ export default function Home() {
                   <Sprout className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold bg-gradient-to-r from-green-400 to-yellow-400 bg-clip-text text-transparent">
-                    Lydian AgriTech Platform Pro
+                  <h3 className="text-lg sm:text-xl font-bold text-white">
+                    Lydian AgriTech
                   </h3>
                   <p className="text-xs text-gray-300">Agricultural Intelligence</p>
                 </div>
@@ -539,17 +547,10 @@ export default function Home() {
           {/* Bottom Bar */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4 pt-8 border-t border-gray-700">
             {/* Copyright */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 text-sm text-gray-200">
-              <p className="text-center sm:text-left">© 2025 Lydian AgriTech Platform Pro</p>
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-xs sm:text-sm text-gray-200">
+              <p className="text-center sm:text-left">© 2025 Lydian AgriTech</p>
               <span className="hidden sm:inline text-gray-600">•</span>
-              <p className="flex items-center gap-1">
-                <span>Developed by</span>
-                <span className="font-bold bg-gradient-to-r from-yellow-400 to-green-400 bg-clip-text text-transparent">
-                  Lydian
-                </span>
-              </p>
-              <span className="hidden sm:inline text-gray-600">•</span>
-              <a href="https://tarim.ailydian.com" className="text-green-400 hover:text-green-300 transition-colors">
+              <a href="https://tarim.ailydian.com" className="text-green-400 hover:text-green-300 transition-colors font-semibold">
                 tarim.ailydian.com
               </a>
             </div>
