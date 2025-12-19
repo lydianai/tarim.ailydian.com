@@ -4,6 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { fetchDroneTelemetry, fetchWeather, fetchSatelliteData } from '@/lib/api-client';
 import { useDroneContext } from '@/contexts/DroneContext';
 import LiveDroneMap from './LiveDroneMap';
+import DroneLiveStream from './DroneLiveStream';
+import DroneFlightPlanner from './DroneFlightPlanner';
+import DroneEmergencyPanel from './DroneEmergencyPanel';
+import DroneDataLogger from './DroneDataLogger';
 import {
   Plane,
   Battery,
@@ -30,7 +34,11 @@ import {
   TrendingDown,
   Layers,
   Target,
-  Globe
+  Globe,
+  Video,
+  Map,
+  Shield,
+  Database
 } from 'lucide-react';
 
 interface DroneManagementProps {
@@ -93,7 +101,9 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
     setSelectedDrone
   } = useDroneContext();
 
-  const [activeTab, setActiveTab] = useState<'fleet' | 'missions' | 'sensors' | 'analytics'>('fleet');
+  const [activeTab, setActiveTab] = useState<'fleet' | 'missions' | 'sensors' | 'analytics' | 'livestream' | 'planner' | 'emergency' | 'datalogger'>('fleet');
+  const [showLiveStream, setShowLiveStream] = useState(false);
+  const [liveStreamDrone, setLiveStreamDrone] = useState<string | null>(null);
 
   const t = {
     // Main Navigation
@@ -101,6 +111,10 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
     missions: language === 'tr' ? 'Görevler' : 'Missions',
     sensors: language === 'tr' ? 'Sensörler' : 'Sensors',
     analytics: language === 'tr' ? 'Analitik' : 'Analytics',
+    livestream: language === 'tr' ? 'Canlı Yayın' : 'Live Stream',
+    planner: language === 'tr' ? 'Uçuş Planlama' : 'Flight Planner',
+    emergency: language === 'tr' ? 'Acil Durum' : 'Emergency',
+    datalogger: language === 'tr' ? 'Veri Kaydı' : 'Data Logger',
 
     // Drone Status
     active: language === 'tr' ? 'Aktif' : 'Active',
@@ -394,8 +408,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
   return (
     <div className="min-h-screen bg-gradient-to-br from-agri-50 via-white to-forest-50">
       {/* Header */}
-      <div className="bg-gradient-to-r from-agri-600 via-forest-600 to-agri-700 text-white p-6 shadow-lg">
-        <div className="max-w-7xl mx-auto">
+      <div className="bg-gradient-to-r from-agri-600 via-forest-600 to-agri-700 text-white shadow-lg">
+        <div className="max-w-7xl mx-auto p-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl">
@@ -405,7 +419,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 <h1 className="text-3xl font-bold">
                   {language === 'tr' ? 'Akıllı Drone Yönetim Sistemi' : 'Smart Drone Management System'}
                 </h1>
-                <p className="text-white/90 text-sm">
+                <p className="text-white/90 text-sm mt-1">
                   {language === 'tr'
                     ? 'Gerçek Zamanlı Tarımsal İzleme ve Kontrol Platformu'
                     : 'Real-Time Agricultural Monitoring & Control Platform'}
@@ -430,37 +444,37 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
           <div className="grid grid-cols-4 gap-4 mt-6">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-3">
-                <Plane className="w-8 h-8" />
+                <Plane className="w-8 h-8 text-white" />
                 <div>
-                  <div className="text-2xl font-bold">{drones.length}</div>
-                  <div className="text-sm text-white/80">{t.totalDrones}</div>
+                  <div className="text-2xl font-bold text-white">{drones.length}</div>
+                  <div className="text-sm text-white/90">{t.totalDrones}</div>
                 </div>
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-3">
-                <Target className="w-8 h-8" />
+                <Target className="w-8 h-8 text-white" />
                 <div>
-                  <div className="text-2xl font-bold">{missions.filter(m => m.status === 'active').length}</div>
-                  <div className="text-sm text-white/80">{t.activeMissions}</div>
+                  <div className="text-2xl font-bold text-white">{missions.filter(m => m.status === 'active').length}</div>
+                  <div className="text-sm text-white/90">{t.activeMissions}</div>
                 </div>
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-3">
-                <Globe className="w-8 h-8" />
+                <Globe className="w-8 h-8 text-white" />
                 <div>
-                  <div className="text-2xl font-bold">{drones.reduce((sum, d) => sum + d.coverage, 0).toFixed(1)} ha</div>
-                  <div className="text-sm text-white/80">{t.areaCovered}</div>
+                  <div className="text-2xl font-bold text-white">{drones.reduce((sum, d) => sum + d.coverage, 0).toFixed(1)} acres</div>
+                  <div className="text-sm text-white/90">{t.areaCovered}</div>
                 </div>
               </div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-3">
-                <Layers className="w-8 h-8" />
+                <Layers className="w-8 h-8 text-white" />
                 <div>
-                  <div className="text-2xl font-bold">2.4 TB</div>
-                  <div className="text-sm text-white/80">{t.dataCollected}</div>
+                  <div className="text-2xl font-bold text-white">2.4 TB</div>
+                  <div className="text-sm text-white/90">{t.dataCollected}</div>
                 </div>
               </div>
             </div>
@@ -471,50 +485,94 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
       {/* Main Content */}
       <div className="max-w-7xl mx-auto p-6">
         {/* Tab Navigation */}
-        <div className="flex gap-2 mb-6 bg-white rounded-xl p-2 shadow-lg">
+        <div className="grid grid-cols-4 md:grid-cols-8 gap-2 mb-6 bg-white rounded-xl p-2 shadow-lg">
           <button
             onClick={() => setActiveTab('fleet')}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold transition-all ${
+            className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'fleet'
                 ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
                 : 'text-gray-600 hover:bg-gray-100'
             }`}
           >
             <Plane className="w-5 h-5" />
-            {t.droneFleet}
+            <span className="hidden md:inline">{t.droneFleet}</span>
           </button>
           <button
             onClick={() => setActiveTab('missions')}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold transition-all ${
+            className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'missions'
                 ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
                 : 'text-gray-600 hover:bg-gray-100'
             }`}
           >
             <Target className="w-5 h-5" />
-            {t.missions}
+            <span className="hidden md:inline">{t.missions}</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('planner')}
+            className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
+              activeTab === 'planner'
+                ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
+                : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            <Map className="w-5 h-5" />
+            <span className="hidden md:inline">{t.planner}</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('livestream')}
+            className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
+              activeTab === 'livestream'
+                ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
+                : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            <Video className="w-5 h-5" />
+            <span className="hidden md:inline">{t.livestream}</span>
           </button>
           <button
             onClick={() => setActiveTab('sensors')}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold transition-all ${
+            className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'sensors'
                 ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
                 : 'text-gray-600 hover:bg-gray-100'
             }`}
           >
             <Scan className="w-5 h-5" />
-            {t.sensors}
+            <span className="hidden md:inline">{t.sensors}</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('emergency')}
+            className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
+              activeTab === 'emergency'
+                ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-md'
+                : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            <Shield className="w-5 h-5" />
+            <span className="hidden md:inline">{t.emergency}</span>
+          </button>
+          <button
+            onClick={() => setActiveTab('datalogger')}
+            className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
+              activeTab === 'datalogger'
+                ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md'
+                : 'text-gray-600 hover:bg-gray-100'
+            }`}
+          >
+            <Database className="w-5 h-5" />
+            <span className="hidden md:inline">{t.datalogger}</span>
           </button>
           <button
             onClick={() => setActiveTab('analytics')}
-            className={`flex-1 flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold transition-all ${
+            className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'analytics'
                 ? 'bg-gradient-to-r from-agri-600 to-forest-600 text-white shadow-md'
                 : 'text-gray-600 hover:bg-gray-100'
             }`}
           >
             <Activity className="w-5 h-5" />
-            {t.analytics}
+            <span className="hidden md:inline">{t.analytics}</span>
           </button>
         </div>
 
@@ -1041,6 +1099,84 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 </div>
               </div>
             </div>
+          </div>
+        )}
+
+        {/* Live Stream View */}
+        {activeTab === 'livestream' && (
+          <div className="space-y-6">
+            {selectedDrone && drones.find(d => d.id === selectedDrone) ? (
+              <DroneLiveStream
+                droneId={selectedDrone}
+                droneName={drones.find(d => d.id === selectedDrone)!.name}
+                language={language}
+                onClose={() => setSelectedDrone(null)}
+              />
+            ) : (
+              <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+                <Video className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {language === 'tr' ? 'Drone Seçiniz' : 'Select a Drone'}
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  {language === 'tr'
+                    ? 'Canlı yayın için bir drone seçin'
+                    : 'Select a drone to view live stream'}
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  {drones.filter(d => d.status === 'active').map(drone => (
+                    <button
+                      key={drone.id}
+                      onClick={() => setSelectedDrone(drone.id)}
+                      className="bg-gradient-to-r from-agri-600 to-forest-600 text-white py-3 px-6 rounded-lg hover:shadow-lg transition-all"
+                    >
+                      {drone.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Flight Planner View */}
+        {activeTab === 'planner' && (
+          <div className="space-y-6">
+            <DroneFlightPlanner language={language} />
+          </div>
+        )}
+
+        {/* Emergency Panel View */}
+        {activeTab === 'emergency' && (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {drones.filter(d => d.status === 'active').map(drone => (
+              <DroneEmergencyPanel
+                key={drone.id}
+                droneId={drone.id}
+                droneName={drone.name}
+                language={language}
+              />
+            ))}
+            {drones.filter(d => d.status === 'active').length === 0 && (
+              <div className="col-span-2 bg-white rounded-xl shadow-lg p-8 text-center">
+                <Shield className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  {language === 'tr' ? 'Aktif Drone Yok' : 'No Active Drones'}
+                </h3>
+                <p className="text-gray-600">
+                  {language === 'tr'
+                    ? 'Acil durum paneli için aktif bir drone bulunmuyor'
+                    : 'No active drones for emergency monitoring'}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Data Logger View */}
+        {activeTab === 'datalogger' && (
+          <div className="space-y-6">
+            <DroneDataLogger language={language} />
           </div>
         )}
       </div>
