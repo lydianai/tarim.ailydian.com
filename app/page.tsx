@@ -306,7 +306,7 @@ export default function Home() {
               {/* Agriculture Tools */}
               <div className="mb-4">
                 <div className="px-3 mb-2">
-                  <h3 className="text-xs font-bold text-forest-400 uppercase tracking-wider">
+                  <h3 className="text-xs font-bold text-forest-700 uppercase tracking-wider">
                     {language === 'tr' ? 'Tarım Araçları' : 'Agriculture Tools'}
                   </h3>
                 </div>
@@ -319,12 +319,12 @@ export default function Home() {
                     }}
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
-                        ? 'bg-gradient-to-r from-agri-600 to-agri-700 text-white shadow-lg'
-                        : 'bg-earth-900 text-earth-100 hover:bg-earth-800 hover:text-white'
+                        ? 'bg-gradient-to-r from-forest-600 to-agri-600 text-white shadow-agri'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-agri-500'}`} />
-                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-100'}`}>{label}</span>
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
                   </button>
                 ))}
               </div>
@@ -332,7 +332,7 @@ export default function Home() {
               {/* Enterprise */}
               <div className="mb-4">
                 <div className="px-3 mb-2">
-                  <h3 className="text-xs font-bold text-sky-400 uppercase tracking-wider">
+                  <h3 className="text-xs font-bold text-sky-700 uppercase tracking-wider">
                     {language === 'tr' ? 'Kurumsal' : 'Enterprise'}
                   </h3>
                 </div>
@@ -346,11 +346,11 @@ export default function Home() {
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
                         ? 'bg-gradient-to-r from-sky-600 to-sky-700 text-white shadow-lg'
-                        : 'bg-earth-900 text-earth-200 hover:bg-earth-800 hover:text-white'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-sky-400'}`} />
-                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-200'}`}>{label}</span>
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
                   </button>
                 ))}
               </div>
@@ -358,7 +358,7 @@ export default function Home() {
               {/* E-Commerce & Marketplace */}
               <div className="mb-4">
                 <div className="px-3 mb-2">
-                  <h3 className="text-xs font-bold text-harvest-400 uppercase tracking-wider">
+                  <h3 className="text-xs font-bold text-harvest-700 uppercase tracking-wider">
                     {language === 'tr' ? 'E-Ticaret' : 'E-Commerce'}
                   </h3>
                 </div>
@@ -372,11 +372,11 @@ export default function Home() {
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
                         ? 'bg-neon-50 border-2 border-gray-900 shadow-lg'
-                        : 'bg-earth-900 text-earth-200 hover:bg-earth-800 hover:text-white'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-gray-900' : 'text-harvest-400'}`} />
-                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-gray-900' : 'text-earth-200'}`}>{label}</span>
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-gray-900' : 'text-earth-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-gray-900' : 'text-earth-800'}`}>{label}</span>
                   </button>
                 ))}
               </div>
@@ -384,7 +384,7 @@ export default function Home() {
               {/* Investor */}
               <div className="mb-4">
                 <div className="px-3 mb-2">
-                  <h3 className="text-xs font-bold text-purple-400 uppercase tracking-wider flex items-center gap-2">
+                  <h3 className="text-xs font-bold text-purple-600 uppercase tracking-wider flex items-center gap-2">
                     <TrendingUp className="w-3 h-3" />
                     {language === 'tr' ? 'Yatırımcı' : 'Investor'}
                   </h3>
@@ -401,14 +401,14 @@ export default function Home() {
                         ? key === 'investor-deck'
                           ? 'bg-gradient-to-r from-purple-600 via-indigo-600 to-violet-600 text-white shadow-lg shadow-purple-500/50'
                           : 'bg-gradient-to-r from-purple-600 to-purple-700 text-white shadow-lg'
-                        : 'bg-earth-900 text-earth-200 hover:bg-earth-800 hover:text-white'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-purple-400'}`} />
-                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-200'}`}>{label}</span>
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-purple-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
                     {key === 'investor-deck' && (
                       <span className={`ml-auto text-[10px] px-2 py-0.5 rounded-full ${
-                        activeTab === key ? 'bg-neon-50/20 text-white' : 'bg-purple-900 text-purple-400'
+                        activeTab === key ? 'bg-neon-50/20 text-white' : 'bg-purple-100 text-purple-700'
                       }`}>
                         PRO
                       </span>
@@ -420,7 +420,7 @@ export default function Home() {
               {/* Info & Legal */}
               <div className="mb-2">
                 <div className="px-3 mb-2">
-                  <h3 className="text-xs font-bold text-earth-400 uppercase tracking-wider">
+                  <h3 className="text-xs font-bold text-earth-600 uppercase tracking-wider">
                     {language === 'tr' ? 'Bilgi & Yasal' : 'Info & Legal'}
                   </h3>
                 </div>
@@ -434,11 +434,11 @@ export default function Home() {
                     className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all ${
                       activeTab === key
                         ? 'bg-gradient-earth text-white shadow-earth'
-                        : 'bg-earth-900 text-earth-200 hover:bg-earth-800 hover:text-white'
+                        : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
                     }`}
                   >
-                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-400'}`} />
-                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-200'}`}>{label}</span>
+                    <Icon className={`w-4 h-4 ${activeTab === key ? 'text-white' : 'text-earth-700'}`} />
+                    <span className={`font-semibold text-xs ${activeTab === key ? 'text-white' : 'text-earth-800'}`}>{label}</span>
                   </button>
                 ))}
               </div>
@@ -446,67 +446,67 @@ export default function Home() {
 
             <div className="px-4 mt-6 space-y-4">
               {/* Platform Stats */}
-              <div className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-lg p-4 border border-earth-700">
-                <h3 className="font-semibold text-earth-100 mb-3 text-sm">{t.platformStatistics}</h3>
+              <div className="bg-gradient-to-br from-agri-50 to-forest-50 rounded-lg p-4 border border-agri-200">
+                <h3 className="font-semibold text-agri-900 mb-3 text-sm">{t.platformStatistics}</h3>
                 <div className="space-y-2 text-xs">
                   <div className="flex justify-between items-center">
-                    <span className="text-earth-300">{t.crops}:</span>
-                    <span className="font-bold text-earth-100">{CROPS_DATABASE.length}</span>
+                    <span className="text-agri-700">{t.crops}:</span>
+                    <span className="font-bold text-agri-900">{CROPS_DATABASE.length}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-earth-300">{t.pesticides}:</span>
-                    <span className="font-bold text-earth-100">{PESTICIDES_DATABASE.length}</span>
+                    <span className="text-forest-700">{t.pesticides}:</span>
+                    <span className="font-bold text-forest-900">{PESTICIDES_DATABASE.length}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-earth-300">{t.dataSources}:</span>
-                    <span className="font-bold text-earth-100">{DATA_SOURCES.length}</span>
+                    <span className="text-agri-700">{t.dataSources}:</span>
+                    <span className="font-bold text-agri-900">{DATA_SOURCES.length}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-earth-300">{t.countries}:</span>
-                    <span className="font-bold text-earth-100">{GLOBAL_AGRI_LEADERS.length}</span>
+                    <span className="text-forest-700">{t.countries}:</span>
+                    <span className="font-bold text-forest-900">{GLOBAL_AGRI_LEADERS.length}</span>
                   </div>
                 </div>
               </div>
 
               {/* Data Sources */}
-              <div className="bg-gradient-to-br from-earth-800 to-earth-700 rounded-lg p-4 border border-earth-600">
-                <h3 className="font-semibold text-earth-100 mb-3 text-sm">{t.liveDataSources}</h3>
-                <ul className="space-y-1.5 text-xs text-earth-200">
+              <div className="bg-gradient-to-br from-sky-50 to-sky-100 rounded-lg p-4 border border-sky-200">
+                <h3 className="font-semibold text-sky-900 mb-3 text-sm">{t.liveDataSources}</h3>
+                <ul className="space-y-1.5 text-xs text-sky-800">
                   <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-earth-400 rounded-full"></span>
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
                     <span>USDA NASS API</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-earth-400 rounded-full"></span>
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
                     <span>EPA PPLS Database</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-earth-400 rounded-full"></span>
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
                     <span>OpenWeather Agro</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-earth-400 rounded-full"></span>
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
                     <span>NASA MODIS/SMAP</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-earth-400 rounded-full"></span>
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
                     <span>Sentinel-2 Satellite</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-earth-400 rounded-full"></span>
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
                     <span>SSURGO Soil Data</span>
                   </li>
                   <li className="flex items-center gap-2">
-                    <span className="w-1 h-1 bg-earth-400 rounded-full"></span>
+                    <span className="w-1 h-1 bg-sky-600 rounded-full"></span>
                     <span>FAO FAOSTAT</span>
                   </li>
                 </ul>
               </div>
 
               {/* Global Leaders */}
-              <div className="bg-gradient-to-br from-earth-800 to-earth-700 rounded-lg p-4 border border-earth-600">
-                <h3 className="font-semibold text-earth-100 mb-3 text-sm">{t.agriTechLeaders}</h3>
-                <ul className="space-y-1.5 text-xs text-earth-200">
+              <div className="bg-gradient-to-br from-harvest-50 to-sunset-50 rounded-lg p-4 border border-harvest-200">
+                <h3 className="font-semibold text-harvest-900 mb-3 text-sm">{t.agriTechLeaders}</h3>
+                <ul className="space-y-1.5 text-xs text-harvest-800">
                   <li className="flex items-center gap-2">
                     <span className="text-base">🇳🇱</span>
                     <span>{language === 'tr' ? 'Hollanda' : 'Netherlands'} (#1)</span>
