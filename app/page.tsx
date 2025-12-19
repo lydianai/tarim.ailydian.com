@@ -49,6 +49,25 @@ export default function Home() {
     setLanguage(detected);
   }, []);
 
+  // Prevent body scroll when sidebar is open on mobile
+  useEffect(() => {
+    if (sidebarOpen && window.innerWidth < 1024) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
+    };
+  }, [sidebarOpen]);
+
   const t = getTranslation(language);
 
   const handleLocationSelect = (lat: number, lon: number) => {
@@ -94,7 +113,7 @@ export default function Home() {
   ];
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 ${sidebarOpen ? 'lg:overflow-visible overflow-hidden' : ''}`}>
+    <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-purple-50">
       {/* Development Banner */}
       {showDevBanner && (
         <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 flex items-center justify-between">
@@ -205,15 +224,14 @@ export default function Home() {
         <aside
           className={`${
             sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-          } fixed top-0 left-0 lg:static lg:translate-x-0 w-72 sm:w-80 lg:w-64 h-full lg:h-auto
+          } fixed top-0 bottom-0 left-0 lg:static lg:translate-x-0 w-72 sm:w-80 lg:w-64 lg:h-auto
           bg-white
           shadow-2xl lg:shadow-lg z-[150]
           transition-all duration-500 ease-out
           ${sidebarOpen ? 'shadow-green-500/20' : ''}
           overflow-y-auto overflow-x-hidden
           border-r-4 border-green-500
-          pt-20 lg:pt-0
-          max-h-screen`}
+          pt-20 lg:pt-0 pb-4`}
         >
           <nav className="p-3 sm:p-4 space-y-1">
             {/* Close button for mobile */}
