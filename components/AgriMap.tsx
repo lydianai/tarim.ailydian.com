@@ -210,7 +210,7 @@ function AgriMapComponent({ onLocationSelect, language = 'en' }: AgriMapProps) {
   }, []);
 
   return (
-    <div className="relative w-full h-full min-h-[350px] sm:min-h-[400px] md:min-h-[500px]">
+    <div className="relative w-full h-full min-h-[350px] sm:min-h-[400px] md:min-h-[500px] z-0">
       <div
         ref={mapContainer}
         className="w-full h-full rounded-lg shadow-lg border-2 border-green-200"
@@ -231,7 +231,7 @@ function AgriMapComponent({ onLocationSelect, language = 'en' }: AgriMapProps) {
 
       {/* Coordinates Display - Bottom Left (Mobile Friendly) */}
       {isLoaded && (
-        <div className="absolute bottom-2 left-2 bg-gray-900/90 backdrop-blur-sm px-2 py-1 rounded shadow-lg z-[1000]">
+        <div className="absolute bottom-2 left-2 bg-gray-900/90 backdrop-blur-sm px-2 py-1 rounded shadow-lg z-10">
           <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-gray-100">
             <MapPin className="w-3 h-3 text-green-400" />
             <span className="font-mono">{lat.toFixed(3)}, {lng.toFixed(3)}</span>
@@ -241,7 +241,7 @@ function AgriMapComponent({ onLocationSelect, language = 'en' }: AgriMapProps) {
 
       {/* Interactive Hint - Bottom Right (Mobile Friendly) */}
       {isLoaded && (
-        <div className="absolute bottom-2 right-2 bg-green-600/90 backdrop-blur-sm px-2 py-1 rounded shadow-lg text-[10px] sm:text-xs z-[1000]">
+        <div className="absolute bottom-2 right-2 bg-green-600/90 backdrop-blur-sm px-2 py-1 rounded shadow-lg text-[10px] sm:text-xs z-10">
           <div className="font-semibold text-white">
             {language === 'tr' ? '🌾 Harita' : '🌾 Interactive Map'}
           </div>
