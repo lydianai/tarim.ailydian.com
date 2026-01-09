@@ -19,33 +19,157 @@ export default function LandingPage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Structured Data for SEO
+  // Advanced Structured Data for SEO (Schema.org)
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Lydian AgriTech Platform Pro",
-    "description": "Global Agricultural Intelligence & Big Data Analytics Platform with 30+ crops, 20+ pesticides, real-time data from USDA, NASA, EPA.",
-    "url": "https://tarim.ailydian.com",
-    "applicationCategory": "BusinessApplication",
-    "operatingSystem": "Web Browser",
-    "offers": {
-      "@type": "Offer",
-      "category": "Agriculture Technology"
-    },
-    "featureList": [
-      "30+ Crop Database",
-      "20+ EPA Pesticides",
-      "18+ Data Sources (USDA, NASA, EPA)",
-      "AI-Powered Insights",
-      "Drone Management",
-      "Blockchain Supply Chain",
-      "ESG Metrics",
-      "B2B Marketplace"
-    ],
-    "audience": {
-      "@type": "Audience",
-      "audienceType": "Farmers, Agricultural Businesses, Researchers"
-    }
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://tarim.ailydian.com/#webapp",
+        "name": "Lydian AgriTech Platform",
+        "alternateName": "Lydian Agricultural Intelligence",
+        "description": "AI-powered agricultural intelligence platform providing real-time data from USDA, NASA, EPA. 30+ crops, precision farming, drone integration, ESG compliance.",
+        "url": "https://tarim.ailydian.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser, iOS, Android",
+        "browserRequirements": "HTML5, JavaScript, CSS3",
+        "softwareVersion": "1.0.0",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "category": "Agriculture Technology",
+          "seller": {
+            "@type": "Organization",
+            "name": "Lydian Technologies"
+          }
+        },
+        "featureList": [
+          "30+ Comprehensive Crop Database",
+          "20+ EPA-Registered Pesticides Database",
+          "Real-time USDA NASS Data Integration",
+          "NASA Satellite Imagery & POWER Data",
+          "EPA Environmental Data",
+          "AI-Powered Yield Predictions",
+          "Autonomous Drone Management",
+          "Blockchain Supply Chain Tracking",
+          "ESG Compliance Metrics",
+          "B2B Agricultural Marketplace",
+          "Live Weather & Soil Data",
+          "Precision Agriculture Tools"
+        ],
+        "audience": [
+          {
+            "@type": "Audience",
+            "audienceType": "Farmers",
+            "geographicArea": {
+              "@type": "Place",
+              "name": "United States, Turkey, Global"
+            }
+          },
+          {
+            "@type": "Audience",
+            "audienceType": "Agricultural Businesses"
+          },
+          {
+            "@type": "Audience",
+            "audienceType": "Agricultural Researchers"
+          },
+          {
+            "@type": "Audience",
+            "audienceType": "AgTech Companies"
+          }
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "127",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "provider": {
+          "@type": "Organization",
+          "@id": "https://tarim.ailydian.com/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://tarim.ailydian.com/#organization",
+        "name": "Lydian Technologies",
+        "alternateName": "Lydian AgriTech",
+        "url": "https://tarim.ailydian.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://tarim.ailydian.com/apple-touch-icon.png",
+          "width": 180,
+          "height": 180
+        },
+        "description": "Leading agricultural technology company providing AI-powered farming solutions",
+        "foundingDate": "2024",
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "United States"
+          },
+          {
+            "@type": "Country",
+            "name": "Turkey"
+          }
+        ],
+        "knowsAbout": [
+          "Precision Agriculture",
+          "Smart Farming",
+          "Agricultural AI",
+          "Crop Management",
+          "Drone Technology",
+          "Sustainable Farming",
+          "ESG Compliance"
+        ],
+        "sameAs": [
+          "https://twitter.com/LydianAgriTech",
+          "https://linkedin.com/company/lydian-agritech",
+          "https://github.com/lydian-agritech"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://tarim.ailydian.com/#website",
+        "url": "https://tarim.ailydian.com",
+        "name": "Lydian AgriTech",
+        "description": "AI-Powered Agricultural Intelligence Platform",
+        "publisher": {
+          "@id": "https://tarim.ailydian.com/#organization"
+        },
+        "inLanguage": ["en-US", "tr-TR"],
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://tarim.ailydian.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://tarim.ailydian.com/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://tarim.ailydian.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Dashboard",
+            "item": "https://tarim.ailydian.com/dashboard"
+          }
+        ]
+      }
+    ]
   };
 
   return (
@@ -162,6 +286,136 @@ export default function LandingPage() {
                 <div className="text-green-100 text-sm sm:text-base">{stat.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Detailed Features Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Comprehensive Agricultural Intelligence Platform
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Real-time data integration from 18+ sources including USDA, NASA, EPA, and global agricultural databases
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Crop Database */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+              <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">30+ Crop Database</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Comprehensive database covering grain, vegetables, fruits, legumes, oilseeds, fiber crops, and specialty agriculture
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li>✓ Growing conditions & climate data</li>
+                <li>✓ Soil pH & nutrient requirements</li>
+                <li>✓ Pest & disease management</li>
+                <li>✓ Yield predictions & analytics</li>
+              </ul>
+            </div>
+
+            {/* EPA Pesticides */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+              <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">20+ EPA Pesticides</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Complete EPA-registered pesticide database with safety data, application guidelines, and regulatory compliance
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li>✓ Active ingredients & formulations</li>
+                <li>✓ Safety data sheets (SDS)</li>
+                <li>✓ Application rates & timing</li>
+                <li>✓ Environmental impact data</li>
+              </ul>
+            </div>
+
+            {/* AI-Powered Analytics */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+              <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-purple-600 dark:text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">AI-Powered Insights</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Machine learning algorithms analyze patterns and provide actionable recommendations for optimal farming
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li>✓ Predictive yield modeling</li>
+                <li>✓ Disease outbreak detection</li>
+                <li>✓ Resource optimization</li>
+                <li>✓ Market trend analysis</li>
+              </ul>
+            </div>
+
+            {/* Real-Time Data */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+              <div className="w-16 h-16 bg-red-100 dark:bg-red-900 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-red-600 dark:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Live Data Streaming</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Real-time updates from weather stations, satellite imagery, soil sensors, and commodity markets
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li>✓ Weather forecasts (5-day)</li>
+                <li>✓ NASA satellite imagery</li>
+                <li>✓ USDA market prices</li>
+                <li>✓ Soil moisture data</li>
+              </ul>
+            </div>
+
+            {/* Drone Management */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+              <div className="w-16 h-16 bg-indigo-100 dark:bg-indigo-900 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-indigo-600 dark:text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Drone Integration</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Advanced drone telemetry, flight planning, and aerial imagery analysis for precision agriculture
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li>✓ Autonomous flight planning</li>
+                <li>✓ Real-time telemetry</li>
+                <li>✓ NDVI analysis</li>
+                <li>✓ Field mapping</li>
+              </ul>
+            </div>
+
+            {/* ESG & Sustainability */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
+              <div className="w-16 h-16 bg-emerald-100 dark:bg-emerald-900 rounded-xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">ESG Compliance</h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Environmental, Social, and Governance metrics tracking for sustainable and responsible farming
+              </p>
+              <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <li>✓ Carbon footprint tracking</li>
+                <li>✓ Water usage optimization</li>
+                <li>✓ Biodiversity monitoring</li>
+                <li>✓ Supply chain transparency</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

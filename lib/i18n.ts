@@ -6,7 +6,7 @@ export type Locale = typeof locales[number];
 // Backward compatibility for old codebase
 export type Language = Locale;
 
-export const defaultLocale: Locale = 'tr';
+export const defaultLocale: Locale = 'en';
 
 export const localeNames: Record<Locale, string> = {
   tr: 'Türkçe',
@@ -20,12 +20,12 @@ export const localeFlags: Record<Locale, string> = {
 
 // Backward compatibility functions for old i18n system
 export function detectBrowserLanguage(): Language {
-  if (typeof window === 'undefined') return 'tr';
+  if (typeof window === 'undefined') return 'en';
 
   const browserLang = navigator.language.toLowerCase();
   if (browserLang.startsWith('tr')) return 'tr';
   if (browserLang.startsWith('en')) return 'en';
-  return 'tr';
+  return 'en'; // Default to English
 }
 
 const trTranslations = {
