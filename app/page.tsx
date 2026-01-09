@@ -10,6 +10,15 @@ import DashboardWidgets from '@/components/DashboardWidgets';
 export default function LandingPage() {
   const { t } = useLocale();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+
+  // Agriculture & Nature Videos (Royalty-free from Pixabay)
+  const backgroundVideos = [
+    'https://cdn.pixabay.com/video/2023/03/15/154339-809273094_large.mp4', // Tractor in field
+    'https://cdn.pixabay.com/video/2020/06/22/42950-434928118_large.mp4', // Wheat field
+    'https://cdn.pixabay.com/video/2021/07/09/81043-571961908_large.mp4', // Green farm landscape
+    'https://cdn.pixabay.com/video/2022/08/01/127099-735590638_large.mp4', // Drone view of farmland
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +27,14 @@ export default function LandingPage() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Auto-switch videos every 15 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % backgroundVideos.length);
+    }, 15000);
+    return () => clearInterval(interval);
+  }, [backgroundVideos.length]);
 
   // Advanced Structured Data for SEO (Schema.org)
   const structuredData = {
@@ -223,23 +240,45 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* Hero Section with Video Background */}
+      {/* Hero Section with Video Slider Background */}
       <section className="relative pt-32 sm:pt-40 pb-20 px-4 sm:px-6 lg:px-8 min-h-[90vh] flex items-center overflow-hidden">
-        {/* Video Background */}
+        {/* Video Slider Background */}
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-            poster="/agriculture-poster.jpg"
-          >
-            <source src="https://cdn.pixabay.com/video/2023/03/15/154339-809273094_large.mp4" type="video/mp4" />
-            {/* Fallback gradient for browsers that don't support video */}
-          </video>
+          {/* Multiple Videos with Fade Transition */}
+          {backgroundVideos.map((videoUrl, index) => (
+            <video
+              key={videoUrl}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ${
+                index === currentVideoIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+              style={{ transitionDuration: '2s' }}
+            >
+              <source src={videoUrl} type="video/mp4" />
+            </video>
+          ))}
+
           {/* Dark Overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70"></div>
+
+          {/* Video Indicators */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+            {backgroundVideos.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentVideoIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === currentVideoIndex
+                    ? 'bg-white w-8'
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+                aria-label={`Switch to video ${index + 1}`}
+              />
+            ))}
+          </div>
 
           {/* Animated Particles Effect */}
           <div className="absolute inset-0 opacity-30">

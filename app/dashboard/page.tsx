@@ -38,7 +38,7 @@ import { PESTICIDES_DATABASE } from '@/lib/pesticides-database';
 import { DATA_SOURCES } from '@/lib/bigdata-collector';
 import { GLOBAL_AGRI_LEADERS } from '@/lib/global-agri-insights';
 import type { Language } from '@/lib/i18n';
-import { detectBrowserLanguage, getTranslation } from '@/lib/i18n';
+import { getTranslation } from '@/lib/i18n';
 
 type TabType = 'overview' | 'soil' | 'pesticides' | 'crops' | 'global' | 'matcher' | 'insights' | 'live-data' | 'analytics' | 'supply-chain' | 'esg' | 'big-data' | 'roadmap' | 'investor-deck' | 'api-docs' | 'advanced-api' | 'marketplace' | 'commodity-pricing' | 'privacy' | 'terms' | 'contact' | 'about' | 'drones' | 'olive';
 
@@ -46,14 +46,24 @@ export default function Home() {
   const [selectedLocation, setSelectedLocation] = useState({ lat: 41.8781, lon: -93.0977 });
   const [activeTab, setActiveTab] = useState<TabType>('overview');
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [language, setLanguage] = useState<Language>('en'); // Changed default to English
+  const [language, setLanguage] = useState<Language>('en'); // Default to English
   const [showDevBanner, setShowDevBanner] = useState(true);
 
   useEffect(() => {
-    // Detect browser language on mount
-    const detected = detectBrowserLanguage();
-    setLanguage(detected);
+    // Check if user has previously selected a language (stored in localStorage)
+    const savedLanguage = typeof window !== 'undefined' ? localStorage.getItem('dashboard-language') as Language | null : null;
+    if (savedLanguage && (savedLanguage === 'tr' || savedLanguage === 'en')) {
+      setLanguage(savedLanguage);
+    }
+    // Otherwise, keep the default English language
   }, []);
+
+  // Save language preference to localStorage when it changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('dashboard-language', language);
+    }
+  }, [language]);
 
   // Prevent body scroll when sidebar is open on mobile
   useEffect(() => {
