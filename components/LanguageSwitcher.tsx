@@ -15,11 +15,11 @@ export default function LanguageSwitcher() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20 dark:bg-gray-800 dark:border-gray-600"
+        className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all backdrop-blur-sm border border-white/20 text-white"
         aria-label="Change language"
       >
-        <Globe className="w-4 h-4" />
-        <span className="text-sm font-medium">{localeFlags[locale]} {localeNames[locale]}</span>
+        <Globe className="w-4 h-4 text-white" />
+        <span className="text-sm font-medium text-white">{localeFlags[locale]} {localeNames[locale]}</span>
       </button>
 
       {isOpen && (
@@ -40,7 +40,7 @@ export default function LanguageSwitcher() {
                 className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-all ${
                   locale === loc
                     ? 'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
-                    : 'hover:bg-gray-50 dark:hover:bg-gray-700 text-white dark:text-gray-300'
+                    : 'hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-300'
                 }`}
               >
                 <span className="text-2xl">{localeFlags[loc]}</span>
