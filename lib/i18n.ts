@@ -29,6 +29,42 @@ export function detectBrowserLanguage(): Language {
 }
 
 const trTranslations = {
+  // Landing Page - Buttons & Actions
+  login: 'Giriş Yap',
+  dashboard: 'Panel',
+  liveDemo: 'Canlı Demo',
+  goToDashboard: 'Panele Git',
+  getStarted: 'Başlayın',
+  learnMore: 'Daha Fazla',
+
+  // Landing Page - Hero Section
+  'hero.title': 'Tarımda Yapay Zeka Devrimi',
+  'hero.subtitle': '30+ Ürün, 20+ EPA İlaç, USDA/NASA/EPA Canlı Veri Entegrasyonu',
+  'hero.description': 'Hassas tarım, drone yönetimi, ESG uyumluluğu ve gerçek zamanlı tarımsal istihbarat platformu',
+  'hero.badge': 'Ürün | İlaç',
+
+  // Landing Page - Stats
+  'stats.cropTypes': 'Ürün Çeşidi',
+  'stats.epaProducts': 'EPA Ürünü',
+  'stats.dataSources': 'Veri Kaynağı',
+  'stats.countries': 'Ülke',
+
+  // Landing Page - Roadmap
+  'roadmap.title': 'Ürün Yol Haritamız',
+  'roadmap.subtitle': 'Küresel tarımda devrim yaratma yolculuğumuz',
+  'roadmap.phase1': '1. Aşama',
+  'roadmap.phase1Title': 'Temel & MVP',
+  'roadmap.phase1Period': '2025 Ç1-Ç2',
+  'roadmap.phase2': '2. Aşama',
+  'roadmap.phase2Title': 'Kurumsal Özellikler',
+  'roadmap.phase2Period': '2025 Ç3',
+  'roadmap.phase3': '3. Aşama',
+  'roadmap.phase3Title': 'Küresel Ölçek',
+  'roadmap.phase3Period': '2025-2026',
+  'roadmap.completed': 'Tamamlandı',
+  'roadmap.inProgress': 'Devam Ediyor',
+  'roadmap.planned': 'Planlandı',
+
   // Dashboard Header
   headerSubtitle: 'Global Tarım İstihbaratı',
   devBannerTitle: 'CANLI DEV MOD',
@@ -81,6 +117,42 @@ const trTranslations = {
 };
 
 const enTranslations = {
+  // Landing Page - Buttons & Actions
+  login: 'Login',
+  dashboard: 'Dashboard',
+  liveDemo: 'Live Demo',
+  goToDashboard: 'Go to Dashboard',
+  getStarted: 'Get Started',
+  learnMore: 'Learn More',
+
+  // Landing Page - Hero Section
+  'hero.title': 'AI Revolution in Agriculture',
+  'hero.subtitle': '30+ Crops, 20+ EPA Pesticides, USDA/NASA/EPA Live Data Integration',
+  'hero.description': 'Precision farming, drone management, ESG compliance, and real-time agricultural intelligence platform',
+  'hero.badge': 'Crops | Pesticides',
+
+  // Landing Page - Stats
+  'stats.cropTypes': 'Crop Types',
+  'stats.epaProducts': 'EPA Products',
+  'stats.dataSources': 'Data Sources',
+  'stats.countries': 'Countries',
+
+  // Landing Page - Roadmap
+  'roadmap.title': 'Product Roadmap',
+  'roadmap.subtitle': 'Our journey to revolutionize global agriculture',
+  'roadmap.phase1': 'Phase 1',
+  'roadmap.phase1Title': 'Foundation & MVP',
+  'roadmap.phase1Period': 'Q1-Q2 2025',
+  'roadmap.phase2': 'Phase 2',
+  'roadmap.phase2Title': 'Enterprise Features',
+  'roadmap.phase2Period': 'Q3 2025',
+  'roadmap.phase3': 'Phase 3',
+  'roadmap.phase3Title': 'Global Scale',
+  'roadmap.phase3Period': '2025-2026',
+  'roadmap.completed': 'Completed',
+  'roadmap.inProgress': 'In Progress',
+  'roadmap.planned': 'Planned',
+
   // Dashboard Header
   headerSubtitle: 'Global Agricultural Intelligence',
   devBannerTitle: 'LIVE DEV MODE',

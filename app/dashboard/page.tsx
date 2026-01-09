@@ -46,7 +46,7 @@ export default function Home() {
   const [selectedLocation, setSelectedLocation] = useState({ lat: 41.8781, lon: -93.0977 });
   const [activeTab, setActiveTab] = useState<TabType>('overview');
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [language, setLanguage] = useState<Language>('tr');
+  const [language, setLanguage] = useState<Language>('en'); // Changed default to English
   const [showDevBanner, setShowDevBanner] = useState(true);
 
   useEffect(() => {

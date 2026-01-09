@@ -30,8 +30,8 @@ export default function PrivacyPolicy() {
           ].map((item, idx) => (
             <div key={idx} className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
               <item.icon className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="font-bold text-white mb-2 text-lg">{item.title}</h3>
-              <p className="text-sm text-white">{item.desc}</p>
+              <h3 className="font-bold text-blue-900 mb-2 text-lg">{item.title}</h3>
+              <p className="text-sm text-blue-800">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -48,8 +48,8 @@ export default function PrivacyPolicy() {
 
         <div className="space-y-6">
           <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
-            <h3 className="font-bold text-white mb-4 text-xl">1. Information You Provide</h3>
-            <ul className="space-y-2 text-white">
+            <h3 className="font-bold text-green-900 mb-4 text-xl">1. Information You Provide</h3>
+            <ul className="space-y-2 text-green-800">
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <span><strong>Account Information:</strong> Name, email address, farm location, crop types</span>
@@ -66,8 +66,8 @@ export default function PrivacyPolicy() {
           </div>
 
           <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200">
-            <h3 className="font-bold text-white mb-4 text-xl">2. Automatically Collected Information</h3>
-            <ul className="space-y-2 text-white">
+            <h3 className="font-bold text-purple-900 mb-4 text-xl">2. Automatically Collected Information</h3>
+            <ul className="space-y-2 text-purple-800">
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                 <span><strong>Usage Data:</strong> Pages visited, features used, time spent on platform</span>
@@ -134,10 +134,10 @@ export default function PrivacyPolicy() {
             },
           ].map((section, idx) => (
             <div key={idx} className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
-              <h3 className="font-bold text-white mb-4 text-lg">{section.title}</h3>
+              <h3 className="font-bold text-blue-900 mb-4 text-lg">{section.title}</h3>
               <ul className="space-y-2">
                 {section.items.map((item, iidx) => (
-                  <li key={iidx} className="flex items-start gap-2 text-sm text-white">
+                  <li key={iidx} className="flex items-start gap-2 text-sm text-blue-800">
                     <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
                     <span>{item}</span>
                   </li>
@@ -153,10 +153,10 @@ export default function PrivacyPolicy() {
         <h2 className="text-3xl font-bold text-white mb-6">Data Sharing & Disclosure</h2>
         <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 border-2 border-orange-300">
           <h3 className="font-bold text-orange-900 mb-4 text-xl">We NEVER Sell Your Data</h3>
-          <p className="text-white mb-4">
+          <p className="text-orange-900 mb-4">
             Your agricultural data is valuable and confidential. We only share data in these limited circumstances:
           </p>
-          <ul className="space-y-3 text-white">
+          <ul className="space-y-3 text-orange-800">
             <li className="flex items-start gap-2">
               <span className="font-bold text-orange-700">•</span>
               <span><strong>With Your Consent:</strong> Explicit permission for specific data sharing</span>
@@ -191,7 +191,7 @@ export default function PrivacyPolicy() {
           ].map((item, idx) => (
             <div key={idx} className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 border border-green-200">
               <div className="font-bold text-green-900 mb-1">{item.right}</div>
-              <div className="text-sm text-white">{item.desc}</div>
+              <div className="text-sm text-green-800">{item.desc}</div>
             </div>
           ))}
         </div>

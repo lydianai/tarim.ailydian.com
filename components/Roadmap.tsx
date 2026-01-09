@@ -278,7 +278,7 @@ export default function Roadmap() {
       );
     }
     return (
-      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-white flex items-center gap-1">
+      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 flex items-center gap-1">
         <Target className="w-3 h-3" />
         Planned
         </span>
@@ -371,12 +371,24 @@ export default function Roadmap() {
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="text-lg font-bold text-white">{milestone.title}</h4>
+                    <h4 className={`text-lg font-bold ${
+                      milestone.status === 'completed'
+                        ? 'text-green-900'
+                        : milestone.status === 'in-progress'
+                        ? 'text-blue-900'
+                        : 'text-gray-900'
+                    }`}>{milestone.title}</h4>
                     {milestone.completion && (
-                      <span className="text-xs text-gray-400 font-semibold">{milestone.completion}</span>
+                      <span className="text-xs text-gray-600 font-semibold">{milestone.completion}</span>
                     )}
                   </div>
-                  <p className="text-sm text-white">{milestone.description}</p>
+                  <p className={`text-sm ${
+                    milestone.status === 'completed'
+                      ? 'text-green-800'
+                      : milestone.status === 'in-progress'
+                      ? 'text-blue-800'
+                      : 'text-gray-800'
+                  }`}>{milestone.description}</p>
                 </div>
               </div>
             ))}

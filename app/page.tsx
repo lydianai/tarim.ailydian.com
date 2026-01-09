@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Sprout, ArrowRight, CheckCircle } from 'lucide-react';
+import { Sprout, ArrowRight, CheckCircle, Rocket, Target, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { useLocale } from '@/contexts/LocaleContext';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
@@ -192,9 +192,9 @@ export default function LandingPage() {
               <div className="bg-gradient-to-br from-green-500 to-green-700 p-1.5 sm:p-2 rounded-lg sm:rounded-xl shadow-lg">
                 <Sprout className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </div>
-              <div className="hidden xs:block">
-                <h1 className="text-base sm:text-xl lg:text-2xl font-bold text-white dark:text-white whitespace-nowrap">Lydian AgriTech</h1>
-                <p className="text-[10px] sm:text-xs text-gray-400 dark:text-gray-400 hidden sm:block">Global Agricultural Intelligence</p>
+              <div>
+                <h1 className="text-sm xs:text-base sm:text-xl lg:text-2xl font-bold text-white dark:text-white whitespace-nowrap">Lydian AgriTech</h1>
+                <p className="text-[9px] xs:text-[10px] sm:text-xs text-gray-300 dark:text-gray-300 hidden xs:block">Global Agricultural Intelligence</p>
               </div>
             </Link>
 
@@ -207,7 +207,7 @@ export default function LandingPage() {
                 href="/login"
                 className="px-2.5 sm:px-3 md:px-4 py-1.5 sm:py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-lg transition-all text-xs sm:text-sm whitespace-nowrap"
               >
-                Login
+                {t('login')}
               </Link>
               <Link
                 href="/dashboard"
@@ -215,7 +215,7 @@ export default function LandingPage() {
                 rel="noopener noreferrer"
                 className="px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl text-xs sm:text-sm md:text-base whitespace-nowrap"
               >
-                <span className="hidden xs:inline">Dashboard</span>
+                <span className="hidden xs:inline">{t('dashboard')}</span>
                 <span className="xs:hidden">Go</span>
               </Link>
             </div>
@@ -223,23 +223,44 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 sm:pt-40 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
+      {/* Hero Section with Video Background */}
+      <section className="relative pt-32 sm:pt-40 pb-20 px-4 sm:px-6 lg:px-8 min-h-[90vh] flex items-center overflow-hidden">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            poster="/agriculture-poster.jpg"
+          >
+            <source src="https://cdn.pixabay.com/video/2023/03/15/154339-809273094_large.mp4" type="video/mp4" />
+            {/* Fallback gradient for browsers that don't support video */}
+          </video>
+          {/* Dark Overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/70"></div>
+
+          {/* Animated Particles Effect */}
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-green-400 rounded-full animate-ping"></div>
+            <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-green-400 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full mb-6 text-sm font-semibold">
             <CheckCircle className="w-4 h-4" />
-            <span>30+ {t('dashboard.tabs.crops')} | 20+ EPA {t('dashboard.title')}</span>
+            <span>{t('hero.subtitle')}</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white dark:text-white mb-6 leading-tight">
             {t('hero.title')}
           </h1>
-          
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-400 dark:text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed">
-            {t('hero.subtitle')}
-          </p>
 
-          <p className="text-base sm:text-lg text-gray-400 dark:text-gray-400 mb-12 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-300 dark:text-gray-300 mb-10 max-w-4xl mx-auto leading-relaxed">
             {t('hero.description')}
           </p>
 
@@ -250,8 +271,8 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold rounded-xl transition-all shadow-2xl hover:shadow-green-500/50 active:scale-95 sm:hover:scale-105 text-base sm:text-lg whitespace-nowrap"
             >
-              <span className="hidden xs:inline">Dashboard</span>
-              <span className="xs:hidden">Go to Dashboard</span>
+              <span className="hidden xs:inline">{t('dashboard')}</span>
+              <span className="xs:hidden">{t('goToDashboard')}</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
             <Link
@@ -260,13 +281,13 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               className="flex-1 sm:flex-initial px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-sm hover:bg-white/20 border-2 border-white/30 text-white font-bold rounded-xl transition-all active:scale-95 sm:hover:scale-105 text-base sm:text-lg text-center whitespace-nowrap"
             >
-              Live Demo
+              {t('liveDemo')}
             </Link>
             <Link
               href="/login"
               className="flex-1 sm:flex-initial px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-xl transition-all shadow-2xl hover:shadow-blue-500/50 active:scale-95 sm:hover:scale-105 text-base sm:text-lg text-center whitespace-nowrap"
             >
-              Login
+              {t('login')}
             </Link>
           </div>
         </div>
@@ -282,10 +303,10 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
             {[
-              { number: '30+', label: t('features.widgets.analytics.stats') || 'Crop Types' },
-              { number: '20+', label: 'EPA Products' },
-              { number: '18+', label: 'Data Sources' },
-              { number: '8', label: 'Countries' }
+              { number: '30+', label: t('stats.cropTypes') },
+              { number: '20+', label: t('stats.epaProducts') },
+              { number: '18+', label: t('stats.dataSources') },
+              { number: '8', label: t('stats.countries') }
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl sm:text-5xl md:text-6xl font-bold mb-2">{stat.number}</div>
@@ -426,6 +447,136 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* Animated Roadmap Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+          <div className="absolute top-0 right-0 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+          <div className="absolute bottom-0 left-1/2 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full mb-6 border border-white/20">
+              <Rocket className="w-5 h-5 text-white" />
+              <span className="text-white font-semibold">{t('roadmap.title')}</span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6">
+              {t('roadmap.subtitle')}
+            </h2>
+          </div>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Animated Line */}
+            <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-green-400 via-blue-400 to-purple-400 transform -translate-x-1/2 hidden md:block"></div>
+
+            {/* Phase 1 - Completed */}
+            <div className="mb-12 md:mb-24 relative">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                {/* Left Content (Desktop) / Top Content (Mobile) */}
+                <div className="flex-1 md:text-right">
+                  <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 border-2 border-green-400/50 shadow-2xl hover:scale-105 transition-all duration-300">
+                    <div className="inline-flex items-center gap-2 bg-green-500/30 px-4 py-2 rounded-full mb-4">
+                      <CheckCircle className="w-4 h-4 text-green-300" />
+                      <span className="text-green-300 font-semibold text-sm">{t('roadmap.completed')}</span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">{t('roadmap.phase1Title')}</h3>
+                    <p className="text-green-300 mb-4">{t('roadmap.phase1Period')}</p>
+                    <ul className="space-y-2 text-white/90 text-sm sm:text-base">
+                      <li className="flex items-center gap-2 md:justify-end"><span>✓</span> <span>Platform Architecture</span></li>
+                      <li className="flex items-center gap-2 md:justify-end"><span>✓</span> <span>Core Dashboard (6 Tabs)</span></li>
+                      <li className="flex items-center gap-2 md:justify-end"><span>✓</span> <span>Real-time Data APIs</span></li>
+                      <li className="flex items-center gap-2 md:justify-end"><span>✓</span> <span>Production Deployment</span></li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Center Icon */}
+                <div className="relative flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full flex items-center justify-center shadow-2xl animate-pulse z-10 relative">
+                    <CheckCircle className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75"></div>
+                </div>
+
+                {/* Right Content (Desktop) / Bottom Content (Mobile) */}
+                <div className="flex-1 md:hidden"></div>
+              </div>
+            </div>
+
+            {/* Phase 2 - In Progress */}
+            <div className="mb-12 md:mb-24 relative">
+              <div className="flex flex-col md:flex-row-reverse items-center gap-8">
+                {/* Right Content (Desktop) / Top Content (Mobile) */}
+                <div className="flex-1 md:text-left">
+                  <div className="bg-gradient-to-br from-blue-500/20 to-indigo-500/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 border-2 border-blue-400/50 shadow-2xl hover:scale-105 transition-all duration-300">
+                    <div className="inline-flex items-center gap-2 bg-blue-500/30 px-4 py-2 rounded-full mb-4 animate-pulse">
+                      <Clock className="w-4 h-4 text-blue-300" />
+                      <span className="text-blue-300 font-semibold text-sm">{t('roadmap.inProgress')}</span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">{t('roadmap.phase2Title')}</h3>
+                    <p className="text-blue-300 mb-4">{t('roadmap.phase2Period')}</p>
+                    <ul className="space-y-2 text-white/90 text-sm sm:text-base">
+                      <li className="flex items-center gap-2"><span>🔄</span> <span>AI-Powered Insights</span></li>
+                      <li className="flex items-center gap-2"><span>🔄</span> <span>Live Data Streaming</span></li>
+                      <li className="flex items-center gap-2"><span>🔄</span> <span>Premium Analytics</span></li>
+                      <li className="flex items-center gap-2"><span>🔄</span> <span>Supply Chain Tracking</span></li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Center Icon */}
+                <div className="relative flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center shadow-2xl animate-pulse z-10 relative">
+                    <Clock className="w-8 h-8 text-white animate-spin" style={{ animationDuration: '3s' }} />
+                  </div>
+                  <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-75"></div>
+                </div>
+
+                {/* Left Content (Desktop) / Bottom Content (Mobile) */}
+                <div className="flex-1 md:hidden"></div>
+              </div>
+            </div>
+
+            {/* Phase 3 - Planned */}
+            <div className="relative">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                {/* Left Content (Desktop) / Top Content (Mobile) */}
+                <div className="flex-1 md:text-right">
+                  <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-md rounded-2xl p-6 sm:p-8 border-2 border-purple-400/50 shadow-2xl hover:scale-105 transition-all duration-300">
+                    <div className="inline-flex items-center gap-2 bg-purple-500/30 px-4 py-2 rounded-full mb-4">
+                      <Target className="w-4 h-4 text-purple-300" />
+                      <span className="text-purple-300 font-semibold text-sm">{t('roadmap.planned')}</span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">{t('roadmap.phase3Title')}</h3>
+                    <p className="text-purple-300 mb-4">{t('roadmap.phase3Period')}</p>
+                    <ul className="space-y-2 text-white/90 text-sm sm:text-base">
+                      <li className="flex items-center gap-2 md:justify-end"><span>📍</span> <span>Multi-Country Expansion</span></li>
+                      <li className="flex items-center gap-2 md:justify-end"><span>📍</span> <span>B2B Marketplace Launch</span></li>
+                      <li className="flex items-center gap-2 md:justify-end"><span>📍</span> <span>Blockchain Integration</span></li>
+                      <li className="flex items-center gap-2 md:justify-end"><span>📍</span> <span>Mobile Apps (iOS/Android)</span></li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Center Icon */}
+                <div className="relative flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full flex items-center justify-center shadow-2xl z-10 relative">
+                    <Target className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+
+                {/* Right Content (Desktop) / Bottom Content (Mobile) */}
+                <div className="flex-1 md:hidden"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors">
         <div className="max-w-4xl mx-auto text-center">
@@ -442,14 +593,14 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold rounded-xl transition-all shadow-2xl hover:scale-105 text-xl"
             >
-              Şimdi Başla
+              {t('getStarted')}
               <ArrowRight className="w-6 h-6" />
             </Link>
             <Link
               href="/login"
               className="inline-flex items-center gap-3 px-10 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 border-2 border-white/30 text-white font-bold rounded-xl transition-all hover:scale-105 text-xl"
             >
-              Giriş Yap
+              {t('login')}
             </Link>
           </div>
         </div>
