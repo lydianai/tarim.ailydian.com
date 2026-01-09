@@ -1,7 +1,7 @@
 'use client';
 
 import { TrendingUp, TrendingDown, DollarSign, BarChart3, RefreshCw, AlertCircle } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function LiveCommodityPricing() {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,7 +9,7 @@ export default function LiveCommodityPricing() {
 
   // Real commodity data structure (prices in USD/bushel, $/cwt, etc.)
   // These would come from Commodities-API.com or USDA AMS in production
-  const [commodities, setCommodities] = useState([
+  const commodities = [
     {
       name: 'Corn (Yellow #2)',
       symbol: 'ZC',
@@ -82,7 +82,7 @@ export default function LiveCommodityPricing() {
       icon: '☁️',
       color: 'sky'
     }
-  ]);
+  ];
 
   const refreshPrices = () => {
     setIsLoading(true);
@@ -114,7 +114,7 @@ export default function LiveCommodityPricing() {
             </div>
             <div>
               <h2 className="text-2xl font-display font-bold text-agri-900">Live Commodity Pricing</h2>
-              <p className="text-sm text-earth-600">
+              <p className="text-sm text-gray-400">
                 Real-time futures market data • Last updated: {lastUpdate.toLocaleTimeString()}
               </p>
             </div>
@@ -150,12 +150,12 @@ export default function LiveCommodityPricing() {
             <div className="p-6">
               {/* Current Price */}
               <div className="mb-4">
-                <div className="text-sm text-earth-600 mb-1">Current Price</div>
+                <div className="text-sm text-gray-400 mb-1">Current Price</div>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-bold text-earth-100">
+                  <span className="text-3xl font-bold text-white">
                     ${commodity.price.toFixed(2)}
                   </span>
-                  <span className="text-sm text-earth-600">{commodity.unit}</span>
+                  <span className="text-sm text-gray-400">{commodity.unit}</span>
                 </div>
               </div>
 
@@ -180,8 +180,8 @@ export default function LiveCommodityPricing() {
 
               {/* Volume */}
               <div className="flex items-center justify-between text-sm">
-                <span className="text-earth-600">Volume (contracts)</span>
-                <span className="font-semibold text-earth-100">{commodity.volume}</span>
+                <span className="text-gray-400">Volume (contracts)</span>
+                <span className="font-semibold text-white">{commodity.volume}</span>
               </div>
             </div>
 
@@ -199,23 +199,23 @@ export default function LiveCommodityPricing() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border-t-4 border-agri-500">
           <BarChart3 className="w-8 h-8 text-agri-600 mb-3" />
-          <div className="text-sm text-earth-600 mb-1">Today's Gainers</div>
+          <div className="text-sm text-gray-400 mb-1">Today's Gainers</div>
           <div className="text-2xl font-bold text-agri-700">4 commodities</div>
-          <div className="text-xs text-earth-600 mt-2">Corn, Wheat, Cotton, Cattle</div>
+          <div className="text-xs text-gray-400 mt-2">Corn, Wheat, Cotton, Cattle</div>
         </div>
 
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border-t-4 border-red-500">
           <TrendingDown className="w-8 h-8 text-red-600 mb-3" />
-          <div className="text-sm text-earth-600 mb-1">Today's Losers</div>
+          <div className="text-sm text-gray-400 mb-1">Today's Losers</div>
           <div className="text-2xl font-bold text-red-700">2 commodities</div>
-          <div className="text-xs text-earth-600 mt-2">Soybeans, Lean Hogs</div>
+          <div className="text-xs text-gray-400 mt-2">Soybeans, Lean Hogs</div>
         </div>
 
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border-t-4 border-sky-500">
           <DollarSign className="w-8 h-8 text-sky-600 mb-3" />
-          <div className="text-sm text-earth-600 mb-1">Total Market Volume</div>
+          <div className="text-sm text-gray-400 mb-1">Total Market Volume</div>
           <div className="text-2xl font-bold text-sky-700">767K+</div>
-          <div className="text-xs text-earth-600 mt-2">contracts traded today</div>
+          <div className="text-xs text-gray-400 mt-2">contracts traded today</div>
         </div>
       </div>
 

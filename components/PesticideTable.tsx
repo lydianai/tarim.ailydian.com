@@ -61,15 +61,15 @@ export default function PesticideTable() {
   return (
     <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
       <div className="mb-6">
-        <h3 className="text-xl font-bold text-earth-100 mb-2">EPA Registered Pesticides</h3>
-        <p className="text-sm text-earth-300 mb-4">Agricultural chemicals database with safety information</p>
+        <h3 className="text-xl font-bold text-white mb-2">EPA Registered Pesticides</h3>
+        <p className="text-sm text-white mb-4">Agricultural chemicals database with safety information</p>
 
         <input
           type="text"
           placeholder="Search by product name or active ingredient..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full px-4 py-2 bg-earth-800 border border-earth-700 text-earth-100 placeholder-earth-400 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+          className="w-full px-4 py-2 bg-earth-800 border border-earth-700 text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
         />
       </div>
 
@@ -77,22 +77,22 @@ export default function PesticideTable() {
         <table className="w-full">
           <thead className="bg-earth-800 border-b-2 border-earth-700">
             <tr>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-earth-200 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                 Product
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-earth-200 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                 Active Ingredient
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-earth-200 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                 Toxicity
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-earth-200 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                 Target Pests
               </th>
-              <th className="px-4 py-3 text-left text-xs font-semibold text-earth-200 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-xs font-semibold text-white uppercase tracking-wider">
                 Rate
               </th>
-              <th className="px-4 py-3 text-center text-xs font-semibold text-earth-200 uppercase tracking-wider">
+              <th className="px-4 py-3 text-center text-xs font-semibold text-white uppercase tracking-wider">
                 Restricted
               </th>
             </tr>
@@ -101,10 +101,10 @@ export default function PesticideTable() {
             {filteredPesticides.map((pesticide, idx) => (
               <tr key={idx} className="hover:bg-earth-800 transition-colors">
                 <td className="px-4 py-4">
-                  <div className="font-semibold text-earth-100">{pesticide.product_name}</div>
-                  <div className="text-xs text-earth-400">{pesticide.company_name}</div>
+                  <div className="font-semibold text-white">{pesticide.product_name}</div>
+                  <div className="text-xs text-gray-400">{pesticide.company_name}</div>
                 </td>
-                <td className="px-4 py-4 text-sm text-earth-200">
+                <td className="px-4 py-4 text-sm text-white">
                   {pesticide.active_ingredients}
                 </td>
                 <td className="px-4 py-4">
@@ -112,10 +112,10 @@ export default function PesticideTable() {
                     {pesticide.toxicity_category}
                   </span>
                 </td>
-                <td className="px-4 py-4 text-sm text-earth-200">
+                <td className="px-4 py-4 text-sm text-white">
                   {pesticide.pest_type}
                 </td>
-                <td className="px-4 py-4 text-sm text-earth-200">
+                <td className="px-4 py-4 text-sm text-white">
                   {pesticide.application_rate}
                 </td>
                 <td className="px-4 py-4 text-center">
@@ -132,8 +132,8 @@ export default function PesticideTable() {
       </div>
 
       {filteredPesticides.length === 0 && (
-        <div className="text-center py-12 text-earth-400">
-          <XCircle className="w-12 h-12 mx-auto mb-3 text-earth-600" />
+        <div className="text-center py-12 text-white">
+          <XCircle className="w-12 h-12 mx-auto mb-3 text-gray-400" />
           <p>No pesticides found matching your search</p>
         </div>
       )}

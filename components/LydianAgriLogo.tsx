@@ -90,7 +90,7 @@ export function LydianAgriLogoWithText({ size = "normal" }: { size?: "small" | "
             AgriTech
           </span>
         </div>
-        <span className={`${s.subtitle} font-medium text-earth-600 tracking-wide uppercase`}>
+        <span className={`${s.subtitle} font-medium text-gray-400 tracking-wide uppercase`}>
           Agricultural Intelligence
         </span>
       </div>

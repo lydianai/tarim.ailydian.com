@@ -36,11 +36,11 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Contact Form */}
         <div className="lg:col-span-2 bg-earth-900 rounded-xl p-8 shadow-lg">
-          <h2 className="text-2xl font-bold text-earth-100 mb-6">Send Us a Message</h2>
+          <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-earth-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
                   Full Name *
                 </label>
                 <input
@@ -54,7 +54,7 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-earth-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
                   Email Address *
                 </label>
                 <input
@@ -70,7 +70,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label htmlFor="subject" className="block text-sm font-semibold text-earth-300 mb-2">
+              <label htmlFor="subject" className="block text-sm font-semibold text-white mb-2">
                 Subject *
               </label>
               <input
@@ -85,7 +85,7 @@ export default function ContactPage() {
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-sm font-semibold text-earth-300 mb-2">
+              <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
                 Message *
               </label>
               <textarea
@@ -113,15 +113,15 @@ export default function ContactPage() {
         <div className="space-y-6">
           {/* Contact Cards */}
           <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-            <h3 className="font-bold text-earth-100 mb-4 text-lg">Contact Information</h3>
+            <h3 className="font-bold text-white mb-4 text-lg">Contact Information</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <div className="bg-green-100 p-2 rounded-lg">
                   <Mail className="w-5 h-5 text-green-600" />
                 </div>
                 <div>
-                  <div className="text-sm text-earth-300">Email</div>
-                  <a href="mailto:support@agritech-platform.com" className="font-semibold text-earth-100 hover:text-green-600">
+                  <div className="text-sm text-white">Email</div>
+                  <a href="mailto:support@agritech-platform.com" className="font-semibold text-white hover:text-green-600">
                     support@agritech-platform.com
                   </a>
                 </div>
@@ -132,8 +132,8 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="text-sm text-earth-300">Phone</div>
-                  <a href="tel:+18005551234" className="font-semibold text-earth-100 hover:text-blue-600">
+                  <div className="text-sm text-white">Phone</div>
+                  <a href="tel:+18005551234" className="font-semibold text-white hover:text-blue-600">
                     +1 (800) 555-1234
                   </a>
                 </div>
@@ -144,8 +144,8 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5 text-purple-600" />
                 </div>
                 <div>
-                  <div className="text-sm text-earth-300">Address</div>
-                  <div className="font-semibold text-earth-100">
+                  <div className="text-sm text-white">Address</div>
+                  <div className="font-semibold text-white">
                     Lydian Technologies<br />
                     1234 Innovation Drive<br />
                     Wilmington, DE 19801, USA
@@ -158,8 +158,8 @@ export default function ContactPage() {
                   <Globe className="w-5 h-5 text-orange-600" />
                 </div>
                 <div>
-                  <div className="text-sm text-earth-300">Website</div>
-                  <a href="https://tarim.ailydian.com" className="font-semibold text-earth-100 hover:text-orange-600">
+                  <div className="text-sm text-white">Website</div>
+                  <a href="https://tarim.ailydian.com" className="font-semibold text-white hover:text-orange-600">
                     tarim.ailydian.com
                   </a>
                 </div>
@@ -171,23 +171,23 @@ export default function ContactPage() {
           <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
             <div className="flex items-center gap-2 mb-4">
               <Clock className="w-6 h-6 text-blue-600" />
-              <h3 className="font-bold text-earth-100 text-lg">Business Hours</h3>
+              <h3 className="font-bold text-white text-lg">Business Hours</h3>
             </div>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-earth-300">Monday - Friday</span>
-                <span className="font-semibold text-earth-100">9:00 AM - 6:00 PM EST</span>
+                <span className="text-white">Monday - Friday</span>
+                <span className="font-semibold text-white">9:00 AM - 6:00 PM EST</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-earth-300">Saturday</span>
-                <span className="font-semibold text-earth-100">10:00 AM - 4:00 PM EST</span>
+                <span className="text-white">Saturday</span>
+                <span className="font-semibold text-white">10:00 AM - 4:00 PM EST</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-earth-300">Sunday</span>
-                <span className="font-semibold text-earth-100">Closed</span>
+                <span className="text-white">Sunday</span>
+                <span className="font-semibold text-white">Closed</span>
               </div>
               <div className="mt-4 pt-4 border-t border-blue-200">
-                <div className="text-xs text-earth-300">
+                <div className="text-xs text-white">
                   <strong>24/7 Support:</strong> Enterprise customers have access to round-the-clock technical support.
                 </div>
               </div>
@@ -196,7 +196,7 @@ export default function ContactPage() {
 
           {/* Social Media */}
           <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-            <h3 className="font-bold text-earth-100 mb-4 text-lg">Follow Us</h3>
+            <h3 className="font-bold text-white mb-4 text-lg">Follow Us</h3>
             <div className="flex gap-3">
               <a
                 href="#"
@@ -226,7 +226,7 @@ export default function ContactPage() {
 
       {/* Departments */}
       <div className="bg-earth-900 rounded-xl p-8 shadow-lg">
-        <h2 className="text-2xl font-bold text-earth-100 mb-6">Contact by Department</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">Contact by Department</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { dept: 'Sales', email: 'sales@agritech-platform.com', desc: 'Pricing and subscription inquiries', color: 'green' },
@@ -239,7 +239,7 @@ export default function ContactPage() {
               <a href={`mailto:${item.email}`} className={`text-sm font-semibold text-${item.color}-700 hover:text-${item.color}-900 block mb-2`}>
                 {item.email}
               </a>
-              <p className="text-xs text-earth-300">{item.desc}</p>
+              <p className="text-xs text-white">{item.desc}</p>
             </div>
           ))}
         </div>

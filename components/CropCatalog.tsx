@@ -25,7 +25,7 @@ export default function CropCatalog() {
       high: 'text-blue-700',
       very_high: 'text-indigo-700'
     };
-    return colors[requirement as keyof typeof colors] || 'text-gray-500';
+    return colors[requirement as keyof typeof colors] || 'text-gray-400';
   };
 
   const getCategoryColor = (category: string) => {
@@ -39,7 +39,7 @@ export default function CropCatalog() {
       tuber: 'bg-orange-100 text-orange-800 border-orange-300',
       specialty: 'bg-pink-100 text-pink-800 border-pink-300'
     };
-    return colors[category] || 'bg-gray-100 text-gray-800';
+    return colors[category] || 'bg-gray-100 text-white';
   };
 
   return (
@@ -48,8 +48,8 @@ export default function CropCatalog() {
         <div className="flex items-center gap-3 mb-4">
           <Sprout className="w-8 h-8 text-green-600" />
           <div>
-            <h3 className="text-2xl font-bold text-earth-100">Global Crop Catalog</h3>
-            <p className="text-sm text-earth-300">30+ Agricultural Crops with Detailed Information</p>
+            <h3 className="text-2xl font-bold text-white">Global Crop Catalog</h3>
+            <p className="text-sm text-white">30+ Agricultural Crops with Detailed Information</p>
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export default function CropCatalog() {
             placeholder="Search crops by name or scientific name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 bg-earth-800 border border-earth-700 text-earth-100 placeholder-earth-400 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full pl-10 pr-4 py-3 bg-earth-800 border border-earth-700 text-white placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
           />
         </div>
 
@@ -74,7 +74,7 @@ export default function CropCatalog() {
               className={`px-4 py-2 rounded-lg font-semibold text-sm transition-all ${
                 selectedCategory === cat
                   ? 'bg-green-600 text-white shadow-lg'
-                  : 'bg-earth-800 text-earth-200 hover:bg-earth-700'
+                  : 'bg-earth-800 text-white hover:bg-earth-700'
               }`}
             >
               {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -98,18 +98,18 @@ export default function CropCatalog() {
             >
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <h4 className="font-bold text-earth-100">{crop.name}</h4>
-                  <p className="text-xs italic text-earth-300 mb-2">{crop.scientificName}</p>
+                  <h4 className="font-bold text-white">{crop.name}</h4>
+                  <p className="text-xs italic text-white mb-2">{crop.scientificName}</p>
 
                   <div className="flex items-center gap-3 flex-wrap">
                     <span className={`text-xs px-2 py-1 rounded-full border ${getCategoryColor(crop.category)}`}>
                       {crop.category}
                     </span>
-                    <div className="flex items-center gap-1 text-xs text-earth-300">
+                    <div className="flex items-center gap-1 text-xs text-white">
                       <Droplets className={`w-3 h-3 ${getWaterIcon(crop.waterRequirement)}`} />
                       <span>{crop.waterRequirement} water</span>
                     </div>
-                    <div className="flex items-center gap-1 text-xs text-earth-300">
+                    <div className="flex items-center gap-1 text-xs text-white">
                       <Activity className="w-3 h-3" />
                       <span>{crop.growingSeasonDays} days</span>
                     </div>
@@ -120,8 +120,8 @@ export default function CropCatalog() {
           ))}
 
           {filteredCrops.length === 0 && (
-            <div className="text-center py-12 text-earth-400">
-              <Sprout className="w-16 h-16 mx-auto mb-3 text-earth-600" />
+            <div className="text-center py-12 text-white">
+              <Sprout className="w-16 h-16 mx-auto mb-3 text-gray-400" />
               <p>No crops found matching your criteria</p>
             </div>
           )}
@@ -132,8 +132,8 @@ export default function CropCatalog() {
           {selectedCrop ? (
             <div className="space-y-4">
               <div>
-                <h3 className="text-2xl font-bold text-earth-100 mb-1">{selectedCrop.name}</h3>
-                <p className="text-sm italic text-earth-300 mb-3">{selectedCrop.scientificName}</p>
+                <h3 className="text-2xl font-bold text-white mb-1">{selectedCrop.name}</h3>
+                <p className="text-sm italic text-white mb-3">{selectedCrop.scientificName}</p>
                 <span className={`text-sm px-3 py-1 rounded-full border ${getCategoryColor(selectedCrop.category)}`}>
                   {selectedCrop.category}
                 </span>
@@ -141,33 +141,33 @@ export default function CropCatalog() {
 
               {/* Growing Conditions */}
               <div className="bg-earth-900 rounded-lg p-4 border border-earth-700">
-                <h4 className="font-semibold text-earth-100 mb-3 flex items-center gap-2">
+                <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                   <Thermometer className="w-4 h-4 text-orange-600" />
                   Growing Conditions
                 </h4>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-earth-300">Growing Season:</span>
-                    <span className="font-semibold text-earth-100">{selectedCrop.growingSeasonDays} days</span>
+                    <span className="text-white">Growing Season:</span>
+                    <span className="font-semibold text-white">{selectedCrop.growingSeasonDays} days</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-earth-300">Water Requirement:</span>
-                    <span className="font-semibold text-earth-100 capitalize">{selectedCrop.waterRequirement}</span>
+                    <span className="text-white">Water Requirement:</span>
+                    <span className="font-semibold text-white capitalize">{selectedCrop.waterRequirement}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-earth-300">Soil pH:</span>
-                    <span className="font-semibold text-earth-100">{selectedCrop.soilPH.min} - {selectedCrop.soilPH.max}</span>
+                    <span className="text-white">Soil pH:</span>
+                    <span className="font-semibold text-white">{selectedCrop.soilPH.min} - {selectedCrop.soilPH.max}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-earth-300">Temperature:</span>
-                    <span className="font-semibold text-earth-100">{selectedCrop.temperatureRange.min}°F - {selectedCrop.temperatureRange.max}°F</span>
+                    <span className="text-white">Temperature:</span>
+                    <span className="font-semibold text-white">{selectedCrop.temperatureRange.min}°F - {selectedCrop.temperatureRange.max}°F</span>
                   </div>
                 </div>
               </div>
 
               {/* Yield */}
               <div className="bg-earth-900 rounded-lg p-4 border border-earth-700">
-                <h4 className="font-semibold text-earth-100 mb-3 flex items-center gap-2">
+                <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                   <Activity className="w-4 h-4 text-green-600" />
                   Expected Yield
                 </h4>
@@ -175,41 +175,41 @@ export default function CropCatalog() {
                   <div className="text-3xl font-bold text-green-600">
                     {selectedCrop.yieldPerAcre.min}-{selectedCrop.yieldPerAcre.max}
                   </div>
-                  <div className="text-sm text-earth-300">{selectedCrop.yieldPerAcre.unit} per acre</div>
+                  <div className="text-sm text-white">{selectedCrop.yieldPerAcre.unit} per acre</div>
                 </div>
               </div>
 
               {/* Nutrients */}
               <div className="bg-earth-900 rounded-lg p-4 border border-earth-700">
-                <h4 className="font-semibold text-earth-100 mb-3 flex items-center gap-2">
+                <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                   <FlaskConical className="w-4 h-4 text-purple-600" />
                   Nutrient Requirements
                 </h4>
                 <div className="grid grid-cols-3 gap-2 text-center text-sm">
                   <div className="bg-blue-900 rounded p-2">
                     <div className="font-semibold text-blue-400">N</div>
-                    <div className="text-xs text-earth-300 capitalize">{selectedCrop.nutrientRequirements.nitrogen}</div>
+                    <div className="text-xs text-white capitalize">{selectedCrop.nutrientRequirements.nitrogen}</div>
                   </div>
                   <div className="bg-purple-900 rounded p-2">
                     <div className="font-semibold text-purple-400">P</div>
-                    <div className="text-xs text-earth-300 capitalize">{selectedCrop.nutrientRequirements.phosphorus}</div>
+                    <div className="text-xs text-white capitalize">{selectedCrop.nutrientRequirements.phosphorus}</div>
                   </div>
                   <div className="bg-pink-900 rounded p-2">
                     <div className="font-semibold text-pink-400">K</div>
-                    <div className="text-xs text-earth-300 capitalize">{selectedCrop.nutrientRequirements.potassium}</div>
+                    <div className="text-xs text-white capitalize">{selectedCrop.nutrientRequirements.potassium}</div>
                   </div>
                 </div>
               </div>
 
               {/* Pests & Diseases */}
               <div className="bg-earth-900 rounded-lg p-4 border border-earth-700">
-                <h4 className="font-semibold text-earth-100 mb-3 flex items-center gap-2">
+                <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
                   <Bug className="w-4 h-4 text-red-600" />
                   Common Pests & Diseases
                 </h4>
                 <div className="space-y-2">
                   <div>
-                    <div className="text-xs font-semibold text-earth-300 mb-1">Pests:</div>
+                    <div className="text-xs font-semibold text-white mb-1">Pests:</div>
                     <div className="flex flex-wrap gap-1">
                       {selectedCrop.commonPests.slice(0, 4).map((pest, idx) => (
                         <span key={idx} className="text-xs bg-red-50 text-red-700 px-2 py-1 rounded">
@@ -219,7 +219,7 @@ export default function CropCatalog() {
                     </div>
                   </div>
                   <div>
-                    <div className="text-xs font-semibold text-earth-300 mb-1">Diseases:</div>
+                    <div className="text-xs font-semibold text-white mb-1">Diseases:</div>
                     <div className="flex flex-wrap gap-1">
                       {selectedCrop.commonDiseases.slice(0, 4).map((disease, idx) => (
                         <span key={idx} className="text-xs bg-orange-50 text-orange-700 px-2 py-1 rounded">
@@ -233,7 +233,7 @@ export default function CropCatalog() {
 
               {/* Major Producers */}
               <div className="bg-earth-900 rounded-lg p-4 border border-earth-700">
-                <h4 className="font-semibold text-earth-100 mb-2">Major Producers</h4>
+                <h4 className="font-semibold text-white mb-2">Major Producers</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedCrop.majorProducers.map((country, idx) => (
                     <span key={idx} className="text-sm bg-blue-50 text-blue-700 px-3 py-1 rounded-full border border-blue-200">
@@ -244,8 +244,8 @@ export default function CropCatalog() {
               </div>
             </div>
           ) : (
-            <div className="text-center py-20 text-earth-400">
-              <Sprout className="w-20 h-20 mx-auto mb-4 text-earth-600" />
+            <div className="text-center py-20 text-white">
+              <Sprout className="w-20 h-20 mx-auto mb-4 text-gray-400" />
               <p>Select a crop to view details</p>
             </div>
           )}

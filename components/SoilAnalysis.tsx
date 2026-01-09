@@ -33,8 +33,8 @@ export default function SoilAnalysis() {
   return (
     <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
       <div className="mb-6">
-        <h3 className="text-xl font-bold text-earth-100 mb-2">Soil Analysis</h3>
-        <p className="text-sm text-earth-300">Based on USDA SSURGO Database</p>
+        <h3 className="text-xl font-bold text-white mb-2">Soil Analysis</h3>
+        <p className="text-sm text-white">Based on USDA SSURGO Database</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -100,7 +100,7 @@ export default function SoilAnalysis() {
         </div>
 
         <div className="bg-earth-800 rounded-lg p-4">
-          <h4 className="font-semibold text-earth-100 mb-3 flex items-center gap-2">
+          <h4 className="font-semibold text-white mb-3 flex items-center gap-2">
             <Activity className="w-4 h-4" />
             Soil Health Index
           </h4>
@@ -117,7 +117,7 @@ export default function SoilAnalysis() {
       </div>
 
       <div className="bg-earth-800 rounded-lg p-4">
-        <h4 className="font-semibold text-earth-100 mb-3">Nutrient Levels vs Optimal</h4>
+        <h4 className="font-semibold text-white mb-3">Nutrient Levels vs Optimal</h4>
         <ResponsiveContainer width="100%" height={200}>
           <BarChart data={nutrientData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />

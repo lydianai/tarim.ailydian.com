@@ -152,8 +152,8 @@ export default function AboutProject({ lang }: AboutProjectProps) {
             <BookOpen className="w-10 h-10 text-white" />
           </div>
           <div>
-            <h1 className="text-4xl font-bold mb-2">{t.aboutTitle}</h1>
-            <p className="text-xl text-white/90">{t.aboutSubtitle}</p>
+            <h1 className="text-4xl font-bold mb-2">About Project</h1>
+            <p className="text-xl text-white/90">Lydian AgriTech Platform Pro</p>
           </div>
         </div>
       </div>
@@ -162,16 +162,16 @@ export default function AboutProject({ lang }: AboutProjectProps) {
       <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
         <div className="flex items-center gap-3 mb-4">
           <Target className="w-6 h-6 text-green-600" />
-          <h2 className="text-2xl font-bold text-earth-100">{t.projectGoalTitle}</h2>
+          <h2 className="text-2xl font-bold text-white">{"Project Goal"}</h2>
         </div>
-        <p className="text-earth-300 leading-relaxed text-lg">
-          {t.projectGoalText}
+        <p className="text-white leading-relaxed text-lg">
+          {"Building the world's most comprehensive agricultural intelligence platform"}
         </p>
       </div>
 
       {/* Key Features */}
       <div>
-        <h2 className="text-2xl font-bold text-earth-100 mb-6">{t.keyFeaturesTitle}</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">{"Key Features"}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((feature, idx) => (
             <div
@@ -181,8 +181,8 @@ export default function AboutProject({ lang }: AboutProjectProps) {
               <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${feature.color} mb-4`}>
                 <feature.icon className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-earth-100 mb-2">{feature.title}</h3>
-              <p className="text-earth-300">{feature.description}</p>
+              <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
+              <p className="text-white">{feature.description}</p>
             </div>
           ))}
         </div>
@@ -190,15 +190,15 @@ export default function AboutProject({ lang }: AboutProjectProps) {
 
       {/* Benefits */}
       <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
-        <h2 className="text-2xl font-bold text-earth-100 mb-6 flex items-center gap-3">
+        <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
           <CheckCircle className="w-6 h-6 text-green-600" />
-          {t.benefitsTitle}
+          {"Benefits"}
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {benefits.map((benefit, idx) => (
             <div key={idx} className="flex items-start gap-3">
               <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
-              <span className="text-earth-300">{benefit}</span>
+              <span className="text-white">{benefit}</span>
             </div>
           ))}
         </div>
@@ -206,7 +206,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
 
       {/* Target Audience */}
       <div>
-        <h2 className="text-2xl font-bold text-earth-100 mb-6">{t.targetAudienceTitle}</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">{"Target Audience"}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {targetAudience.map((audience, idx) => (
             <div
@@ -214,8 +214,8 @@ export default function AboutProject({ lang }: AboutProjectProps) {
               className="bg-gradient-to-br from-earth-900 to-earth-800 rounded-xl p-6 shadow-lg border border-earth-700"
             >
               <audience.icon className="w-10 h-10 text-green-600 mb-4" />
-              <h3 className="text-lg font-bold text-earth-100 mb-2">{audience.title}</h3>
-              <p className="text-earth-300 text-sm">{audience.description}</p>
+              <h3 className="text-lg font-bold text-white mb-2">{audience.title}</h3>
+              <p className="text-white text-sm">{audience.description}</p>
             </div>
           ))}
         </div>
@@ -225,7 +225,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Data Sources */}
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
-          <h2 className="text-xl font-bold text-earth-100 mb-4 flex items-center gap-3">
+          <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
             <Database className="w-6 h-6 text-blue-600" />
             {t.dataSourcesTitle}
           </h2>
@@ -233,7 +233,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
             {dataSources.map((source, idx) => (
               <div key={idx} className="flex items-center gap-2 text-sm">
                 <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span className="text-earth-300">{source}</span>
+                <span className="text-white">{source}</span>
               </div>
             ))}
           </div>
@@ -241,15 +241,15 @@ export default function AboutProject({ lang }: AboutProjectProps) {
 
         {/* Platform Capabilities */}
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
-          <h2 className="text-xl font-bold text-earth-100 mb-4 flex items-center gap-3">
+          <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
             <Code className="w-6 h-6 text-purple-600" />
             {lang === 'tr' ? 'Platform Yetenekleri' : 'Platform Capabilities'}
           </h2>
           <div className="space-y-3">
             {techStack.map((tech, idx) => (
               <div key={idx} className="flex items-center justify-between">
-                <span className="font-semibold text-earth-100">{tech.name}</span>
-                <span className="text-sm text-earth-300">{tech.desc}</span>
+                <span className="font-semibold text-white">{tech.name}</span>
+                <span className="text-sm text-white">{tech.desc}</span>
               </div>
             ))}
           </div>
@@ -260,7 +260,7 @@ export default function AboutProject({ lang }: AboutProjectProps) {
       <div className="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 rounded-xl p-8 shadow-2xl text-white">
         <div className="flex items-center gap-3 mb-4">
           <Rocket className="w-8 h-8" />
-          <h2 className="text-2xl font-bold">{t.futureVisionTitle}</h2>
+          <h2 className="text-2xl font-bold">{"Future Vision"}</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {(lang === 'tr' ? [

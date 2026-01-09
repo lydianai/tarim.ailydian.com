@@ -5,11 +5,6 @@
 import 'server-only';
 import crypto from 'crypto';
 
-// Secure random key generator
-const generateSecureKey = (seed: string): string => {
-  return crypto.createHash('sha256').update(seed + process.env.NODE_ENV).digest('hex');
-};
-
 // Obfuscated provider names - no AI brand names exposed
 export const PROVIDER_ALIASES = {
   // Weather & Climate APIs

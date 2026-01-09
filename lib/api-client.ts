@@ -1,10 +1,8 @@
 // API Client for Real Data Integration
 
 export class AgriTechAPI {
-  private baseUrl: string;
-
-  constructor(baseUrl: string = '') {
-    this.baseUrl = baseUrl;
+  constructor() {
+    // API client for internal /api routes
   }
 
   // Weather Data

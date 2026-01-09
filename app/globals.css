@@ -2,6 +2,44 @@
 @import 'tailwindcss/preflight.css';
 @import 'tailwindcss/utilities.css';
 
+/* Driver.js Product Tour Styles */
+@import 'driver.js/dist/driver.css';
+
 body {
   font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+/* Driver.js Custom Theme */
+.driver-popover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+}
+
+.driver-popover-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.driver-popover-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.driver-popover-navigation-btns button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.driver-popover-navigation-btns button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
 }

@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
-  Camera,
   Video,
   Circle,
   Maximize2,
@@ -16,7 +15,6 @@ import {
   Eye,
   Crosshair,
   Zap,
-  Battery,
   Navigation,
   Wind,
   Clock,
@@ -60,7 +58,7 @@ interface TelemetryData {
 }
 
 export default function DroneLiveStream({
-  droneId,
+  droneId: _droneId,
   droneName,
   language = 'en',
   onClose

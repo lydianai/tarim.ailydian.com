@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { DroneActivityLog, validateDroneOperation } from '@/lib/us-agriculture-data';
 
 export interface DroneData {
@@ -129,8 +129,8 @@ export function DroneProvider({ children }: DroneProviderProps) {
   });
 
   // FAA and EPA compliance status
-  const [faaCompliance, setFaaCompliance] = useState(true);
-  const [epaCompliance, setEpaCompliance] = useState(true);
+  const faaCompliance = true;
+  const epaCompliance = true;
 
   // Initialize with default drone data (US Agriculture focused)
   useEffect(() => {

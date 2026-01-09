@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-// OpenWeather Agro API
-const AGRO_API_BASE = 'https://api.agromonitoring.com/agro/1.0';
+// OpenWeather API
+// Note: AGRO_API_BASE will be added when AgroMonitoring integration is implemented
 const OPENWEATHER_API_KEY = process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY || 'YOUR_API_KEY';
 
 export async function GET(request: Request) {

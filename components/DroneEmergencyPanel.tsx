@@ -1,13 +1,11 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   AlertTriangle,
   AlertCircle,
   AlertOctagon,
   Battery,
-  Cloud,
-  CloudRain,
   Wind,
   Radio,
   Home,
@@ -18,11 +16,6 @@ import {
   VolumeX,
   Bell,
   CheckCircle,
-  XCircle,
-  Info,
-  Zap,
-  Thermometer,
-  Eye,
   Shield,
   MapPin,
   Activity
@@ -57,7 +50,7 @@ interface SafetyStatus {
 }
 
 export default function DroneEmergencyPanel({
-  droneId,
+  droneId: _droneId,
   droneName,
   language = 'en',
   onEmergencyAction
@@ -337,7 +330,7 @@ export default function DroneEmergencyPanel({
       <div className="p-4 space-y-4">
         {/* Safety Status Grid */}
         <div>
-          <h3 className="font-bold text-earth-100 mb-3 flex items-center gap-2">
+          <h3 className="font-bold text-white mb-3 flex items-center gap-2">
             <Activity className="w-5 h-5" />
             {t.safetyStatus}
           </h3>
@@ -359,7 +352,7 @@ export default function DroneEmergencyPanel({
                   {safetyStatus.battery.toFixed(0)}%
                 </span>
               </div>
-              <div className="text-xs text-gray-600">{t.battery}</div>
+              <div className="text-xs text-gray-400">{t.battery}</div>
             </div>
 
             {/* Signal */}
@@ -379,7 +372,7 @@ export default function DroneEmergencyPanel({
                   {safetyStatus.signalStrength.toFixed(0)}%
                 </span>
               </div>
-              <div className="text-xs text-gray-600">{t.signal}</div>
+              <div className="text-xs text-gray-400">{t.signal}</div>
             </div>
 
             {/* Wind */}
@@ -399,7 +392,7 @@ export default function DroneEmergencyPanel({
                   {safetyStatus.windSpeed.toFixed(1)}
                 </span>
               </div>
-              <div className="text-xs text-gray-600">{t.wind} (mph)</div>
+              <div className="text-xs text-gray-400">{t.wind} (mph)</div>
             </div>
 
             {/* Obstacle */}
@@ -419,14 +412,14 @@ export default function DroneEmergencyPanel({
                   {safetyStatus.obstacleDistance.toFixed(0)}ft
                 </span>
               </div>
-              <div className="text-xs text-gray-600">{t.obstacle}</div>
+              <div className="text-xs text-gray-400">{t.obstacle}</div>
             </div>
           </div>
         </div>
 
         {/* Emergency Actions */}
         <div>
-          <h3 className="font-bold text-earth-100 mb-3">Emergency Actions</h3>
+          <h3 className="font-bold text-white mb-3">Emergency Actions</h3>
           <div className="grid grid-cols-2 gap-3">
             <button
               onClick={() => onEmergencyAction?.('return_home')}
@@ -474,14 +467,14 @@ export default function DroneEmergencyPanel({
         {/* Active Alerts */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="font-bold text-earth-100 flex items-center gap-2">
+            <h3 className="font-bold text-white flex items-center gap-2">
               <AlertTriangle className="w-5 h-5" />
               {t.activeAlerts}
             </h3>
             {alerts.some(a => a.acknowledged) && (
               <button
                 onClick={clearAcknowledged}
-                className="text-sm text-gray-600 hover:text-gray-900"
+                className="text-sm text-gray-400 hover:text-white"
               >
                 Clear Acknowledged
               </button>
@@ -517,14 +510,14 @@ export default function DroneEmergencyPanel({
 
                       <div className="flex-1">
                         <p className={`font-semibold text-sm ${
-                          alert.acknowledged ? 'text-earth-400' :
+                          alert.acknowledged ? 'text-gray-400' :
                           alert.type === 'critical' ? 'text-red-300' :
                           alert.type === 'warning' ? 'text-yellow-300' :
                           'text-blue-300'
                         }`}>
                           {alert.message}
                         </p>
-                        <p className="text-xs text-earth-400 mt-1">
+                        <p className="text-xs text-gray-400 mt-1">
                           {alert.timestamp.toLocaleTimeString()}
                         </p>
                       </div>
@@ -532,7 +525,7 @@ export default function DroneEmergencyPanel({
                       {!alert.acknowledged && (
                         <button
                           onClick={() => acknowledgeAlert(alert.id)}
-                          className="text-gray-400 hover:text-gray-600 flex-shrink-0"
+                          className="text-gray-400 hover:text-gray-400 flex-shrink-0"
                         >
                           <CheckCircle className="w-5 h-5" />
                         </button>

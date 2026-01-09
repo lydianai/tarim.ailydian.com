@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
 
       {/* Key Commitments */}
       <div className="bg-earth-900 rounded-xl p-8 shadow-lg">
-        <h2 className="text-3xl font-bold text-earth-100 mb-6">Our Privacy Commitments</h2>
+        <h2 className="text-3xl font-bold text-white mb-6">Our Privacy Commitments</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             { icon: Lock, title: 'Data Encryption', desc: 'All data encrypted with industry-standard AES-256' },
@@ -30,8 +30,8 @@ export default function PrivacyPolicy() {
           ].map((item, idx) => (
             <div key={idx} className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200">
               <item.icon className="w-12 h-12 text-blue-600 mb-4" />
-              <h3 className="font-bold text-earth-100 mb-2 text-lg">{item.title}</h3>
-              <p className="text-sm text-earth-300">{item.desc}</p>
+              <h3 className="font-bold text-white mb-2 text-lg">{item.title}</h3>
+              <p className="text-sm text-white">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -43,13 +43,13 @@ export default function PrivacyPolicy() {
           <div className="bg-green-100 p-3 rounded-lg">
             <Database className="w-8 h-8 text-green-600" />
           </div>
-          <h2 className="text-3xl font-bold text-earth-100">Information We Collect</h2>
+          <h2 className="text-3xl font-bold text-white">Information We Collect</h2>
         </div>
 
         <div className="space-y-6">
           <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
-            <h3 className="font-bold text-earth-100 mb-4 text-xl">1. Information You Provide</h3>
-            <ul className="space-y-2 text-earth-300">
+            <h3 className="font-bold text-white mb-4 text-xl">1. Information You Provide</h3>
+            <ul className="space-y-2 text-white">
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-green-600 mt-0.5 flex-shrink-0" />
                 <span><strong>Account Information:</strong> Name, email address, farm location, crop types</span>
@@ -66,8 +66,8 @@ export default function PrivacyPolicy() {
           </div>
 
           <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200">
-            <h3 className="font-bold text-earth-100 mb-4 text-xl">2. Automatically Collected Information</h3>
-            <ul className="space-y-2 text-earth-300">
+            <h3 className="font-bold text-white mb-4 text-xl">2. Automatically Collected Information</h3>
+            <ul className="space-y-2 text-white">
               <li className="flex items-start gap-2">
                 <CheckCircle className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
                 <span><strong>Usage Data:</strong> Pages visited, features used, time spent on platform</span>
@@ -91,7 +91,7 @@ export default function PrivacyPolicy() {
           <div className="bg-blue-100 p-3 rounded-lg">
             <FileText className="w-8 h-8 text-blue-600" />
           </div>
-          <h2 className="text-3xl font-bold text-earth-100">How We Use Your Information</h2>
+          <h2 className="text-3xl font-bold text-white">How We Use Your Information</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -134,10 +134,10 @@ export default function PrivacyPolicy() {
             },
           ].map((section, idx) => (
             <div key={idx} className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 border border-blue-200">
-              <h3 className="font-bold text-earth-100 mb-4 text-lg">{section.title}</h3>
+              <h3 className="font-bold text-white mb-4 text-lg">{section.title}</h3>
               <ul className="space-y-2">
                 {section.items.map((item, iidx) => (
-                  <li key={iidx} className="flex items-start gap-2 text-sm text-earth-300">
+                  <li key={iidx} className="flex items-start gap-2 text-sm text-white">
                     <span className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
                     <span>{item}</span>
                   </li>
@@ -150,13 +150,13 @@ export default function PrivacyPolicy() {
 
       {/* Data Sharing */}
       <div className="bg-earth-900 rounded-xl p-8 shadow-lg">
-        <h2 className="text-3xl font-bold text-earth-100 mb-6">Data Sharing & Disclosure</h2>
+        <h2 className="text-3xl font-bold text-white mb-6">Data Sharing & Disclosure</h2>
         <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-xl p-6 border-2 border-orange-300">
           <h3 className="font-bold text-orange-900 mb-4 text-xl">We NEVER Sell Your Data</h3>
-          <p className="text-earth-300 mb-4">
+          <p className="text-white mb-4">
             Your agricultural data is valuable and confidential. We only share data in these limited circumstances:
           </p>
-          <ul className="space-y-3 text-earth-300">
+          <ul className="space-y-3 text-white">
             <li className="flex items-start gap-2">
               <span className="font-bold text-orange-700">•</span>
               <span><strong>With Your Consent:</strong> Explicit permission for specific data sharing</span>
@@ -179,7 +179,7 @@ export default function PrivacyPolicy() {
 
       {/* Your Rights */}
       <div className="bg-earth-900 rounded-xl p-8 shadow-lg">
-        <h2 className="text-3xl font-bold text-earth-100 mb-6">Your Privacy Rights</h2>
+        <h2 className="text-3xl font-bold text-white mb-6">Your Privacy Rights</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[
             { right: 'Access', desc: 'Request a copy of all your data' },
@@ -191,12 +191,12 @@ export default function PrivacyPolicy() {
           ].map((item, idx) => (
             <div key={idx} className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4 border border-green-200">
               <div className="font-bold text-green-900 mb-1">{item.right}</div>
-              <div className="text-sm text-earth-300">{item.desc}</div>
+              <div className="text-sm text-white">{item.desc}</div>
             </div>
           ))}
         </div>
         <div className="mt-6 bg-blue-50 rounded-lg p-4 border border-blue-200">
-          <p className="text-earth-300">
+          <p className="text-white">
             <strong>To exercise your rights:</strong> Email privacy@agritech-platform.com with your request.
             We'll respond within 30 days.
           </p>

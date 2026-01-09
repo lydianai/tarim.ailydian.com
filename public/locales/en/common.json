@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "features": "Features",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "language": "Language"
+  },
+  "hero": {
+    "title": "AI Revolution in Agriculture",
+    "subtitle": "Transform Your Farm with Drones, Satellites & AI",
+    "description": "Manage your farm with real-time crop monitoring, smart pesticide recommendations, satellite imaging, and drone control systems.",
+    "cta": {
+      "dashboard": "Go to Dashboard",
+      "demo": "Live Demo"
+    }
+  },
+  "features": {
+    "title": "Premium Dashboard Features",
+    "subtitle": "Manage Your Farm with 25+ Features",
+    "widgets": {
+      "drone": {
+        "title": "Drone Management",
+        "description": "Real-time field monitoring, multispectral imaging, and automated spraying with 4 live drones"
+      },
+      "satellite": {
+        "title": "Satellite Imaging",
+        "description": "Monitor crop health with NDVI, EVI, and soil moisture analysis"
+      },
+      "weather": {
+        "title": "Weather Forecast",
+        "description": "5-day forecast with real-time meteorological data"
+      },
+      "analytics": {
+        "title": "Smart Analytics",
+        "description": "AI-powered crop recommendations and yield predictions"
+      },
+      "marketplace": {
+        "title": "E-Commerce",
+        "description": "Buy seeds, fertilizers, pesticides and track live commodity prices"
+      },
+      "security": {
+        "title": "Security",
+        "description": "Military-grade security with penetration testing"
+      }
+    }
+  },
+  "productTour": {
+    "start": "Start Tour",
+    "skip": "Skip",
+    "prev": "Previous",
+    "next": "Next",
+    "done": "Done",
+    "steps": {
+      "welcome": {
+        "title": "Welcome to Lydian AgriTech! 🌾",
+        "description": "Let's explore 25+ premium features step by step. Tour takes 2 minutes."
+      },
+      "darkMode": {
+        "title": "Dark/Light Mode",
+        "description": "Use the button in the top right to switch themes."
+      },
+      "language": {
+        "title": "Change Language",
+        "description": "Switch instantly between Turkish and English."
+      },
+      "droneTab": {
+        "title": "Drone Management",
+        "description": "Control 4 live drones, plan missions, view real-time telemetry."
+      },
+      "satelliteTab": {
+        "title": "Satellite Imaging",
+        "description": "Analyze crop health with NDVI, EVI, SAVI indices."
+      },
+      "weatherTab": {
+        "title": "Weather Forecast",
+        "description": "Real-time weather and 5-day forecast."
+      },
+      "analyticsTab": {
+        "title": "Smart Analytics",
+        "description": "AI-powered yield predictions and crop recommendations."
+      },
+      "marketplaceTab": {
+        "title": "E-Commerce",
+        "description": "Buy seeds, fertilizers, pesticides. Track live commodity prices."
+      },
+      "complete": {
+        "title": "Tour Complete! 🎉",
+        "description": "You're ready to use all features. Happy farming!"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Agriculture Dashboard",
+    "welcome": "Welcome",
+    "tabs": {
+      "overview": "Overview",
+      "drone": "Drone Management",
+      "satellite": "Satellite Imaging",
+      "weather": "Weather",
+      "crops": "Crop Analysis",
+      "analytics": "Smart Analytics",
+      "marketplace": "Marketplace",
+      "security": "Security",
+      "settings": "Settings"
+    }
+  }
+}

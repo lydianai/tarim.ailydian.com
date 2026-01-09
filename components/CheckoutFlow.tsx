@@ -1,6 +1,6 @@
 'use client';
 
-import { CreditCard, Truck, User, Building2, MapPin, Phone, Mail, Lock, Shield, ChevronRight, AlertCircle, CheckCircle } from 'lucide-react';
+import { CreditCard, Truck, User, Building2, Lock, Shield, ChevronRight, AlertCircle, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 
 interface CartItem {
@@ -141,42 +141,42 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
               <div className="bg-agri-50 border-l-4 border-agri-600 rounded-lg p-6 mb-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <p className="text-sm text-earth-300">{t.orderNumber}</p>
+                    <p className="text-sm text-white">{t.orderNumber}</p>
                     <p className="text-2xl font-bold text-agri-900">{orderNumber}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm text-earth-300">{t.totalAmount}</p>
+                    <p className="text-sm text-white">{t.totalAmount}</p>
                     <p className="text-2xl font-bold text-agri-900">${total.toFixed(2)}</p>
                   </div>
                 </div>
-                <div className="text-sm text-earth-300">
+                <div className="text-sm text-white">
                   <p>A confirmation email has been sent to <strong>{businessInfo.email}</strong></p>
                 </div>
               </div>
 
               {/* What's Next */}
               <div className="space-y-4 mb-6">
-                <h3 className="font-bold text-lg text-earth-100">{t.whatNext}</h3>
+                <h3 className="font-bold text-lg text-white">{t.whatNext}</h3>
                 <div className="space-y-3">
                   <div className="flex gap-3">
                     <div className="bg-agri-100 text-agri-700 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">1</div>
                     <div>
-                      <p className="font-semibold text-earth-100">{t.orderProcessing}</p>
-                      <p className="text-sm text-earth-300">Your order is being prepared (1-2 business days)</p>
+                      <p className="font-semibold text-white">{t.orderProcessing}</p>
+                      <p className="text-sm text-white">Your order is being prepared (1-2 business days)</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
                     <div className="bg-agri-100 text-agri-700 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">2</div>
                     <div>
-                      <p className="font-semibold text-earth-100">{t.shippingDelivery}</p>
-                      <p className="text-sm text-earth-300">Direct-to-farm delivery (3-7 business days)</p>
+                      <p className="font-semibold text-white">{t.shippingDelivery}</p>
+                      <p className="text-sm text-white">Direct-to-farm delivery (3-7 business days)</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
                     <div className="bg-agri-100 text-agri-700 w-8 h-8 rounded-full flex items-center justify-center font-bold flex-shrink-0">3</div>
                     <div>
-                      <p className="font-semibold text-earth-100">Track Your Order</p>
-                      <p className="text-sm text-earth-300">You'll receive tracking information via email</p>
+                      <p className="font-semibold text-white">Track Your Order</p>
+                      <p className="text-sm text-white">You'll receive tracking information via email</p>
                     </div>
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
 
               {/* Actions */}
               <div className="flex gap-4">
-                <button className="flex-1 bg-earth-900 border-2 border-gray-900 text-earth-100 font-bold py-3 rounded-lg hover:bg-earth-900 transition-all">
+                <button className="flex-1 bg-earth-900 border-2 border-gray-900 text-white font-bold py-3 rounded-lg hover:bg-earth-900 transition-all">
                   {t.trackOrderBtn}
                 </button>
                 <button
@@ -212,7 +212,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
           >
             ← {t.backToCart}
           </button>
-          <h1 className="text-3xl font-display font-bold text-earth-100">{t.secureCheckout}</h1>
+          <h1 className="text-3xl font-display font-bold text-white">{t.secureCheckout}</h1>
 
           {/* Progress Steps */}
           <div className="mt-6 flex items-center justify-between">
@@ -227,11 +227,11 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 ${
                       isCompleted ? 'bg-agri-600 text-white' :
                       isActive ? 'bg-agri-100 text-agri-700 border-2 border-agri-600' :
-                      'bg-gray-200 text-gray-500'
+                      'bg-gray-200 text-gray-400'
                     }`}>
                       {isCompleted ? <CheckCircle className="w-6 h-6" /> : <Icon className="w-6 h-6" />}
                     </div>
-                    <span className={`text-sm font-semibold ${isActive ? 'text-agri-700' : 'text-earth-300'}`}>
+                    <span className={`text-sm font-semibold ${isActive ? 'text-agri-700' : 'text-white'}`}>
                       {step.label}
                     </span>
                   </div>
@@ -252,13 +252,13 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
               {currentStep === 'business' && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-earth-100 mb-2">Business Information</h2>
-                    <p className="text-sm text-earth-300">Required for USDA compliance and payment protection under PACA</p>
+                    <h2 className="text-2xl font-bold text-white mb-2">Business Information</h2>
+                    <p className="text-sm text-white">Required for USDA compliance and payment protection under PACA</p>
                   </div>
 
                   {/* Account Type */}
                   <div>
-                    <label className="block text-sm font-semibold text-earth-300 mb-3">Account Type</label>
+                    <label className="block text-sm font-semibold text-white mb-3">Account Type</label>
                     <div className="grid grid-cols-2 gap-4">
                       <button
                         onClick={() => setAccountType('business')}
@@ -269,8 +269,8 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                         }`}
                       >
                         <Building2 className={`w-8 h-8 mx-auto mb-2 ${accountType === 'business' ? 'text-agri-600' : 'text-gray-400'}`} />
-                        <p className="font-semibold text-earth-100">Business / Farm</p>
-                        <p className="text-xs text-earth-300 mt-1">For wholesale purchases</p>
+                        <p className="font-semibold text-white">Business / Farm</p>
+                        <p className="text-xs text-white mt-1">For wholesale purchases</p>
                       </button>
                       <button
                         onClick={() => setAccountType('individual')}
@@ -281,8 +281,8 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                         }`}
                       >
                         <User className={`w-8 h-8 mx-auto mb-2 ${accountType === 'individual' ? 'text-agri-600' : 'text-gray-400'}`} />
-                        <p className="font-semibold text-earth-100">Individual</p>
-                        <p className="text-xs text-earth-300 mt-1">For personal use</p>
+                        <p className="font-semibold text-white">Individual</p>
+                        <p className="text-xs text-white mt-1">For personal use</p>
                       </button>
                     </div>
                   </div>
@@ -292,7 +292,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                       {/* Company Information */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-semibold text-earth-300 mb-2">
+                          <label className="block text-sm font-semibold text-white mb-2">
                             Company/Farm Name *
                           </label>
                           <input
@@ -305,7 +305,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-semibold text-earth-300 mb-2">
+                          <label className="block text-sm font-semibold text-white mb-2">
                             Tax ID / EIN *
                           </label>
                           <input
@@ -322,7 +322,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                       {/* Business Type & License */}
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-semibold text-earth-300 mb-2">Business Type *</label>
+                          <label className="block text-sm font-semibold text-white mb-2">Business Type *</label>
                           <select
                             value={businessInfo.businessType}
                             onChange={(e) => setBusinessInfo({...businessInfo, businessType: e.target.value})}
@@ -336,7 +336,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                           </select>
                         </div>
                         <div>
-                          <label className="block text-sm font-semibold text-earth-300 mb-2">
+                          <label className="block text-sm font-semibold text-white mb-2">
                             PACA License # (if applicable)
                           </label>
                           <input
@@ -353,10 +353,10 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
 
                   {/* Contact Information */}
                   <div>
-                    <h3 className="text-lg font-bold text-earth-100 mb-4">Contact Information</h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Contact Information</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="md:col-span-2">
-                        <label className="block text-sm font-semibold text-earth-300 mb-2">Contact Name *</label>
+                        <label className="block text-sm font-semibold text-white mb-2">Contact Name *</label>
                         <input
                           type="text"
                           value={businessInfo.contactName}
@@ -367,7 +367,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-earth-300 mb-2">Email Address *</label>
+                        <label className="block text-sm font-semibold text-white mb-2">Email Address *</label>
                         <input
                           type="email"
                           value={businessInfo.email}
@@ -378,7 +378,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-earth-300 mb-2">Phone Number *</label>
+                        <label className="block text-sm font-semibold text-white mb-2">Phone Number *</label>
                         <input
                           type="tel"
                           value={businessInfo.phone}
@@ -407,7 +407,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
 
                   <button
                     onClick={() => setCurrentStep('shipping')}
-                    className="w-full bg-earth-900 border-2 border-gray-900 text-earth-100 font-bold py-4 rounded-lg hover:bg-earth-900 transition-all shadow-lg flex items-center justify-center gap-2"
+                    className="w-full bg-earth-900 border-2 border-gray-900 text-white font-bold py-4 rounded-lg hover:bg-earth-900 transition-all shadow-lg flex items-center justify-center gap-2"
                   >
                     {t.continueToShipping}
                     <ChevronRight className="w-5 h-5" />
@@ -419,13 +419,13 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
               {currentStep === 'shipping' && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-earth-100 mb-2">Shipping Address</h2>
-                    <p className="text-sm text-earth-300">Direct-to-farm delivery available nationwide</p>
+                    <h2 className="text-2xl font-bold text-white mb-2">Shipping Address</h2>
+                    <p className="text-sm text-white">Direct-to-farm delivery available nationwide</p>
                   </div>
 
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-sm font-semibold text-earth-300 mb-2">Street Address *</label>
+                      <label className="block text-sm font-semibold text-white mb-2">Street Address *</label>
                       <input
                         type="text"
                         value={shippingInfo.address}
@@ -437,7 +437,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-earth-300 mb-2">
+                      <label className="block text-sm font-semibold text-white mb-2">
                         Apartment, suite, etc. (optional)
                       </label>
                       <input
@@ -451,7 +451,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div>
-                        <label className="block text-sm font-semibold text-earth-300 mb-2">City *</label>
+                        <label className="block text-sm font-semibold text-white mb-2">City *</label>
                         <input
                           type="text"
                           value={shippingInfo.city}
@@ -462,7 +462,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-earth-300 mb-2">State *</label>
+                        <label className="block text-sm font-semibold text-white mb-2">State *</label>
                         <select
                           value={shippingInfo.state}
                           onChange={(e) => setShippingInfo({...shippingInfo, state: e.target.value})}
@@ -485,7 +485,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                         </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-earth-300 mb-2">ZIP Code *</label>
+                        <label className="block text-sm font-semibold text-white mb-2">ZIP Code *</label>
                         <input
                           type="text"
                           value={shippingInfo.zipCode}
@@ -498,7 +498,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-earth-300 mb-2">
+                      <label className="block text-sm font-semibold text-white mb-2">
                         Delivery Instructions (optional)
                       </label>
                       <textarea
@@ -513,15 +513,15 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
 
                   {/* Shipping Options */}
                   <div className="border-t border-earth-700 pt-6">
-                    <h3 className="text-lg font-bold text-earth-100 mb-4">Shipping Method</h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Shipping Method</h3>
                     <div className="space-y-3">
                       <div className="border-2 border-agri-600 bg-agri-50 rounded-lg p-4">
                         <div className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             <Truck className="w-6 h-6 text-agri-600" />
                             <div>
-                              <p className="font-semibold text-earth-100">Direct-to-Farm Delivery</p>
-                              <p className="text-sm text-earth-300">3-7 business days</p>
+                              <p className="font-semibold text-white">Direct-to-Farm Delivery</p>
+                              <p className="text-sm text-white">3-7 business days</p>
                             </div>
                           </div>
                           <p className="font-bold text-agri-700">
@@ -535,13 +535,13 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                   <div className="flex gap-4">
                     <button
                       onClick={() => setCurrentStep('business')}
-                      className="flex-1 border-2 border-earth-700 text-earth-300 font-bold py-4 rounded-lg hover:bg-earth-900 transition-all"
+                      className="flex-1 border-2 border-earth-700 text-white font-bold py-4 rounded-lg hover:bg-earth-900 transition-all"
                     >
                       Back
                     </button>
                     <button
                       onClick={() => setCurrentStep('payment')}
-                      className="flex-1 bg-earth-900 border-2 border-gray-900 text-earth-100 font-bold py-4 rounded-lg hover:bg-earth-900 transition-all shadow-lg flex items-center justify-center gap-2"
+                      className="flex-1 bg-earth-900 border-2 border-gray-900 text-white font-bold py-4 rounded-lg hover:bg-earth-900 transition-all shadow-lg flex items-center justify-center gap-2"
                     >
                       {t.continueToPayment}
                       <ChevronRight className="w-5 h-5" />
@@ -554,8 +554,8 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
               {currentStep === 'payment' && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-earth-100 mb-2">Payment Method</h2>
-                    <p className="text-sm text-earth-300">Secure payment processing powered by Stripe</p>
+                    <h2 className="text-2xl font-bold text-white mb-2">Payment Method</h2>
+                    <p className="text-sm text-white">Secure payment processing powered by Stripe</p>
                   </div>
 
                   {/* Payment Method Selection */}
@@ -569,8 +569,8 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                       }`}
                     >
                       <CreditCard className={`w-8 h-8 mx-auto mb-2 ${paymentMethod === 'card' ? 'text-agri-600' : 'text-gray-400'}`} />
-                      <p className="font-semibold text-earth-100">Credit Card</p>
-                      <p className="text-xs text-earth-300 mt-1">Instant approval</p>
+                      <p className="font-semibold text-white">Credit Card</p>
+                      <p className="text-xs text-white mt-1">Instant approval</p>
                     </button>
                     <button
                       onClick={() => setPaymentMethod('ach')}
@@ -581,8 +581,8 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                       }`}
                     >
                       <Building2 className={`w-8 h-8 mx-auto mb-2 ${paymentMethod === 'ach' ? 'text-agri-600' : 'text-gray-400'}`} />
-                      <p className="font-semibold text-earth-100">ACH / Bank</p>
-                      <p className="text-xs text-earth-300 mt-1">Lower fees</p>
+                      <p className="font-semibold text-white">ACH / Bank</p>
+                      <p className="text-xs text-white mt-1">Lower fees</p>
                     </button>
                     {accountType === 'business' && (
                       <button
@@ -594,8 +594,8 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                         }`}
                       >
                         <Lock className={`w-8 h-8 mx-auto mb-2 ${paymentMethod === 'net30' ? 'text-agri-600' : 'text-gray-400'}`} />
-                        <p className="font-semibold text-earth-100">Net 30</p>
-                        <p className="text-xs text-earth-300 mt-1">Credit required</p>
+                        <p className="font-semibold text-white">Net 30</p>
+                        <p className="text-xs text-white mt-1">Credit required</p>
                       </button>
                     )}
                   </div>
@@ -604,7 +604,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                   {paymentMethod === 'card' && (
                     <div className="space-y-4 border-t border-earth-700 pt-6">
                       <div>
-                        <label className="block text-sm font-semibold text-earth-300 mb-2">Cardholder Name *</label>
+                        <label className="block text-sm font-semibold text-white mb-2">Cardholder Name *</label>
                         <input
                           type="text"
                           value={paymentInfo.cardholderName}
@@ -615,7 +615,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-earth-300 mb-2">Card Number *</label>
+                        <label className="block text-sm font-semibold text-white mb-2">Card Number *</label>
                         <input
                           type="text"
                           value={paymentInfo.cardNumber}
@@ -627,7 +627,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                       </div>
                       <div className="grid grid-cols-3 gap-4">
                         <div className="col-span-1">
-                          <label className="block text-sm font-semibold text-earth-300 mb-2">Expiry *</label>
+                          <label className="block text-sm font-semibold text-white mb-2">Expiry *</label>
                           <input
                             type="text"
                             value={paymentInfo.expiry}
@@ -638,7 +638,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                           />
                         </div>
                         <div className="col-span-1">
-                          <label className="block text-sm font-semibold text-earth-300 mb-2">CVV *</label>
+                          <label className="block text-sm font-semibold text-white mb-2">CVV *</label>
                           <input
                             type="text"
                             value={paymentInfo.cvv}
@@ -649,7 +649,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                           />
                         </div>
                         <div className="col-span-1">
-                          <label className="block text-sm font-semibold text-earth-300 mb-2">ZIP *</label>
+                          <label className="block text-sm font-semibold text-white mb-2">ZIP *</label>
                           <input
                             type="text"
                             value={paymentInfo.billingZip}
@@ -667,7 +667,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                   {paymentMethod === 'ach' && (
                     <div className="space-y-4 border-t border-earth-700 pt-6">
                       <div>
-                        <label className="block text-sm font-semibold text-earth-300 mb-2">Account Holder Name *</label>
+                        <label className="block text-sm font-semibold text-white mb-2">Account Holder Name *</label>
                         <input
                           type="text"
                           value={achInfo.accountHolderName}
@@ -679,7 +679,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                       </div>
                       <div className="grid grid-cols-2 gap-4">
                         <div>
-                          <label className="block text-sm font-semibold text-earth-300 mb-2">Routing Number *</label>
+                          <label className="block text-sm font-semibold text-white mb-2">Routing Number *</label>
                           <input
                             type="text"
                             value={achInfo.routingNumber}
@@ -690,7 +690,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-semibold text-earth-300 mb-2">Account Number *</label>
+                          <label className="block text-sm font-semibold text-white mb-2">Account Number *</label>
                           <input
                             type="text"
                             value={achInfo.accountNumber}
@@ -702,7 +702,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                         </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold text-earth-300 mb-2">Account Type *</label>
+                        <label className="block text-sm font-semibold text-white mb-2">Account Type *</label>
                         <div className="grid grid-cols-2 gap-4">
                           <button
                             onClick={() => setAchInfo({...achInfo, accountType: 'checking'})}
@@ -767,13 +767,13 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                   <div className="flex gap-4">
                     <button
                       onClick={() => setCurrentStep('shipping')}
-                      className="flex-1 border-2 border-earth-700 text-earth-300 font-bold py-4 rounded-lg hover:bg-earth-900 transition-all"
+                      className="flex-1 border-2 border-earth-700 text-white font-bold py-4 rounded-lg hover:bg-earth-900 transition-all"
                     >
                       Back
                     </button>
                     <button
                       onClick={() => setCurrentStep('review')}
-                      className="flex-1 bg-earth-900 border-2 border-gray-900 text-earth-100 font-bold py-4 rounded-lg hover:bg-earth-900 transition-all shadow-lg flex items-center justify-center gap-2"
+                      className="flex-1 bg-earth-900 border-2 border-gray-900 text-white font-bold py-4 rounded-lg hover:bg-earth-900 transition-all shadow-lg flex items-center justify-center gap-2"
                     >
                       Review Order
                       <ChevronRight className="w-5 h-5" />
@@ -786,33 +786,33 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
               {currentStep === 'review' && (
                 <div className="space-y-6">
                   <div>
-                    <h2 className="text-2xl font-bold text-earth-100 mb-2">Review Your Order</h2>
-                    <p className="text-sm text-earth-300">Please verify all information before placing your order</p>
+                    <h2 className="text-2xl font-bold text-white mb-2">Review Your Order</h2>
+                    <p className="text-sm text-white">Please verify all information before placing your order</p>
                   </div>
 
                   {/* Business Info Summary */}
                   <div className="bg-earth-900 rounded-lg p-4 border border-earth-700">
-                    <h3 className="font-bold text-earth-100 mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-white mb-3 flex items-center gap-2">
                       <Building2 className="w-5 h-5 text-agri-600" />
                       Business Information
                     </h3>
                     <div className="grid grid-cols-2 gap-2 text-sm">
-                      <div className="text-earth-300">Company:</div>
-                      <div className="font-semibold text-earth-100">{businessInfo.companyName || 'N/A'}</div>
-                      <div className="text-earth-300">Contact:</div>
-                      <div className="font-semibold text-earth-100">{businessInfo.contactName}</div>
-                      <div className="text-earth-300">Email:</div>
-                      <div className="font-semibold text-earth-100">{businessInfo.email}</div>
+                      <div className="text-white">Company:</div>
+                      <div className="font-semibold text-white">{businessInfo.companyName || 'N/A'}</div>
+                      <div className="text-white">Contact:</div>
+                      <div className="font-semibold text-white">{businessInfo.contactName}</div>
+                      <div className="text-white">Email:</div>
+                      <div className="font-semibold text-white">{businessInfo.email}</div>
                     </div>
                   </div>
 
                   {/* Shipping Summary */}
                   <div className="bg-earth-900 rounded-lg p-4 border border-earth-700">
-                    <h3 className="font-bold text-earth-100 mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-white mb-3 flex items-center gap-2">
                       <Truck className="w-5 h-5 text-agri-600" />
                       Shipping Address
                     </h3>
-                    <div className="text-sm text-earth-100">
+                    <div className="text-sm text-white">
                       <p>{shippingInfo.address}</p>
                       {shippingInfo.address2 && <p>{shippingInfo.address2}</p>}
                       <p>{shippingInfo.city}, {shippingInfo.state} {shippingInfo.zipCode}</p>
@@ -821,11 +821,11 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
 
                   {/* Payment Summary */}
                   <div className="bg-earth-900 rounded-lg p-4 border border-earth-700">
-                    <h3 className="font-bold text-earth-100 mb-3 flex items-center gap-2">
+                    <h3 className="font-bold text-white mb-3 flex items-center gap-2">
                       <CreditCard className="w-5 h-5 text-agri-600" />
                       Payment Method
                     </h3>
-                    <div className="text-sm text-earth-100">
+                    <div className="text-sm text-white">
                       {paymentMethod === 'card' && <p>Credit Card ending in ****{paymentInfo.cardNumber.slice(-4)}</p>}
                       {paymentMethod === 'ach' && <p>ACH Bank Transfer</p>}
                       {paymentMethod === 'net30' && <p>Net 30 Terms (Credit Application Required)</p>}
@@ -836,7 +836,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                   <div className="border-t border-earth-700 pt-6">
                     <label className="flex items-start gap-3 cursor-pointer">
                       <input type="checkbox" className="mt-1 w-4 h-4 text-agri-600 border-earth-700 rounded focus:ring-agri-500" required />
-                      <span className="text-sm text-earth-300">
+                      <span className="text-sm text-white">
                         I agree to the <a href="#" className="text-agri-600 hover:text-agri-700 font-semibold">Terms & Conditions</a> and
                         confirm that all information provided is accurate. I understand that purchases are subject to
                         USDA regulations and PACA compliance requirements.
@@ -847,13 +847,13 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                   <div className="flex gap-4">
                     <button
                       onClick={() => setCurrentStep('payment')}
-                      className="flex-1 border-2 border-earth-700 text-earth-300 font-bold py-4 rounded-lg hover:bg-earth-900 transition-all"
+                      className="flex-1 border-2 border-earth-700 text-white font-bold py-4 rounded-lg hover:bg-earth-900 transition-all"
                     >
                       Back
                     </button>
                     <button
                       onClick={handlePlaceOrder}
-                      className="flex-1 bg-earth-900 border-2 border-gray-900 text-earth-100 font-bold py-4 rounded-lg hover:bg-earth-900 transition-all shadow-lg flex items-center justify-center gap-2"
+                      className="flex-1 bg-earth-900 border-2 border-gray-900 text-white font-bold py-4 rounded-lg hover:bg-earth-900 transition-all shadow-lg flex items-center justify-center gap-2"
                     >
                       <Lock className="w-5 h-5" />
                       Place Secure Order
@@ -867,7 +867,7 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-earth-900 rounded-xl shadow-lg p-6 sticky top-6">
-              <h3 className="text-xl font-bold text-earth-100 mb-4">Order Summary</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Order Summary</h3>
 
               {/* Items */}
               <div className="space-y-3 mb-6 max-h-64 overflow-y-auto">
@@ -877,8 +877,8 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
                       <span className="text-2xl">{item.image}</span>
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-earth-100 truncate">{item.name}</p>
-                      <p className="text-xs text-earth-300">Qty: {item.quantity}</p>
+                      <p className="text-sm font-semibold text-white truncate">{item.name}</p>
+                      <p className="text-xs text-white">Qty: {item.quantity}</p>
                       <p className="text-sm font-bold text-agri-700">${(item.price * item.quantity).toFixed(2)}</p>
                     </div>
                   </div>
@@ -888,27 +888,27 @@ export default function CheckoutFlow({ items, subtotal, shipping, tax, total, on
               {/* Totals */}
               <div className="space-y-2 mb-6">
                 <div className="flex justify-between text-sm">
-                  <span className="text-earth-300">{t.subtotal}</span>
-                  <span className="font-semibold text-earth-100">${subtotal.toFixed(2)}</span>
+                  <span className="text-white">{t.subtotal}</span>
+                  <span className="font-semibold text-white">${subtotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-earth-300">{t.shipping}</span>
-                  <span className="font-semibold text-earth-100">
+                  <span className="text-white">{t.shipping}</span>
+                  <span className="font-semibold text-white">
                     {shipping === 0 ? <span className="text-agri-600">{t.free}</span> : `$${shipping.toFixed(2)}`}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-earth-300">{t.tax}</span>
-                  <span className="font-semibold text-earth-100">${tax.toFixed(2)}</span>
+                  <span className="text-white">{t.tax}</span>
+                  <span className="font-semibold text-white">${tax.toFixed(2)}</span>
                 </div>
                 <div className="border-t border-earth-700 pt-2 flex justify-between">
-                  <span className="font-bold text-lg text-earth-100">{t.total}</span>
+                  <span className="font-bold text-lg text-white">{t.total}</span>
                   <span className="font-bold text-2xl text-agri-700">${total.toFixed(2)}</span>
                 </div>
               </div>
 
               {/* Trust Badges */}
-              <div className="space-y-2 text-xs text-earth-300">
+              <div className="space-y-2 text-xs text-white">
                 <div className="flex items-center gap-2">
                   <Shield className="w-4 h-4 text-agri-600" />
                   <span>SSL Encrypted</span>

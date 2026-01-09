@@ -1,6 +1,6 @@
 'use client';
 
-import { ShoppingCart, TrendingUp, Package, Truck, Shield, Star, ChevronRight, Filter, Search, X } from 'lucide-react';
+import { ShoppingCart, TrendingUp, Package, Truck, Shield, Star, ChevronRight, Filter, Search } from 'lucide-react';
 import { useState } from 'react';
 import ShoppingCartComponent from './ShoppingCart';
 import CheckoutFlow from './CheckoutFlow';
@@ -280,8 +280,8 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
           return (
             <div key={idx} className="bg-earth-900 rounded-xl p-6 shadow-lg border-l-4 border-agri-500">
               <Icon className={`w-8 h-8 text-${stat.color}-600 mb-2`} />
-              <div className="text-2xl font-bold text-earth-100">{stat.value}</div>
-              <div className="text-sm text-earth-600">{stat.label}</div>
+              <div className="text-2xl font-bold text-white">{stat.value}</div>
+              <div className="text-sm text-gray-400">{stat.label}</div>
             </div>
           );
         })}
@@ -304,7 +304,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
 
           {/* Category Filter */}
           <div className="flex items-center gap-2">
-            <Filter className="w-5 h-5 text-earth-600" />
+            <Filter className="w-5 h-5 text-gray-400" />
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
@@ -339,7 +339,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
               {/* Product Info */}
               <div className="p-6">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-display font-bold text-lg text-earth-100 flex-1">
+                  <h3 className="font-display font-bold text-lg text-white flex-1">
                     {product.name}
                   </h3>
                   {product.inStock && (
@@ -349,7 +349,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
                   )}
                 </div>
 
-                <p className="text-sm text-earth-600 mb-3">by {product.supplier}</p>
+                <p className="text-sm text-gray-400 mb-3">by {product.supplier}</p>
 
                 {/* Rating */}
                 <div className="flex items-center gap-2 mb-3">
@@ -361,7 +361,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
                       />
                     ))}
                   </div>
-                  <span className="text-sm text-earth-600">
+                  <span className="text-sm text-gray-400">
                     {product.rating} ({product.reviews} {language === 'tr' ? 'değerlendirme' : 'reviews'})
                   </span>
                 </div>
@@ -369,7 +369,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
                 {/* Features */}
                 <ul className="space-y-1 mb-4">
                   {product.features.slice(0, 3).map((feature, idx) => (
-                    <li key={idx} className="text-xs text-earth-600 flex items-center gap-2">
+                    <li key={idx} className="text-xs text-gray-400 flex items-center gap-2">
                       <ChevronRight className="w-3 h-3 text-agri-500" />
                       {feature}
                     </li>
@@ -380,7 +380,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
                 <div className="border-t border-earth-700 pt-4 mb-4">
                   <div className="flex items-baseline gap-2">
                     <span className="text-3xl font-bold text-agri-900">${product.price}</span>
-                    <span className="text-sm text-earth-600">/{product.unit}</span>
+                    <span className="text-sm text-gray-400">/{product.unit}</span>
                   </div>
                 </div>
 
@@ -396,8 +396,8 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
                     onClick={() => addToCart(product)}
                     className="w-full bg-earth-900 border-2 border-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-earth-900 transition-all shadow-md hover:shadow-lg text-sm flex items-center justify-center gap-2"
                   >
-                    <ShoppingCart className="w-4 h-4 text-earth-100" />
-                    <span className="text-earth-100">{language === 'tr' ? 'Sepete Ekle' : 'Add to Cart'}</span>
+                    <ShoppingCart className="w-4 h-4 text-white" />
+                    <span className="text-white">{language === 'tr' ? 'Sepete Ekle' : 'Add to Cart'}</span>
                   </button>
                   <button
                     onClick={() => {
@@ -406,7 +406,7 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
                     }}
                     className="w-full bg-earth-900 border-2 border-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-earth-900 transition-all text-sm"
                   >
-                    <span className="text-earth-100">{language === 'tr' ? 'Detaylar' : 'Details'}</span>
+                    <span className="text-white">{language === 'tr' ? 'Detaylar' : 'Details'}</span>
                   </button>
                 </div>
               </div>
@@ -424,8 +424,8 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
           {['FBN Direct', 'CommoditAg', 'AgriExpo', 'Tradewheel USA', 'Agri Marketplace', 'Agroy', 'Local Suppliers', 'Equipment Dealers'].map((supplier, idx) => (
             <div key={idx} className="bg-earth-900 rounded-lg p-4 shadow-md hover:shadow-agri transition-all text-center">
               <div className="text-2xl mb-2">🏢</div>
-              <div className="font-semibold text-sm text-earth-100">{supplier}</div>
-              <div className="text-xs text-earth-600 mt-1">
+              <div className="font-semibold text-sm text-white">{supplier}</div>
+              <div className="text-xs text-gray-400 mt-1">
                 {language === 'tr' ? 'Doğrulanmış' : 'Verified'}
               </div>
             </div>
@@ -446,10 +446,10 @@ export default function AgriMarketplace({ language = 'tr' }: AgriMarketplaceProp
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button className="bg-earth-900 font-bold px-8 py-3 rounded-lg hover:bg-earth-900 transition-all shadow-lg border-2 border-gray-900">
-            <span className="text-earth-100">{language === 'tr' ? 'Hesap Oluştur' : 'Create Account'}</span>
+            <span className="text-white">{language === 'tr' ? 'Hesap Oluştur' : 'Create Account'}</span>
           </button>
           <button className="bg-earth-900 font-bold px-8 py-3 rounded-lg border-2 border-gray-900 hover:bg-earth-900 transition-all shadow-lg">
-            <span className="text-earth-100">{language === 'tr' ? 'Tüm Ürünleri Görüntüle' : 'View All Products'}</span>
+            <span className="text-white">{language === 'tr' ? 'Tüm Ürünleri Görüntüle' : 'View All Products'}</span>
           </button>
         </div>
       </div>

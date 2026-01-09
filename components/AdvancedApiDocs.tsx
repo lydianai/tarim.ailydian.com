@@ -1,6 +1,6 @@
 'use client';
 
-import { Code, Database, Zap, Shield, TrendingUp, Globe, ChevronRight, Check, Copy, ExternalLink } from 'lucide-react';
+import { Code, Database, Zap, Shield, TrendingUp, Globe, Check, Copy, ExternalLink } from 'lucide-react';
 import { useState } from 'react';
 
 export default function AdvancedApiDocs() {
@@ -207,8 +207,8 @@ export default function AdvancedApiDocs() {
                 <div className={`bg-gradient-to-br ${colorMap[capability.color]} p-3 rounded-lg w-fit mb-4`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-display font-bold text-lg text-earth-100 mb-2">{capability.title}</h3>
-                <p className="text-sm text-earth-600">{capability.description}</p>
+                <h3 className="font-display font-bold text-lg text-white mb-2">{capability.title}</h3>
+                <p className="text-sm text-gray-400">{capability.description}</p>
               </div>
             );
           })}
@@ -251,7 +251,7 @@ export default function AdvancedApiDocs() {
 
                 {/* Endpoint URL */}
                 <div className="bg-earth-900 rounded-lg p-3 border border-earth-200 font-mono text-sm break-all">
-                  <span className="text-earth-600">{api.endpoint}</span>
+                  <span className="text-gray-400">{api.endpoint}</span>
                 </div>
               </div>
 
@@ -284,7 +284,7 @@ export default function AdvancedApiDocs() {
               {/* Response Example */}
               <div className="p-6 bg-earth-900 border-t border-earth-700">
                 <span className="text-earth-800 font-semibold text-sm mb-3 block">Example Response (JSON)</span>
-                <pre className="bg-earth-900 rounded-lg p-4 border border-earth-200 text-xs text-earth-300 overflow-x-auto">
+                <pre className="bg-earth-900 rounded-lg p-4 border border-earth-200 text-xs text-white overflow-x-auto">
                   <code>{JSON.stringify(api.response, null, 2)}</code>
                 </pre>
               </div>
@@ -317,8 +317,8 @@ export default function AdvancedApiDocs() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border-t-4 border-agri-500">
           <Database className="w-8 h-8 text-agri-600 mb-3" />
-          <h3 className="font-bold text-lg text-earth-100 mb-2">Data Sources</h3>
-          <ul className="space-y-1 text-sm text-earth-600">
+          <h3 className="font-bold text-lg text-white mb-2">Data Sources</h3>
+          <ul className="space-y-1 text-sm text-gray-400">
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-agri-500" /> USDA NASS</li>
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-agri-500" /> USDA AMS</li>
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-agri-500" /> NASA POWER</li>
@@ -329,8 +329,8 @@ export default function AdvancedApiDocs() {
 
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border-t-4 border-sky-500">
           <Shield className="w-8 h-8 text-sky-600 mb-3" />
-          <h3 className="font-bold text-lg text-earth-100 mb-2">Security & Auth</h3>
-          <ul className="space-y-1 text-sm text-earth-600">
+          <h3 className="font-bold text-lg text-white mb-2">Security & Auth</h3>
+          <ul className="space-y-1 text-sm text-gray-400">
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-sky-500" /> API Key Authentication</li>
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-sky-500" /> HTTPS/TLS 1.3</li>
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-sky-500" /> Rate Limiting</li>
@@ -341,8 +341,8 @@ export default function AdvancedApiDocs() {
 
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border-t-4 border-harvest-500">
           <TrendingUp className="w-8 h-8 text-harvest-600 mb-3" />
-          <h3 className="font-bold text-lg text-earth-100 mb-2">Performance</h3>
-          <ul className="space-y-1 text-sm text-earth-600">
+          <h3 className="font-bold text-lg text-white mb-2">Performance</h3>
+          <ul className="space-y-1 text-sm text-gray-400">
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-harvest-500" /> &lt;100ms Latency</li>
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-harvest-500" /> 99.9% Uptime SLA</li>
             <li className="flex items-center gap-2"><Check className="w-4 h-4 text-harvest-500" /> Global CDN</li>

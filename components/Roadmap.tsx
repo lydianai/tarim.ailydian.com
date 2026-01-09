@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Target, Rocket, Zap, CheckCircle, Clock, TrendingUp, Users, Globe, Sparkles, Award, Shield, Database, BarChart3, Leaf } from 'lucide-react';
+import { Target, Rocket, CheckCircle, Clock, TrendingUp, Globe, Sparkles, Award } from 'lucide-react';
 
 interface RoadmapPhase {
   phase: string;
@@ -278,7 +278,7 @@ export default function Roadmap() {
       );
     }
     return (
-      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700 flex items-center gap-1">
+      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-white flex items-center gap-1">
         <Target className="w-3 h-3" />
         Planned
         </span>
@@ -328,10 +328,10 @@ export default function Roadmap() {
       {/* Timeline View */}
       <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl font-bold text-earth-100">{roadmapPhases[selectedPhase].title}</h3>
+          <h3 className="text-2xl font-bold text-white">{roadmapPhases[selectedPhase].title}</h3>
           {getStatusBadge(roadmapPhases[selectedPhase].status)}
         </div>
-        <div className="text-earth-300 mb-4">{roadmapPhases[selectedPhase].period}</div>
+        <div className="text-white mb-4">{roadmapPhases[selectedPhase].period}</div>
 
         <div className="relative">
           {/* Timeline Line */}
@@ -371,12 +371,12 @@ export default function Roadmap() {
                   }`}
                 >
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="text-lg font-bold text-earth-100">{milestone.title}</h4>
+                    <h4 className="text-lg font-bold text-white">{milestone.title}</h4>
                     {milestone.completion && (
-                      <span className="text-xs text-earth-400 font-semibold">{milestone.completion}</span>
+                      <span className="text-xs text-gray-400 font-semibold">{milestone.completion}</span>
                     )}
                   </div>
-                  <p className="text-sm text-earth-300">{milestone.description}</p>
+                  <p className="text-sm text-white">{milestone.description}</p>
                 </div>
               </div>
             ))}
@@ -418,22 +418,22 @@ export default function Roadmap() {
 
       {/* Vision Statement */}
       <div className="bg-gradient-to-br from-indigo-50 to-purple-100 rounded-xl p-8 border border-indigo-200">
-        <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+        <h3 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
           <Award className="w-6 h-6 text-indigo-600" />
           Our Vision for 2030
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Mission</h4>
-            <p className="text-gray-700 text-sm">
+            <h4 className="font-semibold text-white mb-2">Mission</h4>
+            <p className="text-white text-sm">
               To become the world's leading agricultural intelligence platform, empowering 10M+ farmers with data-driven
               insights, reducing global food waste by 50%, and contributing to carbon neutrality through sustainable
               farming practices.
             </p>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-800 mb-2">Impact Goals</h4>
-            <ul className="text-sm text-gray-700 space-y-1">
+            <h4 className="font-semibold text-white mb-2">Impact Goals</h4>
+            <ul className="text-sm text-white space-y-1">
               <li>• 10M+ farmers using platform globally</li>
               <li>• 50% reduction in agricultural waste</li>
               <li>• 100M tons CO2 sequestered</li>

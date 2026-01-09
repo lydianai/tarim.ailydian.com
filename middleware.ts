@@ -77,6 +77,11 @@ function isWhitelisted(ip: string, route: string): boolean {
     return true;
   }
 
+  // Localhost IPs: always allowed
+  if (ip === '127.0.0.1' || ip === '::1' || ip === 'localhost' || ip === '::ffff:127.0.0.1') {
+    return true;
+  }
+
   // Admin routes: strict whitelist
   if (route.startsWith('/api/admin')) {
     return ADMIN_WHITELIST.has(ip);
@@ -102,13 +107,25 @@ function checkAdvancedRateLimit(ip: string): {
   const now = Date.now();
   const record = rateLimitMap.get(ip);
 
-  const MAX_REQUESTS = 100;
+  // Development mode or localhost: much higher limits, no blacklist
+  const isDev = process.env.NODE_ENV === 'development';
+  const isLocalhost = ip === '127.0.0.1' || ip === '::1' || ip === 'localhost' || ip === '::ffff:127.0.0.1';
+
+  const MAX_REQUESTS = (isDev || isLocalhost) ? 10000 : 100;
   const WINDOW_MS = 900000; // 15 min
-  const MAX_VIOLATIONS = 5;
+  const MAX_VIOLATIONS = (isDev || isLocalhost) ? 1000 : 5;
   const BLACKLIST_DURATION = 3600000; // 1 hour
 
+  // Never blacklist localhost or development
+  if (isDev || isLocalhost) {
+    if (record) {
+      record.blacklisted = false;
+      record.violations = 0;
+    }
+  }
+
   // Check if blacklisted
-  if (record?.blacklisted) {
+  if (record?.blacklisted && !(isDev || isLocalhost)) {
     if (now < record.resetTime) {
       return { allowed: false, remaining: 0, blacklisted: true };
     } else {
@@ -171,7 +188,21 @@ export function middleware(request: NextRequest) {
   const forwarded = request.headers.get('x-forwarded-for');
   const ip = forwarded ? forwarded.split(',')[0].trim() : request.headers.get('x-real-ip') || 'unknown';
 
-  // IP Whitelist check (for protected routes)
+  // DEVELOPMENT MODE: Skip all security checks
+  if (process.env.NODE_ENV === 'development') {
+    const response = NextResponse.next();
+    response.headers.set('X-Dev-Mode', 'true');
+    response.headers.set('X-Client-IP', ip);
+
+    // Add CORS headers for development
+    response.headers.set('Access-Control-Allow-Origin', '*');
+    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-API-Key');
+
+    return response;
+  }
+
+  // IP Whitelist check (for protected routes) - ONLY IN PRODUCTION
   if (!isWhitelisted(ip, pathname)) {
     console.warn(`[SECURITY] Blocked non-whitelisted IP: ${ip} -> ${pathname}`);
     return new NextResponse('Forbidden - IP not whitelisted', {
@@ -183,7 +214,7 @@ export function middleware(request: NextRequest) {
     });
   }
 
-  // Advanced rate limiting
+  // Advanced rate limiting - ONLY IN PRODUCTION
   const rateLimit = checkAdvancedRateLimit(ip);
 
   if (!rateLimit.allowed) {
@@ -232,7 +263,7 @@ export function middleware(request: NextRequest) {
     'https://agritech-platform-emrahsardag-yandexcoms-projects.vercel.app'
   ];
 
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
     allowedOrigins.push('http://localhost:3000');
   }
 

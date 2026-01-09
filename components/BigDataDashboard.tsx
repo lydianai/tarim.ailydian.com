@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Database, Activity, Server, HardDrive, Zap, Clock, CheckCircle, AlertCircle, TrendingUp, Wifi } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
 import { getBigDataMetrics, DATA_COLLECTION_SCHEDULE, simulateRealtimeData, API_CONFIGS } from '@/lib/api-integrations';
 
 export default function BigDataDashboard() {
@@ -84,7 +84,7 @@ export default function BigDataDashboard() {
 
       {/* Real-time Data Stream */}
       <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-        <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
           <Activity className="w-5 h-5 text-green-600 animate-pulse" />
           Real-time Data Stream (2-second refresh)
         </h3>
@@ -112,7 +112,7 @@ export default function BigDataDashboard() {
             </AreaChart>
           </ResponsiveContainer>
         ) : (
-          <div className="h-[300px] flex items-center justify-center text-gray-500">
+          <div className="h-[300px] flex items-center justify-center text-gray-400">
             Initializing real-time stream...
           </div>
         )}
@@ -125,7 +125,7 @@ export default function BigDataDashboard() {
             { label: 'Active Connections', value: realtimeData[realtimeData.length - 1]?.activeConnections || 0, color: 'pink' }
           ].map((metric, idx) => (
             <div key={idx} className={`bg-${metric.color}-50 rounded-lg p-3 border border-${metric.color}-200`}>
-              <div className="text-xs text-earth-300 mb-1">{metric.label}</div>
+              <div className="text-xs text-white mb-1">{metric.label}</div>
               <div className={`text-xl font-bold text-${metric.color}-600`}>{metric.value}</div>
             </div>
           ))}
@@ -134,7 +134,7 @@ export default function BigDataDashboard() {
 
       {/* API Health Status */}
       <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-        <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
           <Wifi className="w-5 h-5 text-blue-600" />
           API Health Status ({Object.keys(metrics.apiHealth).length} Sources)
         </h3>
@@ -149,7 +149,7 @@ export default function BigDataDashboard() {
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-semibold text-earth-100 truncate">{api}</span>
+                <span className="text-sm font-semibold text-white truncate">{api}</span>
                 {getStatusIcon(status)}
               </div>
               <div className={`text-xs font-semibold px-2 py-1 rounded-full inline-block ${getStatusColor(status)}`}>
@@ -162,7 +162,7 @@ export default function BigDataDashboard() {
 
       {/* Data Collection Schedule */}
       <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-        <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
           <Clock className="w-5 h-5 text-purple-600" />
           Data Collection Schedule
         </h3>
@@ -177,21 +177,21 @@ export default function BigDataDashboard() {
                     'bg-gray-400'
                   }`}></div>
                   <div>
-                    <div className="font-semibold text-earth-100">{job.name}</div>
-                    <div className="text-xs text-earth-300">
+                    <div className="font-semibold text-white">{job.name}</div>
+                    <div className="text-xs text-white">
                       Frequency: <span className="font-semibold">{job.frequency}</span> |
                       Records: <span className="font-semibold">{job.recordsCollected.toLocaleString()}</span>
                     </div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-earth-300">Next run</div>
+                  <div className="text-xs text-white">Next run</div>
                   <div className="text-xs font-semibold text-blue-600">
                     {new Date(job.nextRun).toLocaleString()}
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-xs text-gray-500">
+              <div className="flex items-center gap-2 text-xs text-gray-400">
                 <span>Last run: {new Date(job.lastRun).toLocaleString()}</span>
               </div>
             </div>
@@ -201,15 +201,15 @@ export default function BigDataDashboard() {
 
       {/* API Documentation Links */}
       <div className="bg-gradient-to-br from-indigo-50 to-purple-100 rounded-xl p-6 shadow-lg border border-indigo-200">
-        <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
+        <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
           <Server className="w-5 h-5 text-indigo-600" />
           Connected Data Sources
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {Object.entries(API_CONFIGS).map(([key, config]) => (
             <div key={key} className="bg-earth-900 rounded-lg p-4 shadow-sm border border-earth-700">
-              <div className="font-semibold text-earth-100 mb-2">{config.name}</div>
-              <div className="space-y-1 text-xs text-earth-300">
+              <div className="font-semibold text-white mb-2">{config.name}</div>
+              <div className="space-y-1 text-xs text-white">
                 <div className="flex items-center gap-2">
                   <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
                     config.requiresAuth ? 'bg-yellow-100 text-yellow-700' : 'bg-green-100 text-green-700'

@@ -21,7 +21,6 @@ import {
   Sprout,
   Droplets,
   Thermometer,
-  CloudRain,
   Search,
   Camera,
   Clock,
@@ -154,7 +153,6 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
 
   // Season-based disease prevalence
   const diseaseHeatMap = useMemo(() => {
-    const seasons = ['spring', 'summer', 'fall', 'winter'] as const;
     return OLIVE_DISEASES.map(disease => ({
       name: language === 'tr' ? disease.nameTr : disease.name,
       spring: disease.seasonalRisk.spring === 'high' ? 90 : disease.seasonalRisk.spring === 'medium' ? 60 : 30,
@@ -695,7 +693,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       </div>
                     </div>
                   ) : (
-                    <div className="flex items-center justify-center h-full text-gray-500">
+                    <div className="flex items-center justify-center h-full text-gray-400">
                       <div className="text-center">
                         <Sprout className="w-16 h-16 mx-auto mb-4 opacity-50" />
                         <p>{t('Detayları görmek için bir çeşit seçin', 'Select a variety to see details')}</p>
@@ -945,7 +943,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       </div>
                     </div>
                   ) : (
-                    <div className="flex items-center justify-center h-full text-gray-500">
+                    <div className="flex items-center justify-center h-full text-gray-400">
                       <div className="text-center">
                         <AlertTriangle className="w-16 h-16 mx-auto mb-4 opacity-50" />
                         <p>{t('Detayları görmek için bir hastalık seçin', 'Select a disease to see details')}</p>
@@ -1182,7 +1180,7 @@ export default function OliveCultivation({ language = 'en' }: OliveCultivationPr
                       </div>
                     </div>
                   ) : (
-                    <div className="flex items-center justify-center h-full text-gray-500">
+                    <div className="flex items-center justify-center h-full text-gray-400">
                       <div className="text-center">
                         <Bug className="w-16 h-16 mx-auto mb-4 opacity-50" />
                         <p>{t('Detayları görmek için bir zararlı seçin', 'Select a pest to see details')}</p>

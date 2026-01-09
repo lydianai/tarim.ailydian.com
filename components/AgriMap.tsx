@@ -17,13 +17,10 @@ function AgriMapComponent({ onLocationSelect, language = 'en' }: AgriMapProps) {
   const [lat, setLat] = useState(41.8781);
   const [zoom, setZoom] = useState(6);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [mapReady, setMapReady] = useState(false);
-  const [initAttempted, setInitAttempted] = useState(false);
+  const [_mapReady, setMapReady] = useState(false);
 
   useEffect(() => {
-    if (!mapContainer.current || map.current || initAttempted) return;
-
-    setInitAttempted(true);
+    if (!mapContainer.current || map.current) return;
 
     // Immediate timeout - force show map after 1 second if not loaded
     const safetyTimeout = setTimeout(() => {
@@ -36,7 +33,7 @@ function AgriMapComponent({ onLocationSelect, language = 'en' }: AgriMapProps) {
 
     const initMap = () => {
       import('leaflet').then((L) => {
-        if (!mapContainer.current) return;
+        if (!mapContainer.current || map.current) return;
 
         try {
           // Initialize map with better default view (US agricultural regions)
@@ -203,10 +200,15 @@ function AgriMapComponent({ onLocationSelect, language = 'en' }: AgriMapProps) {
     return () => {
       clearTimeout(safetyTimeout);
       if (map.current) {
-        map.current.remove();
-        map.current = null;
+        try {
+          map.current.remove();
+          map.current = null;
+        } catch (err) {
+          console.error('Map cleanup error:', err);
+        }
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

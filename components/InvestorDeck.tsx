@@ -2,14 +2,14 @@
 
 import {
   TrendingUp, Target, Lightbulb, DollarSign, Users, BarChart3, Award, Rocket,
-  Globe, Shield, Zap, CheckCircle, ArrowRight, Database, Cpu, Leaf,
-  Cloud, Droplets, Bug, Wheat, MapPin, LineChart as LineChartIcon, PieChart as PieChartIcon,
+  Globe, Shield, Zap, CheckCircle, Database, Cpu, Leaf,
+  Cloud, Droplets, Bug, Wheat, MapPin,
   Lock, FileText, AlertCircle, Activity, Layers, Radio, Satellite,
-  ShoppingCart, TrendingDown, Briefcase, Building2, Scale, Eye
+  ShoppingCart, TrendingDown, Building2, Scale, Eye
 } from 'lucide-react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  LineChart, Line, PieChart, Pie, Cell, AreaChart, Area, RadarChart,
+  Line, PieChart, Pie, Cell, AreaChart, Area, RadarChart,
   PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ComposedChart, Legend
 } from 'recharts';
 
@@ -182,8 +182,8 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <Target className="w-10 h-10 text-purple-600" />
           </div>
           <div>
-            <h2 className="text-4xl font-bold text-earth-100">{t.problemStatement}</h2>
-            <p className="text-lg text-earth-300">Critical challenges facing modern agriculture</p>
+            <h2 className="text-4xl font-bold text-white">{t.problemStatement}</h2>
+            <p className="text-lg text-white">Critical challenges facing modern agriculture</p>
           </div>
         </div>
 
@@ -193,7 +193,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               <AlertCircle className="w-7 h-7" />
               Agricultural Inefficiencies
             </h3>
-            <ul className="space-y-3 text-earth-300">
+            <ul className="space-y-3 text-white">
               <li className="flex items-start gap-3">
                 <span className="text-red-600 mt-1 text-xl">•</span>
                 <span><strong>30-40% Food Waste</strong> - $408B lost annually due to supply chain inefficiencies and lack of traceability</span>
@@ -222,7 +222,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               <TrendingDown className="w-7 h-7" />
               Market Gaps & Lost Revenue
             </h3>
-            <ul className="space-y-3 text-earth-300">
+            <ul className="space-y-3 text-white">
               <li className="flex items-start gap-3">
                 <span className="text-purple-600 mt-1 text-xl">•</span>
                 <span><strong>$23B Lost Annually</strong> in US agriculture alone due to poor data-driven decision making</span>
@@ -249,7 +249,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
         <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-xl p-6 border border-purple-300">
           <h3 className="font-bold text-purple-900 mb-3 text-xl">The Bottom Line</h3>
-          <p className="text-earth-200 text-lg leading-relaxed">
+          <p className="text-white text-lg leading-relaxed">
             The agricultural industry is sitting on a goldmine of data but lacks the infrastructure to harness it.
             Farmers, agribusinesses, and investors need a <strong>single source of truth</strong> that combines real-time data,
             AI insights, blockchain traceability, and ESG compliance. This is a <strong>$103.5B market opportunity</strong> by 2032.
@@ -264,8 +264,8 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <Lightbulb className="w-10 h-10 text-white" />
           </div>
           <div>
-            <h2 className="text-4xl font-bold text-earth-100">{t.solution}</h2>
-            <p className="text-lg text-earth-300">How AgriTech Platform Pro uniquely solves these challenges</p>
+            <h2 className="text-4xl font-bold text-white">{t.solution}</h2>
+            <p className="text-lg text-white">How AgriTech Platform Pro uniquely solves these challenges</p>
           </div>
         </div>
 
@@ -312,10 +312,10 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               <div className={`bg-gradient-to-br ${solution.gradient} p-3 rounded-lg inline-block mb-4`}>
                 <solution.icon className="w-8 h-8 text-white" />
               </div>
-              <h3 className="font-bold text-earth-100 text-xl mb-4">{solution.title}</h3>
+              <h3 className="font-bold text-white text-xl mb-4">{solution.title}</h3>
               <ul className="space-y-2">
                 {solution.features.map((feature, fidx) => (
-                  <li key={fidx} className="flex items-start gap-2 text-sm text-earth-300">
+                  <li key={fidx} className="flex items-start gap-2 text-sm text-white">
                     <CheckCircle className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
                     <span>{feature}</span>
                   </li>
@@ -347,8 +347,8 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <Layers className="w-10 h-10 text-purple-600" />
           </div>
           <div>
-            <h2 className="text-4xl font-bold text-earth-100">{t.platformFeatures}</h2>
-            <p className="text-lg text-earth-300">Complete breakdown of all platform modules and capabilities</p>
+            <h2 className="text-4xl font-bold text-white">{t.platformFeatures}</h2>
+            <p className="text-lg text-white">Complete breakdown of all platform modules and capabilities</p>
           </div>
         </div>
 
@@ -505,11 +505,11 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                 <div className={`bg-${feature.color}-600 p-2 rounded-lg`}>
                   <feature.icon className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-earth-100 text-lg">{feature.title}</h3>
+                <h3 className="font-bold text-white text-lg">{feature.title}</h3>
               </div>
               <ul className="space-y-2">
                 {feature.items.map((item, iidx) => (
-                  <li key={iidx} className="flex items-start gap-2 text-sm text-earth-300">
+                  <li key={iidx} className="flex items-start gap-2 text-sm text-white">
                     <CheckCircle className={`w-4 h-4 text-${feature.color}-600 mt-0.5 flex-shrink-0`} />
                     <span>{item}</span>
                   </li>
@@ -544,15 +544,15 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <TrendingUp className="w-10 h-10 text-white" />
           </div>
           <div>
-            <h2 className="text-4xl font-bold text-earth-100">{t.marketOpportunity}</h2>
-            <p className="text-lg text-earth-300">TAM/SAM/SOM analysis with growth projections</p>
+            <h2 className="text-4xl font-bold text-white">{t.marketOpportunity}</h2>
+            <p className="text-lg text-white">TAM/SAM/SOM analysis with growth projections</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Market Growth Chart */}
           <div className="bg-earth-900 rounded-xl p-6 border-2 border-purple-300">
-            <h3 className="font-bold text-earth-100 mb-4 text-xl">Global AgTech Market Growth (2024-2032)</h3>
+            <h3 className="font-bold text-white mb-4 text-xl">Global AgTech Market Growth (2024-2032)</h3>
             <ResponsiveContainer width="100%" height={320}>
               <AreaChart data={marketGrowthData}>
                 <defs>
@@ -569,7 +569,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               </AreaChart>
             </ResponsiveContainer>
             <div className="mt-4 bg-purple-50 rounded-lg p-4 border border-purple-200">
-              <p className="text-sm text-earth-300">
+              <p className="text-sm text-white">
                 <strong className="text-purple-900">$103.5B by 2032</strong> - Global AgTech market growing at <strong>25.4% CAGR</strong>,
                 driven by climate change, food security, and regulatory mandates.
               </p>
@@ -578,7 +578,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
           {/* TAM/SAM/SOM Breakdown */}
           <div className="bg-earth-900 rounded-xl p-6 border-2 border-purple-300">
-            <h3 className="font-bold text-earth-100 mb-4 text-xl">Market Size Breakdown (2032)</h3>
+            <h3 className="font-bold text-white mb-4 text-xl">Market Size Breakdown (2032)</h3>
             <ResponsiveContainer width="100%" height={320}>
               <BarChart data={marketSizeBreakdown} layout="vertical">
                 <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -595,7 +595,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <div className="mt-4 space-y-2">
               {marketSizeBreakdown.map((market, idx) => (
                 <div key={idx} className="flex items-center justify-between text-sm">
-                  <span className="text-earth-300">{market.description}</span>
+                  <span className="text-white">{market.description}</span>
                   <span className="font-bold" style={{ color: market.color }}>${market.value}B</span>
                 </div>
               ))}
@@ -606,7 +606,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
         {/* Key Market Drivers */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <h3 className="font-bold text-earth-100 mb-4 text-xl">Key Market Drivers</h3>
+            <h3 className="font-bold text-white mb-4 text-xl">Key Market Drivers</h3>
             <div className="space-y-3">
               {[
                 { title: 'US Farm Bill 2024', value: '$1.5T', desc: 'Largest federal agricultural investment in history', color: 'purple' },
@@ -617,17 +617,17 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               ].map((driver, idx) => (
                 <div key={idx} className={`bg-gradient-to-r from-${driver.color}-50 to-${driver.color}-100 rounded-lg p-4 border-l-4 border-${driver.color}-600 hover:shadow-md transition-shadow`}>
                   <div className="flex items-center justify-between mb-1">
-                    <h4 className="font-bold text-earth-100">{driver.title}</h4>
+                    <h4 className="font-bold text-white">{driver.title}</h4>
                     <span className={`text-xl font-bold text-${driver.color}-600`}>{driver.value}</span>
                   </div>
-                  <p className="text-sm text-earth-300">{driver.desc}</p>
+                  <p className="text-sm text-white">{driver.desc}</p>
                 </div>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="font-bold text-earth-100 mb-4 text-xl">Target Customer Segments</h3>
+            <h3 className="font-bold text-white mb-4 text-xl">Target Customer Segments</h3>
             <div className="space-y-3">
               {[
                 { segment: 'Individual Farmers', size: '2.1M in US', revenue: '$49-199/mo', icon: Wheat },
@@ -642,8 +642,8 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                       <customer.icon className="w-5 h-5 text-purple-600" />
                     </div>
                     <div className="flex-1">
-                      <h4 className="font-bold text-earth-100">{customer.segment}</h4>
-                      <p className="text-sm text-earth-300">{customer.size}</p>
+                      <h4 className="font-bold text-white">{customer.segment}</h4>
+                      <p className="text-sm text-white">{customer.size}</p>
                     </div>
                     <span className="text-sm font-bold text-purple-600">{customer.revenue}</span>
                   </div>
@@ -661,15 +661,15 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <DollarSign className="w-10 h-10 text-purple-600" />
           </div>
           <div>
-            <h2 className="text-4xl font-bold text-earth-100">{t.businessModel}</h2>
-            <p className="text-lg text-earth-300">Diversified revenue streams with high margins</p>
+            <h2 className="text-4xl font-bold text-white">{t.businessModel}</h2>
+            <p className="text-lg text-white">Diversified revenue streams with high margins</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Revenue Mix Pie Chart */}
           <div>
-            <h3 className="font-bold text-earth-100 mb-4 text-xl">Revenue Mix (Year 5)</h3>
+            <h3 className="font-bold text-white mb-4 text-xl">Revenue Mix (Year 5)</h3>
             <ResponsiveContainer width="100%" height={320}>
               <PieChart>
                 <Pie
@@ -694,9 +694,9 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                 <div key={idx} className="flex items-center justify-between text-sm">
                   <div className="flex items-center gap-2">
                     <div className="w-4 h-4 rounded" style={{ backgroundColor: item.color }}></div>
-                    <span className="text-earth-300">{item.name}</span>
+                    <span className="text-white">{item.name}</span>
                   </div>
-                  <span className="font-bold text-earth-100">${item.revenue}M ({item.value}%)</span>
+                  <span className="font-bold text-white">${item.revenue}M ({item.value}%)</span>
                 </div>
               ))}
             </div>
@@ -704,7 +704,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
           {/* Pricing Tiers */}
           <div>
-            <h3 className="font-bold text-earth-100 mb-4 text-xl">Pricing Strategy</h3>
+            <h3 className="font-bold text-white mb-4 text-xl">Pricing Strategy</h3>
             <div className="space-y-3">
               {[
                 { tier: 'Basic', price: '$49/month', users: 'Individual Farmers', features: '5 crops, basic analytics, mobile app', color: 'purple' },
@@ -715,11 +715,11 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               ].map((plan, idx) => (
                 <div key={idx} className={`bg-gradient-to-r from-${plan.color}-50 to-${plan.color}-100 rounded-lg p-4 border-2 border-${plan.color}-300 hover:shadow-md transition-shadow`}>
                   <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-bold text-earth-100 text-lg">{plan.tier}</h4>
+                    <h4 className="font-bold text-white text-lg">{plan.tier}</h4>
                     <span className={`text-xl font-bold text-${plan.color}-600`}>{plan.price}</span>
                   </div>
-                  <div className="text-sm text-earth-300 mb-1">Target: <strong>{plan.users}</strong></div>
-                  <div className="text-xs text-gray-500">{plan.features}</div>
+                  <div className="text-sm text-white mb-1">Target: <strong>{plan.users}</strong></div>
+                  <div className="text-xs text-gray-400">{plan.features}</div>
                 </div>
               ))}
             </div>
@@ -728,13 +728,13 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
         {/* Unit Economics */}
         <div>
-          <h3 className="font-bold text-earth-100 mb-4 text-xl">Unit Economics</h3>
+          <h3 className="font-bold text-white mb-4 text-xl">Unit Economics</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {unitEconomics.map((item, idx) => (
               <div key={idx} className={`bg-gradient-to-br from-${item.color}-50 to-${item.color}-100 rounded-lg p-4 border-2 border-${item.color}-300`}>
-                <div className="text-xs text-earth-300 mb-1">{item.metric}</div>
+                <div className="text-xs text-white mb-1">{item.metric}</div>
                 <div className={`text-2xl font-bold text-${item.color}-600 mb-1`}>{item.value}</div>
-                <div className="text-xs text-gray-500">Target: {item.target}</div>
+                <div className="text-xs text-gray-400">Target: {item.target}</div>
               </div>
             ))}
           </div>
@@ -953,15 +953,15 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <Award className="w-10 h-10 text-purple-600" />
           </div>
           <div>
-            <h2 className="text-4xl font-bold text-earth-100">{t.competitive}</h2>
-            <p className="text-lg text-earth-300">What makes us unique vs. competitors</p>
+            <h2 className="text-4xl font-bold text-white">{t.competitive}</h2>
+            <p className="text-lg text-white">What makes us unique vs. competitors</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
           {/* Competitive Radar Chart */}
           <div>
-            <h3 className="font-bold text-earth-100 mb-4 text-xl">Competitive Landscape Analysis</h3>
+            <h3 className="font-bold text-white mb-4 text-xl">Competitive Landscape Analysis</h3>
             <ResponsiveContainer width="100%" height={350}>
               <RadarChart cx="50%" cy="50%" outerRadius="80%" data={competitiveData}>
                 <PolarGrid stroke="#e5e7eb" />
@@ -978,7 +978,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
           {/* Key Differentiators */}
           <div>
-            <h3 className="font-bold text-earth-100 mb-4 text-xl">Key Differentiators</h3>
+            <h3 className="font-bold text-white mb-4 text-xl">Key Differentiators</h3>
             <div className="space-y-4">
               {[
                 {
@@ -1024,8 +1024,8 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                       <diff.icon className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-earth-100 mb-1">{diff.title}</h4>
-                      <p className="text-sm text-earth-300">{diff.desc}</p>
+                      <h4 className="font-bold text-white mb-1">{diff.title}</h4>
+                      <p className="text-sm text-white">{diff.desc}</p>
                     </div>
                   </div>
                 </div>
@@ -1036,16 +1036,16 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
         {/* Competitive Matrix */}
         <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-6 border-2 border-purple-200">
-          <h3 className="font-bold text-earth-100 mb-4 text-xl">Competitive Feature Matrix</h3>
+          <h3 className="font-bold text-white mb-4 text-xl">Competitive Feature Matrix</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b-2 border-purple-300">
-                  <th className="text-left py-3 px-2 font-bold text-earth-100">Feature</th>
+                  <th className="text-left py-3 px-2 font-bold text-white">Feature</th>
                   <th className="text-center py-3 px-2 font-bold text-purple-600">AgriTech Platform Pro</th>
-                  <th className="text-center py-3 px-2 font-bold text-earth-300">Competitor A</th>
-                  <th className="text-center py-3 px-2 font-bold text-earth-300">Competitor B</th>
-                  <th className="text-center py-3 px-2 font-bold text-earth-300">Competitor C</th>
+                  <th className="text-center py-3 px-2 font-bold text-white">Competitor A</th>
+                  <th className="text-center py-3 px-2 font-bold text-white">Competitor B</th>
+                  <th className="text-center py-3 px-2 font-bold text-white">Competitor C</th>
                 </tr>
               </thead>
               <tbody>
@@ -1064,11 +1064,11 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                   ['Multi-country Support', '✓ (8)', 'US Only', 'US Only', 'Limited (3)'],
                 ].map((row, idx) => (
                   <tr key={idx} className="border-b border-purple-200 hover:bg-purple-50">
-                    <td className="py-2 px-2 font-medium text-earth-100">{row[0]}</td>
+                    <td className="py-2 px-2 font-medium text-white">{row[0]}</td>
                     <td className="py-2 px-2 text-center text-purple-600 font-bold">{row[1]}</td>
-                    <td className="py-2 px-2 text-center text-earth-300">{row[2]}</td>
-                    <td className="py-2 px-2 text-center text-earth-300">{row[3]}</td>
-                    <td className="py-2 px-2 text-center text-earth-300">{row[4]}</td>
+                    <td className="py-2 px-2 text-center text-white">{row[2]}</td>
+                    <td className="py-2 px-2 text-center text-white">{row[3]}</td>
+                    <td className="py-2 px-2 text-center text-white">{row[4]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1084,8 +1084,8 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <Zap className="w-10 h-10 text-white" />
           </div>
           <div>
-            <h2 className="text-4xl font-bold text-earth-100">{t.traction}</h2>
-            <p className="text-lg text-earth-300">Current usage, data sources, and partnerships</p>
+            <h2 className="text-4xl font-bold text-white">{t.traction}</h2>
+            <p className="text-lg text-white">Current usage, data sources, and partnerships</p>
           </div>
         </div>
 
@@ -1106,7 +1106,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <div key={idx} className={`bg-gradient-to-br from-${item.color}-100 to-${item.color}-200 rounded-xl p-5 border-2 border-${item.color}-300 hover:shadow-lg transition-all transform hover:-translate-y-1`}>
               <div className="flex items-center gap-2 mb-3">
                 <item.icon className={`w-6 h-6 text-${item.color}-600`} />
-                <span className="text-xs text-earth-300 font-medium">{item.metric}</span>
+                <span className="text-xs text-white font-medium">{item.metric}</span>
               </div>
               <div className={`text-3xl font-bold text-${item.color}-700`}>{item.value}</div>
             </div>
@@ -1115,7 +1115,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
         {/* User Growth Chart */}
         <div className="bg-earth-900 rounded-xl p-6 border-2 border-purple-300 mb-8">
-          <h3 className="font-bold text-earth-100 mb-4 text-xl">Projected User Growth (2025-2026)</h3>
+          <h3 className="font-bold text-white mb-4 text-xl">Projected User Growth (2025-2026)</h3>
           <ResponsiveContainer width="100%" height={320}>
             <ComposedChart data={userGrowthData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -1133,7 +1133,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
         {/* MRR Growth */}
         <div className="bg-earth-900 rounded-xl p-6 border-2 border-purple-300">
-          <h3 className="font-bold text-earth-100 mb-4 text-xl">Monthly Recurring Revenue (MRR) - 2025 Projection</h3>
+          <h3 className="font-bold text-white mb-4 text-xl">Monthly Recurring Revenue (MRR) - 2025 Projection</h3>
           <ResponsiveContainer width="100%" height={280}>
             <AreaChart data={mrrGrowthData}>
               <defs>
@@ -1152,7 +1152,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             </AreaChart>
           </ResponsiveContainer>
           <div className="mt-4 bg-purple-50 rounded-lg p-4 border border-purple-200">
-            <p className="text-sm text-earth-300">
+            <p className="text-sm text-white">
               <strong className="text-purple-900">$275K MRR by Dec 2025</strong> - Exceeding target by 10%, demonstrating strong product-market fit and customer retention.
             </p>
           </div>
@@ -1166,14 +1166,14 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <BarChart3 className="w-10 h-10 text-purple-600" />
           </div>
           <div>
-            <h2 className="text-4xl font-bold text-earth-100">{t.financials}</h2>
-            <p className="text-lg text-earth-300">5-year revenue, expenses, and profitability</p>
+            <h2 className="text-4xl font-bold text-white">{t.financials}</h2>
+            <p className="text-lg text-white">5-year revenue, expenses, and profitability</p>
           </div>
         </div>
 
         {/* Revenue & Expenses Chart */}
         <div className="mb-8">
-          <h3 className="font-bold text-earth-100 mb-4 text-xl">Revenue vs. Expenses (5-Year)</h3>
+          <h3 className="font-bold text-white mb-4 text-xl">Revenue vs. Expenses (5-Year)</h3>
           <ResponsiveContainer width="100%" height={380}>
             <ComposedChart data={revenueProjections}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -1199,7 +1199,7 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             { label: 'Year 5 ARR', value: '$63.4M', color: 'violet' },
           ].map((metric, idx) => (
             <div key={idx} className={`bg-gradient-to-br from-${metric.color}-100 to-${metric.color}-200 rounded-lg p-4 border-2 border-${metric.color}-300`}>
-              <div className="text-xs text-earth-300 mb-2">{metric.label}</div>
+              <div className="text-xs text-white mb-2">{metric.label}</div>
               <div className={`text-2xl font-bold text-${metric.color}-700`}>{metric.value}</div>
             </div>
           ))}
@@ -1207,12 +1207,12 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
 
         {/* Detailed Financials Table */}
         <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-xl p-6 border-2 border-purple-200">
-          <h3 className="font-bold text-earth-100 mb-4 text-xl">Detailed 5-Year Projections</h3>
+          <h3 className="font-bold text-white mb-4 text-xl">Detailed 5-Year Projections</h3>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b-2 border-purple-300">
-                  <th className="text-left py-3 px-3 font-bold text-earth-100">Metric</th>
+                  <th className="text-left py-3 px-3 font-bold text-white">Metric</th>
                   <th className="text-right py-3 px-3 font-bold text-purple-600">Year 1</th>
                   <th className="text-right py-3 px-3 font-bold text-purple-600">Year 2</th>
                   <th className="text-right py-3 px-3 font-bold text-purple-600">Year 3</th>
@@ -1232,12 +1232,12 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
                   ['Burn Rate (Monthly)', '$190K', '$150K', 'Profitable', 'Profitable', 'Profitable'],
                 ].map((row, idx) => (
                   <tr key={idx} className="border-b border-purple-200 hover:bg-purple-50">
-                    <td className="py-2 px-3 font-medium text-earth-100">{row[0]}</td>
-                    <td className="py-2 px-3 text-right text-earth-300">{row[1]}</td>
-                    <td className="py-2 px-3 text-right text-earth-300">{row[2]}</td>
-                    <td className="py-2 px-3 text-right text-earth-300">{row[3]}</td>
-                    <td className="py-2 px-3 text-right text-earth-300">{row[4]}</td>
-                    <td className="py-2 px-3 text-right text-earth-300 font-bold">{row[5]}</td>
+                    <td className="py-2 px-3 font-medium text-white">{row[0]}</td>
+                    <td className="py-2 px-3 text-right text-white">{row[1]}</td>
+                    <td className="py-2 px-3 text-right text-white">{row[2]}</td>
+                    <td className="py-2 px-3 text-right text-white">{row[3]}</td>
+                    <td className="py-2 px-3 text-right text-white">{row[4]}</td>
+                    <td className="py-2 px-3 text-right text-white font-bold">{row[5]}</td>
                   </tr>
                 ))}
               </tbody>
@@ -1359,8 +1359,8 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
             <Users className="w-10 h-10 text-purple-600" />
           </div>
           <div>
-            <h2 className="text-4xl font-bold text-earth-100">{t.team}</h2>
-            <p className="text-lg text-earth-300">World-class team combining agricultural expertise and tech innovation</p>
+            <h2 className="text-4xl font-bold text-white">{t.team}</h2>
+            <p className="text-lg text-white">World-class team combining agricultural expertise and tech innovation</p>
           </div>
         </div>
 
@@ -1407,17 +1407,17 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               <div className="bg-gradient-to-br from-purple-600 to-indigo-600 w-20 h-20 rounded-full mb-4 flex items-center justify-center">
                 <Users className="w-10 h-10 text-white" />
               </div>
-              <h3 className="font-bold text-xl text-earth-100 mb-2">{member.role}</h3>
+              <h3 className="font-bold text-xl text-white mb-2">{member.role}</h3>
               <p className="text-sm text-purple-600 font-semibold mb-3">{member.experience}</p>
-              <p className="text-sm text-earth-300 mb-2">{member.expertise}</p>
-              <p className="text-xs text-gray-500">{member.education}</p>
+              <p className="text-sm text-white mb-2">{member.expertise}</p>
+              <p className="text-xs text-gray-400">{member.education}</p>
             </div>
           ))}
         </div>
 
         {/* Advisors & Board */}
         <div className="bg-gradient-to-r from-purple-100 to-indigo-100 rounded-xl p-6 border-2 border-purple-200">
-          <h3 className="font-bold text-earth-100 mb-4 text-2xl">Strategic Advisors & Board Members</h3>
+          <h3 className="font-bold text-white mb-4 text-2xl">Strategic Advisors & Board Members</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[
               {
@@ -1442,9 +1442,9 @@ export default function InvestorDeck({ language = 'en' }: InvestorDeckProps) {
               },
             ].map((advisor, idx) => (
               <div key={idx} className="bg-earth-900 rounded-lg p-4 border border-purple-300">
-                <h4 className="font-bold text-earth-100">{advisor.name}</h4>
+                <h4 className="font-bold text-white">{advisor.name}</h4>
                 <p className="text-sm text-purple-600 font-semibold mb-1">{advisor.title}</p>
-                <p className="text-xs text-earth-300">{advisor.contribution}</p>
+                <p className="text-xs text-white">{advisor.contribution}</p>
               </div>
             ))}
           </div>

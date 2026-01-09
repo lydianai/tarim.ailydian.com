@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Leaf, Users, Shield, TrendingUp, Award, DollarSign, Droplet, Wind, Heart, FileCheck, BarChart3, Target } from 'lucide-react';
-import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, LineChart, Line, Legend } from 'recharts';
+import { RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend } from 'recharts';
 import { SAMPLE_ESG_DATA, INVESTMENT_ROI_DATA } from '@/lib/esg-metrics';
 
 export default function ESGDashboard() {
@@ -73,7 +73,7 @@ export default function ESGDashboard() {
 
       {/* Farm Selector */}
       <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-        <h3 className="text-lg font-bold text-earth-200 mb-4">Select Farm</h3>
+        <h3 className="text-lg font-bold text-white mb-4">Select Farm</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {SAMPLE_ESG_DATA.map((farm) => (
             <button
@@ -86,24 +86,24 @@ export default function ESGDashboard() {
               }`}
             >
               <div className="flex items-center justify-between mb-2">
-                <div className="font-bold text-earth-100">{farm.farmName}</div>
+                <div className="font-bold text-white">{farm.farmName}</div>
                 <div className={`px-3 py-1 rounded-full text-white text-xs font-bold bg-gradient-to-r ${getRatingColor(farm.esgScore.rating)}`}>
                   {farm.esgScore.rating}
                 </div>
               </div>
-              <div className="text-sm text-earth-300">Farm ID: {farm.farmId}</div>
-              <div className="text-xs text-gray-500 mt-1">Period: {farm.reportingPeriod}</div>
+              <div className="text-sm text-white">Farm ID: {farm.farmId}</div>
+              <div className="text-xs text-gray-400 mt-1">Period: {farm.reportingPeriod}</div>
               <div className="mt-3 grid grid-cols-3 gap-2 text-xs">
                 <div className="text-center">
-                  <div className="text-earth-300">E</div>
+                  <div className="text-white">E</div>
                   <div className="font-bold text-green-600">{farm.esgScore.environmental}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-earth-300">S</div>
+                  <div className="text-white">S</div>
                   <div className="font-bold text-blue-600">{farm.esgScore.social}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-earth-300">G</div>
+                  <div className="text-white">G</div>
                   <div className="font-bold text-purple-600">{farm.esgScore.governance}</div>
                 </div>
               </div>
@@ -115,7 +115,7 @@ export default function ESGDashboard() {
       {/* ESG Radar Chart & Carbon Footprint */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-          <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <BarChart3 className="w-5 h-5 text-purple-600" />
             ESG Performance Radar
           </h3>
@@ -131,19 +131,19 @@ export default function ESGDashboard() {
           <div className="mt-4 p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm text-earth-300">Benchmark Percentile</div>
+                <div className="text-sm text-white">Benchmark Percentile</div>
                 <div className="text-2xl font-bold text-green-600">{selectedFarm.benchmarkComparison.percentile}th</div>
               </div>
               <div className="text-right">
-                <div className="text-xs text-earth-300">Industry Avg: {selectedFarm.benchmarkComparison.industryAverage}</div>
-                <div className="text-xs text-earth-300">Top Performer: {selectedFarm.benchmarkComparison.topPerformer}</div>
+                <div className="text-xs text-white">Industry Avg: {selectedFarm.benchmarkComparison.industryAverage}</div>
+                <div className="text-xs text-white">Top Performer: {selectedFarm.benchmarkComparison.topPerformer}</div>
               </div>
             </div>
           </div>
         </div>
 
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-          <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <Wind className="w-5 h-5 text-blue-600" />
             Carbon Footprint Breakdown
           </h3>
@@ -171,7 +171,7 @@ export default function ESGDashboard() {
 
       {/* Environmental Metrics */}
       <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-xl p-6 shadow-lg border border-green-200">
-        <h3 className="text-xl font-bold text-earth-200 mb-4 flex items-center gap-2">
+        <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
           <Leaf className="w-6 h-6 text-green-600" />
           Environmental Performance
         </h3>
@@ -179,40 +179,40 @@ export default function ESGDashboard() {
           <div className="bg-earth-900 rounded-lg p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Droplet className="w-5 h-5 text-blue-600" />
-              <div className="text-sm text-earth-300">Water Efficiency</div>
+              <div className="text-sm text-white">Water Efficiency</div>
             </div>
             <div className="text-2xl font-bold text-blue-600">{selectedFarm.environmental.waterUsage.efficiency}%</div>
-            <div className="text-xs text-earth-300 mt-1">
+            <div className="text-xs text-white mt-1">
               Saved: {(selectedFarm.environmental.waterUsage.savedVsBaseline / 1000).toFixed(0)}K gal
             </div>
           </div>
           <div className="bg-earth-900 rounded-lg p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Leaf className="w-5 h-5 text-green-600" />
-              <div className="text-sm text-earth-300">Soil Health Index</div>
+              <div className="text-sm text-white">Soil Health Index</div>
             </div>
             <div className="text-2xl font-bold text-green-600">{selectedFarm.environmental.soilHealth.biodiversityIndex}</div>
-            <div className="text-xs text-earth-300 mt-1">
+            <div className="text-xs text-white mt-1">
               +{selectedFarm.environmental.soilHealth.organicMatterIncrease}% organic matter
             </div>
           </div>
           <div className="bg-earth-900 rounded-lg p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Wind className="w-5 h-5 text-purple-600" />
-              <div className="text-sm text-earth-300">Carbon Sequestered</div>
+              <div className="text-sm text-white">Carbon Sequestered</div>
             </div>
             <div className="text-2xl font-bold text-purple-600">{selectedFarm.environmental.soilHealth.carbonSequestered} t/yr</div>
-            <div className="text-xs text-earth-300 mt-1">
+            <div className="text-xs text-white mt-1">
               {selectedFarm.environmental.soilHealth.erosionReduction}% erosion reduction
             </div>
           </div>
           <div className="bg-earth-900 rounded-lg p-4 shadow-sm">
             <div className="flex items-center gap-2 mb-2">
               <Heart className="w-5 h-5 text-pink-600" />
-              <div className="text-sm text-earth-300">Biodiversity</div>
+              <div className="text-sm text-white">Biodiversity</div>
             </div>
             <div className="text-2xl font-bold text-pink-600">{selectedFarm.environmental.biodiversity.nativePollinator}</div>
-            <div className="text-xs text-earth-300 mt-1">
+            <div className="text-xs text-white mt-1">
               {selectedFarm.environmental.biodiversity.birdSpecies} bird species
             </div>
           </div>
@@ -221,58 +221,58 @@ export default function ESGDashboard() {
 
       {/* Social Metrics */}
       <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-xl p-6 shadow-lg border border-blue-200">
-        <h3 className="text-xl font-bold text-earth-200 mb-4 flex items-center gap-2">
+        <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
           <Users className="w-6 h-6 text-blue-600" />
           Social Impact & Labor Practices
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-earth-900 rounded-lg p-4 shadow-sm">
-            <h4 className="font-semibold text-earth-200 mb-3">Employment</h4>
+            <h4 className="font-semibold text-white mb-3">Employment</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-earth-300">Total Employees</span>
-                <span className="font-bold text-earth-100">{selectedFarm.social.employment.totalEmployees}</span>
+                <span className="text-white">Total Employees</span>
+                <span className="font-bold text-white">{selectedFarm.social.employment.totalEmployees}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-earth-300">Women Employment</span>
+                <span className="text-white">Women Employment</span>
                 <span className="font-bold text-purple-600">{selectedFarm.social.employment.womenEmployment}%</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-earth-300">Minority Employment</span>
+                <span className="text-white">Minority Employment</span>
                 <span className="font-bold text-blue-600">{selectedFarm.social.employment.minorityEmployment}%</span>
               </div>
             </div>
           </div>
           <div className="bg-earth-900 rounded-lg p-4 shadow-sm">
-            <h4 className="font-semibold text-earth-200 mb-3">Worker Wellbeing</h4>
+            <h4 className="font-semibold text-white mb-3">Worker Wellbeing</h4>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm">
                 <div className={`w-3 h-3 rounded-full ${selectedFarm.social.farmWorkerWellbeing.healthInsuranceProvided ? 'bg-green-500' : 'bg-gray-300'}`}></div>
-                <span className="text-earth-300">Health Insurance</span>
+                <span className="text-white">Health Insurance</span>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <div className={`w-3 h-3 rounded-full ${selectedFarm.social.farmWorkerWellbeing.childcareAvailable ? 'bg-green-500' : 'bg-gray-300'}`}></div>
-                <span className="text-earth-300">Childcare Available</span>
+                <span className="text-white">Childcare Available</span>
               </div>
               <div className="mt-3">
-                <div className="text-xs text-earth-300 mb-1">Satisfaction Score</div>
+                <div className="text-xs text-white mb-1">Satisfaction Score</div>
                 <div className="text-2xl font-bold text-green-600">{selectedFarm.social.farmWorkerWellbeing.satisfactionScore}/100</div>
               </div>
             </div>
           </div>
           <div className="bg-earth-900 rounded-lg p-4 shadow-sm">
-            <h4 className="font-semibold text-earth-200 mb-3">Community Impact</h4>
+            <h4 className="font-semibold text-white mb-3">Community Impact</h4>
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-earth-300">Investment</span>
+                <span className="text-white">Investment</span>
                 <span className="font-bold text-green-600">${(selectedFarm.social.communityImpact.communityInvestment / 1000).toFixed(0)}K</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-earth-300">Food Donations</span>
+                <span className="text-white">Food Donations</span>
                 <span className="font-bold text-orange-600">{(selectedFarm.social.communityImpact.foodDonations / 1000).toFixed(1)}K lbs</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-earth-300">Education Programs</span>
+                <span className="text-white">Education Programs</span>
                 <span className="font-bold text-blue-600">{selectedFarm.social.communityImpact.educationPrograms}</span>
               </div>
             </div>
@@ -282,7 +282,7 @@ export default function ESGDashboard() {
 
       {/* Carbon Credits */}
       <div className="bg-gradient-to-br from-purple-50 to-pink-100 rounded-xl p-6 shadow-lg border border-purple-200">
-        <h3 className="text-xl font-bold text-earth-200 mb-4 flex items-center gap-2">
+        <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
           <Award className="w-6 h-6 text-purple-600" />
           Carbon Credit Portfolio
         </h3>
@@ -290,29 +290,29 @@ export default function ESGDashboard() {
           {selectedFarm.carbonCredits.map((credit) => (
             <div key={credit.creditId} className="bg-earth-900 rounded-lg p-4 shadow-sm border-l-4 border-purple-500">
               <div className="flex items-center justify-between mb-2">
-                <div className="font-bold text-earth-100">{credit.methodology}</div>
+                <div className="font-bold text-white">{credit.methodology}</div>
                 <div className={`px-2 py-1 rounded-full text-xs font-semibold ${
                   credit.status === 'Active' ? 'bg-green-100 text-green-700' :
-                  credit.status === 'Retired' ? 'bg-earth-900 text-earth-300' :
+                  credit.status === 'Retired' ? 'bg-earth-900 text-white' :
                   'bg-yellow-100 text-yellow-700'
                 }`}>
                   {credit.status}
                 </div>
               </div>
-              <div className="text-sm text-earth-300 mb-3">{credit.projectType}</div>
+              <div className="text-sm text-white mb-3">{credit.projectType}</div>
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <div className="text-earth-300">Credits Generated</div>
+                  <div className="text-white">Credits Generated</div>
                   <div className="font-bold text-purple-600">{credit.creditsGenerated} t CO2e</div>
                 </div>
                 <div>
-                  <div className="text-earth-300">Total Value</div>
+                  <div className="text-white">Total Value</div>
                   <div className="font-bold text-green-600">${credit.totalValue.toLocaleString()}</div>
                 </div>
               </div>
               {credit.buyer && (
                 <div className="mt-3 pt-3 border-t border-earth-700">
-                  <div className="text-xs text-earth-300">Buyer: <span className="font-semibold text-earth-200">{credit.buyer}</span></div>
+                  <div className="text-xs text-white">Buyer: <span className="font-semibold text-white">{credit.buyer}</span></div>
                 </div>
               )}
             </div>
@@ -321,13 +321,13 @@ export default function ESGDashboard() {
         <div className="bg-earth-900 rounded-lg p-4 shadow-sm">
           <div className="flex items-center justify-between">
             <div>
-              <div className="text-sm text-earth-300">Total Carbon Credits</div>
+              <div className="text-sm text-white">Total Carbon Credits</div>
               <div className="text-3xl font-bold text-purple-600">
                 {selectedFarm.carbonCredits.reduce((sum, c) => sum + c.creditsGenerated, 0)} t CO2e
               </div>
             </div>
             <div className="text-right">
-              <div className="text-sm text-earth-300">Total Revenue</div>
+              <div className="text-sm text-white">Total Revenue</div>
               <div className="text-3xl font-bold text-green-600">
                 ${selectedFarm.carbonCredits.reduce((sum, c) => sum + c.totalValue, 0).toLocaleString()}
               </div>
@@ -338,7 +338,7 @@ export default function ESGDashboard() {
 
       {/* Investment ROI Analytics */}
       <div className="bg-gradient-to-br from-orange-50 to-amber-100 rounded-xl p-6 shadow-lg border border-orange-200">
-        <h3 className="text-xl font-bold text-earth-200 mb-4 flex items-center gap-2">
+        <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
           <DollarSign className="w-6 h-6 text-orange-600" />
           Investment ROI Analysis
         </h3>
@@ -358,11 +358,11 @@ export default function ESGDashboard() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
           {INVESTMENT_ROI_DATA.map((investment, idx) => (
             <div key={idx} className="bg-earth-900 rounded-lg p-3 shadow-sm">
-              <div className="text-xs text-earth-300 mb-1 truncate" title={investment.category}>
+              <div className="text-xs text-white mb-1 truncate" title={investment.category}>
                 {investment.category.split('(')[0].trim()}
               </div>
               <div className="text-lg font-bold text-green-600">{investment.roi}%</div>
-              <div className="text-xs text-gray-500 mt-1">
+              <div className="text-xs text-gray-400 mt-1">
                 Payback: {investment.paybackPeriod}y
               </div>
             </div>
@@ -373,13 +373,13 @@ export default function ESGDashboard() {
       {/* Investment Attractiveness */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-          <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-green-600" />
             Investment Attractiveness
           </h3>
           <div className="text-center mb-6">
             <div className="text-6xl font-bold text-green-600">{selectedFarm.investmentAttractiveness.score}</div>
-            <div className="text-sm text-earth-300 mt-2">Investment Score (out of 100)</div>
+            <div className="text-sm text-white mt-2">Investment Score (out of 100)</div>
           </div>
           <div className="grid grid-cols-1 gap-4">
             <div className="bg-green-50 rounded-lg p-4 border border-green-200">
@@ -402,25 +402,25 @@ export default function ESGDashboard() {
         </div>
 
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-          <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <FileCheck className="w-5 h-5 text-blue-600" />
             Governance & Compliance
           </h3>
           <div className="space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-earth-700">
-              <span className="text-sm text-earth-300">Audit Score</span>
+              <span className="text-sm text-white">Audit Score</span>
               <span className="text-xl font-bold text-blue-600">{selectedFarm.governance.auditScore}/100</span>
             </div>
             <div className="flex items-center justify-between pb-3 border-b border-earth-700">
-              <span className="text-sm text-earth-300">Transparency Level</span>
+              <span className="text-sm text-white">Transparency Level</span>
               <span className="text-sm font-bold text-purple-600">{selectedFarm.governance.transparencyLevel}</span>
             </div>
             <div className="flex items-center justify-between pb-3 border-b border-earth-700">
-              <span className="text-sm text-earth-300">Audit Frequency</span>
-              <span className="text-sm font-bold text-earth-200">{selectedFarm.governance.auditFrequency}</span>
+              <span className="text-sm text-white">Audit Frequency</span>
+              <span className="text-sm font-bold text-white">{selectedFarm.governance.auditFrequency}</span>
             </div>
             <div>
-              <h4 className="font-semibold text-earth-200 mb-3">Certifications</h4>
+              <h4 className="font-semibold text-white mb-3">Certifications</h4>
               <div className="flex flex-wrap gap-2">
                 {selectedFarm.governance.certifications.map((cert, idx) => (
                   <span key={idx} className="text-xs bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">
@@ -434,15 +434,15 @@ export default function ESGDashboard() {
               <div className="grid grid-cols-3 gap-2 text-xs">
                 <div className="text-center">
                   <div className={`w-4 h-4 mx-auto mb-1 rounded-full ${selectedFarm.governance.traceability.blockchainEnabled ? 'bg-green-500' : 'bg-gray-300'}`}></div>
-                  <div className="text-earth-300">Blockchain</div>
+                  <div className="text-white">Blockchain</div>
                 </div>
                 <div className="text-center">
                   <div className={`w-4 h-4 mx-auto mb-1 rounded-full ${selectedFarm.governance.traceability.qrCodeTracking ? 'bg-green-500' : 'bg-gray-300'}`}></div>
-                  <div className="text-earth-300">QR Code</div>
+                  <div className="text-white">QR Code</div>
                 </div>
                 <div className="text-center">
                   <div className={`w-4 h-4 mx-auto mb-1 rounded-full ${selectedFarm.governance.traceability.thirdPartyVerified ? 'bg-green-500' : 'bg-gray-300'}`}></div>
-                  <div className="text-earth-300">3rd Party</div>
+                  <div className="text-white">3rd Party</div>
                 </div>
               </div>
             </div>

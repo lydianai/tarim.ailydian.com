@@ -62,23 +62,23 @@ export default class ErrorBoundary extends Component<Props, State> {
                 <AlertCircle className="w-8 h-8 text-red-400" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-earth-100">Bir Hata Oluştu</h1>
-                <p className="text-earth-300">Something went wrong</p>
+                <h1 className="text-2xl font-bold text-white">Bir Hata Oluştu</h1>
+                <p className="text-white">Something went wrong</p>
               </div>
             </div>
 
             <div className="bg-earth-900 rounded-lg p-4 mb-6 border border-earth-700">
-              <p className="text-sm text-earth-200 font-mono">
+              <p className="text-sm text-white font-mono">
                 {this.state.error?.message || 'Bilinmeyen hata'}
               </p>
             </div>
 
             {process.env.NODE_ENV === 'development' && this.state.errorInfo && (
               <details className="mb-6">
-                <summary className="text-earth-300 cursor-pointer hover:text-earth-200 mb-2">
+                <summary className="text-white cursor-pointer hover:text-white mb-2">
                   Teknik Detaylar (Geliştirici Modu)
                 </summary>
-                <pre className="bg-earth-900 rounded-lg p-4 text-xs text-earth-400 overflow-auto border border-earth-700">
+                <pre className="bg-earth-900 rounded-lg p-4 text-xs text-gray-400 overflow-auto border border-earth-700">
                   {this.state.errorInfo.componentStack}
                 </pre>
               </details>
@@ -94,7 +94,7 @@ export default class ErrorBoundary extends Component<Props, State> {
               </button>
               <button
                 onClick={() => window.location.href = '/'}
-                className="flex-1 flex items-center justify-center gap-2 bg-earth-800 text-earth-200 px-6 py-3 rounded-lg hover:bg-earth-700 transition-all border border-earth-700 font-semibold"
+                className="flex-1 flex items-center justify-center gap-2 bg-earth-800 text-white px-6 py-3 rounded-lg hover:bg-earth-700 transition-all border border-earth-700 font-semibold"
               >
                 <Home className="w-5 h-5" />
                 Ana Sayfa

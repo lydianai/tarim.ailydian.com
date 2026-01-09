@@ -49,7 +49,7 @@ export default function ProductDetailsModal({ product, onClose, onAddToCart, lan
             className="absolute top-4 right-4 bg-neon-100 hover:bg-gray-100 p-2 rounded-lg transition-all shadow-md"
             aria-label={t.close}
           >
-            <X className="w-6 h-6 text-gray-900" />
+            <X className="w-6 h-6 text-white" />
           </button>
           <h2 className="text-3xl font-display font-bold pr-12">{t.productDetails}</h2>
         </div>
@@ -71,9 +71,9 @@ export default function ProductDetailsModal({ product, onClose, onAddToCart, lan
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
                 <div className="flex items-center gap-2 mb-2">
                   <Package className="w-5 h-5 text-agri-600" />
-                  <span className="font-bold text-gray-900">{t.supplier}</span>
+                  <span className="font-bold text-white">{t.supplier}</span>
                 </div>
-                <p className="text-gray-700">{product.supplier}</p>
+                <p className="text-white">{product.supplier}</p>
                 {product.inStock && (
                   <div className="flex items-center gap-2 mt-3 text-agri-700">
                     <CheckCircle className="w-4 h-4" />
@@ -97,7 +97,7 @@ export default function ProductDetailsModal({ product, onClose, onAddToCart, lan
             {/* Right Column - Details */}
             <div>
               {/* Product Name */}
-              <h3 className="text-3xl font-display font-bold text-gray-900 mb-4">
+              <h3 className="text-3xl font-display font-bold text-white mb-4">
                 {product.name}
               </h3>
 
@@ -111,27 +111,27 @@ export default function ProductDetailsModal({ product, onClose, onAddToCart, lan
                     />
                   ))}
                 </div>
-                <span className="text-lg font-semibold text-gray-900">{product.rating}</span>
-                <span className="text-sm text-gray-600">({product.reviews} {t.reviews})</span>
+                <span className="text-lg font-semibold text-white">{product.rating}</span>
+                <span className="text-sm text-gray-400">({product.reviews} {t.reviews})</span>
               </div>
 
               {/* Price */}
               <div className="mb-6 pb-6 border-b border-gray-200">
                 <div className="flex items-baseline gap-3 mb-2">
                   <span className="text-5xl font-bold text-agri-900">${product.price}</span>
-                  <span className="text-xl text-gray-600">/{product.unit}</span>
+                  <span className="text-xl text-gray-400">/{product.unit}</span>
                 </div>
-                <p className="text-sm text-gray-600">{t.unitPrice}</p>
+                <p className="text-sm text-gray-400">{t.unitPrice}</p>
               </div>
 
               {/* Features */}
               <div className="mb-6">
-                <h4 className="text-lg font-bold text-gray-900 mb-3">{t.features}</h4>
+                <h4 className="text-lg font-bold text-white mb-3">{t.features}</h4>
                 <ul className="space-y-2">
                   {product.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-agri-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-white">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -139,14 +139,14 @@ export default function ProductDetailsModal({ product, onClose, onAddToCart, lan
 
               {/* Specifications */}
               <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
-                <h4 className="font-bold text-gray-900 mb-3">{t.specifications}</h4>
+                <h4 className="font-bold text-white mb-3">{t.specifications}</h4>
                 <div className="grid grid-cols-2 gap-2 text-sm">
-                  <div className="text-gray-600">{t.category}:</div>
-                  <div className="font-semibold text-gray-900">{product.category}</div>
-                  <div className="text-gray-600">{t.supplier}:</div>
-                  <div className="font-semibold text-gray-900">{product.supplier}</div>
-                  <div className="text-gray-600">{t.shipping}:</div>
-                  <div className="font-semibold text-gray-900">{product.shipping}</div>
+                  <div className="text-gray-400">{t.category}:</div>
+                  <div className="font-semibold text-white">{product.category}</div>
+                  <div className="text-gray-400">{t.supplier}:</div>
+                  <div className="font-semibold text-white">{product.supplier}</div>
+                  <div className="text-gray-400">{t.shipping}:</div>
+                  <div className="font-semibold text-white">{product.shipping}</div>
                 </div>
               </div>
             </div>
@@ -160,19 +160,19 @@ export default function ProductDetailsModal({ product, onClose, onAddToCart, lan
               onClick={onAddToCart}
               className="flex-1 bg-neon-100 border-2 border-gray-900 font-bold py-4 px-6 rounded-xl hover:bg-gray-100 transition-all shadow-lg flex items-center justify-center gap-3"
             >
-              <ShoppingCart className="w-5 h-5 text-gray-900" />
-              <span className="text-gray-900 text-lg">{t.addToCart}</span>
+              <ShoppingCart className="w-5 h-5 text-white" />
+              <span className="text-white text-lg">{t.addToCart}</span>
             </button>
             <button
               onClick={onClose}
-              className="px-8 py-4 border-2 border-gray-300 text-gray-700 font-bold rounded-xl hover:bg-gray-100 transition-all"
+              className="px-8 py-4 border-2 border-gray-300 text-white font-bold rounded-xl hover:bg-gray-100 transition-all"
             >
               {t.close}
             </button>
           </div>
 
           {/* Security Badge */}
-          <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-600">
+          <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-400">
             <Shield className="w-4 h-4 text-agri-600" />
             <span>{language === 'tr' ? 'Güvenli Alışveriş' : 'Secure Shopping'}</span>
           </div>

@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "dashboard": "Dashboard",
+    "features": "Özellikler",
+    "pricing": "Fiyatlandırma",
+    "contact": "İletişim",
+    "login": "Giriş Yap",
+    "logout": "Çıkış Yap",
+    "language": "Dil"
+  },
+  "hero": {
+    "title": "Tarımda Yapay Zeka Devrimi",
+    "subtitle": "Drone, Uydu ve Yapay Zeka ile Tarımınızı Geleceğe Taşıyın",
+    "description": "Gerçek zamanlı ürün izleme, akıllı ilaçlama önerileri, uydu görüntüleme ve drone kontrol sistemi ile tarımınızı yönetin.",
+    "cta": {
+      "dashboard": "Dashboard'a Git",
+      "demo": "Canlı Demo"
+    }
+  },
+  "features": {
+    "title": "Premium Dashboard Özellikleri",
+    "subtitle": "25+ Özellik ile Tarımınızı Yönetin",
+    "widgets": {
+      "drone": {
+        "title": "Drone Yönetimi",
+        "description": "4 canlı drone ile gerçek zamanlı tarla izleme, multispektral görüntüleme ve otomatik ilaçlama"
+      },
+      "satellite": {
+        "title": "Uydu Görüntüleme",
+        "description": "NDVI, EVI, toprak nemi analizi ile bitki sağlığını izleyin"
+      },
+      "weather": {
+        "title": "Hava Durumu",
+        "description": "5 günlük tahmin, gerçek zamanlı meteoroloji verileri"
+      },
+      "analytics": {
+        "title": "Akıllı Analitik",
+        "description": "Yapay zeka destekli ürün önerileri ve verim tahminleri"
+      },
+      "marketplace": {
+        "title": "E-Ticaret",
+        "description": "Tohum, gübre, ilaç alımı ve canlı emtia fiyatları"
+      },
+      "security": {
+        "title": "Güvenlik",
+        "description": "Askeri düzey güvenlik, penetrasyon testleri"
+      }
+    }
+  },
+  "productTour": {
+    "start": "Turu Başlat",
+    "skip": "Atla",
+    "prev": "Geri",
+    "next": "İleri",
+    "done": "Tamamla",
+    "steps": {
+      "welcome": {
+        "title": "Lydian AgriTech'e Hoş Geldiniz! 🌾",
+        "description": "25+ premium özelliği adım adım keşfedelim. Tur 2 dakika sürer."
+      },
+      "darkMode": {
+        "title": "Karanlık/Aydınlık Mod",
+        "description": "Sağ üstteki butonu kullanarak tema değiştirebilirsiniz."
+      },
+      "language": {
+        "title": "Dil Değiştir",
+        "description": "Türkçe ve İngilizce arasında anında geçiş yapın."
+      },
+      "droneTab": {
+        "title": "Drone Yönetimi",
+        "description": "4 canlı drone'u kontrol edin, misyon planlayın, gerçek zamanlı telemetri görüntüleyin."
+      },
+      "satelliteTab": {
+        "title": "Uydu Görüntüleme",
+        "description": "NDVI, EVI, SAVI indeksleri ile bitki sağlığını analiz edin."
+      },
+      "weatherTab": {
+        "title": "Hava Durumu",
+        "description": "Gerçek zamanlı hava durumu ve 5 günlük tahmin."
+      },
+      "analyticsTab": {
+        "title": "Akıllı Analitik",
+        "description": "Yapay zeka destekli verim tahminleri ve ürün önerileri."
+      },
+      "marketplaceTab": {
+        "title": "E-Ticaret",
+        "description": "Tohum, gübre, ilaç satın alın. Canlı emtia fiyatlarını takip edin."
+      },
+      "complete": {
+        "title": "Turu Tamamladınız! 🎉",
+        "description": "Artık tüm özellikleri kullanmaya hazırsınız. İyi çalışmalar!"
+      }
+    }
+  },
+  "dashboard": {
+    "title": "Tarım Dashboard",
+    "welcome": "Hoş Geldiniz",
+    "tabs": {
+      "overview": "Genel Bakış",
+      "drone": "Drone Yönetimi",
+      "satellite": "Uydu Görüntüleme",
+      "weather": "Hava Durumu",
+      "crops": "Ürün Analizi",
+      "analytics": "Akıllı Analitik",
+      "marketplace": "E-Ticaret",
+      "security": "Güvenlik",
+      "settings": "Ayarlar"
+    }
+  }
+}

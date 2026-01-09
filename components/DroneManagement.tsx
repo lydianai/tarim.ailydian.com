@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchDroneTelemetry, fetchWeather, fetchSatelliteData } from '@/lib/api-client';
 import { useDroneContext } from '@/contexts/DroneContext';
 import LiveDroneMap from './LiveDroneMap';
@@ -25,10 +25,8 @@ import {
   Navigation,
   Play,
   Pause,
-  RotateCw,
   Home,
   Download,
-  Upload,
   Zap,
   TrendingUp,
   TrendingDown,
@@ -102,8 +100,6 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
   } = useDroneContext();
 
   const [activeTab, setActiveTab] = useState<'fleet' | 'missions' | 'sensors' | 'analytics' | 'livestream' | 'planner' | 'emergency' | 'datalogger'>('fleet');
-  const [showLiveStream, setShowLiveStream] = useState(false);
-  const [liveStreamDrone, setLiveStreamDrone] = useState<string | null>(null);
 
   const t = {
     // Main Navigation
@@ -327,6 +323,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
       const interval = setInterval(fetchRealData, 10000);
       return () => clearInterval(interval);
     }
+    return undefined; // No cleanup needed when real-time is disabled
   }, [realTimeData]);
 
   // Simulate real-time data updates (for smooth animations between API calls)
@@ -380,7 +377,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
       case 'completed': return 'text-green-600 bg-green-50 border-green-200';
       case 'scheduled': return 'text-purple-600 bg-purple-50 border-purple-200';
       case 'paused': return 'text-orange-600 bg-orange-50 border-orange-200';
-      default: return 'text-gray-600 bg-gray-50 border-gray-200';
+      default: return 'text-gray-400 bg-gray-50 border-gray-200';
     }
   };
 
@@ -401,7 +398,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
       case 'low': return 'text-green-600 bg-green-50';
       case 'medium': return 'text-yellow-600 bg-yellow-50';
       case 'high': return 'text-red-600 bg-red-50';
-      default: return 'text-gray-600 bg-gray-50';
+      default: return 'text-gray-400 bg-gray-50';
     }
   };
 
@@ -491,7 +488,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'fleet'
                 ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-md'
-                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                : 'bg-gray-100 text-white hover:bg-gray-200'
             }`}
           >
             <Plane className="w-5 h-5" />
@@ -502,7 +499,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'missions'
                 ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-md'
-                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                : 'bg-gray-100 text-white hover:bg-gray-200'
             }`}
           >
             <Target className="w-5 h-5" />
@@ -513,7 +510,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'planner'
                 ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-md'
-                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                : 'bg-gray-100 text-white hover:bg-gray-200'
             }`}
           >
             <Map className="w-5 h-5" />
@@ -524,7 +521,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'livestream'
                 ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-md'
-                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                : 'bg-gray-100 text-white hover:bg-gray-200'
             }`}
           >
             <Video className="w-5 h-5" />
@@ -535,7 +532,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'sensors'
                 ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-md'
-                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                : 'bg-gray-100 text-white hover:bg-gray-200'
             }`}
           >
             <Scan className="w-5 h-5" />
@@ -546,7 +543,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'emergency'
                 ? 'bg-gradient-to-r from-red-600 to-orange-600 text-white shadow-md'
-                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                : 'bg-gray-100 text-white hover:bg-gray-200'
             }`}
           >
             <Shield className="w-5 h-5" />
@@ -557,7 +554,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'datalogger'
                 ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-md'
-                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                : 'bg-gray-100 text-white hover:bg-gray-200'
             }`}
           >
             <Database className="w-5 h-5" />
@@ -568,7 +565,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg font-semibold transition-all ${
               activeTab === 'analytics'
                 ? 'bg-gradient-to-r from-green-600 to-green-700 text-white shadow-md'
-                : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                : 'bg-gray-100 text-white hover:bg-gray-200'
             }`}
           >
             <Activity className="w-5 h-5" />
@@ -615,7 +612,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <Battery className={`w-5 h-5 ${getBatteryColor(drone.battery)}`} />
-                      <span className="text-gray-700 font-medium">{t.battery}</span>
+                      <span className="text-white font-medium">{t.battery}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <div className="w-32 bg-gray-200 rounded-full h-2">
@@ -638,29 +635,29 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                     <div className="flex items-center gap-2">
                       <Navigation className="w-5 h-5 text-green-700" />
                       <div>
-                        <div className="text-xs text-gray-500">{t.altitude}</div>
-                        <div className="font-bold text-gray-900">{drone.altitude.toFixed(0)}m</div>
+                        <div className="text-xs text-gray-400">{t.altitude}</div>
+                        <div className="font-bold text-white">{drone.altitude.toFixed(0)}m</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Zap className="w-5 h-5 text-purple-600" />
                       <div>
-                        <div className="text-xs text-gray-500">{t.speed}</div>
-                        <div className="font-bold text-gray-900">{drone.speed.toFixed(1)} m/s</div>
+                        <div className="text-xs text-gray-400">{t.speed}</div>
+                        <div className="font-bold text-white">{drone.speed.toFixed(1)} m/s</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <ThermometerSun className="w-5 h-5 text-orange-600" />
                       <div>
-                        <div className="text-xs text-gray-500">{t.temperature}</div>
-                        <div className="font-bold text-gray-900">{drone.temperature.toFixed(1)}°C</div>
+                        <div className="text-xs text-gray-400">{t.temperature}</div>
+                        <div className="font-bold text-white">{drone.temperature.toFixed(1)}°C</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
                       <Wind className="w-5 h-5 text-green-700" />
                       <div>
-                        <div className="text-xs text-gray-500">{t.windSpeed}</div>
-                        <div className="font-bold text-gray-900">{drone.windSpeed.toFixed(1)} m/s</div>
+                        <div className="text-xs text-gray-400">{t.windSpeed}</div>
+                        <div className="font-bold text-white">{drone.windSpeed.toFixed(1)} m/s</div>
                       </div>
                     </div>
                   </div>
@@ -670,11 +667,11 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                     <div className="bg-green-50 rounded-lg p-3 border border-green-200">
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="text-xs text-gray-600">{t.flightTime}</div>
+                          <div className="text-xs text-gray-400">{t.flightTime}</div>
                           <div className="font-bold text-green-700">{drone.flightTime.toFixed(0)} min</div>
                         </div>
                         <div>
-                          <div className="text-xs text-gray-600">{t.coverage}</div>
+                          <div className="text-xs text-gray-400">{t.coverage}</div>
                           <div className="font-bold text-green-700">{drone.coverage.toFixed(1)} ha</div>
                         </div>
                       </div>
@@ -693,7 +690,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   </div>
 
                   {/* Last Update */}
-                  <div className="text-xs text-gray-500 text-center">
+                  <div className="text-xs text-gray-400 text-center">
                     {t.lastUpdate}: {drone.lastUpdate.toLocaleTimeString('tr-TR')}
                   </div>
                 </div>
@@ -722,8 +719,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                       {mission.type === 'seeding' && <Sprout className="w-6 h-6" />}
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg text-gray-900">{mission.name}</h3>
-                      <p className="text-sm text-gray-600">
+                      <h3 className="font-bold text-lg text-white">{mission.name}</h3>
+                      <p className="text-sm text-gray-400">
                         {t[mission.type as keyof typeof t]} • {mission.area} ha • Drone: {mission.droneId}
                       </p>
                     </div>
@@ -736,7 +733,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 {/* Progress Bar */}
                 <div className="mb-4">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-gray-600">
+                    <span className="text-sm text-gray-400">
                       {language === 'tr' ? 'İlerleme' : 'Progress'}
                     </span>
                     <span className="text-sm font-bold text-green-600">{mission.progress.toFixed(0)}%</span>
@@ -752,18 +749,18 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 {/* Time Info */}
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="bg-gray-50 rounded-lg p-3">
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-gray-400">
                       {language === 'tr' ? 'Başlangıç' : 'Start Time'}
                     </div>
-                    <div className="font-semibold text-gray-900">
+                    <div className="font-semibold text-white">
                       {mission.startTime.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}
                     </div>
                   </div>
                   <div className="bg-gray-50 rounded-lg p-3">
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-gray-400">
                       {language === 'tr' ? 'Tahmini Bitiş' : 'Est. Completion'}
                     </div>
-                    <div className="font-semibold text-gray-900">
+                    <div className="font-semibold text-white">
                       {mission.estimatedCompletion.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}
                     </div>
                   </div>
@@ -802,8 +799,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   <Sprout className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">{t.ndviIndex}</h3>
-                  <p className="text-xs text-gray-500">Normalized Difference Vegetation Index</p>
+                  <h3 className="font-bold text-white">{t.ndviIndex}</h3>
+                  <p className="text-xs text-gray-400">Normalized Difference Vegetation Index</p>
                 </div>
               </div>
               <div className="text-center">
@@ -816,7 +813,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                     style={{ width: `${sensorData.ndvi * 100}%` }}
                   />
                 </div>
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="text-sm text-gray-400 mt-2">
                   {sensorData.ndvi > 0.7 ? (language === 'tr' ? 'Mükemmel Sağlık' : 'Excellent Health') :
                    sensorData.ndvi > 0.4 ? (language === 'tr' ? 'Orta Sağlık' : 'Moderate Health') :
                    (language === 'tr' ? 'Zayıf Sağlık' : 'Poor Health')}
@@ -831,8 +828,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   <Droplet className="w-6 h-6 text-green-700" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">{t.soilMoisture}</h3>
-                  <p className="text-xs text-gray-500">Volumetric Water Content</p>
+                  <h3 className="font-bold text-white">{t.soilMoisture}</h3>
+                  <p className="text-xs text-gray-400">Volumetric Water Content</p>
                 </div>
               </div>
               <div className="text-center">
@@ -845,7 +842,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                     style={{ width: `${sensorData.soilMoisture}%` }}
                   />
                 </div>
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="text-sm text-gray-400 mt-2">
                   {sensorData.soilMoisture > 60 ? (language === 'tr' ? 'Optimal Nem' : 'Optimal Moisture') :
                    sensorData.soilMoisture > 30 ? (language === 'tr' ? 'Sulama Önerilir' : 'Irrigation Recommended') :
                    (language === 'tr' ? 'Acil Sulama Gerekli' : 'Urgent Irrigation Required')}
@@ -860,8 +857,8 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   <Activity className="w-6 h-6 text-green-600" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">{t.cropHealth}</h3>
-                  <p className="text-xs text-gray-500">Overall Crop Vitality Score</p>
+                  <h3 className="font-bold text-white">{t.cropHealth}</h3>
+                  <p className="text-xs text-gray-400">Overall Crop Vitality Score</p>
                 </div>
               </div>
               <div className="text-center">
@@ -901,14 +898,14 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   <Zap className="w-6 h-6 text-purple-600" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">NPK {language === 'tr' ? 'Seviyeleri' : 'Levels'}</h3>
-                  <p className="text-xs text-gray-500">Nitrogen, Phosphorus, Potassium</p>
+                  <h3 className="font-bold text-white">NPK {language === 'tr' ? 'Seviyeleri' : 'Levels'}</h3>
+                  <p className="text-xs text-gray-400">Nitrogen, Phosphorus, Potassium</p>
                 </div>
               </div>
               <div className="space-y-3">
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm text-gray-600">N - {t.nitrogenLevel}</span>
+                    <span className="text-sm text-gray-400">N - {t.nitrogenLevel}</span>
                     <span className="text-sm font-bold text-purple-600">{sensorData.nitrogen}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
@@ -917,7 +914,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 </div>
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm text-gray-600">P - {t.phosphorusLevel}</span>
+                    <span className="text-sm text-gray-400">P - {t.phosphorusLevel}</span>
                     <span className="text-sm font-bold text-orange-600">{sensorData.phosphorus}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
@@ -926,7 +923,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                 </div>
                 <div>
                   <div className="flex items-center justify-between mb-1">
-                    <span className="text-sm text-gray-600">K - {t.potassiumLevel}</span>
+                    <span className="text-sm text-gray-400">K - {t.potassiumLevel}</span>
                     <span className="text-sm font-bold text-pink-600">{sensorData.potassium}%</span>
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
@@ -943,10 +940,10 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   <ThermometerSun className="w-6 h-6 text-orange-600" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">
+                  <h3 className="font-bold text-white">
                     {language === 'tr' ? 'İklim Koşulları' : 'Climate Conditions'}
                   </h3>
-                  <p className="text-xs text-gray-500">Temperature & Humidity</p>
+                  <p className="text-xs text-gray-400">Temperature & Humidity</p>
                 </div>
               </div>
               <div className="space-y-4">
@@ -954,13 +951,13 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   <div className="text-3xl font-bold text-orange-600">
                     {sensorData.temperature.toFixed(1)}°C
                   </div>
-                  <div className="text-sm text-gray-600">{t.temperature}</div>
+                  <div className="text-sm text-gray-400">{t.temperature}</div>
                 </div>
                 <div className="text-center p-4 bg-green-50 rounded-lg">
                   <div className="text-3xl font-bold text-green-700">
                     {drones[0].humidity}%
                   </div>
-                  <div className="text-sm text-gray-600">{t.humidity}</div>
+                  <div className="text-sm text-gray-400">{t.humidity}</div>
                 </div>
               </div>
             </div>
@@ -976,15 +973,15 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   )}
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900">
+                  <h3 className="font-bold text-white">
                     {language === 'tr' ? 'Hastalık & Zararlı' : 'Disease & Pest'}
                   </h3>
-                  <p className="text-xs text-gray-500">AI-Powered Detection</p>
+                  <p className="text-xs text-gray-400">AI-Powered Detection</p>
                 </div>
               </div>
               <div className="space-y-3">
                 <div className="p-4 bg-gray-50 rounded-lg">
-                  <div className="text-sm text-gray-600 mb-1">{t.pestDetection}</div>
+                  <div className="text-sm text-gray-400 mb-1">{t.pestDetection}</div>
                   <div className={`text-xl font-bold ${sensorData.pestDetection ? 'text-red-600' : 'text-green-600'}`}>
                     {sensorData.pestDetection ?
                       (language === 'tr' ? 'Tespit Edildi' : 'Detected') :
@@ -992,7 +989,7 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                   </div>
                 </div>
                 <div className="p-4 bg-gray-50 rounded-lg">
-                  <div className="text-sm text-gray-600 mb-1">{t.diseaseRisk}</div>
+                  <div className="text-sm text-gray-400 mb-1">{t.diseaseRisk}</div>
                   <div className={`inline-block px-3 py-1 rounded-full text-sm font-bold ${getRiskColor(sensorData.diseaseRisk)}`}>
                     {t[sensorData.diseaseRisk as keyof typeof t] || sensorData.diseaseRisk}
                   </div>
@@ -1024,15 +1021,15 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                     <TrendingUp className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900">
+                    <h3 className="font-bold text-white">
                       {language === 'tr' ? 'Verim Tahmini' : 'Yield Prediction'}
                     </h3>
-                    <p className="text-xs text-gray-500">AI-Based Forecasting</p>
+                    <p className="text-xs text-gray-400">AI-Based Forecasting</p>
                   </div>
                 </div>
                 <div className="text-center py-8">
                   <div className="text-5xl font-bold text-green-600 mb-2">8.2</div>
-                  <div className="text-gray-600">
+                  <div className="text-gray-400">
                     {language === 'tr' ? 'ton/hektar (tahmin)' : 'tons/hectare (estimated)'}
                   </div>
                   <div className="mt-4 flex items-center justify-center gap-2 text-green-600">
@@ -1051,21 +1048,21 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                     <Droplet className="w-6 h-6 text-green-700" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900">
+                    <h3 className="font-bold text-white">
                       {language === 'tr' ? 'Kaynak Optimizasyonu' : 'Resource Optimization'}
                     </h3>
-                    <p className="text-xs text-gray-500">Water & Chemical Savings</p>
+                    <p className="text-xs text-gray-400">Water & Chemical Savings</p>
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="p-4 bg-green-50 rounded-lg">
-                    <div className="text-sm text-gray-600 mb-1">
+                    <div className="text-sm text-gray-400 mb-1">
                       {language === 'tr' ? 'Su Tasarrufu' : 'Water Savings'}
                     </div>
                     <div className="text-3xl font-bold text-green-700">34%</div>
                   </div>
                   <div className="p-4 bg-green-50 rounded-lg">
-                    <div className="text-sm text-gray-600 mb-1">
+                    <div className="text-sm text-gray-400 mb-1">
                       {language === 'tr' ? 'Kimyasal Azaltma' : 'Chemical Reduction'}
                     </div>
                     <div className="text-3xl font-bold text-green-600">42%</div>
@@ -1080,19 +1077,19 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
                     <MapPin className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-gray-900">
+                    <h3 className="font-bold text-white">
                       {language === 'tr' ? 'Kapsama Haritası' : 'Coverage Map'}
                     </h3>
-                    <p className="text-xs text-gray-500">Real-Time Field Mapping</p>
+                    <p className="text-xs text-gray-400">Real-Time Field Mapping</p>
                   </div>
                 </div>
                 <div className="bg-gradient-to-br from-green-100 via-yellow-100 to-red-100 rounded-xl h-64 flex items-center justify-center">
                   <div className="text-center">
                     <Globe className="w-16 h-16 text-green-600 mx-auto mb-3" />
-                    <div className="text-gray-600 font-semibold">
+                    <div className="text-gray-400 font-semibold">
                       {language === 'tr' ? 'Gerçek Zamanlı Harita Görünümü' : 'Real-Time Map View'}
                     </div>
-                    <div className="text-sm text-gray-500 mt-1">
+                    <div className="text-sm text-gray-400 mt-1">
                       {language === 'tr' ? 'Multispektral Görüntüleme Aktif' : 'Multispectral Imaging Active'}
                     </div>
                   </div>
@@ -1115,10 +1112,10 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             ) : (
               <div className="bg-white rounded-xl shadow-lg p-8 text-center">
                 <Video className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-white mb-2">
                   {language === 'tr' ? 'Drone Seçiniz' : 'Select a Drone'}
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-400 mb-6">
                   {language === 'tr'
                     ? 'Canlı yayın için bir drone seçin'
                     : 'Select a drone to view live stream'}
@@ -1160,10 +1157,10 @@ export default function DroneManagement({ language = 'tr' }: DroneManagementProp
             {drones.filter(d => d.status === 'active').length === 0 && (
               <div className="col-span-2 bg-white rounded-xl shadow-lg p-8 text-center">
                 <Shield className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-white mb-2">
                   {language === 'tr' ? 'Aktif Drone Yok' : 'No Active Drones'}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-400">
                   {language === 'tr'
                     ? 'Acil durum paneli için aktif bir drone bulunmuyor'
                     : 'No active drones for emergency monitoring'}

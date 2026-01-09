@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { TrendingUp } from 'lucide-react';
 
 interface YieldData {
@@ -49,8 +49,8 @@ export default function CropYieldChart() {
     <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-xl font-bold text-earth-100">Corn Yield Trends</h3>
-          <p className="text-sm text-earth-300">Iowa - Bushels per Acre</p>
+          <h3 className="text-xl font-bold text-white">Corn Yield Trends</h3>
+          <p className="text-sm text-white">Iowa - Bushels per Acre</p>
         </div>
         <div className="flex items-center gap-2 text-green-600">
           <TrendingUp className="w-5 h-5" />

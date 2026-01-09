@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 // DJI Cloud API / Parrot Olympe / AgEagle API endpoints
 const DJI_API_BASE = process.env.DJI_API_BASE || '';
 const DJI_API_KEY = process.env.DJI_API_KEY || '';
-const PARROT_API_BASE = process.env.PARROT_API_BASE || '';
+// PARROT_API_BASE will be added when Parrot integration is implemented
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

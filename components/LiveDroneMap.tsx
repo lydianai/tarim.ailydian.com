@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
-import { Plane, Radio, Zap, Navigation, Camera, Maximize2 } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Plane, Radio, Zap, Navigation, Camera } from 'lucide-react';
 
 interface DronePosition {
   id: string;
@@ -302,7 +302,7 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
                       drone.battery > 60 ? 'text-green-500' :
                       drone.battery > 30 ? 'text-yellow-500' : 'text-red-500'
                     }`} />
-                    <span className="text-xs font-bold text-earth-300">
+                    <span className="text-xs font-bold text-white">
                       {drone.battery.toFixed(0)}%
                     </span>
                   </div>
@@ -314,21 +314,21 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
 
         {/* Legend */}
         <div className="absolute top-4 right-4 bg-earth-900/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
-          <div className="text-xs font-semibold text-earth-300 mb-2">
+          <div className="text-xs font-semibold text-white mb-2">
             {language === 'tr' ? 'Durum' : 'Status'}
           </div>
           <div className="space-y-1">
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-green-500 rounded-full" />
-              <span className="text-xs text-earth-300">{t.active}</span>
+              <span className="text-xs text-white">{t.active}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-blue-500 rounded-full" />
-              <span className="text-xs text-earth-300">{t.idle}</span>
+              <span className="text-xs text-white">{t.idle}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="w-3 h-3 bg-yellow-500 rounded-full" />
-              <span className="text-xs text-earth-300">
+              <span className="text-xs text-white">
                 {language === 'tr' ? 'Şarjda' : 'Charging'}
               </span>
             </div>
@@ -345,13 +345,13 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
                 <div className="flex items-center gap-3">
                   <Plane className="w-6 h-6 text-blue-600" />
                   <div>
-                    <div className="font-bold text-earth-100">{drone.name}</div>
-                    <div className="text-xs text-gray-500">{drone.id}</div>
+                    <div className="font-bold text-white">{drone.name}</div>
+                    <div className="text-xs text-gray-400">{drone.id}</div>
                   </div>
                 </div>
                 <button
                   onClick={() => setSelectedDrone(null)}
-                  className="text-gray-400 hover:text-earth-300"
+                  className="text-gray-400 hover:text-white"
                 >
                   ✕
                 </button>
@@ -359,19 +359,19 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
 
               <div className="grid grid-cols-4 gap-3">
                 <div className="bg-earth-900 rounded-lg p-3 text-center">
-                  <div className="text-xs text-gray-500 mb-1">{t.altitude}</div>
+                  <div className="text-xs text-gray-400 mb-1">{t.altitude}</div>
                   <div className="text-lg font-bold text-blue-600">
                     {drone.altitude.toFixed(0)}m
                   </div>
                 </div>
                 <div className="bg-earth-900 rounded-lg p-3 text-center">
-                  <div className="text-xs text-gray-500 mb-1">{t.speed}</div>
+                  <div className="text-xs text-gray-400 mb-1">{t.speed}</div>
                   <div className="text-lg font-bold text-green-600">
                     {drone.speed.toFixed(1)} m/s
                   </div>
                 </div>
                 <div className="bg-earth-900 rounded-lg p-3 text-center">
-                  <div className="text-xs text-gray-500 mb-1">{t.battery}</div>
+                  <div className="text-xs text-gray-400 mb-1">{t.battery}</div>
                   <div className={`text-lg font-bold ${
                     drone.battery > 60 ? 'text-green-600' :
                     drone.battery > 30 ? 'text-yellow-600' : 'text-red-600'
@@ -380,7 +380,7 @@ export default function LiveDroneMap({ language = 'tr' }: LiveDroneMapProps) {
                   </div>
                 </div>
                 <div className="bg-earth-900 rounded-lg p-3 text-center">
-                  <div className="text-xs text-gray-500 mb-1">{t.heading}</div>
+                  <div className="text-xs text-gray-400 mb-1">{t.heading}</div>
                   <div className="text-lg font-bold text-purple-600">
                     {drone.heading.toFixed(0)}°
                   </div>

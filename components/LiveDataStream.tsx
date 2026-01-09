@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Activity, Wifi, Database, TrendingUp, AlertCircle, CheckCircle } from 'lucide-react';
+import { Activity, Wifi, Database, AlertCircle, CheckCircle } from 'lucide-react';
 
 interface DataStreamItem {
   id: string;
@@ -74,7 +74,7 @@ export default function LiveDataStream() {
       case 'active': return 'text-green-600 bg-green-100';
       case 'updating': return 'text-blue-600 bg-blue-100';
       case 'error': return 'text-red-600 bg-red-100';
-      default: return 'text-gray-600 bg-gray-100';
+      default: return 'text-gray-400 bg-gray-100';
     }
   };
 

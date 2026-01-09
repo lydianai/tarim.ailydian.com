@@ -113,12 +113,12 @@ export default function ApiDocumentation() {
           <div className="bg-green-100 p-3 rounded-lg">
             <Key className="w-8 h-8 text-green-600" />
           </div>
-          <h2 className="text-3xl font-bold text-earth-100">Authentication</h2>
+          <h2 className="text-3xl font-bold text-white">Authentication</h2>
         </div>
 
         <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-xl p-6 border border-green-200">
-          <h3 className="font-bold text-earth-100 mb-4 text-xl">API Key</h3>
-          <p className="text-earth-300 mb-4">
+          <h3 className="font-bold text-white mb-4 text-xl">API Key</h3>
+          <p className="text-white mb-4">
             Most endpoints are publicly accessible. For higher rate limits and premium features, request an API key.
           </p>
           <div className="bg-gray-900 rounded-lg p-4 text-green-400 font-mono text-sm">
@@ -141,13 +141,13 @@ export default function ApiDocumentation() {
           <div className="bg-purple-100 p-3 rounded-lg">
             <Terminal className="w-8 h-8 text-purple-600" />
           </div>
-          <h2 className="text-3xl font-bold text-earth-100">API Endpoints</h2>
+          <h2 className="text-3xl font-bold text-white">API Endpoints</h2>
         </div>
 
         {apiEndpoints.map((api, idx) => (
           <div key={idx} className="bg-earth-900 rounded-xl p-8 shadow-lg border border-earth-700">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-2xl font-bold text-earth-100">{api.name}</h3>
+              <h3 className="text-2xl font-bold text-white">{api.name}</h3>
               <span className={`px-4 py-2 rounded-lg font-bold text-sm ${
                 api.method === 'GET' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'
               }`}>
@@ -159,11 +159,11 @@ export default function ApiDocumentation() {
               <code className="text-green-400 font-mono text-sm">{api.endpoint}</code>
             </div>
 
-            <p className="text-earth-300 mb-6">{api.description}</p>
+            <p className="text-white mb-6">{api.description}</p>
 
             {/* Parameters */}
             <div className="mb-6">
-              <h4 className="font-bold text-earth-100 mb-3">Parameters</h4>
+              <h4 className="font-bold text-white mb-3">Parameters</h4>
               <div className="space-y-2">
                 {api.params.map((param, pidx) => (
                   <div key={pidx} className="bg-earth-900 rounded-lg p-3 border border-earth-700">
@@ -174,7 +174,7 @@ export default function ApiDocumentation() {
                         <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">Required</span>
                       )}
                     </div>
-                    <p className="text-sm text-earth-300">{param.description}</p>
+                    <p className="text-sm text-white">{param.description}</p>
                   </div>
                 ))}
               </div>
@@ -182,7 +182,7 @@ export default function ApiDocumentation() {
 
             {/* Example Request */}
             <div className="mb-6">
-              <h4 className="font-bold text-earth-100 mb-3">Example Request</h4>
+              <h4 className="font-bold text-white mb-3">Example Request</h4>
               <div className="bg-gray-900 rounded-lg p-4 relative">
                 <pre className="text-green-400 font-mono text-sm overflow-x-auto">{api.example}</pre>
                 <button
@@ -196,7 +196,7 @@ export default function ApiDocumentation() {
 
             {/* Example Response */}
             <div>
-              <h4 className="font-bold text-earth-100 mb-3">Example Response</h4>
+              <h4 className="font-bold text-white mb-3">Example Response</h4>
               <div className="bg-gray-900 rounded-lg p-4">
                 <pre className="text-green-400 font-mono text-sm overflow-x-auto">{api.response}</pre>
               </div>
@@ -211,7 +211,7 @@ export default function ApiDocumentation() {
           <div className="bg-orange-100 p-3 rounded-lg">
             <Shield className="w-8 h-8 text-orange-600" />
           </div>
-          <h2 className="text-3xl font-bold text-earth-100">Rate Limits</h2>
+          <h2 className="text-3xl font-bold text-white">Rate Limits</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -223,7 +223,7 @@ export default function ApiDocumentation() {
             <div key={idx} className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 border-2 border-blue-300">
               <h3 className="font-bold text-blue-900 text-xl mb-2">{tier.tier}</h3>
               <div className="text-3xl font-bold text-blue-600 mb-2">{tier.price}</div>
-              <div className="text-sm text-earth-300">{tier.limit}</div>
+              <div className="text-sm text-white">{tier.limit}</div>
             </div>
           ))}
         </div>

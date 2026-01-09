@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { TrendingUp, TrendingDown, DollarSign, Droplet, Sprout, Award, ArrowUpRight, ArrowDownRight } from 'lucide-react';
+import { TrendingUp, DollarSign, Droplet, Sprout, Award, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import { LineChart, Line, AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 
 export default function AnalyticsDashboard() {
@@ -91,8 +91,8 @@ export default function AnalyticsDashboard() {
       {/* Header with Timeframe Selector */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-3xl font-bold text-earth-100">Analytics Dashboard</h2>
-          <p className="text-earth-300 mt-1">Comprehensive performance insights and metrics</p>
+          <h2 className="text-3xl font-bold text-white">Analytics Dashboard</h2>
+          <p className="text-white mt-1">Comprehensive performance insights and metrics</p>
         </div>
         <div className="flex items-center gap-2 bg-earth-800 rounded-lg p-1 shadow-md border border-earth-700">
           {(['1M', '3M', '6M', '1Y'] as const).map((period) => (
@@ -102,7 +102,7 @@ export default function AnalyticsDashboard() {
               className={`px-4 py-2 rounded-md font-semibold text-sm transition-all ${
                 timeframe === period
                   ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-md'
-                  : 'bg-earth-700 text-earth-200 hover:bg-earth-600'
+                  : 'bg-earth-700 text-white hover:bg-earth-600'
               }`}
             >
               {period}
@@ -135,8 +135,8 @@ export default function AnalyticsDashboard() {
                 </div>
               </div>
 
-              <div className="text-sm text-earth-300 mb-1">{kpi.title}</div>
-              <div className="text-3xl font-bold text-earth-100">{kpi.value}</div>
+              <div className="text-sm text-white mb-1">{kpi.title}</div>
+              <div className="text-3xl font-bold text-white">{kpi.value}</div>
             </div>
           </div>
         ))}
@@ -146,7 +146,7 @@ export default function AnalyticsDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Yield & Revenue Trend */}
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
-          <h3 className="text-lg font-bold text-earth-100 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-green-600" />
             Yield & Revenue Trend
           </h3>
@@ -197,7 +197,7 @@ export default function AnalyticsDashboard() {
 
         {/* Resource Usage Reduction */}
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
-          <h3 className="text-lg font-bold text-earth-100 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <Droplet className="w-5 h-5 text-blue-600" />
             Resource Usage Reduction
           </h3>
@@ -228,7 +228,7 @@ export default function AnalyticsDashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Technology ROI */}
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
-          <h3 className="text-lg font-bold text-earth-100 mb-4">Technology ROI Analysis</h3>
+          <h3 className="text-lg font-bold text-white mb-4">Technology ROI Analysis</h3>
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={technologyROI} layout="vertical">
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
@@ -249,7 +249,7 @@ export default function AnalyticsDashboard() {
 
         {/* Performance Radar */}
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg border border-earth-700">
-          <h3 className="text-lg font-bold text-earth-100 mb-4">Performance vs Industry Average</h3>
+          <h3 className="text-lg font-bold text-white mb-4">Performance vs Industry Average</h3>
           <ResponsiveContainer width="100%" height={350}>
             <RadarChart data={cropPerformanceRadar}>
               <PolarGrid stroke="#e5e7eb" />

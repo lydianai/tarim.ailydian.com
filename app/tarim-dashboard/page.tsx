@@ -9,10 +9,8 @@ import {
   TrendingUp,
   TrendingDown,
   DollarSign,
-  Truck,
   AlertCircle,
   CheckCircle,
-  Clock,
   Settings,
   Bell,
   Search,
@@ -23,17 +21,13 @@ import {
   Trash2,
   MoreVertical,
   ChevronRight,
-  Calendar,
-  MapPin,
   Activity,
-  Zap,
   Shield,
   Database,
   RefreshCw,
   Lock,
   LogIn,
   Plane,
-  Globe,
   X,
   Save,
   Moon,
@@ -41,17 +35,14 @@ import {
   Monitor,
   Languages,
   User,
-  Mail,
-  Phone,
-  Building,
-  Plus,
-  FileText,
-  CreditCard
+  Plus
 } from 'lucide-react';
 import DroneManagement from '@/components/DroneManagement';
 import AnalyticsDashboard from '@/components/AnalyticsDashboard';
 import { useDroneContext } from '@/contexts/DroneContext';
-import { fetchUSDANass, fetchEPAPesticides, fetchWeather, fetchDroneTelemetry } from '@/lib/api-client';
+import { fetchDroneTelemetry } from '@/lib/api-client';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import ProductTour from '@/components/ProductTour';
 
 interface DashboardStats {
   totalRevenue: number;
@@ -117,40 +108,64 @@ export default function TarimDashboard() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Dashboard Admin Credentials
-  const ADMIN_CREDENTIALS = {
-    username: 'admin@ailydian.com',
-    password: 'LydianAgri2025!'
-  };
-
-  const handleLogin = (e: React.FormEvent) => {
+  // Secure server-side authentication
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
-      setIsAuthenticated(true);
-      setError('');
-      localStorage.setItem('tarim_dashboard_auth', 'true');
-    } else {
-      setError('Geçersiz kullanıcı adı veya şifre / Invalid username or password');
+    setError('');
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: username, password })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsAuthenticated(true);
+        setError('');
+      } else {
+        setError(data.error || 'Geçersiz kullanıcı adı veya şifre / Invalid credentials');
+      }
+    } catch (err) {
+      setError('Bir hata oluştu / An error occurred');
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    setUsername('');
-    setPassword('');
-    localStorage.removeItem('tarim_dashboard_auth');
+  const handleLogout = async () => {
+    try {
+      await fetch('/api/auth/logout', { method: 'POST' });
+      setIsAuthenticated(false);
+      setUsername('');
+      setPassword('');
+    } catch (err) {
+      console.error('Logout error:', err);
+    }
   };
 
   // Check if user is already logged in
   useEffect(() => {
-    const authStatus = localStorage.getItem('tarim_dashboard_auth');
-    if (authStatus === 'true') {
-      setIsAuthenticated(true);
-    }
+    const checkAuth = async () => {
+      try {
+        const response = await fetch('/api/auth/session');
+        if (response.ok) {
+          const data = await response.json();
+          setIsAuthenticated(data.authenticated);
+        }
+      } catch (err) {
+        console.error('Session check error:', err);
+      }
+    };
+    checkAuth();
   }, []);
 
-  const [stats, setStats] = useState<DashboardStats>({
+  const stats: DashboardStats = {
     totalRevenue: 124580.50,
     revenueChange: 12.5,
     totalOrders: 342,
@@ -159,9 +174,9 @@ export default function TarimDashboard() {
     customersChange: 15.2,
     activeProducts: 156,
     productsChange: 3.1
-  });
+  };
 
-  const [recentOrders, setRecentOrders] = useState<Order[]>([
+  const recentOrders: Order[] = [
     {
       id: 'AG-20251219001',
       customerName: 'John Smith',
@@ -207,9 +222,9 @@ export default function TarimDashboard() {
       date: '2025-12-17',
       items: 2
     }
-  ]);
+  ];
 
-  const [topProducts, setTopProducts] = useState<Product[]>([
+  const topProducts: Product[] = [
     {
       id: 1,
       name: 'Organic Fertilizer Premium',
@@ -255,9 +270,9 @@ export default function TarimDashboard() {
       sales: 67,
       status: 'out_of_stock'
     }
-  ]);
+  ];
 
-  const [customers, setCustomers] = useState<Customer[]>([
+  const customers: Customer[] = [
     {
       id: 'CUST-001',
       name: 'John Smith',
@@ -288,7 +303,7 @@ export default function TarimDashboard() {
       status: 'active',
       joinDate: '2024-05-10'
     }
-  ]);
+  ];
 
   const [activeTab, setActiveTab] = useState<'overview' | 'orders' | 'products' | 'customers' | 'analytics' | 'drones'>('overview');
   const [language, setLanguage] = useState<'tr' | 'en'>('tr');
@@ -325,8 +340,8 @@ export default function TarimDashboard() {
   }, []);
 
   const syncRealTimeData = async () => {
-    // Fetch real drone data
-    const droneData = await fetchDroneTelemetry();
+    // Fetch real drone data (for future integration)
+    await fetchDroneTelemetry();
 
     // Update system alerts based on real data
     if (droneContext.drones.length > 0) {
@@ -350,7 +365,7 @@ export default function TarimDashboard() {
       case 'cancelled':
         return 'bg-red-100 text-red-700 border-red-200';
       default:
-        return 'bg-gray-100 text-gray-700 border-gray-200';
+        return 'bg-gray-100 text-white border-gray-200';
     }
   };
 
@@ -363,7 +378,7 @@ export default function TarimDashboard() {
       case 'out_of_stock':
         return 'bg-red-100 text-red-700';
       default:
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-gray-100 text-white';
     }
   };
 
@@ -380,10 +395,10 @@ export default function TarimDashboard() {
             {Math.abs(change)}%
           </div>
         </div>
-        <div className="text-3xl font-bold text-gray-900 mb-1">
+        <div className="text-3xl font-bold text-white mb-1">
           {prefix}{typeof value === 'number' ? value.toLocaleString() : value}{suffix}
         </div>
-        <div className="text-sm text-gray-600 font-semibold">{title}</div>
+        <div className="text-sm text-gray-400 font-semibold">{title}</div>
       </div>
     );
   };
@@ -405,10 +420,10 @@ export default function TarimDashboard() {
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-agri-600 via-forest-600 to-agri-700 flex items-center justify-center p-4">
-        <div className="bg-neon-100 rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-agri-600 to-forest-600 p-8 text-white text-center">
-            <div className="bg-neon-100/20 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-white/20 backdrop-blur-sm w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
               <BarChart3 className="w-12 h-12" />
             </div>
             <h1 className="text-3xl font-display font-bold mb-2">Tarım Dashboard</h1>
@@ -416,10 +431,10 @@ export default function TarimDashboard() {
           </div>
 
           {/* Login Form */}
-          <form onSubmit={handleLogin} className="p-8">
+          <form onSubmit={handleLogin} className="p-8 bg-gray-50">
             <div className="mb-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Hoş Geldiniz / Welcome</h2>
-              <p className="text-sm text-gray-600">Devam etmek için giriş yapın / Sign in to continue</p>
+              <h2 className="text-2xl font-bold text-white mb-2">Hoş Geldiniz / Welcome</h2>
+              <p className="text-sm text-gray-400">Devam etmek için giriş yapın / Sign in to continue</p>
             </div>
 
             {error && (
@@ -433,7 +448,7 @@ export default function TarimDashboard() {
 
             <div className="space-y-4 mb-6">
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-white mb-2">
                   Kullanıcı Adı / Username
                 </label>
                 <div className="relative">
@@ -450,7 +465,7 @@ export default function TarimDashboard() {
               </div>
 
               <div>
-                <label className="block text-sm font-bold text-gray-700 mb-2">
+                <label className="block text-sm font-bold text-white mb-2">
                   Şifre / Password
                 </label>
                 <div className="relative">
@@ -465,7 +480,7 @@ export default function TarimDashboard() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600"
+                    className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-400"
                   >
                     {showPassword ? <Eye className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
                   </button>
@@ -475,21 +490,65 @@ export default function TarimDashboard() {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-agri-600 to-forest-600 text-white font-bold py-4 rounded-lg hover:from-agri-700 hover:to-forest-700 transition-all shadow-lg flex items-center justify-center gap-2"
+              disabled={isLoading}
+              className="w-full bg-gradient-to-r from-agri-600 to-forest-600 text-white font-bold py-4 rounded-lg hover:from-agri-700 hover:to-forest-700 transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <LogIn className="w-5 h-5" />
-              Giriş Yap / Sign In
+              {isLoading ? (
+                <>
+                  <RefreshCw className="w-5 h-5 animate-spin" />
+                  Loading...
+                </>
+              ) : (
+                <>
+                  <LogIn className="w-5 h-5" />
+                  Giriş Yap / Sign In
+                </>
+              )}
             </button>
 
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <div className="bg-sky-50 border-l-4 border-sky-500 p-4 rounded">
-                <div className="flex gap-2">
-                  <Shield className="w-5 h-5 text-sky-700 flex-shrink-0" />
-                  <div className="text-xs text-sky-900">
-                    <p className="font-semibold mb-1">Giriş Bilgileri / Credentials</p>
-                    <p className="text-sky-800 font-mono">
-                      <strong>Email:</strong> admin@ailydian.com<br/>
-                      <strong>Password:</strong> LydianAgri2025!
+            <div className="mt-6 pt-6 border-t-2 border-gray-300 space-y-4">
+              {/* Demo Credentials */}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-300 p-5 rounded-xl shadow-lg">
+                <div className="flex gap-3">
+                  <div className="bg-blue-500 p-2 rounded-lg h-fit">
+                    <Activity className="w-5 h-5 text-white flex-shrink-0" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-bold mb-3 text-white text-sm">🎯 Demo Giriş Bilgileri / Demo Credentials</p>
+                    <div className="space-y-2 font-mono bg-white border border-blue-200 p-4 rounded-lg shadow-sm">
+                      <p className="flex items-center gap-2 text-xs">
+                        <span className="font-bold text-white min-w-[70px]">Email:</span>
+                        <span className="text-blue-700 font-semibold">admin@ailydian.com</span>
+                      </p>
+                      <p className="flex items-center gap-2 text-xs">
+                        <span className="font-bold text-white min-w-[70px]">Password:</span>
+                        <span className="text-blue-700 font-semibold">LydianAgri2025!</span>
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setUsername('admin@ailydian.com');
+                        setPassword('LydianAgri2025!');
+                      }}
+                      className="mt-3 w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition-all text-sm shadow-md hover:shadow-lg transform hover:scale-[1.02]"
+                    >
+                      ⚡ Otomatik Doldur / Auto-Fill
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-300 p-4 rounded-xl">
+                <div className="flex gap-3">
+                  <div className="bg-green-500 p-2 rounded-lg h-fit">
+                    <Shield className="w-5 h-5 text-white flex-shrink-0" />
+                  </div>
+                  <div>
+                    <p className="font-bold mb-1 text-white text-xs">🔒 Güvenli Giriş / Secure Login</p>
+                    <p className="text-xs text-white leading-relaxed">
+                      Sunucu taraflı JWT kimlik doğrulama ile korunmaktadır.<br/>
+                      Server-side JWT authentication with HttpOnly cookies.
                     </p>
                   </div>
                 </div>
@@ -516,8 +575,8 @@ export default function TarimDashboard() {
                 <BarChart3 className="w-8 h-8 text-white" />
               </a>
               <div>
-                <h1 className="text-2xl font-display font-bold text-gray-900">Tarım Dashboard</h1>
-                <p className="text-sm text-gray-600">Agricultural System Management</p>
+                <h1 className="text-2xl font-display font-bold text-white">Tarım Dashboard</h1>
+                <p className="text-sm text-gray-400">Agricultural System Management</p>
               </div>
               <a
                 href="/"
@@ -528,16 +587,12 @@ export default function TarimDashboard() {
             </div>
 
             {/* Actions */}
-            <div className="flex items-center gap-4">
-              <button
-                onClick={() => setLanguage(language === 'tr' ? 'en' : 'tr')}
-                className="flex items-center gap-2 bg-neon-100 border-2 border-agri-600 text-agri-600 font-bold px-4 py-2 rounded-lg hover:bg-agri-50 transition-all"
-              >
-                <Globe className="w-5 h-5" />
-                <span>{language === 'tr' ? 'EN' : 'TR'}</span>
-              </button>
+            <div id="dashboard-container" className="flex items-center gap-4">
+              <div id="language-switcher">
+                <LanguageSwitcher />
+              </div>
               <button className="relative p-2 hover:bg-gray-100 rounded-lg transition-all">
-                <Bell className="w-6 h-6 text-gray-700" />
+                <Bell className="w-6 h-6 text-white" />
                 <span className="absolute top-1 right-1 bg-red-500 w-2 h-2 rounded-full"></span>
               </button>
               <button
@@ -548,8 +603,9 @@ export default function TarimDashboard() {
                 <span>Çıkış / Logout</span>
               </button>
               <button
+                id="dark-mode-toggle"
                 onClick={() => setShowSettingsModal(true)}
-                className="flex items-center gap-2 bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold px-4 py-2 rounded-lg hover:bg-gray-100 transition-all"
+                className="flex items-center gap-2 bg-neon-100 border-2 border-gray-900 text-white font-bold px-4 py-2 rounded-lg hover:bg-gray-100 transition-all"
               >
                 <Settings className="w-5 h-5" />
                 <span>Settings</span>
@@ -564,22 +620,23 @@ export default function TarimDashboard() {
         <div className="max-w-[1800px] mx-auto px-6">
           <div className="flex gap-2 overflow-x-auto">
             {[
-              { id: 'overview', label: 'Overview', icon: BarChart3 },
-              { id: 'orders', label: 'Orders', icon: ShoppingCart },
-              { id: 'products', label: 'Products', icon: Package },
-              { id: 'customers', label: 'Customers', icon: Users },
-              { id: 'drones', label: 'Drone Management', icon: Plane },
-              { id: 'analytics', label: 'Analytics', icon: Activity }
+              { id: 'overview', label: 'Overview', icon: BarChart3, tourId: 'overview-tab' },
+              { id: 'orders', label: 'Orders', icon: ShoppingCart, tourId: 'marketplace-tab' },
+              { id: 'products', label: 'Products', icon: Package, tourId: 'marketplace-tab' },
+              { id: 'customers', label: 'Customers', icon: Users, tourId: 'analytics-tab' },
+              { id: 'drones', label: 'Drone Management', icon: Plane, tourId: 'drone-tab' },
+              { id: 'analytics', label: 'Analytics', icon: Activity, tourId: 'analytics-tab' }
             ].map((tab) => {
               const Icon = tab.icon;
               return (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id as any)}
+                  data-tour={tab.tourId}
                   className={`flex items-center gap-2 px-4 py-3 font-semibold border-b-2 transition-all whitespace-nowrap ${
                     activeTab === tab.id
                       ? 'border-agri-600 text-agri-700'
-                      : 'border-transparent text-gray-600 hover:text-gray-900'
+                      : 'border-transparent text-gray-400 hover:text-white'
                   }`}
                 >
                   <Icon className="w-5 h-5" />
@@ -629,7 +686,7 @@ export default function TarimDashboard() {
               {/* Recent Orders */}
               <div className="lg:col-span-2 bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-xl font-bold text-gray-900">Recent Orders</h2>
+                  <h2 className="text-xl font-bold text-white">Recent Orders</h2>
                   <button
                     onClick={() => setActiveTab('orders')}
                     className="text-agri-600 hover:text-agri-700 font-semibold text-sm flex items-center gap-1"
@@ -642,17 +699,17 @@ export default function TarimDashboard() {
                     <div key={order.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-1">
-                          <span className="font-bold text-gray-900">{order.id}</span>
+                          <span className="font-bold text-white">{order.id}</span>
                           <span className={`text-xs font-semibold px-2 py-1 rounded border ${getStatusColor(order.status)}`}>
                             {order.status}
                           </span>
                         </div>
-                        <p className="text-sm text-gray-600">{order.businessName}</p>
-                        <p className="text-xs text-gray-500">{order.items} items • {order.date}</p>
+                        <p className="text-sm text-gray-400">{order.businessName}</p>
+                        <p className="text-xs text-gray-400">{order.items} items • {order.date}</p>
                       </div>
                       <div className="text-right">
                         <p className="text-lg font-bold text-agri-700">${order.total.toFixed(2)}</p>
-                        <button className="text-gray-400 hover:text-gray-600 mt-1">
+                        <button className="text-gray-400 hover:text-gray-400 mt-1">
                           <MoreVertical className="w-5 h-5" />
                         </button>
                       </div>
@@ -665,25 +722,25 @@ export default function TarimDashboard() {
               <div className="space-y-6">
                 {/* Quick Actions */}
                 <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">Quick Actions</h3>
+                  <h3 className="text-lg font-bold text-white mb-4">Quick Actions</h3>
                   <div className="space-y-2">
                     <button
                       onClick={() => setShowAddProductModal(true)}
-                      className="w-full bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
+                      className="w-full bg-neon-100 border-2 border-gray-900 text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
                     >
                       <Package className="w-5 h-5" />
                       Add Product
                     </button>
                     <button
                       onClick={() => setShowAddCustomerModal(true)}
-                      className="w-full bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
+                      className="w-full bg-neon-100 border-2 border-gray-900 text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
                     >
                       <Users className="w-5 h-5" />
                       Add Customer
                     </button>
                     <button
                       onClick={exportReport}
-                      className="w-full bg-neon-100 border-2 border-gray-900 text-gray-900 font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
+                      className="w-full bg-neon-100 border-2 border-gray-900 text-white font-bold py-3 px-4 rounded-lg hover:bg-gray-100 transition-all flex items-center gap-2"
                     >
                       <Download className="w-5 h-5" />
                       Export Report
@@ -693,7 +750,7 @@ export default function TarimDashboard() {
 
                 {/* System Alerts */}
                 <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">System Alerts</h3>
+                  <h3 className="text-lg font-bold text-white mb-4">System Alerts</h3>
                   <div className="space-y-3">
                     <div className="bg-amber-50 border-l-4 border-amber-500 p-3 rounded">
                       <div className="flex gap-2">
@@ -730,13 +787,13 @@ export default function TarimDashboard() {
             {/* Top Products Table */}
             <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-gray-900">Top Selling Products</h2>
+                <h2 className="text-xl font-bold text-white">Top Selling Products</h2>
                 <div className="flex gap-2">
                   <button className="p-2 border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition-all">
-                    <Filter className="w-5 h-5 text-gray-700" />
+                    <Filter className="w-5 h-5 text-white" />
                   </button>
                   <button className="p-2 border-2 border-gray-300 rounded-lg hover:bg-gray-50 transition-all">
-                    <Download className="w-5 h-5 text-gray-700" />
+                    <Download className="w-5 h-5 text-white" />
                   </button>
                 </div>
               </div>
@@ -744,22 +801,22 @@ export default function TarimDashboard() {
                 <table className="w-full">
                   <thead>
                     <tr className="border-b-2 border-gray-200">
-                      <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Product</th>
-                      <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Category</th>
-                      <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Stock</th>
-                      <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Price</th>
-                      <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Sales</th>
-                      <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Status</th>
-                      <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Actions</th>
+                      <th className="text-left py-3 px-4 text-sm font-bold text-white">Product</th>
+                      <th className="text-left py-3 px-4 text-sm font-bold text-white">Category</th>
+                      <th className="text-left py-3 px-4 text-sm font-bold text-white">Stock</th>
+                      <th className="text-left py-3 px-4 text-sm font-bold text-white">Price</th>
+                      <th className="text-left py-3 px-4 text-sm font-bold text-white">Sales</th>
+                      <th className="text-left py-3 px-4 text-sm font-bold text-white">Status</th>
+                      <th className="text-left py-3 px-4 text-sm font-bold text-white">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     {topProducts.map((product) => (
                       <tr key={product.id} className="border-b border-gray-100 hover:bg-gray-50 transition-all">
-                        <td className="py-3 px-4 font-semibold text-gray-900">{product.name}</td>
-                        <td className="py-3 px-4 text-sm text-gray-600">{product.category}</td>
-                        <td className="py-3 px-4 text-sm text-gray-900 font-semibold">{product.stock}</td>
-                        <td className="py-3 px-4 text-sm text-gray-900 font-bold">${product.price.toLocaleString()}</td>
+                        <td className="py-3 px-4 font-semibold text-white">{product.name}</td>
+                        <td className="py-3 px-4 text-sm text-gray-400">{product.category}</td>
+                        <td className="py-3 px-4 text-sm text-white font-semibold">{product.stock}</td>
+                        <td className="py-3 px-4 text-sm text-white font-bold">${product.price.toLocaleString()}</td>
                         <td className="py-3 px-4 text-sm text-agri-700 font-bold">{product.sales}</td>
                         <td className="py-3 px-4">
                           <span className={`text-xs font-semibold px-2 py-1 rounded ${getProductStatusColor(product.status)}`}>
@@ -769,10 +826,10 @@ export default function TarimDashboard() {
                         <td className="py-3 px-4">
                           <div className="flex gap-2">
                             <button className="p-1 hover:bg-gray-200 rounded transition-all">
-                              <Eye className="w-4 h-4 text-gray-600" />
+                              <Eye className="w-4 h-4 text-gray-400" />
                             </button>
                             <button className="p-1 hover:bg-gray-200 rounded transition-all">
-                              <Edit className="w-4 h-4 text-gray-600" />
+                              <Edit className="w-4 h-4 text-gray-400" />
                             </button>
                             <button className="p-1 hover:bg-gray-200 rounded transition-all">
                               <Trash2 className="w-4 h-4 text-red-600" />
@@ -822,7 +879,7 @@ export default function TarimDashboard() {
         {activeTab === 'orders' && (
           <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">All Orders</h2>
+              <h2 className="text-2xl font-bold text-white">All Orders</h2>
               <div className="flex gap-2">
                 <div className="relative">
                   <input
@@ -833,7 +890,7 @@ export default function TarimDashboard() {
                   <Search className="absolute left-3 top-2.5 w-5 h-5 text-gray-400" />
                 </div>
                 <button className="p-2 border-2 border-gray-300 rounded-lg hover:bg-gray-50">
-                  <Filter className="w-5 h-5 text-gray-700" />
+                  <Filter className="w-5 h-5 text-white" />
                 </button>
               </div>
             </div>
@@ -841,37 +898,37 @@ export default function TarimDashboard() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b-2 border-gray-200">
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Order ID</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Customer</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Company</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Total</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Status</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Date</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Items</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Actions</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Order ID</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Customer</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Company</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Total</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Status</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Date</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Items</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {recentOrders.map((order) => (
                     <tr key={order.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-3 px-4 font-bold text-gray-900">{order.id}</td>
-                      <td className="py-3 px-4 text-sm text-gray-600">{order.customerName}</td>
-                      <td className="py-3 px-4 text-sm text-gray-600">{order.businessName}</td>
+                      <td className="py-3 px-4 font-bold text-white">{order.id}</td>
+                      <td className="py-3 px-4 text-sm text-gray-400">{order.customerName}</td>
+                      <td className="py-3 px-4 text-sm text-gray-400">{order.businessName}</td>
                       <td className="py-3 px-4 text-sm font-bold text-agri-700">${order.total.toFixed(2)}</td>
                       <td className="py-3 px-4">
                         <span className={`text-xs font-semibold px-2 py-1 rounded border ${getStatusColor(order.status)}`}>
                           {order.status}
                         </span>
                       </td>
-                      <td className="py-3 px-4 text-sm text-gray-600">{order.date}</td>
-                      <td className="py-3 px-4 text-sm text-gray-900">{order.items}</td>
+                      <td className="py-3 px-4 text-sm text-gray-400">{order.date}</td>
+                      <td className="py-3 px-4 text-sm text-white">{order.items}</td>
                       <td className="py-3 px-4">
                         <div className="flex gap-2">
                           <button className="p-1 hover:bg-gray-200 rounded">
-                            <Eye className="w-4 h-4 text-gray-600" />
+                            <Eye className="w-4 h-4 text-gray-400" />
                           </button>
                           <button className="p-1 hover:bg-gray-200 rounded">
-                            <Edit className="w-4 h-4 text-gray-600" />
+                            <Edit className="w-4 h-4 text-gray-400" />
                           </button>
                         </div>
                       </td>
@@ -886,7 +943,7 @@ export default function TarimDashboard() {
         {activeTab === 'products' && (
           <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Product Catalog</h2>
+              <h2 className="text-2xl font-bold text-white">Product Catalog</h2>
               <div className="flex gap-2">
                 <div className="relative">
                   <input
@@ -909,22 +966,22 @@ export default function TarimDashboard() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b-2 border-gray-200">
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Product</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Category</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Stock</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Price</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Sales</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Status</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Actions</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Product</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Category</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Stock</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Price</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Sales</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Status</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {topProducts.map((product) => (
                     <tr key={product.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-3 px-4 font-semibold text-gray-900">{product.name}</td>
-                      <td className="py-3 px-4 text-sm text-gray-600">{product.category}</td>
-                      <td className="py-3 px-4 text-sm text-gray-900 font-semibold">{product.stock}</td>
-                      <td className="py-3 px-4 text-sm text-gray-900 font-bold">${product.price.toLocaleString()}</td>
+                      <td className="py-3 px-4 font-semibold text-white">{product.name}</td>
+                      <td className="py-3 px-4 text-sm text-gray-400">{product.category}</td>
+                      <td className="py-3 px-4 text-sm text-white font-semibold">{product.stock}</td>
+                      <td className="py-3 px-4 text-sm text-white font-bold">${product.price.toLocaleString()}</td>
                       <td className="py-3 px-4 text-sm text-agri-700 font-bold">{product.sales}</td>
                       <td className="py-3 px-4">
                         <span className={`text-xs font-semibold px-2 py-1 rounded ${getProductStatusColor(product.status)}`}>
@@ -934,10 +991,10 @@ export default function TarimDashboard() {
                       <td className="py-3 px-4">
                         <div className="flex gap-2">
                           <button className="p-1 hover:bg-gray-200 rounded">
-                            <Eye className="w-4 h-4 text-gray-600" />
+                            <Eye className="w-4 h-4 text-gray-400" />
                           </button>
                           <button className="p-1 hover:bg-gray-200 rounded">
-                            <Edit className="w-4 h-4 text-gray-600" />
+                            <Edit className="w-4 h-4 text-gray-400" />
                           </button>
                           <button className="p-1 hover:bg-gray-200 rounded">
                             <Trash2 className="w-4 h-4 text-red-600" />
@@ -955,7 +1012,7 @@ export default function TarimDashboard() {
         {activeTab === 'customers' && (
           <div className="bg-neon-100 rounded-xl shadow-lg p-6 border-2 border-gray-100">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-gray-900">Customer Management</h2>
+              <h2 className="text-2xl font-bold text-white">Customer Management</h2>
               <div className="flex gap-2">
                 <div className="relative">
                   <input
@@ -978,28 +1035,28 @@ export default function TarimDashboard() {
               <table className="w-full">
                 <thead>
                   <tr className="border-b-2 border-gray-200">
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Customer ID</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Name</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Email</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Company</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Orders</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Total Spent</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Status</th>
-                    <th className="text-left py-3 px-4 text-sm font-bold text-gray-700">Actions</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Customer ID</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Name</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Email</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Company</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Orders</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Total Spent</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Status</th>
+                    <th className="text-left py-3 px-4 text-sm font-bold text-white">Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {customers.map((customer) => (
                     <tr key={customer.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="py-3 px-4 font-bold text-gray-900">{customer.id}</td>
-                      <td className="py-3 px-4 font-semibold text-gray-900">{customer.name}</td>
-                      <td className="py-3 px-4 text-sm text-gray-600">{customer.email}</td>
-                      <td className="py-3 px-4 text-sm text-gray-600">{customer.company}</td>
-                      <td className="py-3 px-4 text-sm text-gray-900 font-semibold">{customer.totalOrders}</td>
+                      <td className="py-3 px-4 font-bold text-white">{customer.id}</td>
+                      <td className="py-3 px-4 font-semibold text-white">{customer.name}</td>
+                      <td className="py-3 px-4 text-sm text-gray-400">{customer.email}</td>
+                      <td className="py-3 px-4 text-sm text-gray-400">{customer.company}</td>
+                      <td className="py-3 px-4 text-sm text-white font-semibold">{customer.totalOrders}</td>
                       <td className="py-3 px-4 text-sm font-bold text-agri-700">${customer.totalSpent.toLocaleString()}</td>
                       <td className="py-3 px-4">
                         <span className={`text-xs font-semibold px-2 py-1 rounded ${
-                          customer.status === 'active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-700'
+                          customer.status === 'active' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-white'
                         }`}>
                           {customer.status}
                         </span>
@@ -1007,10 +1064,10 @@ export default function TarimDashboard() {
                       <td className="py-3 px-4">
                         <div className="flex gap-2">
                           <button className="p-1 hover:bg-gray-200 rounded">
-                            <Eye className="w-4 h-4 text-gray-600" />
+                            <Eye className="w-4 h-4 text-gray-400" />
                           </button>
                           <button className="p-1 hover:bg-gray-200 rounded">
-                            <Edit className="w-4 h-4 text-gray-600" />
+                            <Edit className="w-4 h-4 text-gray-400" />
                           </button>
                         </div>
                       </td>
@@ -1051,7 +1108,7 @@ export default function TarimDashboard() {
             <div className="p-6 space-y-6">
               {/* Language Settings */}
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <Languages className="w-5 h-5 text-agri-600" />
                   Language / Dil
                 </h3>
@@ -1061,7 +1118,7 @@ export default function TarimDashboard() {
                     className={`flex-1 py-3 px-4 rounded-lg border-2 font-bold transition-all ${
                       settings.language === 'tr'
                         ? 'border-agri-600 bg-agri-50 text-agri-700'
-                        : 'border-gray-300 bg-neon-100 text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 bg-neon-100 text-white hover:border-gray-400'
                     }`}
                   >
                     Türkçe
@@ -1071,7 +1128,7 @@ export default function TarimDashboard() {
                     className={`flex-1 py-3 px-4 rounded-lg border-2 font-bold transition-all ${
                       settings.language === 'en'
                         ? 'border-agri-600 bg-agri-50 text-agri-700'
-                        : 'border-gray-300 bg-neon-100 text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 bg-neon-100 text-white hover:border-gray-400'
                     }`}
                   >
                     English
@@ -1081,7 +1138,7 @@ export default function TarimDashboard() {
 
               {/* Theme Settings */}
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <Monitor className="w-5 h-5 text-agri-600" />
                   Theme / Tema
                 </h3>
@@ -1091,7 +1148,7 @@ export default function TarimDashboard() {
                     className={`py-3 px-4 rounded-lg border-2 font-bold transition-all flex items-center gap-2 justify-center ${
                       settings.theme === 'light'
                         ? 'border-agri-600 bg-agri-50 text-agri-700'
-                        : 'border-gray-300 bg-neon-100 text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 bg-neon-100 text-white hover:border-gray-400'
                     }`}
                   >
                     <Sun className="w-5 h-5" />
@@ -1102,7 +1159,7 @@ export default function TarimDashboard() {
                     className={`py-3 px-4 rounded-lg border-2 font-bold transition-all flex items-center gap-2 justify-center ${
                       settings.theme === 'dark'
                         ? 'border-agri-600 bg-agri-50 text-agri-700'
-                        : 'border-gray-300 bg-neon-100 text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 bg-neon-100 text-white hover:border-gray-400'
                     }`}
                   >
                     <Moon className="w-5 h-5" />
@@ -1113,7 +1170,7 @@ export default function TarimDashboard() {
                     className={`py-3 px-4 rounded-lg border-2 font-bold transition-all flex items-center gap-2 justify-center ${
                       settings.theme === 'auto'
                         ? 'border-agri-600 bg-agri-50 text-agri-700'
-                        : 'border-gray-300 bg-neon-100 text-gray-700 hover:border-gray-400'
+                        : 'border-gray-300 bg-neon-100 text-white hover:border-gray-400'
                     }`}
                   >
                     <Monitor className="w-5 h-5" />
@@ -1124,13 +1181,13 @@ export default function TarimDashboard() {
 
               {/* Notification Settings */}
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <Bell className="w-5 h-5 text-agri-600" />
                   Notifications / Bildirimler
                 </h3>
                 <div className="space-y-3">
                   <label className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
-                    <span className="text-sm font-semibold text-gray-700">Email Notifications</span>
+                    <span className="text-sm font-semibold text-white">Email Notifications</span>
                     <input
                       type="checkbox"
                       checked={settings.notifications.email}
@@ -1142,7 +1199,7 @@ export default function TarimDashboard() {
                     />
                   </label>
                   <label className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
-                    <span className="text-sm font-semibold text-gray-700">Push Notifications</span>
+                    <span className="text-sm font-semibold text-white">Push Notifications</span>
                     <input
                       type="checkbox"
                       checked={settings.notifications.push}
@@ -1154,7 +1211,7 @@ export default function TarimDashboard() {
                     />
                   </label>
                   <label className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100">
-                    <span className="text-sm font-semibold text-gray-700">SMS Notifications</span>
+                    <span className="text-sm font-semibold text-white">SMS Notifications</span>
                     <input
                       type="checkbox"
                       checked={settings.notifications.sms}
@@ -1170,13 +1227,13 @@ export default function TarimDashboard() {
 
               {/* Account Settings */}
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <User className="w-5 h-5 text-agri-600" />
                   Account / Hesap
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                    <label className="block text-sm font-semibold text-white mb-2">Name</label>
                     <input
                       type="text"
                       value={settings.account.name}
@@ -1188,7 +1245,7 @@ export default function TarimDashboard() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                    <label className="block text-sm font-semibold text-white mb-2">Email</label>
                     <input
                       type="email"
                       value={settings.account.email}
@@ -1200,7 +1257,7 @@ export default function TarimDashboard() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                    <label className="block text-sm font-semibold text-white mb-2">Phone</label>
                     <input
                       type="tel"
                       value={settings.account.phone}
@@ -1212,7 +1269,7 @@ export default function TarimDashboard() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Company</label>
+                    <label className="block text-sm font-semibold text-white mb-2">Company</label>
                     <input
                       type="text"
                       value={settings.account.company}
@@ -1240,7 +1297,7 @@ export default function TarimDashboard() {
                 </button>
                 <button
                   onClick={() => setShowSettingsModal(false)}
-                  className="px-6 bg-gray-200 text-gray-700 font-bold py-3 rounded-lg hover:bg-gray-300 transition-all"
+                  className="px-6 bg-gray-200 text-white font-bold py-3 rounded-lg hover:bg-gray-300 transition-all"
                 >
                   Cancel
                 </button>
@@ -1268,11 +1325,11 @@ export default function TarimDashboard() {
             </div>
             <div className="p-6 space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Product Name</label>
+                <label className="block text-sm font-semibold text-white mb-2">Product Name</label>
                 <input type="text" className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-agri-500" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
+                <label className="block text-sm font-semibold text-white mb-2">Category</label>
                 <select className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-agri-500">
                   <option>Fertilizers</option>
                   <option>Machinery</option>
@@ -1282,11 +1339,11 @@ export default function TarimDashboard() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Price</label>
+                  <label className="block text-sm font-semibold text-white mb-2">Price</label>
                   <input type="number" className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-agri-500" />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Stock</label>
+                  <label className="block text-sm font-semibold text-white mb-2">Stock</label>
                   <input type="number" className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-agri-500" />
                 </div>
               </div>
@@ -1316,19 +1373,19 @@ export default function TarimDashboard() {
             </div>
             <div className="p-6 space-y-4">
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Customer Name</label>
+                <label className="block text-sm font-semibold text-white mb-2">Customer Name</label>
                 <input type="text" className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-agri-500" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                <label className="block text-sm font-semibold text-white mb-2">Email</label>
                 <input type="email" className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-agri-500" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Company</label>
+                <label className="block text-sm font-semibold text-white mb-2">Company</label>
                 <input type="text" className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-agri-500" />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                <label className="block text-sm font-semibold text-white mb-2">Phone</label>
                 <input type="tel" className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-agri-500" />
               </div>
               <button className="w-full bg-gradient-to-r from-agri-600 to-forest-600 text-white font-bold py-3 rounded-lg hover:from-agri-700 hover:to-forest-700 transition-all">
@@ -1343,7 +1400,7 @@ export default function TarimDashboard() {
       <footer className="bg-neon-100 border-t-2 border-gray-200 mt-12">
         <div className="max-w-[1800px] mx-auto px-6 py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-6 text-sm text-gray-600">
+            <div className="flex items-center gap-6 text-sm text-gray-400">
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 text-agri-600" />
                 <span>Secure System</span>
@@ -1357,12 +1414,15 @@ export default function TarimDashboard() {
                 <span>Auto-Refresh: {droneContext.realTimeData ? 'ON' : 'OFF'}</span>
               </div>
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-400">
               © 2025 Tarım Lydian Platform • Agricultural System Management
             </div>
           </div>
         </div>
       </footer>
+
+      {/* Product Tour */}
+      <ProductTour />
     </div>
   );
 }

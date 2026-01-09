@@ -138,8 +138,8 @@ export default function PremiumInsights() {
                     <insight.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-earth-100 text-lg">{insight.title}</h3>
-                    <p className="text-sm text-earth-300 mt-1">{insight.description}</p>
+                    <h3 className="font-bold text-white text-lg">{insight.title}</h3>
+                    <p className="text-sm text-white mt-1">{insight.description}</p>
                   </div>
                 </div>
               </div>
@@ -147,12 +147,12 @@ export default function PremiumInsights() {
               {/* Metrics */}
               <div className="grid grid-cols-3 gap-3 mb-4">
                 <div className="bg-earth-900 rounded-lg p-3 text-center">
-                  <div className="text-xs text-earth-300 mb-1">Current</div>
-                  <div className="font-bold text-earth-100">{insight.metrics.current}</div>
+                  <div className="text-xs text-white mb-1">Current</div>
+                  <div className="font-bold text-white">{insight.metrics.current}</div>
                 </div>
                 <div className="bg-earth-900 rounded-lg p-3 text-center">
-                  <div className="text-xs text-earth-300 mb-1">Potential</div>
-                  <div className="font-bold text-earth-100">{insight.metrics.potential}</div>
+                  <div className="text-xs text-white mb-1">Potential</div>
+                  <div className="font-bold text-white">{insight.metrics.potential}</div>
                 </div>
                 <div className={`bg-gradient-to-br ${insight.color} rounded-lg p-3 text-center`}>
                   <div className="text-xs text-white/80 mb-1">Improvement</div>
@@ -172,7 +172,7 @@ export default function PremiumInsights() {
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="text-xs text-earth-300">AI Confidence:</div>
+                  <div className="text-xs text-white">AI Confidence:</div>
                   <div className="font-bold text-green-600">{insight.confidence}%</div>
                 </div>
               </div>
@@ -193,7 +193,7 @@ export default function PremiumInsights() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Adoption Pie Chart */}
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-          <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <Target className="w-5 h-5 text-blue-600" />
             Technology Adoption by Country
           </h3>
@@ -209,7 +209,7 @@ export default function PremiumInsights() {
                 fill="#8884d8"
                 dataKey="value"
               >
-                {adoptionData.map((entry, index) => (
+                {adoptionData.map((_entry, index) => (
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
@@ -220,8 +220,8 @@ export default function PremiumInsights() {
             {adoptionData.map((item, idx) => (
               <div key={idx} className="flex items-center gap-2 text-sm">
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[idx] }}></div>
-                <span className="text-earth-300">{item.name}</span>
-                <span className="text-gray-500 ml-auto">{item.value}%</span>
+                <span className="text-white">{item.name}</span>
+                <span className="text-gray-400 ml-auto">{item.value}%</span>
               </div>
             ))}
           </div>
@@ -229,7 +229,7 @@ export default function PremiumInsights() {
 
         {/* Trend Area Chart */}
         <div className="bg-earth-900 rounded-xl p-6 shadow-lg">
-          <h3 className="text-lg font-bold text-earth-200 mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-green-600" />
             Productivity Trend Projection
           </h3>

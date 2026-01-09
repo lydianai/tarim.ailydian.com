@@ -46,3 +46,9 @@ private/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AILYDIAN Integration
+.claude/
+
+# AILYDIAN Integration
+.AISystem/
