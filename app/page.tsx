@@ -12,12 +12,12 @@ export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
-  // Agriculture & Nature Videos (Royalty-free from Pixabay)
+  // Agriculture & Nature Videos (Public Domain from Archive.org)
   const backgroundVideos = [
-    'https://cdn.pixabay.com/video/2023/03/15/154339-809273094_large.mp4', // Tractor in field
-    'https://cdn.pixabay.com/video/2020/06/22/42950-434928118_large.mp4', // Wheat field
-    'https://cdn.pixabay.com/video/2021/07/09/81043-571961908_large.mp4', // Green farm landscape
-    'https://cdn.pixabay.com/video/2022/08/01/127099-735590638_large.mp4', // Drone view of farmland
+    'https://archive.org/download/FarmTractorFootage/FarmTractorFootage.mp4', // Farm tractor footage
+    'https://archive.org/download/0529_Science_and_Agriculture_The_Soybean/0529_Science_and_Agriculture_The_Soybean_10_24_25_18_3mb.mp4', // Soybean farming (1939)
+    'https://archive.org/download/87214-1960-industrial-equipment/87214%2B1960%2BIndustrial%2BEquipment.mp4', // John Deere equipment (1960)
+    'https://archive.org/download/Agricult1955/Agricult1955.mp4', // Agricultural aviation (1955)
   ];
 
   useEffect(() => {

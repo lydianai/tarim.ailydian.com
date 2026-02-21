@@ -1,0 +1,288 @@
+# ============================================================================
+# LYDIAN AGRITECH - ADVANCED ROBOTS.TXT
+# World-Class SEO Configuration for All Search Engines & AI Bots
+# ============================================================================
+
+# ============================================================================
+# GOOGLE BOTS (USA, Global)
+# ============================================================================
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+Allow: /images/
+Allow: /public/
+
+User-agent: Googlebot-Video
+Allow: /
+Allow: /videos/
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
+# ============================================================================
+# BING / MICROSOFT (USA, Europe, Global)
+# ============================================================================
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+User-agent: BingPreview
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+User-agent: msnbot-media
+Allow: /
+
+# ============================================================================
+# YANDEX (Russia, Turkey, Eastern Europe)
+# ============================================================================
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 0
+Host: tarim.ailydian.com
+
+User-agent: YandexImages
+Allow: /
+
+User-agent: YandexVideo
+Allow: /
+
+User-agent: YandexMedia
+Allow: /
+
+User-agent: YandexBlogs
+Allow: /
+
+User-agent: YandexMetrika
+Allow: /
+
+# ============================================================================
+# BAIDU (China, Asia)
+# ============================================================================
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 0
+
+User-agent: Baiduspider-image
+Allow: /
+
+User-agent: Baiduspider-video
+Allow: /
+
+User-agent: Baiduspider-news
+Allow: /
+
+# ============================================================================
+# DUCKDUCKGO (Privacy-Focused, Global)
+# ============================================================================
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 0
+
+# ============================================================================
+# YAHOO / SLURP (Asia, USA)
+# ============================================================================
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# ============================================================================
+# NAVER (South Korea)
+# ============================================================================
+User-agent: Yeti
+Allow: /
+Crawl-delay: 0
+
+User-agent: NaverBot
+Allow: /
+
+# ============================================================================
+# SOGOU (China)
+# ============================================================================
+User-agent: Sogou web spider
+Allow: /
+Crawl-delay: 1
+
+# ============================================================================
+# 360 SEARCH (China)
+# ============================================================================
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 1
+
+# ============================================================================
+# SEZNAM (Czech Republic)
+# ============================================================================
+User-agent: SeznamBot
+Allow: /
+Crawl-delay: 0
+
+# ============================================================================
+# QWANT (France, Privacy-Focused)
+# ============================================================================
+User-agent: Qwantify
+Allow: /
+
+# ============================================================================
+# ECOSIA (Germany, Eco-Friendly)
+# ============================================================================
+User-agent: Ecosia
+Allow: /
+
+# ============================================================================
+# AI & CHATBOT CRAWLERS
+# ============================================================================
+
+# OpenAI GPT (ChatGPT)
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 0
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Claude
+User-agent: Claude-Web
+Allow: /
+Crawl-delay: 0
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google Gemini / Bard
+User-agent: Google-Extended
+Allow: /
+
+# Meta AI / Facebook
+User-agent: FacebookBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter / X AI
+User-agent: Twitterbot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# You.com AI Search
+User-agent: YouBot
+Allow: /
+
+# Common Crawl (Dataset for AI training)
+User-agent: CCBot
+Allow: /
+
+# Amazon Alexa
+User-agent: ia_archiver
+Allow: /
+
+# Apple Siri / Applebot
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ============================================================================
+# SOCIAL MEDIA CRAWLERS
+# ============================================================================
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# Pinterest
+User-agent: Pinterest
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+# Instagram / Meta
+User-agent: Instagram
+Allow: /
+
+# WhatsApp
+User-agent: WhatsApp
+Allow: /
+
+# Telegram
+User-agent: TelegramBot
+Allow: /
+
+# ============================================================================
+# SEO & ANALYTICS TOOLS
+# ============================================================================
+
+# Ahrefs
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 5
+
+# SEMrush
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 5
+
+# Moz
+User-agent: rogerbot
+Allow: /
+Crawl-delay: 5
+
+# Majestic
+User-agent: MJ12bot
+Allow: /
+Crawl-delay: 5
+
+# ============================================================================
+# DISALLOWED PATHS
+# ============================================================================
+
+# Private / Admin Areas
+User-agent: *
+Disallow: /api/auth/
+Disallow: /api/admin/
+Disallow: /_next/static/development/
+Disallow: /.env
+Disallow: /.git/
+
+# Duplicate Content Prevention
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?source=*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+
+# ============================================================================
+# SITEMAPS (All Languages)
+# ============================================================================
+
+Sitemap: https://tarim.ailydian.com/sitemap.xml
+Sitemap: https://tarim.ailydian.com/sitemap-en.xml
+Sitemap: https://tarim.ailydian.com/sitemap-tr.xml
+Sitemap: https://tarim.ailydian.com/sitemap-de.xml
+Sitemap: https://tarim.ailydian.com/sitemap-fr.xml
+Sitemap: https://tarim.ailydian.com/sitemap-es.xml
+Sitemap: https://tarim.ailydian.com/sitemap-it.xml
+Sitemap: https://tarim.ailydian.com/sitemap-pt.xml
+Sitemap: https://tarim.ailydian.com/sitemap-ru.xml
+Sitemap: https://tarim.ailydian.com/sitemap-zh.xml
+Sitemap: https://tarim.ailydian.com/sitemap-ja.xml
+Sitemap: https://tarim.ailydian.com/sitemap-ar.xml
+
+# ============================================================================
+# END OF ROBOTS.TXT
+# Last Updated: 2025-01-09
+# ============================================================================

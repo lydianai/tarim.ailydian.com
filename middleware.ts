@@ -42,11 +42,13 @@ const SECURITY_HEADERS = {
 // Content Security Policy
 const CSP_HEADER = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://va.vercel-scripts.com",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: https: blob:",
+  "img-src 'self' data: https: blob: https://*.pixabay.com https://cdn.pixabay.com https://*.archive.org https://archive.org",
+  "media-src 'self' https://*.pixabay.com https://cdn.pixabay.com https://*.archive.org https://archive.org blob: data:",
   "font-src 'self' data:",
-  "connect-src 'self' https://api.openweathermap.org https://power.larc.nasa.gov https://*.vercel.app https://api.mapbox.com https://*.tiles.mapbox.com https://events.mapbox.com",
+  "connect-src 'self' https://vercel.live https://api.openweathermap.org https://power.larc.nasa.gov https://api.nasa.gov https://*.vercel.app https://api.mapbox.com https://*.tiles.mapbox.com https://events.mapbox.com",
+  "frame-src 'self' https://vercel.live",
   "worker-src 'self' blob:",
   "frame-ancestors 'none'",
   "base-uri 'self'",
