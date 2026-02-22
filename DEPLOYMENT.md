@@ -9,7 +9,7 @@
 
 ### Step 1: Initialize Git Repository (if not already done)
 ```bash
-cd /Users/sardag/Desktop/agritech-platform
+cd /Users/lydian/Desktop/agritech-platform
 git init
 git add .
 git commit -m "Initial commit: AgriTech Platform with Drone Management System"
@@ -37,7 +37,7 @@ npm install -g [cloud-provider-cli]
 
 #### Deploy
 ```bash
-cd /Users/sardag/Desktop/agritech-platform
+cd /Users/lydian/Desktop/agritech-platform
 [deploy-command] --prod
 ```
 

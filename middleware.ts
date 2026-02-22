@@ -262,7 +262,7 @@ export function middleware(request: NextRequest) {
   const allowedOrigins = [
     'https://tarim.ailydian.com',
     'https://agritech-platform.vercel.app',
-    'https://agritech-platform-emrahsardag-yandexcoms-projects.vercel.app'
+    'https://agritech-platform-lydianai-yandexcoms-projects.vercel.app'
   ];
 
   if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {

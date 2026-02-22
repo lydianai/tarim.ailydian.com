@@ -1,13 +1,49 @@
-# AgriTech Pro - Agricultural Intelligence Platform
+<div align="center">
 
-> Real-time agricultural data aggregation and analysis platform with 18+ live data sources, 30+ crop profiles, and interactive satellite mapping.
+# AgriTech Pro
 
-[![Platform Status](https://img.shields.io/badge/Status-Live-brightgreen)](https://tarim.ailydian.com)
-[![Data Sources](https://img.shields.io/badge/Data_Sources-18+-orange)](https://tarim.ailydian.com)
-[![Crops Database](https://img.shields.io/badge/Crops-30+-green)](https://tarim.ailydian.com)
-[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://typescriptlang.org)
-[![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
+<p><em>Precision Agriculture Intelligence with 18+ Live Data Sources and 30+ Crop Analysis</em></p>
+
+<p>
+  <a href="#overview"><img src="https://img.shields.io/badge/Docs-Overview-blue?style=for-the-badge" alt="Overview"></a>
+  <a href="#architecture"><img src="https://img.shields.io/badge/Docs-Architecture-purple?style=for-the-badge" alt="Architecture"></a>
+  <a href="#key-features"><img src="https://img.shields.io/badge/Docs-Features-green?style=for-the-badge" alt="Features"></a>
+  <a href="#getting-started"><img src="https://img.shields.io/badge/Docs-Setup-orange?style=for-the-badge" alt="Setup"></a>
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Status-Live-success?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/badge/License-Proprietary-red?style=flat-square" alt="License">
+  <img src="https://img.shields.io/badge/Data_Sources-18+-orange?style=flat-square" alt="Data Sources">
+  <img src="https://img.shields.io/badge/Crops-30+-green?style=flat-square" alt="Crops">
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js" alt="Next.js">
+  <img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript" alt="TypeScript">
+</p>
+
+<table>
+<tr>
+<td width="50%">
+
+**Platform Highlights**
+- 18+ authoritative live data sources (USDA, NASA, EPA, FAO)
+- 30+ crop profiles with growth stage visualization
+- Interactive Leaflet satellite maps with NDVI analysis
+- 85K+ records processed at 392ms average latency
+
+</td>
+<td width="50%">
+
+**Technical Excellence**
+- Next.js 16 with React 19 and TypeScript 5.9
+- Leaflet + Sentinel-2 satellite imagery integration
+- Recharts analytics with 5-second auto-refresh streaming
+- Multi-language support via next-intl
+
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
@@ -78,17 +114,20 @@ graph TD
 
 ## Technology Stack
 
-| Category | Technology |
-|----------|------------|
-| Framework | Next.js 16, React 19 |
-| Language | TypeScript 5.9 |
-| Styling | Tailwind CSS 4 |
-| Mapping | Leaflet 1.9, React-Leaflet 5 |
-| Charts | Recharts 3, React-Map-GL |
-| Forms | React Hook Form + Zod |
-| i18n | next-intl 4 |
-| Analytics | Vercel Analytics, Speed Insights |
-| Validation | Zod 3 |
+<div align="center">
+
+| Category | Technology | Badge |
+|----------|------------|-------|
+| Framework | Next.js 16, React 19 | ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js) |
+| Language | TypeScript 5.9 | ![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?style=flat-square&logo=typescript) |
+| Styling | Tailwind CSS 4 | ![Tailwind](https://img.shields.io/badge/Tailwind-4-38B2AC?style=flat-square&logo=tailwind-css) |
+| Mapping | Leaflet 1.9, React-Leaflet 5 | ![Leaflet](https://img.shields.io/badge/Leaflet-1.9-199900?style=flat-square) |
+| Charts | Recharts 3, React-Map-GL | ![Recharts](https://img.shields.io/badge/Recharts-3-8884d8?style=flat-square) |
+| Forms | React Hook Form + Zod | ![Zod](https://img.shields.io/badge/Zod-3-3068B7?style=flat-square) |
+| i18n | next-intl 4 | ![i18n](https://img.shields.io/badge/next--intl-4-blue?style=flat-square) |
+| Analytics | Vercel Analytics | ![Vercel](https://img.shields.io/badge/Vercel-Analytics-black?style=flat-square&logo=vercel) |
+
+</div>
 
 ---
 
