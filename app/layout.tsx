@@ -253,9 +253,9 @@ export const metadata: Metadata = {
 
     // ===== AI BOT PERMISSIONS =====
     'AI-Indexing': 'allowed',
-    'ChatGPT-Indexing': 'allowed',
-    'Claude-Indexing': 'allowed',
-    'Gemini-Indexing': 'allowed',
+    'AI-Bot-A-Indexing': 'allowed',
+    'AI-Bot-B-Indexing': 'allowed',
+    'AI-Bot-C-Indexing': 'allowed',
 
     // ===== LANGUAGE & LOCALIZATION =====
     'language': 'en, tr, de, fr, es, it, pt, ru, zh, ja, ar',
