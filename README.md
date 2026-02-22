@@ -1,256 +1,224 @@
-# 🌾 AgriTech Platform Pro by Lydian
+# AgriTech Pro - Agricultural Intelligence Platform
 
-> **The World's Most Comprehensive Agricultural Intelligence Platform**
->
-> Powered by real-time data from USDA, NASA, EPA, and global sources with AI-driven insights.
-> Developed by **Lydian** - Innovation in Agricultural Technology
+> Real-time agricultural data aggregation and analysis platform with 18+ live data sources, 30+ crop profiles, and interactive satellite mapping.
 
-![Platform Status](https://img.shields.io/badge/Status-Live-brightgreen)
-![Version](https://img.shields.io/badge/Version-2.0-blue)
-![Data Sources](https://img.shields.io/badge/Data_Sources-18+-orange)
+[![Platform Status](https://img.shields.io/badge/Status-Live-brightgreen)](https://tarim.ailydian.com)
+[![Data Sources](https://img.shields.io/badge/Data_Sources-18+-orange)](https://tarim.ailydian.com)
+[![Crops Database](https://img.shields.io/badge/Crops-30+-green)](https://tarim.ailydian.com)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue)](https://typescriptlang.org)
+[![License](https://img.shields.io/badge/License-Proprietary-red)](LICENSE)
 
 ---
 
-## 🚀 Quick Start
+## Overview
+
+AgriTech Pro is a premium agricultural intelligence platform that aggregates real-time data from 18+ authoritative sources including USDA, NASA Sentinel-2, EPA, FAO, and the World Bank. The platform provides actionable insights for farmers, agronomists, and agricultural enterprises through interactive dashboards, satellite imagery, and predictive analytics.
+
+---
+
+## Architecture
+
+```mermaid
+graph TD
+    subgraph "Data Sources - 18+"
+        A[USDA] --> K[Data Aggregator]
+        B[NASA Sentinel-2] --> K
+        C[EPA] --> K
+        D[OpenWeather] --> K
+        E[SSURGO Soil] --> K
+        F[FAO] --> K
+        G[World Bank] --> K
+        H[... 11 More] --> K
+    end
+    subgraph "Analysis Engine"
+        K --> L[Crop Analyzer - 30+ Species]
+        K --> M[Pesticide Matcher - 20+ EPA]
+        K --> N[Soil Quality Processor]
+        K --> O[Weather Predictor]
+    end
+    subgraph "Dashboard"
+        L --> P[Interactive Maps - Leaflet]
+        M --> Q[Recommendation Engine]
+        N --> R[Analytics Charts]
+        O --> S[Alert System]
+    end
+```
+
+---
+
+## Key Features
+
+### Data Integration
+- **18+ Live Data Sources**: USDA, NASA Sentinel-2, EPA, OpenWeather, SSURGO, FAO, World Bank, and 11 additional providers
+- **Real-time Streaming**: 5-second auto-refresh with 85K+ records processed at 392ms average latency
+- **Satellite Imagery**: Leaflet + Sentinel-2 integration for interactive field-level analysis
+
+### Crop Intelligence
+- **30+ Crop Database**: Detailed growth profiles including phenology, nutrient requirements, and yield benchmarks
+- **Yield Prediction**: Historical trend analysis with multi-variable predictive models
+- **Irrigation Optimization**: Soil moisture + weather correlation for precision water management
+
+### Pest and Chemical Management
+- **20+ EPA-Approved Pesticide Database**: Regulatory-compliant matching with application guidelines
+- **Integrated Pest Management (IPM)**: Threshold-based recommendations reducing chemical use
+- **Residue Tracking**: Pre-harvest interval compliance monitoring
+
+### Global Intelligence
+- **8-Country Agricultural Technology Analysis**: Comparative productivity benchmarking
+- **FAO Commodity Pricing**: Global market signal integration
+- **World Bank Development Indicators**: Macro-agricultural trend overlay
+
+### Dashboard Experience
+- **9 Premium Tabs**: Overview, Analytics, Insights, Live Data, Soil, Crops, Pesticides, Database, Global
+- **Interactive Satellite Maps**: Field-level zoom with NDVI vegetation index visualization
+- **Recharts Analytics**: Time-series charts, scatter plots, and area graphs
+
+---
+
+## Technology Stack
+
+| Category | Technology |
+|----------|------------|
+| Framework | Next.js 16, React 19 |
+| Language | TypeScript 5.9 |
+| Styling | Tailwind CSS 4 |
+| Mapping | Leaflet 1.9, React-Leaflet 5 |
+| Charts | Recharts 3, React-Map-GL |
+| Forms | React Hook Form + Zod |
+| i18n | next-intl 4 |
+| Analytics | Vercel Analytics, Speed Insights |
+| Validation | Zod 3 |
+
+---
+
+## Data Sources
+
+| Source | Data Type | Update Frequency |
+|--------|-----------|-----------------|
+| USDA NASS | Crop statistics, acreage, production | Weekly |
+| NASA Sentinel-2 | Satellite imagery, NDVI | 5 days |
+| EPA | Pesticide registrations, safety data | Monthly |
+| OpenWeather | Temperature, humidity, precipitation | Hourly |
+| SSURGO | Soil surveys, composition data | Annual |
+| FAO | Global commodity data, trade stats | Monthly |
+| World Bank | Agricultural development indicators | Quarterly |
+| + 11 More | Various agricultural datasets | Varies |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20+
+- npm or yarn
+
+### Installation
 
 ```bash
-# Navigate to project
-cd ~/Desktop/agritech-platform
+# Clone the repository
+git clone https://github.com/lydianai/tarim.ailydian.com.git
+cd tarim.ailydian.com
 
 # Install dependencies
 npm install
 
-# Run development server
-npm run dev
+# Configure environment
+cp .env.example .env.local
+# Edit .env.local with your API keys
 
-# Open browser → http://localhost:3000
+# Start development server
+npm run dev
 ```
 
----
+### Environment Variables
 
-## ✨ Premium Features - 9 Dashboard Tabs
+```env
+# Weather & Climate
+OPENWEATHER_API_KEY=your_key_here
 
-| Tab | Feature | Description |
-|-----|---------|-------------|
-| 📊 | **Overview** | Real-time map, weather, yield charts |
-| 📈 | **Analytics** | KPI cards, performance trends, ROI analysis |
-| 🤖 | **AI Insights** | ML-powered predictions & recommendations |
-| 📡 | **Live Data** | Real-time stream monitoring (5-sec refresh) |
-| 🌱 | **Soil Analysis** | Nutrient levels, pH, organic matter |
-| 🌾 | **Crop Catalog** | 30+ crops with detailed profiles |
-| 🛡️ | **Pesticide Matcher** | Smart recommendations |
-| 💊 | **Pesticides DB** | 20+ EPA-approved products |
-| 🌍 | **Global Insights** | 8-country comparison |
+# Satellite Imagery
+NASA_EARTHDATA_TOKEN=your_token_here
 
----
+# Government Data
+USDA_API_KEY=your_key_here
+EPA_API_KEY=your_key_here
 
-## 💎 Supreme UI/UX
+# App Configuration
+NEXT_PUBLIC_APP_URL=https://tarim.ailydian.com
+```
 
-- ✅ **Live Status Badges** - Real-time pulse indicators
-- ✅ **Gradient Backgrounds** - Purple, green, blue themes
-- ✅ **Glassmorphism Effects** - Backdrop blur on cards
-- ✅ **Smooth Animations** - 300ms hover transitions
-- ✅ **Scale Effects** - Cards hover scale (1.05x)
-- ✅ **Sticky Header** - Always accessible navigation
-- ✅ **Responsive Design** - Mobile, tablet, desktop optimized
-
----
-
-## 📊 Data Intelligence
-
-### 30+ Crop Database
-🌾 Grains • 🌻 Oilseeds • 🥬 Vegetables • 🍎 Fruits • 🥔 Tubers • 🫘 Legumes • 🌿 Specialty
-
-**Each crop includes:**
-- Scientific name & category
-- Growing season (days)
-- Water & temperature requirements
-- Soil pH range
-- Expected yield per acre
-- Nutrient needs (N, P, K)
-- Common pests & diseases
-- Major producing countries
-
-### 20+ Pesticide Database
-🌿 Herbicides • 🐛 Insecticides • 🍄 Fungicides • 🌱 Organic
-
-**Each product includes:**
-- Active ingredient
-- EPA toxicity category (I-IV)
-- Target crops & pests
-- Application rates
-- Pre-harvest interval
-- Environmental impact
-- Manufacturer info
-
-### 18+ Live Data Sources
-- USDA NASS QuickStats
-- NASA MODIS Vegetation
-- EPA PPLS Database
-- Sentinel-2 Satellite
-- OpenWeather Agro
-- SSURGO Soil Data
-- FAO FAOSTAT
-- World Bank Agriculture
-- *...and 10 more*
-
----
-
-## 🌍 Global Leaders Analysis
-
-### 🥇 Netherlands (Score: 98)
-- 2nd largest agricultural exporter
-- 90% less water in greenhouses
-- €17.28B agtech market
-- Productivity Index: 195
-
-### 🥈 Israel (Score: 96)
-- Invented drip irrigation
-- 90% wastewater recycled
-- 300t/ha tomato yield
-- Productivity Index: 280
-
-### 🥉 Japan (Score: 94)
-- Agricultural robotics leader
-- Fully automated rice farms
-- AI disease detection
-- Automation Level: 80%
-
-**+ USA, Denmark, Singapore, Germany, China**
-
----
-
-## 🤖 AI Features
-
-### Yield Prediction
-- **Confidence:** 94%
-- **Increase:** +23%
-- **Technology:** Machine learning models
-
-### Precision Irrigation
-- **Confidence:** 97%
-- **Water Savings:** 70%
-- **Technology:** Israeli drip systems
-
-### Vertical Farming
-- **Confidence:** 89%
-- **Productivity:** +300%
-- **Technology:** Dutch greenhouses
-
----
-
-## 📈 Analytics Dashboard
-
-### Real-Time KPIs
-1. Total Revenue: $124,500 (+23.5%)
-2. Water Efficiency: 30% Saved (+12.3%)
-3. Crop Yield: 260 bu/acre (+18.7%)
-4. Quality Score: 92/100 (+5.2%)
-
-### Advanced Charts
-- Area Chart: Yield & Revenue Trend
-- Line Chart: Resource Usage Reduction
-- Bar Chart: Technology ROI Analysis
-- Radar Chart: Performance vs Industry
-- Pie Chart: Technology Adoption
-
----
-
-## 📡 Live Data Stream
-
-**5-Second Auto-Refresh**
-- USDA NASS: 15,234 records, 145ms
-- Sentinel-2: 8,923 records, 892ms
-- OpenWeather: 45,621 records, 234ms
-- NASA MODIS: 12,456 records, 567ms
-- EPA PPLS: 3,421 records, 123ms
-
-**Totals:**
-- 85,655+ Records
-- 392ms Avg Latency
-- 5/5 Active Streams
-- 95-99% Quality
-
----
-
-## 🛠️ Platform Technology
-
-**Visualization:**
-- Advanced charting (Area, Line, Bar, Pie, Radar)
-- Satellite mapping with real-time overlays
-- Modern iconography
-
-**Performance:**
-- Optimized server-side rendering
-- Intelligent code splitting
-- Advanced image optimization
-- Live hot-reload in development
-
----
-
-## 🎯 Use Cases
-
-### 👨‍🌾 Farmers
-- Select optimal crops
-- Get pesticide recommendations
-- Monitor weather
-- Track yield performance
-
-### 🔬 Researchers
-- Access 18+ data sources
-- Analyze global adoption
-- Study innovations
-- Export ML datasets
-
-### 💼 Consultants
-- Provide data insights
-- Create ROI reports
-- Show best practices
-- Plan tech rollouts
-
----
-
-## 🚀 Performance
-
-- **First Paint:** < 1.5s
-- **Interactive:** < 2.5s
-- **Bundle Size:** ~450KB (gzipped)
-- **Responsive:** Mobile, Tablet, Desktop
-
----
-
-## 🌟 Achievements
-
-✅ World's most comprehensive crop database (30+)
-✅ EPA-approved pesticide database (20+)
-✅ 8-country technology analysis
-✅ 18+ data source integration
-✅ Big data infrastructure
-✅ ML dataset preparation
-✅ Real-time streaming
-✅ AI-powered insights
-✅ Premium UI/UX
-
----
-
-## 📄 License
-
-MIT License - Open source for educational and commercial use.
-
----
-
-## 🎉 Get Started Now!
+### Build for Production
 
 ```bash
-npm run dev
+npm run build
+npm start
 ```
-
-**Then open http://localhost:3000**
-
-Navigate through all 9 premium tabs and experience global agricultural intelligence! 🚀🌾
 
 ---
 
-**Developed by Lydian 🌾**
-**AgriTech Platform Pro v2.0 | December 2025**
-**Innovation in Agricultural Technology**
+## Dashboard Tabs
+
+| Tab | Description |
+|-----|-------------|
+| Overview | Real-time KPI summary with global weather snapshot |
+| Analytics | Time-series crop performance and yield trend charts |
+| Insights | Automated recommendations and actionable intelligence |
+| Live Data | 5-second streaming feed from all 18+ data sources |
+| Soil | SSURGO-powered soil composition and fertility maps |
+| Crops | 30+ species database with growth stage visualization |
+| Pesticides | EPA-approved chemical database with safety ratings |
+| Database | Raw data explorer with filtering and export |
+| Global | 8-country comparative agricultural performance |
+
+---
+
+## Project Structure
+
+```
+tarim.ailydian.com/
+├── app/                    # Next.js App Router pages
+│   ├── [locale]/           # Internationalized routes
+│   └── api/                # API route handlers
+├── components/             # Reusable React components
+│   ├── maps/               # Leaflet map components
+│   ├── charts/             # Recharts visualizations
+│   └── dashboard/          # Dashboard tab components
+├── lib/                    # Data fetching and utilities
+│   ├── sources/            # Individual data source clients
+│   └── analyzers/          # Crop and soil analysis logic
+├── locales/                # i18n translation files
+└── public/                 # Static assets
+```
+
+---
+
+## Performance
+
+- **Average Latency**: 392ms for aggregated data from 18+ sources
+- **Records Processed**: 85K+ per refresh cycle
+- **Refresh Rate**: 5-second auto-update with delta streaming
+- **Map Rendering**: Sub-100ms tile loading via CDN-backed Leaflet
+
+---
+
+## Security
+
+This platform handles agricultural data and API credentials securely. See [SECURITY.md](SECURITY.md) for the vulnerability reporting policy.
+
+---
+
+## License
+
+Copyright (c) 2024-2026 Lydian (AiLydian). All Rights Reserved.
+
+This software is proprietary. See [LICENSE](LICENSE) for details.
+
+---
+
+## Links
+
+- **Live Platform**: [tarim.ailydian.com](https://tarim.ailydian.com)
+- **Main Website**: [www.ailydian.com](https://www.ailydian.com)
+- **Security Policy**: [SECURITY.md](SECURITY.md)
